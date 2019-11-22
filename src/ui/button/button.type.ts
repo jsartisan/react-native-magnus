@@ -15,6 +15,13 @@ export interface ButtonProps
   bg?: string;
   position?: "absolute" | "relative";
   alignItems?: "flex-start" | "flex-end" | "center" | "stretch" | "baseline";
+  justifyContent?:
+    | "flex-start"
+    | "flex-end"
+    | "center"
+    | "space-between"
+    | "space-around"
+    | "space-evenly";
   top?: number;
   flex?: number;
   left?: number;

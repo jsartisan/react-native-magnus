@@ -45,7 +45,7 @@ export const getStyle = (theme: any, props: any) => {
   computedStyle.container = {
     flexDirection: "row",
     alignItems: props.alignItems,
-    justifyContent: "flex-start",
+    justifyContent: "center",
     position: "relative"
   };
 
