@@ -56,7 +56,7 @@ export const getStyle = (theme: any, props: any) => {
     };
   }
 
-  if (props.center) {
+  if (props.justifyContent) {
     computedStyle.container = {
       ...computedStyle.container,
       justifyContent: "center"
