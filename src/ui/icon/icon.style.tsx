@@ -19,6 +19,7 @@ export const getStyle = (theme: any, props: any) => {
 
   computedStyle.container = {
     color: getThemeProperty(theme.colors, props.color, "#000"),
+    height: getThemeProperty(theme.fontSize, props.fontSize, 16),
     fontSize: getThemeProperty(theme.fontSize, props.fontSize, 16),
     backgroundColor: getThemeProperty(theme.colors, props.bg, "transparent"),
     alignItems: "center",
