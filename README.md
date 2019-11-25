@@ -1,4 +1,4 @@
-<h1 align="center">Atomize for React Native</h1>
+<h1 align="center">Magnus UI for React Native</h1>
 
 <div align="center">
 
