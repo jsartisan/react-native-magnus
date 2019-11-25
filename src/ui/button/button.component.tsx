@@ -211,6 +211,7 @@ Button.defaultProps = {
   borderless: false,
   center: true,
   alignItems: "center",
+  justifyContent: "center",
   onPress: () => {}
 };
 
