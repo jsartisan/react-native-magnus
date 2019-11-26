@@ -56,6 +56,7 @@ import { Button } from "react-native-magnus";
 - [Tag](http://magnus-ui.com/docs/tag)
 
 ## Examples
-- [Login Screen](https://snack.expo.io/@pawankumar2901/login-page)
+- [Components Usage](https://snack.expo.io/@pawankumar2901/magnus-ui)
+- [Dribble Login Screen](https://snack.expo.io/@pawankumar2901/dribble-login-page)
 
 ## 🤝 Contributing [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
