@@ -1,7 +1,7 @@
-import * as React from "react";
-import { TouchableHighlightProps as RNButtonProps } from "react-native";
+import * as React from 'react';
+import { TouchableHighlightProps as RNButtonProps } from 'react-native';
 
-import { Button } from "../button/button.component";
+import { Button } from '../button/button.component';
 
 interface TextInputProps extends RNButtonProps {
   m?: any;
@@ -29,7 +29,7 @@ const Option = React.forwardRef<Ref, TextInputProps>(props => {
   };
 
   return (
-    <Button {...rest} onPress={onPress} center={center} block>
+    <Button {...rest} onPress={onPress}>
       {children}
     </Button>
   );
@@ -37,7 +37,7 @@ const Option = React.forwardRef<Ref, TextInputProps>(props => {
 
 Option.defaultProps = {
   onSelect: () => {},
-  center: false
+  center: false,
 };
 
 export { Option };

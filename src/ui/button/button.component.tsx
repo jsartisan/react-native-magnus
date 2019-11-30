@@ -1,23 +1,25 @@
-import * as React from "react";
-import { useContext } from "react";
-import color from "color";
+import * as React from 'react';
+import { useContext, useState } from 'react';
+import color from 'color';
 import {
+  Animated as RNAnimated,
   Text as RNText,
   View as RNView,
   Platform as RNPlatform,
   TouchableHighlight as RNButton,
   ActivityIndicator as RNActivityIndicator,
-  TouchableNativeFeedback as RNTouchableNativeFeedback
-} from "react-native";
-import { getStyle } from "./button.style";
-import { ThemeContext } from "../../theme";
-import { ButtonProps } from "./button.type";
-import { getThemeProperty } from "../../theme/theme.service";
+  TouchableNativeFeedback as RNTouchableNativeFeedback,
+} from 'react-native';
+
+import { getStyle } from './button.style';
+import { ThemeContext } from '../../theme';
+import { ButtonProps } from './button.type';
+import { getThemeProperty } from '../../theme/theme.service';
 
 const ANDROID_VERSION_PIE = 28;
 const ANDROID_VERSION_LOLLIPOP = 21;
 const canSupportRipple =
-  RNPlatform.OS === "android" && RNPlatform.Version >= ANDROID_VERSION_LOLLIPOP;
+  RNPlatform.OS === 'android' && RNPlatform.Version >= ANDROID_VERSION_LOLLIPOP;
 
 const Button: React.FunctionComponent<ButtonProps> = props => {
   const {
@@ -67,26 +69,26 @@ const Button: React.FunctionComponent<ButtonProps> = props => {
     shadowColor,
     onPress,
     block,
-    onPressIn: onPressInProp,
-    onPressOut,
     ...rest
   } = props;
+
+  const [active, setActive] = useState(false);
   const theme = useContext(ThemeContext);
-  const computedStyle = getStyle(theme, props);
+  const computedStyle = getStyle(theme, { ...props, active });
   const underlayColor = getThemeProperty(
     theme.colors,
     props.underlayColor,
-    color(getThemeProperty(theme.colors, props.bg, "#e1e1e1"))
+    color(getThemeProperty(theme.colors, props.bg, '#e1e1e1'))
       .darken(0.1)
       .rgb()
-      .string()
+      .string(),
   );
 
   /**
    * renders children based on type
    */
   const renderChildren = () => {
-    if (typeof children === "string") {
+    if (typeof children === 'string') {
       return <RNText style={computedStyle.text}>{children}</RNText>;
     }
 
@@ -95,16 +97,15 @@ const Button: React.FunctionComponent<ButtonProps> = props => {
 
   /**
    * renders container based on props
-   *
    */
   const renderContainer = () => {
     if (canSupportRipple === true) {
       const useForeground =
-        RNPlatform.OS === "android" &&
+        RNPlatform.OS === 'android' &&
         RNPlatform.Version >= ANDROID_VERSION_PIE;
 
       const calculatedRippleColor = color(
-        getThemeProperty(theme.colors, rippleColor, "white")
+        getThemeProperty(theme.colors, rippleColor, 'white'),
       )
         .alpha(disabled ? 0 : 0.2)
         .rgb()
@@ -117,28 +118,25 @@ const Button: React.FunctionComponent<ButtonProps> = props => {
           useForeground={useForeground}
           background={RNTouchableNativeFeedback.Ripple(
             calculatedRippleColor,
-            borderless
-          )}
-        >
+            borderless,
+          )}>
           <RNView style={computedStyle.button}>
             {loading === true ? (
               <RNView
                 style={{
                   ...computedStyle.container,
-                  minHeight: getThemeProperty(theme.fontSize, loaderSize, 16)
-                }}
-              >
+                  minHeight: getThemeProperty(theme.fontSize, loaderSize, 16),
+                }}>
                 <RNView
                   style={{
-                    minHeight: getThemeProperty(theme.fontSize, loaderSize, 16)
-                  }}
-                >
+                    minHeight: getThemeProperty(theme.fontSize, loaderSize, 16),
+                  }}>
                   <RNActivityIndicator
                     size={getThemeProperty(theme.fontSize, loaderSize, 16)}
                     color={getThemeProperty(
                       theme.colors,
                       loaderColor,
-                      "#e1e1e1"
+                      '#e1e1e1',
                     )}
                   />
                 </RNView>
@@ -155,32 +153,46 @@ const Button: React.FunctionComponent<ButtonProps> = props => {
       );
     }
 
+    /**
+     * event listener when underlay is shown
+     */
+    const onShowUnderlay = () => {
+      setActive(true);
+    };
+
+    /**
+     * event listener when underlay is hidden
+     */
+    const onHideUnderlay = () => {
+      setActive(false);
+    };
+
     return (
       <RNButton
         {...rest}
         onPress={disabled || loading ? undefined : onPress}
         style={computedStyle.button}
         underlayColor={underlayColor}
-      >
+        onShowUnderlay={onShowUnderlay}
+        onHideUnderlay={onHideUnderlay}>
         {loading === true ? (
           <RNView style={computedStyle.container}>
             <RNView
               style={{
-                minHeight: getThemeProperty(theme.fontSize, loaderSize, 16)
-              }}
-            >
+                minHeight: getThemeProperty(theme.fontSize, loaderSize, 16),
+              }}>
               <RNActivityIndicator
                 size={getThemeProperty(theme.fontSize, loaderSize, 16)}
-                color={getThemeProperty(theme.colors, loaderColor, "#e1e1e1")}
+                color={getThemeProperty(theme.colors, loaderColor, '#e1e1e1')}
               />
             </RNView>
           </RNView>
         ) : (
-          <RNView style={computedStyle.container}>
+          <RNAnimated.View style={computedStyle.container}>
             {prefix}
             {renderChildren()}
             {suffix}
-          </RNView>
+          </RNAnimated.View>
         )}
       </RNButton>
     );
@@ -194,25 +206,25 @@ const Button: React.FunctionComponent<ButtonProps> = props => {
 };
 
 Button.defaultProps = {
-  bg: "blue600",
-  p: "md",
-  color: "white",
-  rounded: "md",
+  bg: 'blue600',
+  p: 'md',
+  color: 'white',
+  rounded: 'md',
   loading: false,
   disabled: false,
-  loaderSize: "text400",
-  loaderColor: "gray400",
+  loaderSize: 'text400',
+  loaderColor: 'gray400',
   block: false,
-  position: "relative",
-  shadowColor: "gray800",
+  position: 'relative',
+  shadowColor: 'gray800',
   shadow: 0,
-  fontSize: "text400",
-  rippleColor: "white",
+  fontSize: 'text400',
+  rippleColor: 'white',
   borderless: false,
   center: true,
-  alignItems: "center",
-  justifyContent: "center",
-  onPress: () => {}
+  alignItems: 'center',
+  justifyContent: 'center',
+  onPress: () => {},
 };
 
 export { Button };

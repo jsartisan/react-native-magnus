@@ -1,9 +1,13 @@
-import { ViewProps as RNViewProps } from "react-native";
+import { ViewProps as RNViewProps } from 'react-native';
 
-import { SpacingPropsType } from "../../theme";
+import { SpacingPropsType, RoundedPropsType } from '../../theme';
 
-export interface SkeletonProps extends RNViewProps, SpacingPropsType {
+export interface SkeletonProps
+  extends RNViewProps,
+    SpacingPropsType,
+    RoundedPropsType {
   bg?: string;
-  count?: number;
-  avatar?: boolean;
+  h?: number | string;
+  w?: number | string;
+  flex?: number;
 }

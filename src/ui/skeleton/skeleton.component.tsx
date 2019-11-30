@@ -1,80 +1,78 @@
-import * as React from "react";
-import { useContext, useEffect } from "react";
-import { Animated as RNAnimated } from "react-native";
+import * as React from 'react';
+import { useContext, useEffect } from 'react';
+import * as Animatable from 'react-native-animatable';
 
-import { getStyle } from "./skeleton.style";
-import { ThemeContext } from "../../theme";
-import { Div } from "../div/div.component";
-import { SkeletonProps } from "./skeleton.type";
+import { getStyle } from './skeleton.style';
+import { ThemeContext } from '../../theme';
+import { Div } from '../div/div.component';
+import { SkeletonProps } from './skeleton.type';
 
-const Skeleton: React.FunctionComponent<SkeletonProps> = props => {
-  const { bg, avatar, count } = props;
+const Box: React.FunctionComponent<SkeletonProps> = props => {
+  const {
+    m,
+    mt,
+    mr,
+    mb,
+    ml,
+    p,
+    pr,
+    pt,
+    pb,
+    pl,
+    bg,
+    h,
+    w,
+    flex,
+    rounded,
+    roundedTop,
+    roundedRight,
+    roundedBottom,
+    roundedLeft,
+    ...rest
+  } = props;
   const theme = useContext(ThemeContext);
   const computedStyle = getStyle(theme, props);
-  const animatedOpacity = new RNAnimated.Value(0);
 
-  /**
-   * runs animations
-   */
-  const runAnimation = () => {
-    animatedOpacity.setValue(0);
-
-    RNAnimated.loop(
-      RNAnimated.sequence([
-        RNAnimated.timing(animatedOpacity, {
-          toValue: 1,
-          duration: 550
-        }),
-        RNAnimated.timing(animatedOpacity, {
-          toValue: 0,
-          duration: 550
-        })
-      ])
-    ).start(() => runAnimation());
+  const fadeIn = {
+    0: {
+      opacity: 1,
+    },
+    0.5: {
+      opacity: 0.3,
+    },
+    1: {
+      opacity: 1,
+    },
   };
 
-  /**
-   * side-effects
-   */
-  useEffect(() => {
-    runAnimation();
-
-    return function cleanup() {};
-  });
-
   return (
-    <RNAnimated.View
-      style={{
-        ...computedStyle.container,
-        ...{
-          opacity: animatedOpacity.interpolate({
-            inputRange: [0, 1],
-            outputRange: [1, 0.3]
-          })
-        }
-      }}
-    >
-      {avatar && <Div bg={bg} h={40} w={40} mr="sm" rounded="circle" />}
-      <Div style={{ flex: 1, width: "100%" }}>
-        {[...Array(count).keys()].map(i => (
-          <Div
-            key={`at-sk=${i}`}
-            bg={bg}
-            h={15}
-            mt="sm"
-            w={i % 2 == 0 ? "100%" : "80%"}
-            rounded="md"
-          ></Div>
-        ))}
-      </Div>
-    </RNAnimated.View>
+    <Animatable.View
+      style={{ ...computedStyle.container }}
+      animation={fadeIn}
+      duration={1000}
+      easing="linear"
+      iterationCount="infinite"
+      {...rest}
+    />
   );
 };
 
-Skeleton.defaultProps = {
-  bg: "gray400",
-  avatar: false,
-  count: 1
+const Circle: React.FunctionComponent<SkeletonProps> = props => {
+  return <Box {...props} />;
 };
 
-export { Skeleton };
+Box.defaultProps = {
+  bg: 'gray400',
+  h: 15,
+  w: '100%',
+  rounded: 'md',
+};
+
+Circle.defaultProps = {
+  bg: 'gray400',
+  h: 15,
+  w: 15,
+  rounded: 'circle',
+};
+
+export { Box, Circle };

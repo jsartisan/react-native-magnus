@@ -3,6 +3,8 @@ import { StyleSheet } from 'react-native';
 import {
   getThemeProperty,
   createSpacingStyles,
+  createBorderWidthStyles,
+  createBorderColorStyles,
   createBorderRadiusStyles,
 } from '../../theme/theme.service';
 
@@ -15,30 +17,26 @@ import {
 export const getStyle = (theme: any, props: any) => {
   const computedStyle: any = {};
 
-  computedStyle.container = {
-    ...createSpacingStyles(props, theme.spacing),
+  computedStyle.wrapper = {
     backgroundColor: getThemeProperty(theme.colors, props.bg, 'transparent'),
+    ...createBorderWidthStyles(props),
+    ...createBorderColorStyles(props, theme.colors),
     ...createBorderRadiusStyles(props, theme.borderRadius),
   };
 
-  if (props.flex) {
-    computedStyle.container = {
-      ...computedStyle.container,
-      flex: props.flex,
-    };
-  }
+  computedStyle.indicator = {
+    alignSelf: 'center',
+    marginVertical: 10,
+  };
+
+  computedStyle.container = {
+    ...createSpacingStyles(props, theme.spacing),
+  };
 
   if (props.h) {
     computedStyle.container = {
       ...computedStyle.container,
       height: props.h,
-    };
-  }
-
-  if (props.w) {
-    computedStyle.container = {
-      ...computedStyle.container,
-      width: props.w,
     };
   }
 

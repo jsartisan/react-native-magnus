@@ -1,19 +1,19 @@
-import * as React from "react";
-import { useContext, useState, useImperativeHandle } from "react";
+import * as React from 'react';
+import { useContext, useState, useImperativeHandle } from 'react';
 import {
   View as RNView,
   TouchableHighlightProps as RNButtonProps,
-  SafeAreaView
-} from "react-native";
-import Modal from "react-native-modal";
+  SafeAreaView,
+} from 'react-native';
+import Modal from 'react-native-modal';
 
-import { getStyle } from "./select.style";
-import { Div } from "../div/div.component";
-import { Text } from "../text/text.component";
-import { Button } from "../button/button.component";
-import { ThemeContext } from "../../theme";
-import { Option } from "./option.component";
-import { getThemeProperty } from "../../theme/theme.service";
+import { getStyle } from './select.style';
+import { Div } from '../div/div.component';
+import { Text } from '../text/text.component';
+import { Button } from '../button/button.component';
+import { ThemeContext } from '../../theme';
+import { Option } from './option.component';
+import { getThemeProperty } from '../../theme/theme.service';
 
 interface SelectProps extends RNButtonProps {
   h?: number;
@@ -61,11 +61,11 @@ const Select = React.forwardRef<Ref, SelectProps>((props, ref) => {
   const [isFocussed] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [selectedValue, setSelectedValue] = useState(value);
-  const computedStyle = getStyle(theme, props, { isFocussed });
+  const computedStyle = getStyle(theme, {}, { isFocussed });
   const underlayColor = getThemeProperty(
     theme.colors,
     props.underlayColor,
-    props.underlayColor
+    props.underlayColor,
   );
 
   /**
@@ -83,7 +83,7 @@ const Select = React.forwardRef<Ref, SelectProps>((props, ref) => {
   useImperativeHandle(ref, () => ({
     close() {
       setIsVisible(false);
-    }
+    },
   }));
 
   /**
@@ -116,27 +116,25 @@ const Select = React.forwardRef<Ref, SelectProps>((props, ref) => {
           backdropTransitionOutTiming={0}
           isVisible={isVisible}
           onSwipeComplete={() => setIsVisible(false)}
-          swipeDirection={["down"]}
+          swipeDirection={['down']}
           backdropColor="black"
           onBackdropPress={() => setIsVisible(false)}
           style={{
             margin: 0,
-            justifyContent: "flex-end"
-          }}
-        >
-          <Div style={{ backgroundColor: "white" }}>
+            justifyContent: 'flex-end',
+          }}>
+          <Div style={{ backgroundColor: 'white' }}>
             <SafeAreaView pointerEvents="box-none">
               <Text
                 textAlign="center"
                 p="md"
                 fontSize="text300"
-                color="gray500"
-              >
+                color="gray500">
                 {placeholder}
               </Text>
               {React.Children.map(children, (child: React.ReactElement) => {
                 return React.cloneElement(child, {
-                  onSelect
+                  onSelect,
                 });
               })}
             </SafeAreaView>
@@ -150,12 +148,11 @@ const Select = React.forwardRef<Ref, SelectProps>((props, ref) => {
 Select.defaultProps = {
   minH: 40,
   p: { x: 12 },
-  w: "100%",
-  borderColor: "gray300",
+  borderColor: 'gray300',
   borderWidth: 1,
-  rounded: "md",
-  color: "gray800",
-  underlayColor: "gray100"
+  rounded: 'md',
+  color: 'gray800',
+  underlayColor: 'gray100',
 };
 
 export { Option, Select };
