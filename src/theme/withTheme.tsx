@@ -8,6 +8,8 @@ import { ThemeContext } from './themeContext';
  */
 export const withTheme = (Component: React.ComponentType) => (props: any) => (
   <ThemeContext.Consumer>
-    {contexts => <Component {...props} {...contexts} />}
+    {contexts => {
+      return <Component {...props} theme={{ ...contexts }} />;
+    }}
   </ThemeContext.Consumer>
 );

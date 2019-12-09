@@ -9,21 +9,33 @@ import {
   RoundedPropsType,
 } from '../../theme';
 
-export interface AvatarProps
+export interface BadgeProps
   extends RNViewProps,
     BorderPropsType,
     SpacingPropsType,
     RoundedPropsType {
-  size?: number;
-  color?: string;
+  h?: number | string;
+  w?: number | string;
   bg?: string;
-  src?: RNImageSourcePropType;
-  fontSize?: string;
+  minH?: number;
+  minW?: number;
   shadow?: number;
   shadowColor?: string;
+  justifyContent?:
+    | 'flex-start'
+    | 'flex-end'
+    | 'center'
+    | 'space-between'
+    | 'space-around'
+    | 'space-evenly';
+  alignItems?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
   position?: 'absolute' | 'relative';
   top?: number;
   right?: number;
   bottom?: number;
   left?: number;
+  color?: string;
+  fontSize?: string;
+  count?: string | number;
+  children?: React.ReactNode[] | React.ReactNode;
 }

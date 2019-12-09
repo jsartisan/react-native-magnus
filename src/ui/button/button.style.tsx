@@ -43,7 +43,7 @@ export const getStyle = (theme: any, props: any) => {
   };
 
   computedStyle.container = {
-    flexDirection: 'row',
+    flexDirection: props.flexDir,
     alignItems: props.alignItems,
     justifyContent: 'center',
     position: 'relative',

@@ -1,11 +1,11 @@
-import * as React from "react";
-import { useContext, useState, useEffect, useImperativeHandle } from "react";
-import { Animated, SafeAreaView, View as RNView } from "react-native";
+import * as React from 'react';
+import { useContext, useState, useEffect, useImperativeHandle } from 'react';
+import { Animated, SafeAreaView, View as RNView } from 'react-native';
 
-import { getStyle } from "./snackbar.style";
-import { ThemeContext } from "../../theme";
-import { Text } from "../text/text.component";
-import { SnackbarRefType, SnackbarProps } from "./snackbar.type";
+import { getStyle } from './snackbar.style';
+import { ThemeContext } from '../../theme';
+import { Text } from '../text/text.component';
+import { SnackbarRefType, SnackbarProps } from './snackbar.type';
 
 const DURATION_MEDIUM = 7000;
 
@@ -70,7 +70,7 @@ const Snackbar = React.forwardRef<SnackbarRefType, SnackbarProps>(
       Animated.timing(opacity, {
         toValue: 0,
         duration: 100,
-        useNativeDriver: true
+        useNativeDriver: true,
       }).start(({ finished }) => {
         if (finished) {
           setHidden(true);
@@ -91,7 +91,7 @@ const Snackbar = React.forwardRef<SnackbarRefType, SnackbarProps>(
       Animated.timing(opacity, {
         toValue: 1,
         duration: 200,
-        useNativeDriver: true
+        useNativeDriver: true,
       }).start(({ finished }) => {
         if (finished) {
           const isInfinity =
@@ -120,7 +120,7 @@ const Snackbar = React.forwardRef<SnackbarRefType, SnackbarProps>(
       },
       hide() {
         hide();
-      }
+      },
     }));
 
     // if snackbakr is set to be hidden, just return null
@@ -128,7 +128,6 @@ const Snackbar = React.forwardRef<SnackbarRefType, SnackbarProps>(
       return null;
     }
 
-    console.log({ computedStyle });
     return (
       <SafeAreaView pointerEvents="box-none" style={computedStyle.wrapper}>
         <Animated.View
@@ -140,34 +139,33 @@ const Snackbar = React.forwardRef<SnackbarRefType, SnackbarProps>(
                 scale: !hidden
                   ? opacity.interpolate({
                       inputRange: [0, 1],
-                      outputRange: [0.9, 1]
+                      outputRange: [0.9, 1],
                     })
-                  : 1
-              }
-            ]
+                  : 1,
+              },
+            ],
           }}
-          {...rest}
-        >
+          {...rest}>
           {prefix && <RNView style={computedStyle.prefix}>{prefix}</RNView>}
           <Text style={computedStyle.text}>{children}</Text>
           {suffix && <RNView style={computedStyle.suffix}>{suffix}</RNView>}
         </Animated.View>
       </SafeAreaView>
     );
-  }
+  },
 );
 
 Snackbar.defaultProps = {
-  bg: "white",
-  color: "gray900",
-  p: "md",
-  m: "md",
-  rounded: "md",
-  fontSize: "text400",
+  bg: 'white',
+  color: 'gray900',
+  p: 'md',
+  m: 'md',
+  rounded: 'md',
+  fontSize: 'text400',
   duration: DURATION_MEDIUM,
   onDismiss: () => {},
   shadow: 2,
-  shadowColor: "gray500"
+  shadowColor: 'gray500',
 };
 
 export { Snackbar };

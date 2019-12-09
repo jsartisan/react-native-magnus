@@ -1,10 +1,10 @@
-import * as React from "react";
-import { useState, useImperativeHandle } from "react";
-import { SafeAreaView } from "react-native";
-import RNModal, { ModalProps as RNModalProps } from "react-native-modal";
+import * as React from 'react';
+import { useState, useImperativeHandle } from 'react';
+import { SafeAreaView } from 'react-native';
+import RNModal, { ModalProps as RNModalProps } from 'react-native-modal';
 
-import { Div } from "../div/div.component";
-import { getStyle } from "./modal.style";
+import { Div } from '../div/div.component';
+import { getStyle } from './modal.style';
 
 type modalRef = {
   open: () => void;
@@ -31,7 +31,7 @@ const Modal = React.forwardRef<modalRef, ModalProps>((props, ref) => {
     },
     close() {
       setIsVisible(false);
-    }
+    },
   }));
 
   return (
@@ -44,8 +44,8 @@ const Modal = React.forwardRef<modalRef, ModalProps>((props, ref) => {
 });
 
 Modal.defaultProps = {
-  bg: "white",
-  h: "100%"
+  bg: 'white',
+  h: '100%',
 };
 
 export { Modal };

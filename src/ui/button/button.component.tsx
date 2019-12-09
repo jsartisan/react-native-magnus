@@ -69,6 +69,7 @@ const Button: React.FunctionComponent<ButtonProps> = props => {
     shadowColor,
     onPress,
     block,
+    ripple,
     ...rest
   } = props;
 
@@ -99,7 +100,7 @@ const Button: React.FunctionComponent<ButtonProps> = props => {
    * renders container based on props
    */
   const renderContainer = () => {
-    if (canSupportRipple === true) {
+    if (canSupportRipple === true && ripple === true) {
       const useForeground =
         RNPlatform.OS === 'android' &&
         RNPlatform.Version >= ANDROID_VERSION_PIE;
@@ -220,11 +221,13 @@ Button.defaultProps = {
   shadow: 0,
   fontSize: 'text400',
   rippleColor: 'white',
+  ripple: true,
   borderless: false,
   center: true,
   alignItems: 'center',
   justifyContent: 'center',
   onPress: () => {},
+  flexDir: 'row',
 };
 
 export { Button };

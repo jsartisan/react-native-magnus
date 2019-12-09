@@ -1,10 +1,10 @@
-import * as React from "react";
-import { useContext } from "react";
-import { Text as RNText, View as RNView, Image as RNImage } from "react-native";
+import * as React from 'react';
+import { useContext } from 'react';
+import { Text as RNText, View as RNView, Image as RNImage } from 'react-native';
 
-import { getStyle } from "./avatar.style";
-import { ThemeContext } from "../../theme";
-import { AvatarProps } from "./avatar.type";
+import { getStyle } from './avatar.style';
+import { ThemeContext } from '../../theme';
+import { AvatarProps } from './avatar.type';
 
 const Avatar: React.FunctionComponent<AvatarProps> = props => {
   const { style, children, ...rest } = props;
@@ -19,7 +19,7 @@ const Avatar: React.FunctionComponent<AvatarProps> = props => {
       return <RNImage source={props.src} style={computedStyle.image} />;
     }
 
-    if (typeof children === "string") {
+    if (typeof children === 'string') {
       return <RNText style={computedStyle.text}>{children}</RNText>;
     }
 
@@ -34,14 +34,14 @@ const Avatar: React.FunctionComponent<AvatarProps> = props => {
 };
 
 Avatar.defaultProps = {
-  bg: "white",
+  bg: 'white',
   size: 48,
-  color: "black500",
-  rounded: "circle",
-  fontSize: "text400",
+  color: 'black500',
+  rounded: 'circle',
+  fontSize: 'text400',
   shadow: 0,
-  shadowColor: "black500",
-  position: "relative"
+  shadowColor: 'black500',
+  position: 'relative',
 };
 
 export { Avatar };

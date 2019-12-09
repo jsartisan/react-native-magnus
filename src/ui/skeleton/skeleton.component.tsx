@@ -1,10 +1,10 @@
-import * as React from "react";
-import { useContext } from "react";
-import * as Animatable from "react-native-animatable";
+import * as React from 'react';
+import { useContext } from 'react';
+import * as Animatable from 'react-native-animatable';
 
-import { getStyle } from "./skeleton.style";
-import { ThemeContext } from "../../theme";
-import { SkeletonProps } from "./skeleton.type";
+import { getStyle } from './skeleton.style';
+import { ThemeContext } from '../../theme';
+import { SkeletonProps } from './skeleton.type';
 
 const Box: React.FunctionComponent<SkeletonProps> = props => {
   const {
@@ -35,21 +35,21 @@ const Box: React.FunctionComponent<SkeletonProps> = props => {
   Animatable.initializeRegistryWithDefinitions({
     fade: {
       0: {
-        opacity: 1
+        opacity: 1,
       },
       0.5: {
-        opacity: 0.3
+        opacity: 0.3,
       },
       1: {
-        opacity: 1
-      }
-    }
+        opacity: 1,
+      },
+    },
   });
 
   return (
     <Animatable.View
       style={{ ...computedStyle.container }}
-      animation={"fade"}
+      animation={'fade'}
       duration={1000}
       easing="linear"
       iterationCount="infinite"
@@ -63,17 +63,17 @@ const Circle: React.FunctionComponent<SkeletonProps> = props => {
 };
 
 Box.defaultProps = {
-  bg: "gray400",
+  bg: 'gray400',
   h: 15,
-  w: "100%",
-  rounded: "md"
+  w: '100%',
+  rounded: 'md',
 };
 
 Circle.defaultProps = {
-  bg: "gray400",
+  bg: 'gray400',
   h: 15,
   w: 15,
-  rounded: "circle"
+  rounded: 'circle',
 };
 
 export { Box, Circle };

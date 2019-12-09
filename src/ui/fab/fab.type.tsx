@@ -5,7 +5,7 @@ import {
   RoundedPropsType,
 } from '../../theme';
 
-export interface ButtonProps
+export interface FabProps
   extends RNButtonProps,
     BorderPropsType,
     SpacingPropsType,
@@ -36,8 +36,6 @@ export interface ButtonProps
   minH?: number | string;
   fontSize?: string | number;
   loaderSize?: number | string;
-  suffix?: React.ReactNode;
-  prefix?: React.ReactNode;
   block?: boolean;
   shadow?: number;
   borderless?: boolean;
@@ -45,4 +43,5 @@ export interface ButtonProps
   shadowColor?: string;
   center?: boolean;
   ripple?: boolean;
+  icon: string | React.ReactNode;
 }

@@ -1,13 +1,13 @@
-import * as React from "react";
-import { useContext, useState, useImperativeHandle } from "react";
-import { SafeAreaView } from "react-native";
-import RNModal from "react-native-modal";
+import * as React from 'react';
+import { useContext, useState, useImperativeHandle } from 'react';
+import { View as RNView, SafeAreaView } from 'react-native';
+import RNModal, { ModalProps as RNModalProps } from 'react-native-modal';
 
-import { Div } from "../div/div.component";
-import { Text } from "../text/text.component";
-import { ThemeContext } from "../../theme";
-import { getStyle } from "./dropdown.style";
-import { DropdownProps } from "./dropdown.type";
+import { Div } from '../div/div.component';
+import { Text } from '../text/text.component';
+import { ThemeContext } from '../../theme';
+import { getStyle } from './dropdown.style';
+import { DropdownProps } from './dropdown.type';
 
 type dropdownRef = {
   open: () => void;
@@ -52,7 +52,7 @@ const Dropdown = React.forwardRef<dropdownRef, DropdownProps>((props, ref) => {
     },
     close() {
       setIsVisible(false);
-    }
+    },
   }));
 
   return (
@@ -61,15 +61,13 @@ const Dropdown = React.forwardRef<dropdownRef, DropdownProps>((props, ref) => {
         backdropTransitionOutTiming={0}
         isVisible={isVisible}
         onSwipeComplete={() => setIsVisible(false)}
-        swipeDirection={["down"]}
+        swipeDirection={['down']}
         backdropColor="black"
         onBackdropPress={() => setIsVisible(false)}
         style={{
           margin: 0,
-          justifyContent: "flex-end"
-        }}
-        {...rest}
-      >
+          justifyContent: 'flex-end',
+        }}>
         <Div style={computedStyle.wrapper}>
           {showScrollIndicator && (
             <Div
@@ -77,19 +75,17 @@ const Dropdown = React.forwardRef<dropdownRef, DropdownProps>((props, ref) => {
               rounded="xl"
               w={40}
               bg="gray200"
-              style={computedStyle.indicator}
-            ></Div>
+              style={computedStyle.indicator}></Div>
           )}
           <SafeAreaView pointerEvents="box-none">
             <Div style={computedStyle.container}>
-              {typeof title === "string" ? (
+              {typeof title === 'string' ? (
                 <Text
                   fontSize="text400"
                   color="gray700"
                   px="xl"
                   pt="md"
-                  pb="lg"
-                >
+                  pb="lg">
                   {title}
                 </Text>
               ) : (
@@ -97,7 +93,7 @@ const Dropdown = React.forwardRef<dropdownRef, DropdownProps>((props, ref) => {
               )}
               {React.Children.map(children, (child: React.ReactElement) => {
                 return React.cloneElement(child, {
-                  onSelect
+                  onSelect,
                 });
               })}
             </Div>
@@ -109,11 +105,11 @@ const Dropdown = React.forwardRef<dropdownRef, DropdownProps>((props, ref) => {
 });
 
 Dropdown.defaultProps = {
-  bg: "white",
-  rounded: "none",
-  flexDir: "column",
+  bg: 'white',
+  rounded: 'none',
+  flexDir: 'column',
   showScrollIndicator: true,
-  onSelect: () => {}
+  onSelect: () => {},
 };
 
 export { Dropdown };

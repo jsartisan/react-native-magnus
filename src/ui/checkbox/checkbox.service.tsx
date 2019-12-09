@@ -1,21 +1,25 @@
-import { getThemeProperty } from "../../theme/theme.service";
+import { getThemeProperty } from '../../theme/theme.service';
 
+/**
+ * get icon name based on state
+ */
 export const getIconName = (
   checked: boolean = false,
-  disabled: boolean = false
+  disabled: boolean = false,
 ) => {
   switch (true) {
     case disabled:
-      return "indeterminate-check-box";
+      return 'indeterminate-check-box';
     case checked:
-      return "check-box";
+      return 'check-box';
     default:
-      return "check-box-outline-blank";
+      return 'check-box-outline-blank';
   }
 };
 
 /**
  * get icon name
+ *
  * @param checked
  * @param disabled
  */
@@ -24,14 +28,14 @@ export const getIconColor = (
   disabled: any,
   activeColor: any,
   inactiveColor: any,
-  theme: any
+  theme: any,
 ) => {
   switch (true) {
     case disabled:
-      return getThemeProperty(theme.colors, inactiveColor, "blue");
+      return getThemeProperty(theme.colors, inactiveColor, 'blue');
     case checked:
-      return getThemeProperty(theme.colors, activeColor, "blue");
+      return getThemeProperty(theme.colors, activeColor, 'blue');
     default:
-      return getThemeProperty(theme.colors, inactiveColor, "blue");
+      return getThemeProperty(theme.colors, inactiveColor, 'blue');
   }
 };
