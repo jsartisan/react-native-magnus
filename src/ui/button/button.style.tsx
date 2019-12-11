@@ -1,13 +1,13 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 
 import {
-  addFlexStyles,
+  createFlexStyles,
   getThemeProperty,
   createSpacingStyles,
   createBorderRadiusStyles,
   createBorderColorStyles,
-  createBorderWidthStyles,
-} from '../../theme/theme.service';
+  createBorderWidthStyles
+} from "../../theme/theme.service";
 
 /**
  * computed style
@@ -19,47 +19,47 @@ export const getStyle = (theme: any, props: any) => {
   const computedStyle: any = {};
 
   computedStyle.button = {
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'row',
-    alignSelf: 'flex-start',
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
+    alignSelf: "flex-start",
     position: props.position,
-    backgroundColor: getThemeProperty(theme.colors, props.bg, 'transparent'),
-    ...addFlexStyles(props),
+    backgroundColor: getThemeProperty(theme.colors, props.bg, "transparent"),
+    ...createFlexStyles(props),
     ...createBorderWidthStyles(props),
     ...createSpacingStyles(props, theme.spacing),
     ...createBorderColorStyles(props, theme.colors),
-    ...createBorderRadiusStyles(props, theme.borderRadius),
+    ...createBorderRadiusStyles(props, theme.borderRadius)
   };
 
   computedStyle.text = {
-    color: getThemeProperty(theme.colors, props.color, 'black'),
-    textAlign: 'right',
-    fontSize: getThemeProperty(theme.fontSize, props.fontSize, 16),
+    color: getThemeProperty(theme.colors, props.color, "black"),
+    textAlign: "right",
+    fontSize: getThemeProperty(theme.fontSize, props.fontSize, 16)
   };
 
   computedStyle.image = {
-    ...createBorderRadiusStyles(props, theme.borderRadius),
+    ...createBorderRadiusStyles(props, theme.borderRadius)
   };
 
   computedStyle.container = {
     flexDirection: props.flexDir,
     alignItems: props.alignItems,
-    justifyContent: 'center',
-    position: 'relative',
+    justifyContent: "center",
+    position: "relative"
   };
 
   if (props.borderless === false) {
     computedStyle.button = {
       ...computedStyle.button,
-      overflow: 'hidden',
+      overflow: "hidden"
     };
   }
 
   if (props.justifyContent) {
     computedStyle.container = {
       ...computedStyle.container,
-      justifyContent: props.justifyContent,
+      justifyContent: props.justifyContent
     };
   }
 
@@ -67,69 +67,69 @@ export const getStyle = (theme: any, props: any) => {
     computedStyle.button = {
       ...computedStyle.button,
       ...theme.shadow[props.shadow],
-      shadowColor: getThemeProperty(theme.colors, props.shadowColor, 'white'),
+      shadowColor: getThemeProperty(theme.colors, props.shadowColor, "white")
     };
   }
 
   if (props.block) {
     computedStyle.container = {
       ...computedStyle.container,
-      width: '100%',
-      alignSelf: 'stretch',
+      width: "100%",
+      alignSelf: "stretch"
     };
 
     computedStyle.button = {
       ...computedStyle.button,
-      alignSelf: 'stretch',
+      alignSelf: "stretch"
     };
   }
 
   if (props.w) {
     computedStyle.button = {
       ...computedStyle.button,
-      width: props.w,
+      width: props.w
     };
   }
 
   if (props.h) {
     computedStyle.button = {
       ...computedStyle.button,
-      height: props.h,
+      height: props.h
     };
   }
 
   if (props.top) {
     computedStyle.button = {
       ...computedStyle.button,
-      top: props.top,
+      top: props.top
     };
   }
 
   if (props.right) {
     computedStyle.button = {
       ...computedStyle.button,
-      right: props.right,
+      right: props.right
     };
   }
 
   if (props.bottom) {
     computedStyle.button = {
       ...computedStyle.button,
-      bottom: props.bottom,
+      bottom: props.bottom
     };
   }
 
   if (props.left) {
     computedStyle.button = {
       ...computedStyle.button,
-      left: props.left,
+      left: props.left
     };
   }
 
   if (props.disabled) {
     computedStyle.button = {
       ...computedStyle.button,
-      opacity: 0.5,
+      opacity: 0.5
     };
   }
 
@@ -137,7 +137,7 @@ export const getStyle = (theme: any, props: any) => {
   if (props.style) {
     computedStyle.container = {
       ...computedStyle.container,
-      ...props.style,
+      ...props.style
     };
   }
 

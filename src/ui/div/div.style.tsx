@@ -2,6 +2,8 @@ import { StyleSheet } from "react-native";
 
 import {
   getThemeProperty,
+  createFlexStyles,
+  createPositionStyle,
   createSpacingStyles,
   createBorderWidthStyles,
   createBorderColorStyles,
@@ -22,8 +24,9 @@ export const getStyle = (theme: any, props: any) => {
     flexWrap: props.flexWrap,
     alignItems: props.alignItems,
     justifyContent: props.justifyContent,
-    position: props.position,
     backgroundColor: getThemeProperty(theme.colors, props.bg, "transparent"),
+    ...createFlexStyles(props),
+    ...createPositionStyle(props),
     ...createBorderWidthStyles(props),
     ...createSpacingStyles(props, theme.spacing),
     ...createBorderColorStyles(props, theme.colors),
@@ -33,13 +36,6 @@ export const getStyle = (theme: any, props: any) => {
   computedStyle.image = {
     ...createBorderRadiusStyles(props, theme.borderRadius)
   };
-
-  if (props.flex) {
-    computedStyle.div = {
-      ...computedStyle.div,
-      flex: props.flex
-    };
-  }
 
   if (props.shadow) {
     computedStyle.div = {
@@ -60,34 +56,6 @@ export const getStyle = (theme: any, props: any) => {
     computedStyle.div = {
       ...computedStyle.div,
       width: props.w
-    };
-  }
-
-  if (props.top) {
-    computedStyle.div = {
-      ...computedStyle.div,
-      top: props.top
-    };
-  }
-
-  if (props.right) {
-    computedStyle.div = {
-      ...computedStyle.div,
-      right: props.right
-    };
-  }
-
-  if (props.bottom) {
-    computedStyle.div = {
-      ...computedStyle.div,
-      bottom: props.bottom
-    };
-  }
-
-  if (props.left) {
-    computedStyle.div = {
-      ...computedStyle.div,
-      left: props.left
     };
   }
 

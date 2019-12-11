@@ -4,7 +4,7 @@ import renderer from "react-test-renderer";
 import { Div } from "../div.component";
 import { ThemeProvider } from "../../../theme";
 
-describe("Avatar Component", () => {
+describe("Div Component", () => {
   it("should render without issues", () => {
     const instance = renderer.create(
       <ThemeProvider>

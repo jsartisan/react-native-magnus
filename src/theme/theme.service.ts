@@ -1,12 +1,8 @@
-import { useContext } from 'react';
-
-import { ThemeType } from './type';
-import { defaultTheme } from '../style';
-import { ThemeContext } from './themeContext';
+import { ThemeType } from "./type";
+import { defaultTheme } from "../style";
 
 // TODO
 // 1. createShadowStyles
-// 2. createPositionStyle
 
 /**
  * merge user theme with default theme
@@ -25,21 +21,21 @@ export function computeTheme(customTheme: ThemeType | undefined): ThemeType {
   if (customTheme.colors) {
     computedTheme.colors = {
       ...defaultTheme.colors,
-      ...customTheme.colors,
+      ...customTheme.colors
     };
   }
 
   if (customTheme.fontSize) {
     computedTheme.fontSize = {
       ...defaultTheme.fontSize,
-      ...customTheme.fontSize,
+      ...customTheme.fontSize
     };
   }
 
   if (customTheme.borderRadius) {
     computedTheme.borderRadius = {
       ...defaultTheme.borderRadius,
-      ...customTheme.borderRadius,
+      ...customTheme.borderRadius
     };
   }
 
@@ -47,29 +43,29 @@ export function computeTheme(customTheme: ThemeType | undefined): ThemeType {
 }
 
 /**
- * m={{ t: 10 }}
+ * m="10"
  *
  * @param value
- * @param themeRadius
+ * @param theme
  */
 export const createSpacingStyles = (props: any, theme: any) => {
   let propKeys: any;
 
   propKeys = {
-    p: 'padding',
-    pt: 'paddingTop',
-    pr: 'paddingRight',
-    pb: 'paddingBottom',
-    pl: 'paddingLeft',
-    px: 'paddingHorizontal',
-    py: 'paddingVertical',
-    m: 'margin',
-    mt: 'marginTop',
-    mr: 'marginRight',
-    mb: 'marginBottom',
-    ml: 'marginLeft',
-    mx: 'marginHorizontal',
-    my: 'marginVertical',
+    p: "padding",
+    pt: "paddingTop",
+    pr: "paddingRight",
+    pb: "paddingBottom",
+    pl: "paddingLeft",
+    px: "paddingHorizontal",
+    py: "paddingVertical",
+    m: "margin",
+    mt: "marginTop",
+    mr: "marginRight",
+    mb: "marginBottom",
+    ml: "marginLeft",
+    mx: "marginHorizontal",
+    my: "marginVertical"
   };
 
   let computedStyle: any = {};
@@ -81,7 +77,7 @@ export const createSpacingStyles = (props: any, theme: any) => {
       computedStyle[styleProperty] = getThemeProperty(
         theme,
         props[propKey],
-        props[propKey],
+        props[propKey]
       );
     }
   });
@@ -99,56 +95,56 @@ export const createSpacingStyles = (props: any, theme: any) => {
 export const createDirectionalStyles = (
   key: string,
   value: any,
-  type: string = 'string',
+  type: string = "string"
 ) => {
   if (
     typeof (value.x || value.y || value.b || value.t || value.l || value.r) ===
-    'undefined'
+    "undefined"
   ) {
     return createStyle(`${key}`, value, type);
   }
 
   let computedStyle = {};
 
-  if (typeof value.x != 'undefined') {
+  if (typeof value.x != "undefined") {
     computedStyle = {
       ...computedStyle,
-      ...createStyle(`${key}Horizontal`, value.x, type),
+      ...createStyle(`${key}Horizontal`, value.x, type)
     };
   }
 
-  if (typeof value.y != 'undefined') {
+  if (typeof value.y != "undefined") {
     computedStyle = {
       ...computedStyle,
-      ...createStyle(`${key}Vertical`, value.y, type),
+      ...createStyle(`${key}Vertical`, value.y, type)
     };
   }
 
-  if (typeof value.t != 'undefined') {
+  if (typeof value.t != "undefined") {
     computedStyle = {
       ...computedStyle,
-      ...createStyle(`${key}Top`, value.t, type),
+      ...createStyle(`${key}Top`, value.t, type)
     };
   }
 
-  if (typeof value.r != 'undefined') {
+  if (typeof value.r != "undefined") {
     computedStyle = {
       ...computedStyle,
-      ...createStyle(`${key}Right`, value.r, type),
+      ...createStyle(`${key}Right`, value.r, type)
     };
   }
 
-  if (typeof value.b != 'undefined') {
+  if (typeof value.b != "undefined") {
     computedStyle = {
       ...computedStyle,
-      ...createStyle(`${key}Bottom`, value.b, type),
+      ...createStyle(`${key}Bottom`, value.b, type)
     };
   }
 
-  if (typeof value.l != 'undefined') {
+  if (typeof value.l != "undefined") {
     computedStyle = {
       ...computedStyle,
-      ...createStyle(`${key}Left`, value.l, type),
+      ...createStyle(`${key}Left`, value.l, type)
     };
   }
 
@@ -162,7 +158,7 @@ export const createDirectionalStyles = (
  * @param value
  */
 export const getThemeProperty = (theme: any, value: any, fallback: any) => {
-  if (typeof theme[value] !== 'undefined') {
+  if (typeof theme[value] !== "undefined") {
     return theme[value];
   }
 
@@ -173,17 +169,17 @@ export const getThemeProperty = (theme: any, value: any, fallback: any) => {
  * borderRadius={{ t: 10 }}
  *
  * @param value
- * @param themeRadius
+ * @param theme
  */
 export const createBorderRadiusStyles = (props: any, theme: any) => {
   let propKeys: any;
 
   propKeys = {
-    rounded: 'borderRadius',
-    roundedTop: ['borderTopLeftRadius', 'borderTopRightRadius'],
-    roundedLeft: ['borderTopLeftRadius', 'borderBottomLeftRadius'],
-    roundedRight: ['borderTopRightRadius', 'borderBottomRightRadius'],
-    roundedBottom: ['borderBottomLeftRadius', 'borderBottomRightRadius'],
+    rounded: "borderRadius",
+    roundedTop: ["borderTopLeftRadius", "borderTopRightRadius"],
+    roundedLeft: ["borderTopLeftRadius", "borderBottomLeftRadius"],
+    roundedRight: ["borderTopRightRadius", "borderBottomRightRadius"],
+    roundedBottom: ["borderBottomLeftRadius", "borderBottomRightRadius"]
   };
 
   let computedStyle: any = {};
@@ -197,14 +193,14 @@ export const createBorderRadiusStyles = (props: any, theme: any) => {
           computedStyle[property] = getThemeProperty(
             theme,
             props[propKey],
-            props[propKey],
+            props[propKey]
           );
         });
       } else {
         computedStyle[styleProperty] = getThemeProperty(
           theme,
           props[propKey],
-          props[propKey],
+          props[propKey]
         );
       }
     }
@@ -218,11 +214,11 @@ export const createBorderRadiusStyles = (props: any, theme: any) => {
  *
  * @param props
  */
-export const addFlexStyles = (props: any) => {
+export const createFlexStyles = (props: any) => {
   let propKeys: any;
 
   propKeys = {
-    flex: 'flex',
+    flex: "flex"
   };
 
   let computedStyle: any = {};
@@ -247,11 +243,11 @@ export const createBorderWidthStyles = (props: any) => {
   let propKeys: any;
 
   propKeys = {
-    borderWidth: 'borderWidth',
-    borderTopWidth: 'borderTopWidth',
-    borderLeftWidth: 'borderLeftWidth',
-    borderRightWidth: 'borderRightWidth',
-    borderBottomWidth: 'borderBottomWidth',
+    borderWidth: "borderWidth",
+    borderTopWidth: "borderTopWidth",
+    borderLeftWidth: "borderLeftWidth",
+    borderRightWidth: "borderRightWidth",
+    borderBottomWidth: "borderBottomWidth"
   };
 
   let computedStyle: any = {};
@@ -276,11 +272,11 @@ export const createBorderColorStyles = (props: any, theme: any) => {
   let propKeys: any;
 
   propKeys = {
-    borderColor: 'borderColor',
-    borderTopColor: 'borderTopColor',
-    borderRightColor: 'borderTopColor',
-    borderLeftColor: 'borderLeftColor',
-    borderBottomColor: 'borderBottomColor',
+    borderColor: "borderColor",
+    borderTopColor: "borderTopColor",
+    borderRightColor: "borderTopColor",
+    borderLeftColor: "borderLeftColor",
+    borderBottomColor: "borderBottomColor"
   };
 
   let computedStyle: any = {};
@@ -294,14 +290,14 @@ export const createBorderColorStyles = (props: any, theme: any) => {
           computedStyle[property] = getThemeProperty(
             theme,
             props[propKey],
-            props[propKey],
+            props[propKey]
           );
         });
       } else {
         computedStyle[styleProperty] = getThemeProperty(
           theme,
           props[propKey],
-          props[propKey],
+          props[propKey]
         );
       }
     }
@@ -318,7 +314,7 @@ export const createBorderColorStyles = (props: any, theme: any) => {
  */
 export const createStyle = (key: string, value: any, type: string) => {
   return {
-    [key]: type === 'number' ? Number(value) : value,
+    [key]: type === "number" ? Number(value) : value
   };
 };
 
@@ -335,14 +331,44 @@ export const addPropToComputedStyle = (
   computedStyle: any,
   styleProperty: string,
   atomicProperty: string,
-  type: string,
+  type: string
 ) => {
   if (props[atomicProperty]) {
     computedStyle = {
       ...computedStyle,
-      ...createStyle(styleProperty, props[atomicProperty], type),
+      ...createStyle(styleProperty, props[atomicProperty], type)
     };
   }
+
+  return computedStyle;
+};
+
+/**
+ * position="absolute"
+ * top="10"
+ *
+ * @param value
+ */
+export const createPositionStyle = (props: any) => {
+  let propKeys: any;
+
+  propKeys = {
+    position: "position",
+    top: "top",
+    left: "left",
+    right: "right",
+    bottom: "bottom"
+  };
+
+  let computedStyle: any = {};
+
+  Object.keys(propKeys).map((propKey: string) => {
+    const styleProperty = propKeys[propKey];
+
+    if (propKey in props) {
+      computedStyle[styleProperty] = props[propKey];
+    }
+  });
 
   return computedStyle;
 };
