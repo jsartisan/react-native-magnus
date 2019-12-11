@@ -11,6 +11,7 @@ import { ThemeContext } from "../../theme";
 
 const Div: React.FunctionComponent<DivProps> = (props: DivProps) => {
   const {
+    bg,
     h,
     w,
     m,
