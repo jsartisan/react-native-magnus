@@ -7,7 +7,43 @@ import { ThemeContext } from '../../theme';
 import { AvatarProps } from './avatar.type';
 
 const Avatar: React.FunctionComponent<AvatarProps> = props => {
-  const { style, children, ...rest } = props;
+  const {
+    bg,
+    m,
+    mt,
+    mr,
+    mb,
+    ml,
+    p,
+    pr,
+    pt,
+    pb,
+    pl,
+    position,
+    style,
+    rounded,
+    roundedTop,
+    roundedRight,
+    roundedBottom,
+    roundedLeft,
+    children,
+    borderColor,
+    color,
+    fontSize,
+  size,
+    borderBottomColor,
+    borderLeftColor,
+    borderTopColor,
+    borderRightColor,
+    borderWidth,
+    borderLeftWidth,
+    borderRightWidth,
+    borderBottomWidth,
+    borderTopWidth,
+    shadow,
+    shadowColor,
+    ...rest
+  } = props;
   const theme = useContext(ThemeContext);
   const computedStyle = getStyle(theme, props);
 

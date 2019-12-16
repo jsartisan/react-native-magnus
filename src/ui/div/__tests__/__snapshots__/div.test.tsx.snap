@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Div Component should render without issues 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "flex-start",
+      "backgroundColor": "#FFFFFF",
+      "borderRadius": 0,
+      "flexDirection": "column",
+      "flexWrap": "nowrap",
+      "justifyContent": undefined,
+      "position": "relative",
+    }
+  }
+/>
+`;

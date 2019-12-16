@@ -7,6 +7,7 @@ import { Dropdown as DropdownContainer } from './dropdown/dropdown.component';
 import { Option as DropdownOption } from './dropdown/option.component';
 
 export { Text } from './text/text.component';
+export { Tooltip } from './tooltip/tooltip.component';
 export { Badge } from './badge/badge.component';
 export { Overlay } from './overlay/overlay.component';
 export { Fab } from './fab/fab.component';

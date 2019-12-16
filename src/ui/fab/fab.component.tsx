@@ -143,11 +143,14 @@ const Fab: React.FunctionComponent<FabProps> = props => {
                 </RNView>
               </RNView>
             ) : (
-              <RNView style={computedStyle.container}>
-                {prefix}
+              <RNAnimated.View style={computedStyle.container}>
+                {typeof icon === 'string' ? (
+                  <Icon name={icon} {...computedStyle.icon} />
+                ) : (
+                  icon
+                )}
                 {renderChildren()}
-                {suffix}
-              </RNView>
+              </RNAnimated.View>
             )}
           </RNView>
         </RNTouchableNativeFeedback>

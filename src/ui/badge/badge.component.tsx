@@ -55,9 +55,11 @@ const Badge: React.FunctionComponent<BadgeProps> = (props: BadgeProps) => {
 
   return (
     <RNView style={computedStyle.container}>
-      {children}
+      {typeof children !== 'string' && children}
       <RNView style={computedStyle.div} {...rest}>
-        {count && <RNText style={computedStyle.text}>{count}</RNText>}
+        {typeof children === 'string' && (
+          <RNText style={computedStyle.text}>{children}</RNText>
+        )}
       </RNView>
     </RNView>
   );

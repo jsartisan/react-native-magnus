@@ -6,6 +6,7 @@ import {
   createBorderWidthStyles,
   createBorderColorStyles,
   createBorderRadiusStyles,
+  createPositionStyle,
 } from '../../theme/theme.service';
 
 /**
@@ -21,7 +22,7 @@ export const getStyle = (theme: any, props: any) => {
     backgroundColor: getThemeProperty(theme.colors, props.bg, 'transparent'),
     alignItems: 'center',
     justifyContent: 'center',
-    position: props.position,
+    ...createPositionStyle(props),
     ...createBorderWidthStyles(props),
     ...createSpacingStyles(props, theme.spacing),
     ...createBorderColorStyles(props, theme.colors),
@@ -53,34 +54,6 @@ export const getStyle = (theme: any, props: any) => {
       ...computedStyle.container,
       width: props.size,
       height: props.size,
-    };
-  }
-
-  if (props.top) {
-    computedStyle.container = {
-      ...computedStyle.container,
-      top: props.top,
-    };
-  }
-
-  if (props.right) {
-    computedStyle.container = {
-      ...computedStyle.container,
-      right: props.right,
-    };
-  }
-
-  if (props.bottom) {
-    computedStyle.container = {
-      ...computedStyle.container,
-      bottom: props.bottom,
-    };
-  }
-
-  if (props.left) {
-    computedStyle.container = {
-      ...computedStyle.container,
-      left: props.left,
     };
   }
 

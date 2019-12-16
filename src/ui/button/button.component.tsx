@@ -178,10 +178,7 @@ const Button: React.FunctionComponent<ButtonProps> = props => {
         onHideUnderlay={onHideUnderlay}>
         {loading === true ? (
           <RNView style={computedStyle.container}>
-            <RNView
-              style={{
-                minHeight: getThemeProperty(theme.fontSize, loaderSize, 16),
-              }}>
+            <RNView style={computedStyle.loadingContainer}>
               <RNActivityIndicator
                 size={getThemeProperty(theme.fontSize, loaderSize, 16)}
                 color={getThemeProperty(theme.colors, loaderColor, '#e1e1e1')}

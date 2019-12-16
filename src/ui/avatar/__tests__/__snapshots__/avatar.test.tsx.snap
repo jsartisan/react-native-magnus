@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Avatar Component should render without issues 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#FFFFFF",
+      "borderRadius": 1000000,
+      "height": 48,
+      "justifyContent": "center",
+      "position": "relative",
+      "width": 48,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "#000",
+        "fontSize": 15,
+        "textAlign": "center",
+        "textAlignVertical": "center",
+      }
+    }
+  >
+    1
+  </Text>
+</View>
+`;
