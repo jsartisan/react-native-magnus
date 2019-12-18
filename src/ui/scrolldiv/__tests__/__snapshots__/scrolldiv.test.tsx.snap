@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Scroll Div Component should render without issues 1`] = `
+<RCTScrollView
+  bg="white"
+  style={
+    Object {
+      "alignItems": undefined,
+      "backgroundColor": "#FFFFFF",
+      "borderRadius": 0,
+      "flexDirection": "column",
+      "flexWrap": "nowrap",
+      "justifyContent": undefined,
+      "position": "relative",
+    }
+  }
+>
+  <View />
+</RCTScrollView>
+`;

@@ -3,7 +3,7 @@
 exports[`Button Component should render without issues 1`] = `
 <View
   accessible={true}
-  focusable={true}
+  clickable={true}
   isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -35,6 +35,19 @@ exports[`Button Component should render without issues 1`] = `
         "position": "relative",
       }
     }
-  />
+  >
+    <Text
+      style={
+        Object {
+          "color": "#FFFFFF",
+          "fontSize": 15,
+          "lineHeight": 18,
+          "textAlign": "right",
+        }
+      }
+    >
+      Press me
+    </Text>
+  </View>
 </View>
 `;

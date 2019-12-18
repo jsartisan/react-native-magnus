@@ -1,19 +1,19 @@
-import * as React from 'react';
-import { useContext, useState } from 'react';
+import * as React from "react";
+import { useContext, useState } from "react";
 import {
   View as RNView,
   ActivityIndicator,
   GestureResponderEvent as RNGestureResponderEvent,
-  TouchableWithoutFeedback as RNButton,
-} from 'react-native';
+  TouchableWithoutFeedback as RNButton
+} from "react-native";
 
-import { getStyle } from './checkbox.style';
-import { ThemeContext } from '../../theme';
-import { Icon } from '../icon/icon.component';
-import { Text } from '../text/text.component';
-import { getThemeProperty } from '../../theme/theme.service';
-import { getIconName, getIconColor } from './checkbox.service';
-import { CheckboxProps } from './checkbox.type';
+import { getStyle } from "./checkbox.style";
+import { ThemeContext } from "../../theme";
+import { Icon } from "../icon/icon.component";
+import { Text } from "../text/text.component";
+import { getThemeProperty } from "../../theme/theme.service";
+import { getIconName, getIconColor } from "./checkbox.service";
+import { CheckboxProps } from "./checkbox.type";
 
 const Checkbox: React.FunctionComponent<CheckboxProps> = props => {
   const {
@@ -43,7 +43,7 @@ const Checkbox: React.FunctionComponent<CheckboxProps> = props => {
   } = props;
   const theme = useContext(ThemeContext);
   const [checked, setChecked] = useState(
-    'checked' in props ? props.checked : props.defaultChecked,
+    "checked" in props ? props.checked : props.defaultChecked
   );
   const [focussed, setFocussed] = useState(false);
   const computedStyle = getStyle(theme, props);
@@ -56,11 +56,11 @@ const Checkbox: React.FunctionComponent<CheckboxProps> = props => {
       return;
     }
 
-    if (!('checked' in props)) {
+    if (!("checked" in props)) {
       setChecked(!checked);
     }
 
-    if (typeof onPressProp === 'function') {
+    if (typeof onPressProp === "function") {
       onPressProp(event);
     }
   };
@@ -83,6 +83,15 @@ const Checkbox: React.FunctionComponent<CheckboxProps> = props => {
     setFocussed(false);
   };
 
+  const iconName = getIconName(checked, disabled);
+  const iconColor = getIconColor(
+    checked,
+    disabled,
+    activeColor,
+    inactiveColor,
+    theme
+  );
+
   /**
    * get icon
    * shows activity indication if loading state is true
@@ -92,19 +101,19 @@ const Checkbox: React.FunctionComponent<CheckboxProps> = props => {
       return (
         <ActivityIndicator
           size={getThemeProperty(theme.fontSize, size, 16)}
-          color={getThemeProperty(theme.colors, activeColor, 'blue')}
-          style={{ zIndex: 2, position: 'relative' }}
+          color={getThemeProperty(theme.colors, activeColor, "blue")}
+          style={{ zIndex: 2, position: "relative" }}
         />
       );
     }
 
     if (checked) {
-      if (activeIcon && typeof activeIcon === 'string') {
+      if (activeIcon && typeof activeIcon === "string") {
         return (
           <Icon
             name={activeIcon}
             color={iconColor}
-            style={{ zIndex: 2, position: 'relative' }}
+            style={{ zIndex: 2, position: "relative" }}
             fontFamily="AntDesign"
             fontSize={size}
           />
@@ -115,12 +124,12 @@ const Checkbox: React.FunctionComponent<CheckboxProps> = props => {
         return activeIcon;
       }
     } else {
-      if (inactiveIcon && typeof inactiveIcon === 'string') {
+      if (inactiveIcon && typeof inactiveIcon === "string") {
         return (
           <Icon
             name={inactiveIcon}
             color={iconColor}
-            style={{ zIndex: 2, position: 'relative' }}
+            style={{ zIndex: 2, position: "relative" }}
             fontFamily="AntDesign"
             fontSize={size}
           />
@@ -136,33 +145,25 @@ const Checkbox: React.FunctionComponent<CheckboxProps> = props => {
       <Icon
         name={iconName}
         color={iconColor}
-        style={{ zIndex: 2, position: 'relative' }}
+        style={{ zIndex: 2, position: "relative" }}
         fontFamily="MaterialIcons"
         fontSize={size}
       />
     );
   };
 
-  const iconName = getIconName(checked, disabled);
-  const iconColor = getIconColor(
-    checked,
-    disabled,
-    activeColor,
-    inactiveColor,
-    theme,
-  );
-  const icon = getIcon();
-
   /**
    * render children
    */
   const renderChildren = () => {
-    if (typeof children === 'string') {
+    if (typeof children === "string") {
       return <Text ml="sm">{children}</Text>;
     }
 
     return children;
   };
+
+  const icon = getIcon();
 
   return (
     <RNButton
@@ -170,7 +171,8 @@ const Checkbox: React.FunctionComponent<CheckboxProps> = props => {
       style={computedStyle.button}
       onPress={disabled ? undefined : onPress}
       onPressIn={disabled ? undefined : onPressIn}
-      onPressOut={disabled ? undefined : onPressOut}>
+      onPressOut={disabled ? undefined : onPressOut}
+    >
       <RNView style={computedStyle.container}>
         <RNView>
           {focussed && <RNView style={computedStyle.highlightContainer} />}
@@ -185,10 +187,10 @@ const Checkbox: React.FunctionComponent<CheckboxProps> = props => {
 Checkbox.defaultProps = {
   loading: false,
   disabled: false,
-  size: 'text700',
+  size: "text700",
   defaultChecked: false,
-  activeColor: 'blue600',
-  inactiveColor: 'gray400',
+  activeColor: "blue600",
+  inactiveColor: "gray400"
 };
 
 export { Checkbox };

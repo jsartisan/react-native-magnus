@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Icon Component should render without issues 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "transparent",
+      "color": "#8c8c8c",
+      "fontSize": 15,
+      "justifyContent": "center",
+    }
+  }
+>
+  <Text
+    allowFontScaling={false}
+    style={
+      Array [
+        Object {
+          "color": "#8c8c8c",
+          "fontSize": 15,
+        },
+        undefined,
+        Object {
+          "fontFamily": "anticon",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        Object {},
+      ]
+    }
+  >
+    
+  </Text>
+</View>
+`;

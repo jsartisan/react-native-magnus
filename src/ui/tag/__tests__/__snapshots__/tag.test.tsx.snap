@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tag Component should render without issues 1`] = `
+<View
+  accessible={true}
+  bg="gray200"
+  clickable={true}
+  color="gray800"
+  fontSize="text200"
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  px="md"
+  py="sm"
+  style={
+    Object {
+      "alignItems": "center",
+      "alignSelf": "flex-start",
+      "backgroundColor": "#d9d9d9",
+      "borderColor": "rgba(0,0,0,0)",
+      "borderRadius": 6,
+      "borderWidth": 0,
+      "flexDirection": "row",
+      "justifyContent": "center",
+      "paddingHorizontal": 8,
+      "paddingVertical": 6,
+    }
+  }
+  textAlign="auto"
+  textTransform="none"
+>
+  <Text
+    style={
+      Object {
+        "color": "#404040",
+        "fontSize": 12,
+        "textAlign": "auto",
+        "textDecorationColor": "transparent",
+        "textTransform": "none",
+      }
+    }
+  />
+</View>
+`;

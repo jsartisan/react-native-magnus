@@ -1,5 +1,5 @@
-import * as React from 'react';
-import {createRef} from 'react';
+import * as React from "react";
+import { createRef } from "react";
 
 import {
   Animated,
@@ -11,19 +11,19 @@ import {
   StyleSheet,
   TouchableWithoutFeedback,
   View,
-  LayoutChangeEvent,
-} from 'react-native';
+  LayoutChangeEvent
+} from "react-native";
 
-import {Text} from '../text/text.component';
-import {TooltipProps} from './tooltip.type';
-import {getStyle} from './tooltip.style';
-import {ThemeContext} from '../../theme';
-import {Triangle} from './triangle.component';
+import { Text } from "../text/text.component";
+import { TooltipProps } from "./tooltip.type";
+import { getStyle } from "./tooltip.style";
+import { ThemeContext } from "../../theme";
+import { Triangle } from "./triangle.component";
 
 const STATES = {
-  HIDDEN: 'HIDDEN',
-  ANIMATING: 'ANIMATING',
-  SHOWN: 'SHOWN',
+  HIDDEN: "HIDDEN",
+  ANIMATING: "ANIMATING",
+  SHOWN: "SHOWN"
 };
 
 const EASING = Easing.bezier(0.4, 0, 0.2, 1);
@@ -45,7 +45,7 @@ class Tooltip extends React.Component<TooltipProps> {
     buttonHeight: 0,
 
     menuMarginAnimation: new Animated.Value(-10),
-    opacityAnimation: new Animated.Value(0),
+    opacityAnimation: new Animated.Value(0)
   };
 
   // Start menu animation
@@ -54,28 +54,28 @@ class Tooltip extends React.Component<TooltipProps> {
       return;
     }
 
-    const {width, height} = e.nativeEvent.layout;
+    const { width, height } = e.nativeEvent.layout;
 
     this.setState(
       {
         menuState: STATES.ANIMATING,
         menuWidth: width,
-        menuHeight: height,
+        menuHeight: height
       },
       () => {
         Animated.parallel([
           Animated.timing(this.state.menuMarginAnimation, {
             toValue: 0,
             duration: this.props.animationDuration,
-            easing: EASING,
+            easing: EASING
           }),
           Animated.timing(this.state.opacityAnimation, {
             toValue: 1,
             duration: this.props.animationDuration,
-            easing: EASING,
-          }),
+            easing: EASING
+          })
         ]).start();
-      },
+      }
     );
   };
 
@@ -93,9 +93,9 @@ class Tooltip extends React.Component<TooltipProps> {
           buttonWidth,
           left,
           menuState: STATES.SHOWN,
-          top,
+          top
         });
-      },
+      }
     );
   };
 
@@ -103,14 +103,14 @@ class Tooltip extends React.Component<TooltipProps> {
     Animated.timing(this.state.opacityAnimation, {
       toValue: 0,
       duration: this.props.animationDuration,
-      easing: EASING,
+      easing: EASING
     }).start(() => {
       // Reset state
       this.setState(
         {
           menuState: STATES.HIDDEN,
           menuMarginAnimation: new Animated.Value(-10),
-          opacityAnimation: new Animated.Value(0),
+          opacityAnimation: new Animated.Value(0)
         },
         () => {
           if (onHidden) {
@@ -118,10 +118,10 @@ class Tooltip extends React.Component<TooltipProps> {
           }
 
           // Invoke onHidden callback if defined
-          if (Platform.OS !== 'ios' && this.props.onHidden) {
+          if (Platform.OS !== "ios" && this.props.onHidden) {
             this.props.onHidden();
           }
-        },
+        }
       );
     });
   };
@@ -132,8 +132,8 @@ class Tooltip extends React.Component<TooltipProps> {
   };
 
   render() {
-    const dimensions = Dimensions.get('window');
-    const {width: windowWidth} = dimensions;
+    const dimensions = Dimensions.get("window");
+    const { width: windowWidth } = dimensions;
     const windowHeight = dimensions.height - (StatusBar.currentHeight || 0);
 
     const {
@@ -142,11 +142,11 @@ class Tooltip extends React.Component<TooltipProps> {
       buttonWidth,
       buttonHeight,
       opacityAnimation,
-      menuMarginAnimation,
+      menuMarginAnimation
     } = this.state;
 
     // Adjust position of menu
-    let {left, top} = this.state;
+    let { left, top } = this.state;
     let invert = false;
 
     if (top + menuHeight + buttonHeight + SCREEN_INDENT > windowHeight) {
@@ -162,21 +162,21 @@ class Tooltip extends React.Component<TooltipProps> {
     const shadowMenuContainerStyle = {
       opacity: opacityAnimation,
       top,
-      marginTop: menuMarginAnimation,
+      marginTop: menuMarginAnimation
     };
 
-    const {menuState} = this.state;
+    const { menuState } = this.state;
     const animationStarted = menuState === STATES.ANIMATING;
     const modalVisible = menuState === STATES.SHOWN || animationStarted;
 
-    const {text, style, children} = this.props;
+    const { text, style, children } = this.props;
 
     return (
       <ThemeContext.Consumer>
         {theme => {
           const computedStyle = getStyle(theme, this.props, {
             ...this.state,
-            invert,
+            invert
           });
 
           return (
@@ -187,31 +187,34 @@ class Tooltip extends React.Component<TooltipProps> {
                 visible={modalVisible}
                 onRequestClose={this._hide}
                 supportedOrientations={[
-                  'portrait',
-                  'portrait-upside-down',
-                  'landscape',
-                  'landscape-left',
-                  'landscape-right',
+                  "portrait",
+                  "portrait-upside-down",
+                  "landscape",
+                  "landscape-left",
+                  "landscape-right"
                 ]}
                 transparent
-                onDismiss={this._onDismiss}>
+                onDismiss={this._onDismiss}
+              >
                 <TouchableWithoutFeedback
                   onPress={this._hide}
-                  accessible={false}>
+                  accessible={false}
+                >
                   <View style={StyleSheet.absoluteFill}>
                     <Animated.View
                       onLayout={this._onMenuLayout}
                       style={[
                         styles.shadowMenuContainer,
                         shadowMenuContainerStyle,
-                        style,
-                      ]}>
+                        style
+                      ]}
+                    >
                       <Triangle
                         invert={invert}
                         style={computedStyle.triangle}
                       />
                       <Animated.View style={computedStyle.container}>
-                        {typeof text === 'string' ? (
+                        {typeof text === "string" ? (
                           <Text style={computedStyle.text}>{text}</Text>
                         ) : (
                           text
@@ -231,24 +234,24 @@ class Tooltip extends React.Component<TooltipProps> {
 
 Tooltip.defaultProps = {
   animationDuration: 300,
-  bg: 'gray900',
-  color: 'white',
-  p: 'lg',
-  rounded: 'xl',
-  mx: 'lg',
+  bg: "gray900",
+  color: "white",
+  p: "lg",
+  rounded: "xl",
+  mx: "lg"
 };
 
 const styles = StyleSheet.create({
   shadowMenuContainer: {
-    position: 'absolute',
-    backgroundColor: 'transparent',
+    position: "absolute",
+    backgroundColor: "transparent",
     borderRadius: 4,
     opacity: 0,
-    width: '100%',
+    width: "100%"
   },
   menuContainer: {
-    overflow: 'hidden',
-  },
+    overflow: "hidden"
+  }
 });
 
-export {Tooltip};
+export { Tooltip };

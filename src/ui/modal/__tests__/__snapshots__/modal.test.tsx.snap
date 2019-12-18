@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal Component should render without issues 1`] = `
+<Modal
+  animationType="none"
+  hardwareAccelerated={false}
+  hideModalContentWhileAnimating={false}
+  onModalHide={[Function]}
+  onModalWillHide={[Function]}
+  onModalWillShow={[Function]}
+  onRequestClose={[Function]}
+  scrollHorizontal={false}
+  scrollOffset={0}
+  scrollOffsetMax={0}
+  scrollTo={null}
+  supportedOrientations={
+    Array [
+      "portrait",
+      "landscape",
+    ]
+  }
+  swipeThreshold={100}
+  transparent={true}
+  visible={false}
+>
+  <View
+    accessible={true}
+    clickable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "black",
+        "bottom": 0,
+        "height": 1334,
+        "left": 0,
+        "opacity": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+        "width": 750,
+      }
+    }
+  />
+  <View
+    hideModalContentWhileAnimating={false}
+    onModalHide={[Function]}
+    onModalWillHide={[Function]}
+    onModalWillShow={[Function]}
+    pointerEvents="box-none"
+    scrollHorizontal={false}
+    scrollOffset={0}
+    scrollOffsetMax={0}
+    scrollTo={null}
+    style={
+      Object {
+        "flex": 1,
+        "justifyContent": "center",
+        "margin": 0,
+        "transform": Array [
+          Object {
+            "translateY": 0,
+          },
+        ],
+      }
+    }
+    supportedOrientations={
+      Array [
+        "portrait",
+        "landscape",
+      ]
+    }
+    swipeThreshold={100}
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "flex-start",
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 0,
+          "flexDirection": "column",
+          "flexWrap": "nowrap",
+          "height": "100%",
+          "justifyContent": undefined,
+          "position": "relative",
+        }
+      }
+    >
+      <RCTSafeAreaView
+        emulateUnlessSupported={true}
+        pointerEvents="box-none"
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "backgroundColor": "#FFFFFF",
+              "borderRadius": 0,
+              "flexDirection": "column",
+              "flexWrap": "nowrap",
+              "justifyContent": undefined,
+              "position": "relative",
+            }
+          }
+        />
+      </RCTSafeAreaView>
+    </View>
+  </View>
+</Modal>
+`;

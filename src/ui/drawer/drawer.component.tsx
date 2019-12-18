@@ -8,14 +8,14 @@ import { ThemeContext } from "../../theme";
 import { DrawerProps } from "./drawer.type";
 import { getThemeProperty } from "../../theme/theme.service";
 
-interface drawerRef {
+export interface DrawerRef {
   close: any;
   open: any;
 }
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
 
-const Drawer = React.forwardRef<drawerRef, DrawerProps>((props, ref) => {
+const Drawer = React.forwardRef<DrawerRef, DrawerProps>((props, ref) => {
   const { direction, drawerPercentage, animationTime, children } = props;
   const theme = useContext(ThemeContext);
   const computedStyle = getStyle(theme, props);

@@ -1,13 +1,13 @@
 import {
   ViewProps as RNViewProps,
-  ImageSourcePropType as RNImageSourcePropType,
-} from 'react-native';
+  ImageSourcePropType as RNImageSourcePropType
+} from "react-native";
 
 import {
   BorderPropsType,
   SpacingPropsType,
-  RoundedPropsType,
-} from '../../theme';
+  RoundedPropsType
+} from "../../theme";
 
 export interface TooltipProps
   extends RNViewProps,
@@ -15,8 +15,8 @@ export interface TooltipProps
     SpacingPropsType,
     RoundedPropsType {
   bg?: string;
-  animationDuration: number;
-  onHidden: () => void;
+  animationDuration?: number;
+  onHidden?: () => void;
   text: string | React.ReactNode;
 }
 

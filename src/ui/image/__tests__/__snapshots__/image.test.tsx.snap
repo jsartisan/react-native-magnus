@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Image Component should render without issues 1`] = `
+<Image
+  source={
+    Object {
+      "uri": "http://google.com",
+    }
+  }
+  style={Object {}}
+/>
+`;

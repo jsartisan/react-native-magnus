@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Text Component should render without issues 1`] = `
+<Text
+  style={
+    Object {
+      "backgroundColor": "transparent",
+      "color": "#262626",
+      "fontSize": 15,
+      "lineHeight": 22.5,
+      "textAlign": "auto",
+      "textDecorationColor": "transparent",
+      "textTransform": "none",
+    }
+  }
+/>
+`;

@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input Component should render without issues 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "white",
+      "borderColor": "#d9d9d9",
+      "borderRadius": 6,
+      "borderWidth": 1,
+      "flexDirection": "row",
+      "padding": 8,
+    }
+  }
+>
+  <TextInput
+    allowFontScaling={true}
+    onBlur={[Function]}
+    onFocus={[Function]}
+    placeholderTextColor="rgba(64, 64, 64, 0.4)"
+    rejectResponderTermination={true}
+    style={
+      Object {
+        "color": "#404040",
+        "flex": 1,
+        "fontSize": 13,
+        "padding": 0,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+</View>
+`;

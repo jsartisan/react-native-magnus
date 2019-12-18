@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Badge Component should render without issues 1`] = `
+<View
+  style={
+    Object {
+      "borderRadius": 1000000,
+      "minHeight": 10,
+      "minWidth": 10,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#FFFFFF",
+        "borderRadius": 1000000,
+        "height": 48,
+        "justifyContent": "center",
+        "position": "relative",
+        "width": 48,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#000",
+          "fontSize": 15,
+          "textAlign": "center",
+          "textAlignVertical": "center",
+        }
+      }
+    >
+      1
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#69df39",
+        "borderRadius": 1000000,
+        "justifyContent": "center",
+        "minHeight": 10,
+        "minWidth": 10,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+        "zIndex": 9999,
+      }
+    }
+  />
+</View>
+`;

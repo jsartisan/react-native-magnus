@@ -1,14 +1,10 @@
-import * as React from 'react';
-import { useContext } from 'react';
-import {
-  View as RNView,
-  Text as RNText,
-  ImageBackground as RNImageBackground,
-} from 'react-native';
+import * as React from "react";
+import { useContext } from "react";
+import { View as RNView, Text as RNText } from "react-native";
 
-import { BadgeProps } from './badge.type';
-import { getStyle } from './badge.style';
-import { ThemeContext } from '../../theme';
+import { BadgeProps } from "./badge.type";
+import { getStyle } from "./badge.style";
+import { ThemeContext } from "../../theme";
 
 const Badge: React.FunctionComponent<BadgeProps> = (props: BadgeProps) => {
   const {
@@ -17,6 +13,7 @@ const Badge: React.FunctionComponent<BadgeProps> = (props: BadgeProps) => {
     m,
     mt,
     mr,
+    bg,
     mb,
     ml,
     p,
@@ -35,6 +32,7 @@ const Badge: React.FunctionComponent<BadgeProps> = (props: BadgeProps) => {
     roundedBottom,
     roundedLeft,
     alignItems,
+    fontSize,
     justifyContent,
     borderColor,
     borderBottomColor,
@@ -46,6 +44,10 @@ const Badge: React.FunctionComponent<BadgeProps> = (props: BadgeProps) => {
     borderRightWidth,
     shadowColor,
     children,
+    right,
+    top,
+    left,
+    bottom,
     count,
     color,
     ...rest
@@ -55,9 +57,9 @@ const Badge: React.FunctionComponent<BadgeProps> = (props: BadgeProps) => {
 
   return (
     <RNView style={computedStyle.container}>
-      {typeof children !== 'string' && children}
+      {typeof children !== "string" && children}
       <RNView style={computedStyle.div} {...rest}>
-        {typeof children === 'string' && (
+        {typeof children === "string" && (
           <RNText style={computedStyle.text}>{children}</RNText>
         )}
       </RNView>
@@ -66,15 +68,15 @@ const Badge: React.FunctionComponent<BadgeProps> = (props: BadgeProps) => {
 };
 
 Badge.defaultProps = {
-  bg: 'green500',
-  rounded: 'circle',
+  bg: "green500",
+  rounded: "circle",
   shadow: 0,
-  color: 'white',
+  color: "white",
   top: 0,
   right: 0,
-  shadowColor: 'gray900',
-  position: 'relative',
-  fontSize: 'text100',
+  shadowColor: "gray900",
+  position: "relative",
+  fontSize: "text100"
 };
 
 export { Badge };

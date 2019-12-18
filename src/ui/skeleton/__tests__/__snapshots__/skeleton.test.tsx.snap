@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Skeleton Component should render without issues 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#a6a6a6",
+      "borderRadius": 6,
+      "height": 15,
+      "opacity": 1,
+      "width": "100%",
+    }
+  }
+/>
+`;

@@ -1,13 +1,13 @@
 import {
   ViewProps as RNViewProps,
-  ImageSourcePropType as RNImageSourcePropType,
-} from 'react-native';
+  ImageSourcePropType as RNImageSourcePropType
+} from "react-native";
 
 import {
   BorderPropsType,
   SpacingPropsType,
-  RoundedPropsType,
-} from '../../theme';
+  RoundedPropsType
+} from "../../theme";
 
 export interface DropdownProps
   extends RNViewProps,
@@ -23,21 +23,21 @@ export interface DropdownProps
   minW?: number;
   bgImg?: RNImageSourcePropType;
   showScrollIndicator?: boolean;
-  bgMode?: 'contain' | 'cover' | 'stretch';
+  bgMode?: "contain" | "cover" | "stretch";
   flex?: number;
   shadow?: number;
   shadowColor?: string;
   justifyContent?:
-    | 'flex-start'
-    | 'flex-end'
-    | 'center'
-    | 'space-between'
-    | 'space-around'
-    | 'space-evenly';
-  alignItems?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
-  flexDir?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
-  flexWrap?: 'wrap' | 'nowrap' | 'wrap-reverse';
-  position?: 'absolute' | 'relative';
+    | "flex-start"
+    | "flex-end"
+    | "center"
+    | "space-between"
+    | "space-around"
+    | "space-evenly";
+  alignItems?: "flex-start" | "flex-end" | "center" | "stretch" | "baseline";
+  flexDir?: "row" | "column" | "row-reverse" | "column-reverse";
+  flexWrap?: "wrap" | "nowrap" | "wrap-reverse";
+  position?: "absolute" | "relative";
   top?: number;
   right?: number;
   bottom?: number;

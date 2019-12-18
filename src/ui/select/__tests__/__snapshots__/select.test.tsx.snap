@@ -1,0 +1,182 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Div Component should render without issues 1`] = `
+<Modal
+  animationType="none"
+  hardwareAccelerated={false}
+  hideModalContentWhileAnimating={true}
+  onModalHide={[Function]}
+  onModalWillHide={[Function]}
+  onModalWillShow={[Function]}
+  onRequestClose={[Function]}
+  scrollHorizontal={false}
+  scrollOffset={0}
+  scrollOffsetMax={0}
+  scrollTo={null}
+  supportedOrientations={
+    Array [
+      "portrait",
+      "landscape",
+    ]
+  }
+  swipeThreshold={100}
+  transparent={true}
+  visible={false}
+>
+  <View
+    accessible={true}
+    clickable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "black",
+        "bottom": 0,
+        "height": 1334,
+        "left": 0,
+        "opacity": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+        "width": 750,
+      }
+    }
+  />
+  <View
+    hideModalContentWhileAnimating={true}
+    onModalHide={[Function]}
+    onModalWillHide={[Function]}
+    onModalWillShow={[Function]}
+    pointerEvents="box-none"
+    scrollHorizontal={false}
+    scrollOffset={0}
+    scrollOffsetMax={0}
+    scrollTo={null}
+    style={
+      Object {
+        "flex": 1,
+        "justifyContent": "flex-end",
+        "margin": 0,
+        "transform": Array [
+          Object {
+            "translateY": 0,
+          },
+        ],
+      }
+    }
+    supportedOrientations={
+      Array [
+        "portrait",
+        "landscape",
+      ]
+    }
+    swipeThreshold={100}
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "flex-start",
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 0,
+          "flexDirection": "column",
+          "flexWrap": "nowrap",
+          "justifyContent": undefined,
+          "maxHeight": 933.8,
+          "position": "relative",
+        }
+      }
+    >
+      <RCTSafeAreaView
+        emulateUnlessSupported={true}
+        style={Object {}}
+      >
+        <RCTScrollView
+          data={Array []}
+          disableVirtualization={false}
+          getItem={[Function]}
+          getItemCount={[Function]}
+          horizontal={false}
+          initialNumToRender={10}
+          keyExtractor={[Function]}
+          maxToRenderPerBatch={10}
+          numColumns={1}
+          onContentSizeChange={[Function]}
+          onEndReachedThreshold={2}
+          onLayout={[Function]}
+          onMomentumScrollEnd={[Function]}
+          onScroll={[Function]}
+          onScrollBeginDrag={[Function]}
+          onScrollEndDrag={[Function]}
+          removeClippedSubviews={false}
+          renderItem={[Function]}
+          scrollEventThrottle={50}
+          stickyHeaderIndices={Array []}
+          updateCellsBatchingPeriod={50}
+          viewabilityConfigCallbackPairs={Array []}
+          windowSize={21}
+        >
+          <View />
+        </RCTScrollView>
+        <View
+          accessible={true}
+          clickable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "alignSelf": "stretch",
+              "backgroundColor": "#50c620",
+              "borderRadius": 6,
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "marginHorizontal": 24,
+              "marginTop": 12,
+              "overflow": "hidden",
+              "padding": 8,
+              "position": "relative",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "alignSelf": "stretch",
+                "flexDirection": "row",
+                "justifyContent": "center",
+                "position": "relative",
+                "width": "100%",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#FFFFFF",
+                  "fontSize": 15,
+                  "lineHeight": 18,
+                  "textAlign": "right",
+                }
+              }
+            >
+              Submit
+            </Text>
+          </View>
+        </View>
+      </RCTSafeAreaView>
+    </View>
+  </View>
+</Modal>
+`;

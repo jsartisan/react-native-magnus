@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Overlay Component should render without issues 1`] = `
+<Modal
+  animationType="fade"
+  hardwareAccelerated={false}
+  onRequestClose={[Function]}
+  transparent={true}
+  visible={true}
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "rgba(0, 0, 0, 0.6)",
+        "flex": 1,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "alignSelf": "center",
+          "backgroundColor": "#FFFFFF",
+          "borderRadius": 6,
+          "padding": 12,
+          "width": "80%",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "backgroundColor": "#FFFFFF",
+            "borderRadius": 0,
+            "flexDirection": "column",
+            "flexWrap": "nowrap",
+            "justifyContent": undefined,
+            "position": "relative",
+          }
+        }
+      />
+    </View>
+  </View>
+</Modal>
+`;

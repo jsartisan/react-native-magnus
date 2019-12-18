@@ -5,7 +5,7 @@
   "types": "lib/index.d.ts",
   "main": "lib/index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --update-snapshot ",
     "build": "rm ./lib/* && tsc",
     "pre": "rm ./lib/* && tsc && npm version patch"
   },

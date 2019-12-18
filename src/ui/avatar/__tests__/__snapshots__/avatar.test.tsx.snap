@@ -1,5 +1,44 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Avatar Component should render with props 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#e83045",
+      "borderRadius": 1000000,
+      "elevation": 1,
+      "height": 100,
+      "justifyContent": "center",
+      "margin": 8,
+      "padding": 8,
+      "position": "relative",
+      "shadowColor": "white",
+      "shadowOffset": Object {
+        "height": 1,
+        "width": 0,
+      },
+      "shadowOpacity": 0.18,
+      "shadowRadius": 1,
+      "width": 100,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "#e83045",
+        "fontSize": 15,
+        "textAlign": "center",
+        "textAlignVertical": "center",
+      }
+    }
+  >
+    1
+  </Text>
+</View>
+`;
+
 exports[`Avatar Component should render without issues 1`] = `
 <View
   style={

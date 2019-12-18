@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Div Component should render without issues 1`] = `
+<View
+  collapsable={false}
+>
+  <View>
+    Tooltip
+  </View>
+  <Modal
+    hardwareAccelerated={false}
+    onDismiss={[Function]}
+    onRequestClose={[Function]}
+    supportedOrientations={
+      Array [
+        "portrait",
+        "portrait-upside-down",
+        "landscape",
+        "landscape-left",
+        "landscape-right",
+      ]
+    }
+    transparent={true}
+    visible={false}
+  >
+    <View
+      accessible={false}
+      clickable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        }
+      }
+    >
+      <View
+        onLayout={[Function]}
+        style={
+          Object {
+            "backgroundColor": "transparent",
+            "borderRadius": 4,
+            "marginTop": -10,
+            "opacity": 0,
+            "position": "absolute",
+            "top": 8,
+            "width": "100%",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "borderBottomColor": "#262626",
+              "borderBottomWidth": 10,
+              "borderLeftColor": "transparent",
+              "borderLeftWidth": 8,
+              "borderRightColor": "transparent",
+              "borderRightWidth": 8,
+              "borderStyle": "solid",
+              "height": 0,
+              "left": -7.5,
+              "top": 0,
+              "width": 0,
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": undefined,
+              "alignSelf": "center",
+              "backgroundColor": "#262626",
+              "borderRadius": 12,
+              "flexDirection": undefined,
+              "flexWrap": undefined,
+              "justifyContent": undefined,
+              "marginHorizontal": 12,
+              "padding": 12,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "backgroundColor": "transparent",
+                "color": "#FFFFFF",
+                "fontSize": 15,
+                "lineHeight": 22.5,
+                "textAlign": "auto",
+                "textDecorationColor": "transparent",
+                "textTransform": "none",
+              }
+            }
+          >
+            Tooltip text
+          </Text>
+        </View>
+      </View>
+    </View>
+  </Modal>
+</View>
+`;
