@@ -1,4 +1,4 @@
-import { StyleSheet, Platform } from 'react-native';
+import {StyleSheet, Platform} from 'react-native';
 
 import {
   getThemeProperty,
@@ -20,6 +20,7 @@ export const getStyle = (theme: any, props: any, state: any) => {
   const computedStyle: any = {};
 
   computedStyle.container = {
+    alignSelf: 'center',
     flexDirection: props.flexDir,
     flexWrap: props.flexWrap,
     alignItems: props.alignItems,

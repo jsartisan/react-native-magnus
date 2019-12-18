@@ -1,42 +1,85 @@
 import * as React from 'react';
-import { TouchableHighlightProps as RNButtonProps } from 'react-native';
 
+import { GestureResponderEvent as RNGestureResponderEvent } from 'react-native';
+import { OptionProps } from './option.type';
 import { Button } from '../button/button.component';
+import { Div } from '../div/div.component';
+import { Icon } from '../icon/icon.component';
+import { Text } from '../text/text.component';
 
-interface TextInputProps extends RNButtonProps {
-  m?: any;
-  p?: any;
-  center?: boolean;
-  value: any;
-  onSelect?: (value: any) => void;
-  children?: React.ReactElement[] | React.ReactElement;
-}
-
-type Ref = {};
-
-const Option = React.forwardRef<Ref, TextInputProps>(props => {
-  const { children, center, value, onSelect, ...rest } = props;
+const Option: React.FunctionComponent<OptionProps> = props => {
+  const {
+    children,
+    suffix,
+    value,
+    onPress: onPressProp,
+    onSelect,
+    selectedValue,
+    ...rest
+  } = props;
+  const isSelected = selectedValue.includes(value);
 
   /**
-   * on press select
+   * on press select option
    *
    * @param e
    */
-  const onPress = () => {
+  const onPress = (event: RNGestureResponderEvent) => {
     if (onSelect) {
       onSelect(value);
     }
+
+    if (onPressProp) {
+      onPressProp(event);
+    }
   };
 
+  /**
+   * render suffix
+   */
+  const renderSuffix = () => {
+    if (suffix && isSelected) {
+      if (typeof suffix === 'string') {
+        return (
+          <Icon name={suffix} fontSize="text500" color="green600" mr="md" />
+        );
+      }
+
+      return suffix;
+    }
+
+    if (isSelected) {
+      return <Icon name="check" fontSize="text500" color="green600" mr="md" />;
+    }
+
+    return false;
+  };
+
+  const renderChildren = () => {
+    if (typeof children === 'string') {
+      return <Text>{children}</Text>;
+    }
+
+    return children;
+  };
   return (
-    <Button {...rest} onPress={onPress}>
-      {children}
+    <Button {...rest} onPress={onPress} block alignItems="center">
+      <Div flex={1} bg="transparent">
+        {renderChildren()}
+      </Div>
+      {renderSuffix()}
     </Button>
   );
-});
+};
 
 Option.defaultProps = {
   onSelect: () => {},
+  rounded: 0,
+  bg: 'white',
+  p: 0,
+  color: 'black',
+  alignItems: 'flex-start',
+  justifyContent: 'flex-start',
   center: false,
 };
 

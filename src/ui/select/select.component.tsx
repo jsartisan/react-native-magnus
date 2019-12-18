@@ -1,11 +1,7 @@
 import * as React from 'react';
 import { useContext, useState, useImperativeHandle } from 'react';
-import {
-  View as RNView,
-  TouchableHighlightProps as RNButtonProps,
-  SafeAreaView,
-} from 'react-native';
-import Modal from 'react-native-modal';
+import { SafeAreaView, FlatList } from 'react-native';
+import RNModal from 'react-native-modal';
 
 import { getStyle } from './select.style';
 import { Div } from '../div/div.component';
@@ -13,69 +9,23 @@ import { Text } from '../text/text.component';
 import { Button } from '../button/button.component';
 import { ThemeContext } from '../../theme';
 import { Option } from './option.component';
-import { getThemeProperty } from '../../theme/theme.service';
-
-interface SelectProps extends RNButtonProps {
-  h?: number;
-  w?: number | string;
-  m?: any;
-  p?: any;
-  color?: string;
-  bg?: string;
-  borderColor?: any;
-  borderWidth?: any;
-  rounded?: any;
-  style?: any;
-  value?: any;
-  children: React.ReactElement[] | React.ReactElement;
-  placeholder?: string;
-  minW?: number | string;
-  minH?: number | string;
-  suffix?: React.ReactNode;
-  prefix?: React.ReactNode;
-  onSelect: (value: any) => void;
-}
-
+import { SelectProps } from './select.type';
 type Ref = {};
 
 const Select = React.forwardRef<Ref, SelectProps>((props, ref) => {
   const {
-    m,
-    p,
-    w,
-    h,
-    bg,
-    borderColor,
-    borderWidth,
-    rounded,
-    suffix,
-    color,
-    prefix,
-    placeholder,
     value,
+    title,
+    multiple,
+    footer,
     onSelect: onSelectProp,
-    children,
-    ...rest
+    data,
+    renderItem,
   } = props;
   const theme = useContext(ThemeContext);
-  const [isFocussed] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [selectedValue, setSelectedValue] = useState(value);
-  const computedStyle = getStyle(theme, {}, { isFocussed });
-  const underlayColor = getThemeProperty(
-    theme.colors,
-    props.underlayColor,
-    props.underlayColor,
-  );
-
-  /**
-   * on press select
-   *
-   * @param e
-   */
-  const onPress = () => {
-    setIsVisible(true);
-  };
+  const computedStyle = getStyle(theme, props, {});
 
   /**
    * exposing functions to parent
@@ -84,75 +34,113 @@ const Select = React.forwardRef<Ref, SelectProps>((props, ref) => {
     close() {
       setIsVisible(false);
     },
+    open() {
+      setIsVisible(true);
+    },
   }));
 
   /**
+   * set values of select based if its multiple select
+   * or single valued select
+   *
    * @param value
    */
   const onSelect = (value: any) => {
-    onSelectProp(value);
-    setSelectedValue(value);
-    setIsVisible(false);
+    let finalValue;
+
+    if (multiple) {
+      const copy = selectedValue.slice();
+      const index = selectedValue.indexOf(value);
+      if (index !== -1) {
+        copy.splice(index, 1);
+      } else {
+        copy.push(value);
+      }
+
+      setSelectedValue(copy);
+      finalValue = copy;
+    } else {
+      setSelectedValue(value);
+      setIsVisible(false);
+      finalValue = value;
+    }
+
+    onSelectProp(finalValue);
+  };
+
+  /**
+   * render title at top select modal
+   */
+  const renderTitle = () => {
+    if (title) {
+      return typeof title === 'string' ? (
+        <Text fontSize="text400" color="gray700" px="xl" pt="md" pb="lg">
+          {title}
+        </Text>
+      ) : (
+        { title }
+      );
+    }
+
+    return false;
+  };
+
+  const renderFooter = () => {
+    if (footer) {
+      return footer;
+    }
+
+    return (
+      <Button
+        block
+        bg="green600"
+        mx="xl"
+        mt="lg"
+        onPress={() => {
+          setIsVisible(false);
+        }}>
+        Submit
+      </Button>
+    );
   };
 
   return (
-    <Button {...rest} onPress={onPress} underlayColor={underlayColor}>
-      <>
-        <RNView style={computedStyle.container}>
-          {prefix && <RNView style={computedStyle.prefix}>{prefix}</RNView>}
-          {selectedValue && (
-            <Text fontSize="text400" color={color} style={{ flex: 1 }}>
-              {selectedValue}
-            </Text>
-          )}
-          {!selectedValue && (
-            <Text fontSize="text400" color="gray300" style={{ flex: 1 }}>
-              {placeholder}
-            </Text>
-          )}
-          {suffix && <RNView style={computedStyle.suffix}>{suffix}</RNView>}
-        </RNView>
-        <Modal
-          backdropTransitionOutTiming={0}
-          isVisible={isVisible}
-          onSwipeComplete={() => setIsVisible(false)}
-          swipeDirection={['down']}
-          backdropColor="black"
-          onBackdropPress={() => setIsVisible(false)}
-          style={{
-            margin: 0,
-            justifyContent: 'flex-end',
-          }}>
-          <Div style={{ backgroundColor: 'white' }}>
-            <SafeAreaView pointerEvents="box-none">
-              <Text
-                textAlign="center"
-                p="md"
-                fontSize="text300"
-                color="gray500">
-                {placeholder}
-              </Text>
-              {React.Children.map(children, (child: React.ReactElement) => {
-                return React.cloneElement(child, {
-                  onSelect,
-                });
-              })}
-            </SafeAreaView>
-          </Div>
-        </Modal>
-      </>
-    </Button>
+    <RNModal
+      backdropTransitionOutTiming={0}
+      animationIn="slideInUp"
+      isVisible={isVisible}
+      backdropColor="black"
+      onBackdropPress={() => setIsVisible(false)}
+      hideModalContentWhileAnimating={true}
+      style={{
+        margin: 0,
+        justifyContent: 'flex-end',
+      }}>
+      <Div style={computedStyle.wrapper}>
+        <SafeAreaView style={computedStyle.container}>
+          {renderTitle()}
+          <FlatList
+            data={data}
+            keyExtractor={item => item}
+            renderItem={({ item, index }) =>
+              React.cloneElement(renderItem(item, index), {
+                onSelect,
+                selectedValue,
+              })
+            }
+          />
+          {renderFooter()}
+        </SafeAreaView>
+      </Div>
+    </RNModal>
   );
 });
 
 Select.defaultProps = {
-  minH: 40,
-  p: { x: 12 },
-  borderColor: 'gray300',
-  borderWidth: 1,
-  rounded: 'md',
-  color: 'gray800',
-  underlayColor: 'gray100',
+  bg: 'white',
+  rounded: 'none',
+  flexDir: 'column',
+  showScrollIndicator: true,
 };
 
 export { Option, Select };

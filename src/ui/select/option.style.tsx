@@ -1,10 +1,10 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
 import {
   getThemeProperty,
   createSpacingStyles,
-  createBorderRadiusStyles
-} from "../../theme/theme.service";
+  createBorderRadiusStyles,
+} from '../../theme/theme.service';
 
 /**
  * computed style
@@ -16,82 +16,82 @@ export const getStyle = (theme: any, props: any) => {
   const computedStyle: any = {};
 
   computedStyle.button = {
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "row",
-    alignSelf: "flex-start",
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+    alignSelf: 'flex-start',
     position: props.position,
-    backgroundColor: getThemeProperty(theme.colors, props.bg, "transparent"),
-    ...createSpacingStyles(props, theme.spacing)
+    backgroundColor: getThemeProperty(theme.colors, props.bg, 'transparent'),
+    ...createSpacingStyles(props, theme.spacing),
   };
 
   computedStyle.text = {
-    color: getThemeProperty(theme.colors, props.color, "black"),
-    textAlign: "right",
-    fontSize: getThemeProperty(theme.fontSize, props.fontSize, 16)
+    color: getThemeProperty(theme.colors, props.color, 'black'),
+    textAlign: 'right',
+    fontSize: getThemeProperty(theme.fontSize, props.fontSize, 16),
   };
 
   computedStyle.container = {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    position: "relative"
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'relative',
   };
 
   if (props.shadow) {
     computedStyle.button = {
       ...computedStyle.button,
       ...theme.shadow[props.shadow],
-      shadowColor: getThemeProperty(theme.colors, props.shadowColor, "white")
+      shadowColor: getThemeProperty(theme.colors, props.shadowColor, 'white'),
     };
   }
 
   if (props.block) {
     computedStyle.container = {
       ...computedStyle.container,
-      width: "100%"
+      width: '100%',
     };
   }
 
   if (props.w) {
     computedStyle.button = {
       ...computedStyle.button,
-      width: props.w
+      width: props.w,
     };
   }
 
   if (props.h) {
     computedStyle.button = {
       ...computedStyle.button,
-      height: props.h
+      height: props.h,
     };
   }
 
   if (props.top) {
     computedStyle.button = {
       ...computedStyle.button,
-      top: props.top
+      top: props.top,
     };
   }
 
   if (props.right) {
     computedStyle.button = {
       ...computedStyle.button,
-      right: props.right
+      right: props.right,
     };
   }
 
   if (props.bottom) {
     computedStyle.button = {
       ...computedStyle.button,
-      bottom: props.bottom
+      bottom: props.bottom,
     };
   }
 
   if (props.left) {
     computedStyle.button = {
       ...computedStyle.button,
-      left: props.left
+      left: props.left,
     };
   }
 
@@ -101,29 +101,29 @@ export const getStyle = (theme: any, props: any) => {
       borderColor: getThemeProperty(
         theme.colors,
         props.borderColor,
-        "transparent"
-      )
+        'transparent',
+      ),
     };
   }
 
   if (props.borderWidth) {
     computedStyle.button = {
       ...computedStyle.button,
-      borderWidth: props.borderWidth
+      borderWidth: props.borderWidth,
     };
   }
 
   if (props.rounded) {
     computedStyle.button = {
       ...computedStyle.button,
-      ...createBorderRadiusStyles(props.rounded, theme.borderRadius)
+      ...createBorderRadiusStyles(props.rounded, theme.borderRadius),
     };
   }
 
   if (props.disabled) {
     computedStyle.button = {
       ...computedStyle.button,
-      opacity: 0.5
+      opacity: 0.5,
     };
   }
 
@@ -131,7 +131,7 @@ export const getStyle = (theme: any, props: any) => {
   if (props.style) {
     computedStyle.container = {
       ...computedStyle.container,
-      ...props.style
+      ...props.style,
     };
   }
 

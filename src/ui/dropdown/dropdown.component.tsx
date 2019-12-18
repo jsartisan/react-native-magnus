@@ -55,52 +55,65 @@ const Dropdown = React.forwardRef<dropdownRef, DropdownProps>((props, ref) => {
     },
   }));
 
+  /**
+   * render title
+   */
+  const renderTitle = () => {
+    if (title) {
+      return typeof title === 'string' ? (
+        <Text fontSize="text400" color="gray700" px="xl" pt="md" pb="lg">
+          {title}
+        </Text>
+      ) : (
+        { title }
+      );
+    }
+
+    return false;
+  };
+
+  /**
+   * render scroll indicator
+   */
+  const renderIndicator = () => {
+    return (
+      showScrollIndicator && (
+        <Div
+          h={7}
+          rounded="xl"
+          w={40}
+          bg="gray200"
+          style={computedStyle.indicator}></Div>
+      )
+    );
+  };
+
   return (
-    <>
-      <RNModal
-        backdropTransitionOutTiming={0}
-        isVisible={isVisible}
-        onSwipeComplete={() => setIsVisible(false)}
-        swipeDirection={['down']}
-        backdropColor="black"
-        onBackdropPress={() => setIsVisible(false)}
-        style={{
-          margin: 0,
-          justifyContent: 'flex-end',
-        }}>
-        <Div style={computedStyle.wrapper}>
-          {showScrollIndicator && (
-            <Div
-              h={7}
-              rounded="xl"
-              w={40}
-              bg="gray200"
-              style={computedStyle.indicator}></Div>
-          )}
-          <SafeAreaView pointerEvents="box-none">
-            <Div style={computedStyle.container}>
-              {typeof title === 'string' ? (
-                <Text
-                  fontSize="text400"
-                  color="gray700"
-                  px="xl"
-                  pt="md"
-                  pb="lg">
-                  {title}
-                </Text>
-              ) : (
-                { title }
-              )}
-              {React.Children.map(children, (child: React.ReactElement) => {
-                return React.cloneElement(child, {
-                  onSelect,
-                });
-              })}
-            </Div>
-          </SafeAreaView>
-        </Div>
-      </RNModal>
-    </>
+    <RNModal
+      backdropTransitionOutTiming={0}
+      isVisible={isVisible}
+      onSwipeComplete={() => setIsVisible(false)}
+      swipeDirection={['down']}
+      backdropColor="black"
+      onBackdropPress={() => setIsVisible(false)}
+      style={{
+        margin: 0,
+        justifyContent: 'flex-end',
+      }}>
+      <Div style={computedStyle.wrapper}>
+        {renderIndicator()}
+        <SafeAreaView pointerEvents="box-none">
+          <Div style={computedStyle.container}>
+            {renderTitle()}
+            {React.Children.map(children, (child: React.ReactElement) => {
+              return React.cloneElement(child, {
+                onSelect,
+              });
+            })}
+          </Div>
+        </SafeAreaView>
+      </Div>
+    </RNModal>
   );
 });
 

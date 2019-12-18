@@ -1,12 +1,12 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
 import {
   getThemeProperty,
   createSpacingStyles,
   createBorderColorStyles,
   createBorderWidthStyles,
-  createBorderRadiusStyles
-} from "../../theme/theme.service";
+  createBorderRadiusStyles,
+} from '../../theme/theme.service';
 
 /**
  * computed style
@@ -21,41 +21,37 @@ export const getStyle = (theme: any, props: any) => {
     borderColor: getThemeProperty(
       theme.colors,
       props.borderColor,
-      "transparent"
-    )
+      'transparent',
+    ),
   };
 
   computedStyle.container = {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     ...createBorderWidthStyles(props),
     ...createSpacingStyles(props, theme.spacing),
     ...createBorderColorStyles(props, theme.colors),
-    ...createBorderRadiusStyles(props, theme.borderRadius)
-  };
-
-  computedStyle.text = {
-    fontSize: getThemeProperty(theme.fontSize, props.fontSize, 16)
+    ...createBorderRadiusStyles(props, theme.borderRadius),
   };
 
   computedStyle.highlightContainer = {
-    backgroundColor: getThemeProperty(theme.colors, "gray100", "#e1e1e1"),
+    backgroundColor: getThemeProperty(theme.colors, 'gray100', '#e1e1e1'),
     height: getThemeProperty(theme.fontSize, props.size, 16) + 5,
     width: getThemeProperty(theme.fontSize, props.size, 16) + 5,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
     top: -2.5,
     left: -2.5,
     borderRadius: 3,
     zIndex: 1,
-    position: "absolute"
+    position: 'absolute',
   };
 
   // merging style props to computed style
   if (props.style) {
     computedStyle.div = {
       ...computedStyle.div,
-      ...props.style
+      ...props.style,
     };
   }
 

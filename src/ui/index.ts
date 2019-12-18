@@ -5,6 +5,8 @@ import {
 
 import { Dropdown as DropdownContainer } from './dropdown/dropdown.component';
 import { Option as DropdownOption } from './dropdown/option.component';
+import { Select as SelectContainer } from './select/select.component';
+import { Option as SelectOption } from './select/option.component';
 
 export { Text } from './text/text.component';
 export { Tooltip } from './tooltip/tooltip.component';
@@ -37,4 +39,9 @@ export const Skeleton = {
 export const Dropdown = {
   Container: DropdownContainer,
   Option: DropdownOption,
+};
+
+export const Select = {
+  Container: SelectContainer,
+  Option: SelectOption,
 };

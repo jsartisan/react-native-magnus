@@ -1,10 +1,10 @@
-import { GestureResponderEvent as RNGestureResponderEvent } from "react-native";
+import { GestureResponderEvent as RNGestureResponderEvent } from 'react-native';
 
 import {
   BorderPropsType,
   SpacingPropsType,
-  RoundedPropsType
-} from "../../theme";
+  RoundedPropsType,
+} from '../../theme';
 
 export interface CheckboxProps
   extends BorderPropsType,
@@ -21,4 +21,6 @@ export interface CheckboxProps
   activeColor?: string;
   inactiveColor?: string;
   defaultChecked?: boolean;
+  activeIcon?: string | React.ReactNode;
+  inactiveIcon?: string | React.ReactNode;
 }

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { createRef } from 'react';
+import {createRef} from 'react';
 
 import {
   Animated,
@@ -14,11 +14,11 @@ import {
   LayoutChangeEvent,
 } from 'react-native';
 
-import { Text } from '../text/text.component';
-import { TooltipProps } from './tooltip.type';
-import { getStyle } from './tooltip.style';
-import { ThemeContext } from '../../theme';
-import { Triangle } from './triangle.component';
+import {Text} from '../text/text.component';
+import {TooltipProps} from './tooltip.type';
+import {getStyle} from './tooltip.style';
+import {ThemeContext} from '../../theme';
+import {Triangle} from './triangle.component';
 
 const STATES = {
   HIDDEN: 'HIDDEN',
@@ -54,7 +54,7 @@ class Tooltip extends React.Component<TooltipProps> {
       return;
     }
 
-    const { width, height } = e.nativeEvent.layout;
+    const {width, height} = e.nativeEvent.layout;
 
     this.setState(
       {
@@ -133,7 +133,7 @@ class Tooltip extends React.Component<TooltipProps> {
 
   render() {
     const dimensions = Dimensions.get('window');
-    const { width: windowWidth } = dimensions;
+    const {width: windowWidth} = dimensions;
     const windowHeight = dimensions.height - (StatusBar.currentHeight || 0);
 
     const {
@@ -146,11 +146,11 @@ class Tooltip extends React.Component<TooltipProps> {
     } = this.state;
 
     // Adjust position of menu
-    let { left, top } = this.state;
+    let {left, top} = this.state;
     let invert = false;
 
     if (top + menuHeight + buttonHeight + SCREEN_INDENT > windowHeight) {
-      top = top - menuHeight - SCREEN_INDENT - 10;
+      top = top - menuHeight - SCREEN_INDENT;
       invert = true;
     } else if (top < SCREEN_INDENT) {
       top = SCREEN_INDENT + buttonHeight;
@@ -165,11 +165,11 @@ class Tooltip extends React.Component<TooltipProps> {
       marginTop: menuMarginAnimation,
     };
 
-    const { menuState } = this.state;
+    const {menuState} = this.state;
     const animationStarted = menuState === STATES.ANIMATING;
     const modalVisible = menuState === STATES.SHOWN || animationStarted;
 
-    const { text, style, children } = this.props;
+    const {text, style, children} = this.props;
 
     return (
       <ThemeContext.Consumer>
@@ -244,10 +244,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     borderRadius: 4,
     opacity: 0,
+    width: '100%',
   },
   menuContainer: {
     overflow: 'hidden',
   },
 });
 
-export { Tooltip };
+export {Tooltip};

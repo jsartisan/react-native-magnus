@@ -2,9 +2,12 @@ import { StyleSheet } from 'react-native';
 
 import {
   getThemeProperty,
-  createDirectionalStyles,
+  createSpacingStyles,
   createBorderRadiusStyles,
+  createBorderColorStyles,
+  createBorderWidthStyles,
 } from '../../theme/theme.service';
+import { ScreenHeight } from '../../utilities/dimension';
 
 /**
  * computed style
@@ -15,88 +18,27 @@ import {
 export const getStyle = (theme: any, props: any, state: any) => {
   const computedStyle: any = {};
 
-  computedStyle.container = {
-    flexDirection: 'row',
-    alignItems: 'center',
-    width: props.w,
-    borderColor: getThemeProperty(theme.colors, props.borderColor, '#e1e1e1'),
+  computedStyle.wrapper = {
     backgroundColor: getThemeProperty(theme.colors, props.bg, 'transparent'),
+    ...createBorderWidthStyles(props),
+    ...createBorderColorStyles(props, theme.colors),
+    ...createBorderRadiusStyles(props, theme.borderRadius),
+    maxHeight: ScreenHeight * 0.7,
   };
 
-  if (state.isFocussed) {
-    computedStyle.container = {
-      ...computedStyle.container,
-      borderColor: getThemeProperty(
-        theme.colors,
-        props.focusBorderColor,
-        computedStyle.container.borderColor,
-      ),
-    };
-  }
-
-  computedStyle.input = {
-    height: '100%',
-    flex: 1,
+  computedStyle.indicator = {
+    alignSelf: 'center',
+    marginVertical: 10,
   };
 
-  computedStyle.suffix = {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    marginLeft: 5,
+  computedStyle.container = {
+    ...createSpacingStyles(props, theme.spacing),
   };
-
-  computedStyle.prefix = {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    marginRight: 5,
-  };
-
-  if (props.p) {
-    computedStyle.container = {
-      ...computedStyle.container,
-      ...createDirectionalStyles('padding', props.p, 'number'),
-    };
-  }
-
-  if (props.m) {
-    computedStyle.container = {
-      ...computedStyle.container,
-      ...createDirectionalStyles('margin', props.m, 'number'),
-    };
-  }
 
   if (props.h) {
     computedStyle.container = {
       ...computedStyle.container,
       height: props.h,
-    };
-  }
-
-  if (props.minH) {
-    computedStyle.container = {
-      ...computedStyle.container,
-      minHeight: props.minH,
-    };
-  }
-
-  if (props.minW) {
-    computedStyle.container = {
-      ...computedStyle.container,
-      minWidth: props.minW,
-    };
-  }
-
-  if (props.borderWidth) {
-    computedStyle.container = {
-      ...computedStyle.container,
-      borderWidth: props.borderWidth,
-    };
-  }
-
-  if (props.rounded) {
-    computedStyle.container = {
-      ...computedStyle.container,
-      ...createBorderRadiusStyles(props.rounded, theme.borderRadius),
     };
   }
 
@@ -107,6 +49,5 @@ export const getStyle = (theme: any, props: any, state: any) => {
       ...props.style,
     };
   }
-
   return StyleSheet.create(computedStyle);
 };
