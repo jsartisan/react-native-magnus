@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useContext, useState, useImperativeHandle } from "react";
-import { View as RNView, SafeAreaView } from "react-native";
-import RNModal, { ModalProps as RNModalProps } from "react-native-modal";
+import { SafeAreaView } from "react-native";
+import RNModal from "react-native-modal";
 
 import { Div } from "../div/div.component";
 import { Text } from "../text/text.component";
@@ -15,30 +15,7 @@ type dropdownRef = {
 };
 
 const Dropdown = React.forwardRef<dropdownRef, DropdownProps>((props, ref) => {
-  const {
-    h,
-    bg,
-    title,
-    rounded,
-    roundedTop,
-    roundedRight,
-    roundedBottom,
-    roundedLeft,
-    borderColor,
-    borderBottomColor,
-    borderLeftColor,
-    borderTopColor,
-    borderRightColor,
-    borderWidth,
-    borderLeftWidth,
-    borderRightWidth,
-    borderBottomWidth,
-    borderTopWidth,
-    showScrollIndicator,
-    children,
-    onSelect,
-    ...rest
-  } = props;
+  const { title, showScrollIndicator, children, onSelect } = props;
   const theme = useContext(ThemeContext);
   const computedStyle = getStyle(theme, props);
   const [isVisible, setIsVisible] = useState(false);

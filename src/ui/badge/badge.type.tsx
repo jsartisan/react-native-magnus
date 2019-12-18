@@ -1,13 +1,10 @@
-import {
-  ViewProps as RNViewProps,
-  ImageSourcePropType as RNImageSourcePropType,
-} from 'react-native';
+import { ViewProps as RNViewProps } from "react-native";
 
 import {
   BorderPropsType,
   SpacingPropsType,
-  RoundedPropsType,
-} from '../../theme';
+  RoundedPropsType
+} from "../../theme";
 
 export interface BadgeProps
   extends RNViewProps,
@@ -22,14 +19,14 @@ export interface BadgeProps
   shadow?: number;
   shadowColor?: string;
   justifyContent?:
-    | 'flex-start'
-    | 'flex-end'
-    | 'center'
-    | 'space-between'
-    | 'space-around'
-    | 'space-evenly';
-  alignItems?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
-  position?: 'absolute' | 'relative';
+    | "flex-start"
+    | "flex-end"
+    | "center"
+    | "space-between"
+    | "space-around"
+    | "space-evenly";
+  alignItems?: "flex-start" | "flex-end" | "center" | "stretch" | "baseline";
+  position?: "absolute" | "relative";
   top?: number;
   right?: number;
   bottom?: number;

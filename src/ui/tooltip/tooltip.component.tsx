@@ -30,7 +30,16 @@ const EASING = Easing.bezier(0.4, 0, 0.2, 1);
 const SCREEN_INDENT = 8;
 
 class Tooltip extends React.Component<TooltipProps> {
-  _container = createRef();
+  defaultProps = {
+    animationDuration: 300,
+    bg: "gray900",
+    color: "white",
+    p: "lg",
+    rounded: "xl",
+    mx: "lg"
+  };
+
+  _container = createRef<View>();
 
   state = {
     menuState: STATES.HIDDEN,
@@ -86,17 +95,19 @@ class Tooltip extends React.Component<TooltipProps> {
   };
 
   show = () => {
-    this._container.current.measureInWindow(
-      (left, top, buttonWidth, buttonHeight) => {
-        this.setState({
-          buttonHeight,
-          buttonWidth,
-          left,
-          menuState: STATES.SHOWN,
-          top
-        });
-      }
-    );
+    if (this._container.current) {
+      this._container.current.measureInWindow(
+        (left: any, top: any, buttonWidth: any, buttonHeight: any) => {
+          this.setState({
+            buttonHeight,
+            buttonWidth,
+            left,
+            menuState: STATES.SHOWN,
+            top
+          });
+        }
+      );
+    }
   };
 
   hide = (onHidden: () => void = () => {}) => {
@@ -133,20 +144,17 @@ class Tooltip extends React.Component<TooltipProps> {
 
   render() {
     const dimensions = Dimensions.get("window");
-    const { width: windowWidth } = dimensions;
     const windowHeight = dimensions.height - (StatusBar.currentHeight || 0);
 
     const {
-      menuWidth,
       menuHeight,
-      buttonWidth,
       buttonHeight,
       opacityAnimation,
       menuMarginAnimation
     } = this.state;
 
     // Adjust position of menu
-    let { left, top } = this.state;
+    let { top } = this.state;
     let invert = false;
 
     if (top + menuHeight + buttonHeight + SCREEN_INDENT > windowHeight) {
@@ -180,7 +188,7 @@ class Tooltip extends React.Component<TooltipProps> {
           });
 
           return (
-            <View ref={this._container} collapsable={false}>
+            <View ref={this._container}>
               <View>{children}</View>
 
               <Modal
@@ -231,15 +239,6 @@ class Tooltip extends React.Component<TooltipProps> {
     );
   }
 }
-
-Tooltip.defaultProps = {
-  animationDuration: 300,
-  bg: "gray900",
-  color: "white",
-  p: "lg",
-  rounded: "xl",
-  mx: "lg"
-};
 
 const styles = StyleSheet.create({
   shadowMenuContainer: {

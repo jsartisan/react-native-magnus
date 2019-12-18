@@ -1,10 +1,6 @@
-import { ModalProps as RNModalProps } from 'react-native';
+import { ModalProps as RNModalProps } from "react-native";
 
-import {
-  BorderPropsType,
-  SpacingPropsType,
-  RoundedPropsType,
-} from '../../theme';
+import { SpacingPropsType, RoundedPropsType } from "../../theme";
 
 export interface OverlayProps
   extends RNModalProps,

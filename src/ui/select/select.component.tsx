@@ -1,15 +1,16 @@
-import * as React from 'react';
-import { useContext, useState, useImperativeHandle } from 'react';
-import { SafeAreaView, FlatList } from 'react-native';
-import RNModal from 'react-native-modal';
+import * as React from "react";
+import { useContext, useState, useImperativeHandle } from "react";
+import { SafeAreaView, FlatList } from "react-native";
+import RNModal from "react-native-modal";
 
-import { getStyle } from './select.style';
-import { Div } from '../div/div.component';
-import { Text } from '../text/text.component';
-import { Button } from '../button/button.component';
-import { ThemeContext } from '../../theme';
-import { Option } from './option.component';
-import { SelectProps } from './select.type';
+import { getStyle } from "./select.style";
+import { Div } from "../div/div.component";
+import { Text } from "../text/text.component";
+import { Button } from "../button/button.component";
+import { ThemeContext } from "../../theme";
+import { Option } from "./option.component";
+import { SelectProps } from "./select.type";
+
 type Ref = {};
 
 const Select = React.forwardRef<Ref, SelectProps>((props, ref) => {
@@ -20,12 +21,12 @@ const Select = React.forwardRef<Ref, SelectProps>((props, ref) => {
     footer,
     onSelect: onSelectProp,
     data,
-    renderItem,
+    renderItem
   } = props;
   const theme = useContext(ThemeContext);
   const [isVisible, setIsVisible] = useState(false);
   const [selectedValue, setSelectedValue] = useState(value);
-  const computedStyle = getStyle(theme, props, {});
+  const computedStyle = getStyle(theme, props);
 
   /**
    * exposing functions to parent
@@ -36,7 +37,7 @@ const Select = React.forwardRef<Ref, SelectProps>((props, ref) => {
     },
     open() {
       setIsVisible(true);
-    },
+    }
   }));
 
   /**
@@ -73,7 +74,7 @@ const Select = React.forwardRef<Ref, SelectProps>((props, ref) => {
    */
   const renderTitle = () => {
     if (title) {
-      return typeof title === 'string' ? (
+      return typeof title === "string" ? (
         <Text fontSize="text400" color="gray700" px="xl" pt="md" pb="lg">
           {title}
         </Text>
@@ -98,7 +99,8 @@ const Select = React.forwardRef<Ref, SelectProps>((props, ref) => {
         mt="lg"
         onPress={() => {
           setIsVisible(false);
-        }}>
+        }}
+      >
         Submit
       </Button>
     );
@@ -111,11 +113,12 @@ const Select = React.forwardRef<Ref, SelectProps>((props, ref) => {
       isVisible={isVisible}
       backdropColor="black"
       onBackdropPress={() => setIsVisible(false)}
-      hideModalContentWhileAnimating={true}
+      hideModalContentWhileAnimating
       style={{
         margin: 0,
-        justifyContent: 'flex-end',
-      }}>
+        justifyContent: "flex-end"
+      }}
+    >
       <Div style={computedStyle.wrapper}>
         <SafeAreaView style={computedStyle.container}>
           {renderTitle()}
@@ -125,7 +128,7 @@ const Select = React.forwardRef<Ref, SelectProps>((props, ref) => {
             renderItem={({ item, index }) =>
               React.cloneElement(renderItem(item, index), {
                 onSelect,
-                selectedValue,
+                selectedValue
               })
             }
           />
@@ -137,10 +140,10 @@ const Select = React.forwardRef<Ref, SelectProps>((props, ref) => {
 });
 
 Select.defaultProps = {
-  bg: 'white',
-  rounded: 'none',
-  flexDir: 'column',
-  showScrollIndicator: true,
+  bg: "white",
+  rounded: "none",
+  flexDir: "column",
+  showScrollIndicator: true
 };
 
 export { Option, Select };

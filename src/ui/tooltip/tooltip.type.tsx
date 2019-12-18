@@ -1,7 +1,4 @@
-import {
-  ViewProps as RNViewProps,
-  ImageSourcePropType as RNImageSourcePropType
-} from "react-native";
+import { ViewProps as RNViewProps } from "react-native";
 
 import {
   BorderPropsType,

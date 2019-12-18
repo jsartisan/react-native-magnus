@@ -1,13 +1,13 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 
 import {
   getThemeProperty,
   createSpacingStyles,
   createBorderRadiusStyles,
   createBorderColorStyles,
-  createBorderWidthStyles,
-} from '../../theme/theme.service';
-import { ScreenHeight } from '../../utilities/dimension';
+  createBorderWidthStyles
+} from "../../theme/theme.service";
+import { ScreenHeight } from "../../utilities/dimension";
 
 /**
  * computed style
@@ -15,30 +15,30 @@ import { ScreenHeight } from '../../utilities/dimension';
  * @param theme
  * @param props
  */
-export const getStyle = (theme: any, props: any, state: any) => {
+export const getStyle = (theme: any, props: any) => {
   const computedStyle: any = {};
 
   computedStyle.wrapper = {
-    backgroundColor: getThemeProperty(theme.colors, props.bg, 'transparent'),
+    backgroundColor: getThemeProperty(theme.colors, props.bg, "transparent"),
     ...createBorderWidthStyles(props),
     ...createBorderColorStyles(props, theme.colors),
     ...createBorderRadiusStyles(props, theme.borderRadius),
-    maxHeight: ScreenHeight * 0.7,
+    maxHeight: ScreenHeight * 0.7
   };
 
   computedStyle.indicator = {
-    alignSelf: 'center',
-    marginVertical: 10,
+    alignSelf: "center",
+    marginVertical: 10
   };
 
   computedStyle.container = {
-    ...createSpacingStyles(props, theme.spacing),
+    ...createSpacingStyles(props, theme.spacing)
   };
 
   if (props.h) {
     computedStyle.container = {
       ...computedStyle.container,
-      height: props.h,
+      height: props.h
     };
   }
 
@@ -46,7 +46,7 @@ export const getStyle = (theme: any, props: any, state: any) => {
   if (props.style) {
     computedStyle.container = {
       ...computedStyle.container,
-      ...props.style,
+      ...props.style
     };
   }
   return StyleSheet.create(computedStyle);
