@@ -1,13 +1,13 @@
-import * as React from 'react';
-import { useContext } from 'react';
+import * as React from "react";
+import { useContext } from "react";
 import {
   View as RNView,
-  ImageBackground as RNImageBackground,
-} from 'react-native';
+  ImageBackground as RNImageBackground
+} from "react-native";
 
-import { DivProps } from './div.type';
-import { getStyle } from './div.style';
-import { ThemeContext } from '../../theme';
+import { DivProps } from "./div.type";
+import { getStyle } from "./div.style";
+import { ThemeContext } from "../../theme";
 
 const Div: React.FunctionComponent<DivProps> = (props: DivProps) => {
   const {
@@ -64,7 +64,8 @@ const Div: React.FunctionComponent<DivProps> = (props: DivProps) => {
         style={computedStyle.div}
         resizeMode={props.bgMode}
         imageStyle={computedStyle.image}
-        {...rest}>
+        {...rest}
+      >
         {children}
       </RNImageBackground>
     );
@@ -78,15 +79,14 @@ const Div: React.FunctionComponent<DivProps> = (props: DivProps) => {
 };
 
 Div.defaultProps = {
-  bg: 'white',
-  flexDir: 'column',
-  flexWrap: 'nowrap',
-  rounded: 'none',
+  bg: "white",
+  flexDir: "column",
+  flexWrap: "nowrap",
+  rounded: "none",
   shadow: 0,
-  shadowColor: 'gray900',
-  position: 'relative',
-  bgMode: 'cover',
-  alignItems: 'flex-start',
+  shadowColor: "gray900",
+  position: "relative",
+  bgMode: "cover"
 };
 
 export { Div };
