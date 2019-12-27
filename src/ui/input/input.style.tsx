@@ -1,12 +1,13 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 
 import {
   getThemeProperty,
   createBorderWidthStyles,
   createBorderColorStyles,
   createSpacingStyles,
-  createBorderRadiusStyles,
-} from '../../theme/theme.service';
+  createFlexStyles,
+  createBorderRadiusStyles
+} from "../../theme/theme.service";
 
 /**
  * computed style
@@ -18,13 +19,14 @@ export const getStyle = (theme: any, props: any, state: any) => {
   const computedStyle: any = {};
 
   computedStyle.container = {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: getThemeProperty(theme.colors, props.bg, 'white'),
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: getThemeProperty(theme.colors, props.bg, "white"),
+    ...createFlexStyles(props),
     ...createBorderWidthStyles(props),
     ...createSpacingStyles(props, theme.spacing),
     ...createBorderColorStyles(props, theme.colors),
-    ...createBorderRadiusStyles(props, theme.borderRadius),
+    ...createBorderRadiusStyles(props, theme.borderRadius)
   };
 
   if (state.isFocussed) {
@@ -33,41 +35,41 @@ export const getStyle = (theme: any, props: any, state: any) => {
       borderColor: getThemeProperty(
         theme.colors,
         props.focusBorderColor,
-        computedStyle.container.borderColor,
-      ),
+        computedStyle.container.borderColor
+      )
     };
   }
 
   computedStyle.input = {
     flex: 1,
     padding: 0,
-    color: getThemeProperty(theme.colors, props.color, 'black'),
-    fontSize: getThemeProperty(theme.fontSize, props.fontSize, 16),
+    color: getThemeProperty(theme.colors, props.color, "black"),
+    fontSize: getThemeProperty(theme.fontSize, props.fontSize, 16)
   };
 
   computedStyle.suffix = {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    marginLeft: 5,
+    flexDirection: "row",
+    justifyContent: "center",
+    marginLeft: 5
   };
 
   computedStyle.prefix = {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    marginRight: 5,
+    flexDirection: "row",
+    justifyContent: "center",
+    marginRight: 5
   };
 
   if (props.minH) {
     computedStyle.container = {
       ...computedStyle.container,
-      minHeight: props.minH,
+      minHeight: props.minH
     };
   }
 
   if (props.minW) {
     computedStyle.container = {
       ...computedStyle.container,
-      minWidth: props.minW,
+      minWidth: props.minW
     };
   }
 
@@ -75,7 +77,7 @@ export const getStyle = (theme: any, props: any, state: any) => {
     computedStyle.container = {
       ...computedStyle.container,
       ...theme.shadow[props.shadow],
-      shadowColor: getThemeProperty(theme.colors, props.shadowColor, 'black'),
+      shadowColor: getThemeProperty(theme.colors, props.shadowColor, "black")
     };
   }
 
@@ -83,7 +85,7 @@ export const getStyle = (theme: any, props: any, state: any) => {
   if (props.style) {
     computedStyle.container = {
       ...computedStyle.container,
-      ...props.style,
+      ...props.style
     };
   }
 

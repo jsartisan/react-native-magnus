@@ -79,7 +79,7 @@ const Div: React.FunctionComponent<DivProps> = (props: DivProps) => {
 };
 
 Div.defaultProps = {
-  bg: "white",
+  bg: "transparent",
   flexDir: "column",
   flexWrap: "nowrap",
   rounded: "none",

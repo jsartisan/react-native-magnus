@@ -1,10 +1,10 @@
-import { TextInputProps as RNTextInputProps } from 'react-native';
+import { TextInputProps as RNTextInputProps } from "react-native";
 
 import {
   BorderPropsType,
   SpacingPropsType,
-  RoundedPropsType,
-} from '../../theme';
+  RoundedPropsType
+} from "../../theme";
 
 export interface InputProps
   extends RNTextInputProps,
@@ -21,6 +21,7 @@ export interface InputProps
   loaderSize?: number | string;
   loaderColor?: string;
   shadow?: number;
+  flex?: number;
   shadowColor?: string;
   focusBorderColor?: string;
   minW?: number | string;
