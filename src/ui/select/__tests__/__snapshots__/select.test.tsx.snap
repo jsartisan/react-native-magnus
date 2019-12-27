@@ -80,7 +80,7 @@ exports[`Div Component should render without issues 1`] = `
     <View
       style={
         Object {
-          "alignItems": "flex-start",
+          "alignItems": undefined,
           "backgroundColor": "#FFFFFF",
           "borderRadius": 0,
           "flexDirection": "column",

@@ -8,6 +8,20 @@ export interface OverlayProps
     RoundedPropsType {
   bg?: string;
   w?: string | number;
+  h?: number | string;
+  flex?: number;
+  minH?: number;
+  minW?: number;
+  justifyContent?:
+    | "flex-start"
+    | "flex-end"
+    | "center"
+    | "space-between"
+    | "space-around"
+    | "space-evenly";
+  alignItems?: "flex-start" | "flex-end" | "center" | "stretch" | "baseline";
+  flexDir?: "row" | "column" | "row-reverse" | "column-reverse";
+  flexWrap?: "wrap" | "nowrap" | "wrap-reverse";
   children: React.ReactElement[] | React.ReactElement;
   visible?: boolean;
 }

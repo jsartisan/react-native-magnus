@@ -68,7 +68,7 @@ const Badge: React.FunctionComponent<BadgeProps> = (props: BadgeProps) => {
 };
 
 Badge.defaultProps = {
-  bg: "green500",
+  bg: "green700",
   rounded: "circle",
   shadow: 0,
   color: "white",

@@ -9,7 +9,7 @@ describe("Dropdown Component", () => {
   it("should render without issues", () => {
     const instance = renderer.create(
       <ThemeProvider>
-        <Dropdown onSelect={() => {}}>
+        <Dropdown>
           <Option value={1} />
         </Dropdown>
       </ThemeProvider>

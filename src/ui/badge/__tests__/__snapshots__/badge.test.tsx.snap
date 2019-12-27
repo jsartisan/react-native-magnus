@@ -4,7 +4,6 @@ exports[`Badge Component should render without issues 1`] = `
 <View
   style={
     Object {
-      "borderRadius": 1000000,
       "minHeight": 10,
       "minWidth": 10,
     }
@@ -40,7 +39,7 @@ exports[`Badge Component should render without issues 1`] = `
     style={
       Object {
         "alignItems": "center",
-        "backgroundColor": "#69df39",
+        "backgroundColor": "#3e9a19",
         "borderRadius": 1000000,
         "justifyContent": "center",
         "minHeight": 10,

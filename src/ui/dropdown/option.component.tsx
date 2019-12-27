@@ -1,8 +1,8 @@
-import * as React from 'react';
+import * as React from "react";
 
-import { GestureResponderEvent as RNGestureResponderEvent } from 'react-native';
-import { OptionProps } from './option.type';
-import { Button } from '../button/button.component';
+import { GestureResponderEvent as RNGestureResponderEvent } from "react-native";
+import { OptionProps } from "./option.type";
+import { Button } from "../button/button.component";
 
 const Option: React.FunctionComponent<OptionProps> = props => {
   const { children, value, onPress: onPressProp, onSelect, ...rest } = props;
@@ -32,12 +32,11 @@ const Option: React.FunctionComponent<OptionProps> = props => {
 Option.defaultProps = {
   onSelect: () => {},
   rounded: 0,
-  bg: 'white',
+  bg: "white",
   p: 0,
-  color: 'black',
-  alignItems: 'flex-start',
-  justifyContent: 'flex-start',
-  center: false,
+  color: "black",
+  alignItems: "flex-start",
+  justifyContent: "flex-start"
 };
 
 export { Option };

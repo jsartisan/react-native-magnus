@@ -1,9 +1,6 @@
 import { ThemeType } from "./type";
 import { defaultTheme } from "../style";
 
-// TODO
-// 1. createShadowStyles
-
 /**
  * merge user theme with default theme
  *
@@ -68,7 +65,7 @@ export const createSpacingStyles = (props: any, theme: any) => {
     my: "marginVertical"
   };
 
-  let computedStyle: any = {};
+  const computedStyle: any = {};
 
   Object.keys(propKeys).map((propKey: string) => {
     const styleProperty = propKeys[propKey];
@@ -106,42 +103,42 @@ export const createDirectionalStyles = (
 
   let computedStyle = {};
 
-  if (typeof value.x != "undefined") {
+  if (typeof value.x !== "undefined") {
     computedStyle = {
       ...computedStyle,
       ...createStyle(`${key}Horizontal`, value.x, type)
     };
   }
 
-  if (typeof value.y != "undefined") {
+  if (typeof value.y !== "undefined") {
     computedStyle = {
       ...computedStyle,
       ...createStyle(`${key}Vertical`, value.y, type)
     };
   }
 
-  if (typeof value.t != "undefined") {
+  if (typeof value.t !== "undefined") {
     computedStyle = {
       ...computedStyle,
       ...createStyle(`${key}Top`, value.t, type)
     };
   }
 
-  if (typeof value.r != "undefined") {
+  if (typeof value.r !== "undefined") {
     computedStyle = {
       ...computedStyle,
       ...createStyle(`${key}Right`, value.r, type)
     };
   }
 
-  if (typeof value.b != "undefined") {
+  if (typeof value.b !== "undefined") {
     computedStyle = {
       ...computedStyle,
       ...createStyle(`${key}Bottom`, value.b, type)
     };
   }
 
-  if (typeof value.l != "undefined") {
+  if (typeof value.l !== "undefined") {
     computedStyle = {
       ...computedStyle,
       ...createStyle(`${key}Left`, value.l, type)
@@ -182,7 +179,7 @@ export const createBorderRadiusStyles = (props: any, theme: any) => {
     roundedBottom: ["borderBottomLeftRadius", "borderBottomRightRadius"]
   };
 
-  let computedStyle: any = {};
+  const computedStyle: any = {};
 
   Object.keys(propKeys).map((propKey: string) => {
     const styleProperty = propKeys[propKey];
@@ -221,7 +218,7 @@ export const createFlexStyles = (props: any) => {
     flex: "flex"
   };
 
-  let computedStyle: any = {};
+  const computedStyle: any = {};
 
   Object.keys(propKeys).map((propKey: string) => {
     const styleProperty = propKeys[propKey];
@@ -250,7 +247,7 @@ export const createBorderWidthStyles = (props: any) => {
     borderBottomWidth: "borderBottomWidth"
   };
 
-  let computedStyle: any = {};
+  const computedStyle: any = {};
 
   Object.keys(propKeys).map((propKey: string) => {
     const styleProperty = propKeys[propKey];
@@ -279,7 +276,7 @@ export const createBorderColorStyles = (props: any, theme: any) => {
     borderBottomColor: "borderBottomColor"
   };
 
-  let computedStyle: any = {};
+  const computedStyle: any = {};
 
   Object.keys(propKeys).map((propKey: string) => {
     const styleProperty = propKeys[propKey];
@@ -360,7 +357,7 @@ export const createPositionStyle = (props: any) => {
     bottom: "bottom"
   };
 
-  let computedStyle: any = {};
+  const computedStyle: any = {};
 
   Object.keys(propKeys).map((propKey: string) => {
     const styleProperty = propKeys[propKey];

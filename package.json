@@ -29,14 +29,7 @@
     "ui-library",
     "typescript"
   ],
-  "dependencies": {
-    "color": "^3.1.2",
-    "react": "^16.8.6",
-    "react-native": "^0.60.4",
-    "react-native-animatable": "^1.3.2",
-    "react-native-modal": "^11.3.1",
-    "react-native-vector-icons": "^6.6.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.7.5",
     "@babel/runtime": "^7.7.6",
@@ -64,7 +57,14 @@
     "react-test-renderer": "^16.12.0",
     "typescript": "^3.5.3"
   },
-  "peerDependencies": {},
+  "peerDependencies": {
+    "color": "^3.1.2",
+    "react": "^16.8.6",
+    "react-native": "^0.60.4",
+    "react-native-animatable": "^1.3.2",
+    "react-native-modal": "^11.3.1",
+    "react-native-vector-icons": "^6.6.0"
+  },
   "jest": {
     "preset": "react-native"
   }

@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Div Component should render without issues 1`] = `
-<View
-  collapsable={false}
->
+<View>
   <View>
     Tooltip
   </View>
@@ -49,7 +47,7 @@ exports[`Div Component should render without issues 1`] = `
           Object {
             "backgroundColor": "transparent",
             "borderRadius": 4,
-            "marginTop": -10,
+            "marginTop": -8,
             "opacity": 0,
             "position": "absolute",
             "top": 8,
@@ -68,7 +66,7 @@ exports[`Div Component should render without issues 1`] = `
               "borderRightWidth": 8,
               "borderStyle": "solid",
               "height": 0,
-              "left": -7.5,
+              "left": -8,
               "top": 0,
               "width": 0,
             }

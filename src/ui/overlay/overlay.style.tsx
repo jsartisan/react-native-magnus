@@ -1,10 +1,11 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 
 import {
   getThemeProperty,
+  createFlexStyles,
   createSpacingStyles,
-  createBorderRadiusStyles,
-} from '../../theme/theme.service';
+  createBorderRadiusStyles
+} from "../../theme/theme.service";
 
 /**
  * computed style
@@ -16,26 +17,29 @@ export const getStyle = (theme: any, props: any) => {
   const computedStyle: any = {};
 
   computedStyle.modal = {
-    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    backgroundColor: "rgba(0, 0, 0, 0.6)",
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center"
   };
 
   computedStyle.container = {
-    alignSelf: 'center',
-    backgroundColor: getThemeProperty(theme.colors, props.bg, 'transparent'),
+    alignSelf: "center",
+    backgroundColor: getThemeProperty(theme.colors, props.bg, "transparent"),
+    ...createFlexStyles(props),
+    ...createSpacingStyles(props, theme.spacing),
     ...createBorderRadiusStyles(props, theme.borderRadius),
     width: props.w,
-    ...createSpacingStyles(props, theme.spacing),
-    alignItems: 'center',
+    height: props.h,
+    alignItems: props.alignItems,
+    justifyContent: props.justifyContent
   };
 
   // merging style props to computed style
   if (props.style) {
     computedStyle.container = {
       ...computedStyle.container,
-      ...props.style,
+      ...props.style
     };
   }
 

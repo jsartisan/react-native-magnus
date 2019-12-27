@@ -42,8 +42,8 @@ exports[`Fab Component should render without issues 1`] = `
         Object {
           "alignItems": "center",
           "backgroundColor": "transparent",
-          "color": "#000",
-          "fontSize": 16,
+          "color": "#FFFFFF",
+          "fontSize": 15,
           "justifyContent": "center",
         }
       }
@@ -54,7 +54,7 @@ exports[`Fab Component should render without issues 1`] = `
           Array [
             Object {
               "color": "#FFFFFF",
-              "fontSize": 16,
+              "fontSize": 15,
             },
             undefined,
             Object {

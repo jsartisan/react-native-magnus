@@ -1,9 +1,9 @@
-import { TouchableHighlightProps as RNButtonProps } from 'react-native';
+import { TouchableHighlightProps as RNButtonProps } from "react-native";
 import {
   BorderPropsType,
   SpacingPropsType,
-  RoundedPropsType,
-} from '../../theme';
+  RoundedPropsType
+} from "../../theme";
 
 export interface ButtonProps
   extends RNButtonProps,
@@ -13,16 +13,16 @@ export interface ButtonProps
   h?: number | string;
   w?: number | string;
   bg?: string;
-  position?: 'absolute' | 'relative';
-  alignItems?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
-  flexDir?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
+  position?: "absolute" | "relative";
+  alignItems?: "flex-start" | "flex-end" | "center" | "stretch" | "baseline";
+  flexDir?: "row" | "column" | "row-reverse" | "column-reverse";
   justifyContent?:
-    | 'flex-start'
-    | 'flex-end'
-    | 'center'
-    | 'space-between'
-    | 'space-around'
-    | 'space-evenly';
+    | "flex-start"
+    | "flex-end"
+    | "center"
+    | "space-between"
+    | "space-around"
+    | "space-evenly";
   top?: number;
   flex?: number;
   left?: number;
@@ -43,6 +43,5 @@ export interface ButtonProps
   borderless?: boolean;
   rippleColor?: string;
   shadowColor?: string;
-  center?: boolean;
   ripple?: boolean;
 }

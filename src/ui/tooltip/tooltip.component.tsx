@@ -30,7 +30,7 @@ const EASING = Easing.bezier(0.4, 0, 0.2, 1);
 const SCREEN_INDENT = 8;
 
 class Tooltip extends React.Component<TooltipProps> {
-  defaultProps = {
+  static defaultProps = {
     animationDuration: 300,
     bg: "gray900",
     color: "white",
@@ -53,7 +53,7 @@ class Tooltip extends React.Component<TooltipProps> {
     buttonWidth: 0,
     buttonHeight: 0,
 
-    menuMarginAnimation: new Animated.Value(-10),
+    menuMarginAnimation: new Animated.Value(-8),
     opacityAnimation: new Animated.Value(0)
   };
 
@@ -120,7 +120,7 @@ class Tooltip extends React.Component<TooltipProps> {
       this.setState(
         {
           menuState: STATES.HIDDEN,
-          menuMarginAnimation: new Animated.Value(-10),
+          menuMarginAnimation: new Animated.Value(-8),
           opacityAnimation: new Animated.Value(0)
         },
         () => {

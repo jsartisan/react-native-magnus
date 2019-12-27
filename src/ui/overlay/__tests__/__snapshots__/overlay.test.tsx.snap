@@ -25,6 +25,8 @@ exports[`Overlay Component should render without issues 1`] = `
           "alignSelf": "center",
           "backgroundColor": "#FFFFFF",
           "borderRadius": 6,
+          "height": undefined,
+          "justifyContent": "center",
           "padding": 12,
           "width": "80%",
         }
@@ -33,7 +35,7 @@ exports[`Overlay Component should render without issues 1`] = `
       <View
         style={
           Object {
-            "alignItems": "flex-start",
+            "alignItems": undefined,
             "backgroundColor": "#FFFFFF",
             "borderRadius": 0,
             "flexDirection": "column",

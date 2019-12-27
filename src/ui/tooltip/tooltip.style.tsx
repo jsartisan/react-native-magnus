@@ -75,7 +75,7 @@ export const getStyle = (theme: any, props: any, state: any) => {
   computedStyle.triangle = {
     width: 0,
     height: 0,
-    left: state.left + state.buttonWidth / 2 - 7.5,
+    left: state.left + state.buttonWidth / 2 - 8,
     top: state.invert ? state.menuHeight : 0,
     borderStyle: "solid",
     borderLeftWidth: 8,

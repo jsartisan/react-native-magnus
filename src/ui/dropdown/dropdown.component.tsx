@@ -15,7 +15,7 @@ type dropdownRef = {
 };
 
 const Dropdown = React.forwardRef<dropdownRef, DropdownProps>((props, ref) => {
-  const { title, showScrollIndicator, children, onSelect } = props;
+  const { title, showScrollIndicator, children } = props;
   const theme = useContext(ThemeContext);
   const computedStyle = getStyle(theme, props);
   const [isVisible, setIsVisible] = useState(false);
@@ -86,7 +86,9 @@ const Dropdown = React.forwardRef<dropdownRef, DropdownProps>((props, ref) => {
             {renderTitle()}
             {React.Children.map(children, (child: React.ReactElement) => {
               return React.cloneElement(child, {
-                onSelect
+                onSelect: () => {
+                  setIsVisible(false);
+                }
               });
             })}
           </Div>
@@ -100,8 +102,7 @@ Dropdown.defaultProps = {
   bg: "white",
   rounded: "none",
   flexDir: "column",
-  showScrollIndicator: true,
-  onSelect: () => {}
+  showScrollIndicator: true
 };
 
 export { Dropdown };

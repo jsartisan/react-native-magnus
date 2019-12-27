@@ -43,5 +43,4 @@ export interface DropdownProps
   bottom?: number;
   left?: number;
   children: React.ReactElement[] | React.ReactElement;
-  onSelect: (value: any) => void;
 }

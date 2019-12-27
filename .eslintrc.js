@@ -42,8 +42,10 @@ module.exports = {
     /**
      * @description rules of @typescript-eslint
      */
+    "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/prefer-interface": "off", // also want to use "type"
     "@typescript-eslint/explicit-function-return-type": "off", // annoying to force return type
+    "@typescript-eslint/explicit-member-accessibility": "off",
 
     /**
      * @description rules of eslint-plugin-react

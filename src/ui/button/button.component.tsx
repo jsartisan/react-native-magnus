@@ -63,7 +63,6 @@ const Button: React.FunctionComponent<ButtonProps> = props => {
     borderBottomWidth,
     borderTopWidth,
     shadow,
-    center,
     borderless,
     rippleColor,
     shadowColor,
@@ -124,17 +123,8 @@ const Button: React.FunctionComponent<ButtonProps> = props => {
         >
           <RNView style={computedStyle.button}>
             {loading === true ? (
-              <RNView
-                style={{
-                  ...computedStyle.container,
-                  minHeight: getThemeProperty(theme.fontSize, loaderSize, 16)
-                }}
-              >
-                <RNView
-                  style={{
-                    minHeight: getThemeProperty(theme.fontSize, loaderSize, 16)
-                  }}
-                >
+              <RNView style={computedStyle.container}>
+                <RNView style={computedStyle.loadingContainer}>
                   <RNActivityIndicator
                     size={getThemeProperty(theme.fontSize, loaderSize, 16)}
                     color={getThemeProperty(
@@ -224,7 +214,6 @@ Button.defaultProps = {
   rippleColor: "white",
   ripple: true,
   borderless: false,
-  center: true,
   alignItems: "center",
   justifyContent: "center",
   onPress: () => {},

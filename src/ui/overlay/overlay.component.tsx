@@ -1,13 +1,13 @@
-import * as React from 'react';
-import { useContext } from 'react';
-import { View as RNView, Modal as RNModal } from 'react-native';
+import * as React from "react";
+import { useContext } from "react";
+import { View as RNView, Modal as RNModal } from "react-native";
 
-import { getStyle } from './overlay.style';
-import { ThemeContext } from '../../theme';
-import { OverlayProps } from './overlay.type';
+import { getStyle } from "./overlay.style";
+import { ThemeContext } from "../../theme";
+import { OverlayProps } from "./overlay.type";
 
 const Overlay: React.FunctionComponent<OverlayProps> = (
-  props: OverlayProps,
+  props: OverlayProps
 ) => {
   const {
     m,
@@ -22,6 +22,8 @@ const Overlay: React.FunctionComponent<OverlayProps> = (
     pl,
     bg,
     w,
+    alignItems,
+    justifyContent,
     rounded,
     roundedTop,
     roundedRight,
@@ -37,10 +39,11 @@ const Overlay: React.FunctionComponent<OverlayProps> = (
   return (
     <RNModal
       animationType="fade"
-      transparent={true}
+      transparent
       visible={visible}
-      onRequestClose={() => {}}
-      {...rest}>
+      onRequestClose={() => { }}
+      {...rest}
+    >
       <RNView style={computedStyle.modal}>
         <RNView style={computedStyle.container}>{children}</RNView>
       </RNView>
@@ -49,11 +52,13 @@ const Overlay: React.FunctionComponent<OverlayProps> = (
 };
 
 Overlay.defaultProps = {
-  bg: 'white',
-  w: '80%',
-  p: 'lg',
-  rounded: 'md',
+  bg: "white",
+  w: "80%",
+  p: "lg",
+  rounded: "md",
   visible: false,
+  alignItems: "center",
+  justifyContent: "center"
 };
 
 export { Overlay };
