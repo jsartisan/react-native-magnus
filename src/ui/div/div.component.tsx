@@ -52,6 +52,7 @@ const Div: React.FunctionComponent<DivProps> = (props: DivProps) => {
     flexWrap,
     shadow,
     shadowColor,
+    opacity,
     ...rest
   } = props;
   const theme = useContext(ThemeContext);

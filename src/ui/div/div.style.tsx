@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, TouchableOpacity } from "react-native";
 
 import {
   getThemeProperty,
@@ -70,6 +70,13 @@ export const getStyle = (theme: any, props: any) => {
     computedStyle.div = {
       ...computedStyle.div,
       minWidth: props.minW
+    };
+  }
+
+  if (props.opacity) {
+    computedStyle.div = {
+      ...computedStyle.div,
+      opacity: props.opacity
     };
   }
 

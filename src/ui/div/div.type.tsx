@@ -39,5 +39,6 @@ export interface DivProps
   right?: number;
   bottom?: number;
   left?: number;
+  opacity?: number;
   children?: React.ReactNode[] | React.ReactNode;
 }
