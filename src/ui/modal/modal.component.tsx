@@ -101,8 +101,10 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
 
   return (
     <RNModal isVisible={visible} {...rest} style={computedStyle.modal}>
-      <Div bg={bg} h={h} style={computedStyle.container}>
-        <SafeAreaView pointerEvents="box-none">{children}</SafeAreaView>
+      <Div flex={1} bg={bg} h={h} style={computedStyle.container}>
+        <SafeAreaView pointerEvents="box-none" style={{ flex: 1 }}>
+          {children}
+        </SafeAreaView>
       </Div>
     </RNModal>
   );
