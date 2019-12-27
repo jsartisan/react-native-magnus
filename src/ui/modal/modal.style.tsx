@@ -20,6 +20,8 @@ export const getStyle = (theme: any, props: any) => {
   };
 
   computedStyle.container = {
+    alignItems: props.alignItems,
+    justifyContent: props.justifyContent,
     ...createBorderWidthStyles(props),
     ...createSpacingStyles(props, theme.spacing),
     ...createBorderColorStyles(props, theme.colors),
