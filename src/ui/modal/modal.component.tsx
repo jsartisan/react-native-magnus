@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState, useImperativeHandle, useContext } from "react";
+import { useContext } from "react";
 import { SafeAreaView } from "react-native";
 import { Animation, CustomAnimation } from "react-native-animatable";
 import RNModal, { Orientation } from "react-native-modal";
@@ -12,11 +12,6 @@ import {
 } from "../../theme";
 import { Div } from "../div/div.component";
 import { getStyle } from "./modal.style";
-
-type modalRef = {
-  open: () => void;
-  close: () => void;
-};
 
 type OrNull<T> = null | T;
 interface ModalProps
@@ -41,7 +36,7 @@ interface ModalProps
   useNativeDriver?: boolean;
   deviceHeight?: number;
   deviceWidth?: number;
-  visible: boolean;
+  visible?: boolean;
   hideModalContentWhileAnimating?: boolean;
   propagateSwipe?: boolean;
   onModalShow?: () => void;
@@ -66,7 +61,7 @@ interface ModalProps
   alignItems?: "flex-start" | "flex-end" | "center" | "stretch" | "baseline";
 }
 
-const Modal = React.forwardRef<modalRef, ModalProps>((props, ref) => {
+const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
   const {
     bg,
     h,
@@ -111,7 +106,7 @@ const Modal = React.forwardRef<modalRef, ModalProps>((props, ref) => {
       </Div>
     </RNModal>
   );
-});
+};
 
 Modal.defaultProps = {
   bg: "white",
