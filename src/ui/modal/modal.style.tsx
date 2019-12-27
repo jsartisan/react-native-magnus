@@ -1,4 +1,10 @@
 import { StyleSheet } from "react-native";
+import {
+  createSpacingStyles,
+  createBorderWidthStyles,
+  createBorderColorStyles,
+  createBorderRadiusStyles
+} from "../../theme/theme.service";
 
 /**
  * computed style
@@ -6,11 +12,18 @@ import { StyleSheet } from "react-native";
  * @param theme
  * @param props
  */
-export const getStyle = (props: any) => {
+export const getStyle = (theme: any, props: any) => {
   const computedStyle: any = {};
 
   computedStyle.modal = {
     margin: 0
+  };
+
+  computedStyle.container = {
+    ...createBorderWidthStyles(props),
+    ...createSpacingStyles(props, theme.spacing),
+    ...createBorderColorStyles(props, theme.colors),
+    ...createBorderRadiusStyles(props, theme.borderRadius)
   };
 
   // merging style props to computed style

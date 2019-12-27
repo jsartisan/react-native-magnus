@@ -9,7 +9,7 @@ describe("Modal Component", () => {
   it("should render without issues", () => {
     const instance = renderer.create(
       <ThemeProvider>
-        <Modal isVisible={false}>
+        <Modal>
           <Div />
         </Modal>
       </ThemeProvider>
