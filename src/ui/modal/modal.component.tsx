@@ -41,6 +41,7 @@ interface ModalProps
   useNativeDriver?: boolean;
   deviceHeight?: number;
   deviceWidth?: number;
+  visible: boolean;
   hideModalContentWhileAnimating?: boolean;
   propagateSwipe?: boolean;
   onModalShow?: () => void;
@@ -97,23 +98,11 @@ const Modal = React.forwardRef<modalRef, ModalProps>((props, ref) => {
     alignItems,
     justifyContent,
     children,
+    visible,
     ...rest
   } = props;
   const theme = useContext(ThemeContext);
-  const [visible, setIsVisible] = useState(false);
   const computedStyle = getStyle(theme, props);
-
-  /**
-   * exposing functions to parent
-   */
-  useImperativeHandle(ref, () => ({
-    open() {
-      setIsVisible(true);
-    },
-    close() {
-      setIsVisible(false);
-    }
-  }));
 
   return (
     <RNModal isVisible={visible} {...rest} style={computedStyle.modal}>
@@ -126,7 +115,8 @@ const Modal = React.forwardRef<modalRef, ModalProps>((props, ref) => {
 
 Modal.defaultProps = {
   bg: "white",
-  h: "100%"
+  h: "100%",
+  visible: false
 };
 
 export { Modal };
