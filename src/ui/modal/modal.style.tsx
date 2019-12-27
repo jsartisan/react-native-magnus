@@ -16,12 +16,12 @@ export const getStyle = (theme: any, props: any) => {
   const computedStyle: any = {};
 
   computedStyle.modal = {
-    margin: 0
+    margin: 0,
+    alignItems: props.alignItems,
+    justifyContent: props.justifyContent
   };
 
   computedStyle.container = {
-    alignItems: props.alignItems,
-    justifyContent: props.justifyContent,
     ...createBorderWidthStyles(props),
     ...createSpacingStyles(props, theme.spacing),
     ...createBorderColorStyles(props, theme.colors),
