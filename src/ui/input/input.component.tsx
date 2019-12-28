@@ -127,7 +127,6 @@ const Input: React.FunctionComponent<InputProps> = props => {
 
 Input.defaultProps = {
   p: "md",
-  flex: 1,
   borderColor: "gray200",
   fontSize: "text300",
   borderWidth: 1,
