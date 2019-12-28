@@ -5,6 +5,7 @@
   "types": "lib/index.d.ts",
   "main": "lib/index.js",
   "scripts": {
+    "precommit": "pretty-quick --staged",
     "test": "jest --update-snapshot ",
     "build": "rm ./lib/* && tsc",
     "pre": "rm ./lib/* && tsc && npm version patch"
@@ -51,9 +52,12 @@
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^1.6.1",
+    "husky": "^3.1.0",
     "jest": "^24.9.0",
+    "lint-staged": "^9.5.0",
     "metro-react-native-babel-preset": "^0.57.0",
     "prettier": "^1.18.2",
+    "pretty-quick": "^2.0.1",
     "react-test-renderer": "^16.12.0",
     "typescript": "^3.5.3"
   },

@@ -100,11 +100,14 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
   const computedStyle = getStyle(theme, props);
 
   return (
-    <RNModal isVisible={visible} {...rest} style={computedStyle.modal}>
-      <Div flex={1} bg={bg} h={h} style={computedStyle.container}>
-        <SafeAreaView pointerEvents="box-none" style={{ flex: 1 }}>
-          {children}
-        </SafeAreaView>
+    <RNModal
+      isVisible={visible}
+      hideModalContentWhileAnimating
+      {...rest}
+      style={computedStyle.modal}
+    >
+      <Div bg={bg} h={h} style={computedStyle.container}>
+        <SafeAreaView style={computedStyle.safeView}>{children}</SafeAreaView>
       </Div>
     </RNModal>
   );

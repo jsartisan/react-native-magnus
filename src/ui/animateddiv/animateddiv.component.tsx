@@ -1,15 +1,20 @@
 import * as React from "react";
 import { useContext } from "react";
 import {
-  View as RNView,
-  ImageBackground as RNImageBackground
+  ImageBackground as RNImageBackground,
+  View as RNView
 } from "react-native";
 
-import { DivProps } from "./div.type";
-import { getStyle } from "./div.style";
+import * as Animatable from "react-native-animatable";
+
+import { DivProps } from "./animateddiv.type";
+import { getStyle } from "./animateddiv.style";
+import { registerAnimations } from "./animateddiv.service";
 import { ThemeContext } from "../../theme";
 
-const Row: React.FunctionComponent<DivProps> = (props: DivProps) => {
+registerAnimations();
+
+const AnimatedDiv: React.FunctionComponent<DivProps> = (props: DivProps) => {
   const {
     h,
     w,
@@ -35,7 +40,9 @@ const Row: React.FunctionComponent<DivProps> = (props: DivProps) => {
     roundedLeft,
     children,
     bgImg,
+    duration,
     bgMode,
+    animation,
     alignItems,
     justifyContent,
     borderColor,
@@ -53,6 +60,7 @@ const Row: React.FunctionComponent<DivProps> = (props: DivProps) => {
     shadowColor,
     ...rest
   } = props;
+
   const theme = useContext(ThemeContext);
   const computedStyle = getStyle(theme, props);
 
@@ -71,21 +79,29 @@ const Row: React.FunctionComponent<DivProps> = (props: DivProps) => {
   }
 
   return (
-    <RNView style={computedStyle.div} {...rest}>
-      {children}
+    <RNView style={{ ...computedStyle.div }} {...rest}>
+      <Animatable.View
+        animation={`magnus-${animation}`}
+        duration={duration}
+        easing="ease-in-out"
+        iterationCount={1}
+      >
+        {children}
+      </Animatable.View>
     </RNView>
   );
 };
 
-Row.defaultProps = {
-  bg: "white",
-  flexDir: "row",
+AnimatedDiv.defaultProps = {
+  bg: "transparent",
   flexWrap: "nowrap",
   rounded: "none",
   shadow: 0,
   shadowColor: "gray900",
   position: "relative",
-  bgMode: "cover"
+  bgMode: "cover",
+  animation: "fromTop",
+  duration: 150
 };
 
-export { Row };
+export { AnimatedDiv };

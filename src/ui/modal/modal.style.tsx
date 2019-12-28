@@ -28,6 +28,10 @@ export const getStyle = (theme: any, props: any) => {
     ...createBorderRadiusStyles(props, theme.borderRadius)
   };
 
+  computedStyle.safeView = {
+    flex: 1
+  };
+
   // merging style props to computed style
   if (props.style) {
     computedStyle.modal = {
