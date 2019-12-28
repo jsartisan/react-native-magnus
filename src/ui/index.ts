@@ -9,7 +9,7 @@ import { Select as SelectContainer } from "./select/select.component";
 import { Option as SelectOption } from "./select/option.component";
 
 export { Text } from "./text/text.component";
-export { AnimatedDiv } from "./animateddiv/animateddiv.component";
+export { Animated } from "./animated/animated.component";
 export { Tooltip } from "./tooltip/tooltip.component";
 export { Badge } from "./badge/badge.component";
 export { Overlay } from "./overlay/overlay.component";

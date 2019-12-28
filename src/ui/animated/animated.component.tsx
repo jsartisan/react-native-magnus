@@ -4,17 +4,16 @@ import {
   ImageBackground as RNImageBackground,
   View as RNView
 } from "react-native";
-
 import * as Animatable from "react-native-animatable";
 
-import { DivProps } from "./animateddiv.type";
-import { getStyle } from "./animateddiv.style";
-import { registerAnimations } from "./animateddiv.service";
+import { DivProps } from "./animated.type";
 import { ThemeContext } from "../../theme";
+import { getStyle } from "./animated.style";
+import { registerAnimations } from "./animated.service";
 
 registerAnimations();
 
-const AnimatedDiv: React.FunctionComponent<DivProps> = (props: DivProps) => {
+const Animated: React.FunctionComponent<DivProps> = (props: DivProps) => {
   const {
     h,
     w,
@@ -92,7 +91,7 @@ const AnimatedDiv: React.FunctionComponent<DivProps> = (props: DivProps) => {
   );
 };
 
-AnimatedDiv.defaultProps = {
+Animated.defaultProps = {
   bg: "transparent",
   flexWrap: "nowrap",
   rounded: "none",
@@ -104,4 +103,4 @@ AnimatedDiv.defaultProps = {
   duration: 150
 };
 
-export { AnimatedDiv };
+export { Animated };
