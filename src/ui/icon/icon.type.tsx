@@ -35,11 +35,18 @@ export interface IconProps
   color?: string;
   shadow?: number;
   shadowColor?: string;
-  pos?: "absolute" | "relaitve";
+  position?: "absolute" | "relaitve";
   top?: string | number;
   left?: string | number;
   right?: string | number;
   bottom?: string | number;
   fontFamily?: iconFontFamilyType;
   fontSize?: string;
+  alignSelf?:
+    | "auto"
+    | "flex-start"
+    | "flex-end"
+    | "center"
+    | "stretch"
+    | "baseline";
 }

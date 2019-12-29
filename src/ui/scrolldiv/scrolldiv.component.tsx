@@ -80,7 +80,7 @@ const ScrollDiv: React.FunctionComponent<ScrollDivProps> = (
 };
 
 ScrollDiv.defaultProps = {
-  bg: "white",
+  bg: "transparent",
   flexDir: "column",
   flexWrap: "nowrap",
   rounded: "none",

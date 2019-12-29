@@ -78,7 +78,7 @@ const Row: React.FunctionComponent<DivProps> = (props: DivProps) => {
 };
 
 Row.defaultProps = {
-  bg: "white",
+  bg: "transparent",
   flexDir: "row",
   flexWrap: "nowrap",
   rounded: "none",

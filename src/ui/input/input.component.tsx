@@ -14,7 +14,7 @@ import { getStyle } from "./input.style";
 import { ThemeContext } from "../../theme";
 import { getThemeProperty } from "../../theme/theme.service";
 
-const Input: React.FunctionComponent<InputProps> = props => {
+const Input = React.forwardRef<RNTextInput, InputProps>((props, ref) => {
   const {
     h,
     w,
@@ -104,6 +104,7 @@ const Input: React.FunctionComponent<InputProps> = props => {
     <RNView style={computedStyle.container}>
       {prefix && <RNView style={computedStyle.prefix}>{prefix}</RNView>}
       <RNTextInput
+        ref={ref}
         onFocus={e => onFocusInput(e)}
         onBlur={e => onBlurInput(e)}
         style={computedStyle.input}
@@ -123,7 +124,7 @@ const Input: React.FunctionComponent<InputProps> = props => {
       )}
     </RNView>
   );
-};
+});
 
 Input.defaultProps = {
   p: "md",

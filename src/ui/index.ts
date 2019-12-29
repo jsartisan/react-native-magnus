@@ -22,6 +22,7 @@ export { ScrollDiv } from "./scrolldiv/scrolldiv.component";
 export { Button } from "./button/button.component";
 export { Icon } from "./icon/icon.component";
 export { Checkbox } from "./checkbox/checkbox.component";
+export { CheckboxButton } from "./checkbox-button/checkbox-button.component";
 export { RadioGroup } from "./radio/group.component";
 export { Radio } from "./radio/radio.component";
 export { Image } from "./image/image.component";
@@ -31,6 +32,7 @@ export { SnackbarRefType } from "./snackbar/snackbar.type";
 export { Avatar } from "./avatar/avatar.component";
 export { Tag } from "./tag/tag.component";
 export { Modal } from "./modal/modal.component";
+export { Toggle } from "./toggle/toggle.component";
 
 export const Skeleton = {
   Box: SkeletonBox,
