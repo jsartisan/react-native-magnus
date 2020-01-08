@@ -1,5 +1,6 @@
+import * as React from "react";
 import { Animated, TouchableOpacity } from "react-native";
-import React, { useEffect, useRef, useState, useContext } from "react";
+import { useEffect, useRef, useState, useContext } from "react";
 
 import { getStyle } from "./toggle.style";
 import { ThemeContext, getThemeProperty } from "../../theme";
