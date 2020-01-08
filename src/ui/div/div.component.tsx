@@ -87,7 +87,8 @@ Div.defaultProps = {
   shadow: 0,
   shadowColor: "gray900",
   position: "relative",
-  bgMode: "cover"
+  bgMode: "cover",
+  pointerEvents: "auto"
 };
 
 export { Div };

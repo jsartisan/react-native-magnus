@@ -24,6 +24,7 @@ export const getStyle = (theme: any, props: any) => {
     flexWrap: props.flexWrap,
     alignItems: props.alignItems,
     justifyContent: props.justifyContent,
+    alignSelf: props.alignSelf,
     backgroundColor: getThemeProperty(theme.colors, props.bg, "transparent"),
     ...createFlexStyles(props),
     ...createPositionStyle(props),

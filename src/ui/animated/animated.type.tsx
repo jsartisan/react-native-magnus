@@ -43,4 +43,5 @@ export interface DivProps
   children?: React.ReactNode[] | React.ReactNode;
   animation?: "fromRight" | "fromLeft" | "fromTop" | "fromBottom";
   duration?: number;
+  delay?: number;
 }

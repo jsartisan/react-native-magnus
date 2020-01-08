@@ -23,7 +23,7 @@ const Icon: React.FunctionComponent<IconProps> = props => {
     h,
     w,
     bg,
-    pos,
+    position,
     left,
     top,
     bottom,

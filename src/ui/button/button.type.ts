@@ -16,6 +16,7 @@ export interface ButtonProps
   position?: "absolute" | "relative";
   alignItems?: "flex-start" | "flex-end" | "center" | "stretch" | "baseline";
   flexDir?: "row" | "column" | "row-reverse" | "column-reverse";
+  fontWeight?: string;
   justifyContent?:
     | "flex-start"
     | "flex-end"
@@ -44,4 +45,6 @@ export interface ButtonProps
   rippleColor?: string;
   shadowColor?: string;
   ripple?: boolean;
+  opacity?: number;
+  zIndex?: number;
 }

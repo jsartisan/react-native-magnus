@@ -40,6 +40,8 @@ const Button: React.FunctionComponent<ButtonProps> = props => {
     minH,
     suffix,
     style,
+    fontSize,
+    fontWeight,
     prefix,
     rounded,
     roundedTop,

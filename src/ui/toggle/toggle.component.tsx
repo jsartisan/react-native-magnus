@@ -63,7 +63,7 @@ function Toggle(props: ToggleProps): React.ReactElement {
       const animValue = {
         fromValue: on ? 0 : 1,
         toValue: on ? 1 : 0,
-        duration: duration
+        duration
       };
       Animated.timing(animXValue, animValue).start();
     };
@@ -75,7 +75,7 @@ function Toggle(props: ToggleProps): React.ReactElement {
   }, [animXValue, prevSwitchOn, on, duration]);
 
   return (
-    <TouchableOpacity onPress={onPress} activeOpacity={0.5}>
+    <TouchableOpacity onPress={onPress} activeOpacity={0.5} {...rest}>
       <Animated.View
         style={[
           computedStyle.container,

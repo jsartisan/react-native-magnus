@@ -57,7 +57,7 @@ const Snackbar = React.forwardRef<SnackbarRefType, SnackbarProps>(
       return function cleanup() {
         clearTimeout(hideTimeout);
       };
-    }, [hideTimeout]);
+    }, []);
 
     /**
      * hide the snackbar
@@ -133,7 +133,7 @@ const Snackbar = React.forwardRef<SnackbarRefType, SnackbarProps>(
         <Animated.View
           style={{
             ...computedStyle.container,
-            opacity: opacity,
+            opacity,
             transform: [
               {
                 scale: !hidden

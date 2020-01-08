@@ -1,9 +1,6 @@
 import * as React from "react";
 import { useContext } from "react";
-import {
-  ImageBackground as RNImageBackground,
-  View as RNView
-} from "react-native";
+import { ImageBackground as RNImageBackground } from "react-native";
 import * as Animatable from "react-native-animatable";
 
 import { DivProps } from "./animated.type";
@@ -78,16 +75,16 @@ const Animated: React.FunctionComponent<DivProps> = (props: DivProps) => {
   }
 
   return (
-    <RNView style={{ ...computedStyle.div }} {...rest}>
-      <Animatable.View
-        animation={`magnus-${animation}`}
-        duration={duration}
-        easing="ease-in-out"
-        iterationCount={1}
-      >
-        {children}
-      </Animatable.View>
-    </RNView>
+    <Animatable.View
+      animation={`magnus-${animation}`}
+      duration={duration}
+      easing="ease-in-out"
+      iterationCount={1}
+      style={{ ...computedStyle.div }}
+      {...rest}
+    >
+      {children}
+    </Animatable.View>
   );
 };
 
@@ -100,7 +97,8 @@ Animated.defaultProps = {
   position: "relative",
   bgMode: "cover",
   animation: "fromTop",
-  duration: 150
+  duration: 150,
+  delay: 0
 };
 
 export { Animated };

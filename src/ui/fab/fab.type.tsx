@@ -1,28 +1,28 @@
-import { TouchableHighlightProps as RNButtonProps } from 'react-native';
+import { TouchableHighlightProps as RNButtonProps } from "react-native";
 import {
   BorderPropsType,
   SpacingPropsType,
-  RoundedPropsType,
-} from '../../theme';
+  RoundedPropsType
+} from "../../theme";
 
 export interface FabProps
   extends RNButtonProps,
     BorderPropsType,
     SpacingPropsType,
     RoundedPropsType {
-  h?: number | string;
-  w?: number | string;
+  h?: number;
+  w?: number;
   bg?: string;
-  position?: 'absolute' | 'relative';
-  alignItems?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
-  flexDir?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
+  position?: "absolute" | "relative";
+  alignItems?: "flex-start" | "flex-end" | "center" | "stretch" | "baseline";
+  flexDir?: "row" | "column" | "row-reverse" | "column-reverse";
   justifyContent?:
-    | 'flex-start'
-    | 'flex-end'
-    | 'center'
-    | 'space-between'
-    | 'space-around'
-    | 'space-evenly';
+    | "flex-start"
+    | "flex-end"
+    | "center"
+    | "space-between"
+    | "space-around"
+    | "space-evenly";
   top?: number;
   flex?: number;
   left?: number;
@@ -34,7 +34,7 @@ export interface FabProps
   loaderColor?: string;
   minW?: number | string;
   minH?: number | string;
-  fontSize?: string | number;
+  fontSize?: string;
   loaderSize?: number | string;
   block?: boolean;
   shadow?: number;
@@ -44,4 +44,14 @@ export interface FabProps
   center?: boolean;
   ripple?: boolean;
   icon: string | React.ReactNode;
+  activeIcon: string | React.ReactNode;
+  showBackground?: boolean;
+  openOnMount?: boolean;
+  onClose?: () => void;
+  onPressBackdrop?: () => void;
+  animated?: boolean;
+  overlayColor?: string;
+  overlayOpacity?: number;
+  onOpen?: () => void;
+  children?: React.ReactElement[] | React.ReactElement;
 }

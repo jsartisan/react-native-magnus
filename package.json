@@ -30,7 +30,9 @@
     "ui-library",
     "typescript"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "color": "^3.1.2"
+  },
   "devDependencies": {
     "@babel/core": "^7.7.5",
     "@babel/runtime": "^7.7.6",
@@ -58,6 +60,11 @@
     "metro-react-native-babel-preset": "^0.57.0",
     "prettier": "^1.18.2",
     "pretty-quick": "^2.0.1",
+    "react": "^16.12.0",
+    "react-native": "^0.61.5",
+    "react-native-animatable": "^1.3.3",
+    "react-native-modal": "^11.5.3",
+    "react-native-vector-icons": "^6.6.0",
     "react-test-renderer": "^16.12.0",
     "typescript": "^3.5.3"
   },

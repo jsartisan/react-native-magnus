@@ -25,6 +25,7 @@ export const getStyle = (theme: any, props: any) => {
     flexDirection: "row",
     alignSelf: "flex-start",
     backgroundColor: getThemeProperty(theme.colors, props.bg, "transparent"),
+    opacity: props.opacity,
     ...createPositionStyle(props),
     ...createFlexStyles(props),
     ...createBorderWidthStyles(props),
@@ -37,6 +38,7 @@ export const getStyle = (theme: any, props: any) => {
     color: getThemeProperty(theme.colors, props.color, "black"),
     textAlign: "right",
     fontSize: getThemeProperty(theme.fontSize, props.fontSize, 16),
+    fontWeight: props.fontWeight,
     lineHeight: getThemeProperty(theme.fontSize, props.fontSize, 16) * 1.2
   };
 
@@ -71,11 +73,18 @@ export const getStyle = (theme: any, props: any) => {
     };
   }
 
+  if (props.zIndex) {
+    computedStyle.button = {
+      ...computedStyle.button,
+      zIndex: props.zIndex
+    };
+  }
+
   if (props.shadow) {
     computedStyle.button = {
       ...computedStyle.button,
       ...theme.shadow[props.shadow],
-      shadowColor: getThemeProperty(theme.colors, props.shadowColor, "white")
+      shadowColor: getThemeProperty(theme.colors, props.shadowColor, "red")
     };
   }
 

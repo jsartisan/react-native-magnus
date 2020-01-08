@@ -6,14 +6,16 @@ import {
 import {
   BorderPropsType,
   SpacingPropsType,
-  RoundedPropsType
+  RoundedPropsType,
+  ShadowPropsType
 } from "../../theme";
 
 export interface DivProps
   extends RNViewProps,
     BorderPropsType,
     SpacingPropsType,
-    RoundedPropsType {
+    RoundedPropsType,
+    ShadowPropsType {
   h?: number | string;
   w?: number | string;
   bg?: string;
@@ -22,8 +24,6 @@ export interface DivProps
   bgImg?: RNImageSourcePropType;
   bgMode?: "contain" | "cover" | "stretch";
   flex?: number;
-  shadow?: number;
-  shadowColor?: string;
   justifyContent?:
     | "flex-start"
     | "flex-end"
@@ -31,6 +31,13 @@ export interface DivProps
     | "space-between"
     | "space-around"
     | "space-evenly";
+  alignSelf?:
+    | "auto"
+    | "flex-start"
+    | "flex-end"
+    | "center"
+    | "stretch"
+    | "baseline";
   alignItems?: "flex-start" | "flex-end" | "center" | "stretch" | "baseline";
   flexDir?: "row" | "column" | "row-reverse" | "column-reverse";
   flexWrap?: "wrap" | "nowrap" | "wrap-reverse";

@@ -1,12 +1,7 @@
 import { StyleSheet } from "react-native";
 
 import {
-  getThemeProperty,
-  createFlexStyles,
-  createPositionStyle,
   createSpacingStyles,
-  createBorderWidthStyles,
-  createBorderColorStyles,
   createBorderRadiusStyles
 } from "../../theme/theme.service";
 
