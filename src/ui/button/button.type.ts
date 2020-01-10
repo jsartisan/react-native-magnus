@@ -15,6 +15,13 @@ export interface ButtonProps
   bg?: string;
   position?: "absolute" | "relative";
   alignItems?: "flex-start" | "flex-end" | "center" | "stretch" | "baseline";
+  alignSelf?:
+    | "auto"
+    | "flex-start"
+    | "flex-end"
+    | "center"
+    | "stretch"
+    | "baseline";
   flexDir?: "row" | "column" | "row-reverse" | "column-reverse";
   fontWeight?: string;
   justifyContent?:

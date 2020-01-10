@@ -71,6 +71,7 @@ const Button: React.FunctionComponent<ButtonProps> = props => {
     onPress,
     block,
     ripple,
+    alignSelf,
     ...rest
   } = props;
 
@@ -218,6 +219,7 @@ Button.defaultProps = {
   borderless: false,
   alignItems: "center",
   justifyContent: "center",
+  alignSelf: "flex-start",
   onPress: () => {},
   flexDir: "row"
 };

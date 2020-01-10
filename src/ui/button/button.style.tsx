@@ -23,7 +23,7 @@ export const getStyle = (theme: any, props: any) => {
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "row",
-    alignSelf: "flex-start",
+    alignSelf: props.alignSelf,
     backgroundColor: getThemeProperty(theme.colors, props.bg, "transparent"),
     opacity: props.opacity,
     ...createPositionStyle(props),
