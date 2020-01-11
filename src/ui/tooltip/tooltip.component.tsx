@@ -36,7 +36,9 @@ class Tooltip extends React.Component<TooltipProps> {
     color: "white",
     p: "lg",
     rounded: "xl",
-    mx: "lg"
+    mx: "lg",
+    minW: 50,
+    zIndex: 1
   };
 
   _container = createRef<View>();

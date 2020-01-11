@@ -3,6 +3,7 @@ import { StyleSheet } from "react-native";
 import {
   getThemeProperty,
   createFlexStyles,
+  createShadowStyles,
   createSpacingStyles,
   createBorderWidthStyles,
   createBorderColorStyles,
@@ -24,53 +25,26 @@ export const getStyle = (theme: any, props: any, state: any) => {
     flexWrap: props.flexWrap,
     alignItems: props.alignItems,
     justifyContent: props.justifyContent,
-    backgroundColor: getThemeProperty(theme.colors, props.bg, "transparent"),
+    height: props.h,
+    width: props.w,
+    minWidth: props.minW,
+    minHeight: props.minH,
+    maxWidth: props.maxW,
+    maxHeight: props.maxH,
+    opacity: props.opacity,
+    zIndex: props.zIndex,
     ...createFlexStyles(props),
+    ...createShadowStyles(props, theme),
     ...createBorderWidthStyles(props),
     ...createSpacingStyles(props, theme.spacing),
     ...createBorderColorStyles(props, theme.colors),
-    ...createBorderRadiusStyles(props, theme.borderRadius)
+    ...createBorderRadiusStyles(props, theme.borderRadius),
+    backgroundColor: getThemeProperty(theme.colors, props.bg, "transparent")
   };
 
   computedStyle.image = {
     ...createBorderRadiusStyles(props, theme.borderRadius)
   };
-
-  if (props.shadow) {
-    computedStyle.container = {
-      ...computedStyle.container,
-      ...theme.shadow[props.shadow],
-      shadowColor: getThemeProperty(theme.colors, props.shadowColor, "white")
-    };
-  }
-
-  if (props.h) {
-    computedStyle.container = {
-      ...computedStyle.container,
-      height: props.h
-    };
-  }
-
-  if (props.w) {
-    computedStyle.container = {
-      ...computedStyle.container,
-      width: props.w
-    };
-  }
-
-  if (props.minH) {
-    computedStyle.container = {
-      ...computedStyle.container,
-      minHeight: props.minH
-    };
-  }
-
-  if (props.minW) {
-    computedStyle.container = {
-      ...computedStyle.container,
-      minWidth: props.minW
-    };
-  }
 
   computedStyle.triangle = {
     width: 0,
@@ -83,10 +57,24 @@ export const getStyle = (theme: any, props: any, state: any) => {
     borderBottomWidth: 10,
     borderLeftColor: "transparent",
     borderRightColor: "transparent",
+    opacity: props.opacity,
+    zIndex: props.zIndex,
     borderBottomColor: getThemeProperty(theme.colors, props.bg, "transparent")
   };
 
   computedStyle.text = {
+    fontWeight: props.fontWeight,
+    textDecorationLine: props.textDecorLine,
+    textDecorationStyle: props.textDecorStyle,
+    letterSpacing: props.letterSpacing,
+    fontStyle: props.fontStyle,
+    textAlignVertical: props.textAlignVertical,
+    lineHeight: props.lineHeight
+      ? props.lineHeight
+      : 1.5 * getThemeProperty(theme.fontSize, props.fontSize, 16),
+    textAlign: props.textAlign,
+    textTransform: props.textTransform,
+    fontSize: getThemeProperty(theme.fontSize, props.fontSize, 16),
     color: getThemeProperty(theme.colors, props.color, "white")
   };
 

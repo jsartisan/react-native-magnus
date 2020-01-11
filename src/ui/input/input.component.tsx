@@ -61,6 +61,8 @@ const Input = React.forwardRef<RNTextInput, InputProps>((props, ref) => {
     shadow,
     flex,
     shadowColor,
+    zIndex,
+    opacity,
     placeholderTextColor,
     ...rest
   } = props;

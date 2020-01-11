@@ -304,6 +304,24 @@ export const createBorderColorStyles = (props: any, theme: any) => {
 };
 
 /**
+ * adds shadows property in styles
+ *
+ * @param props
+ */
+export const createShadowStyles = (props: any, theme: any) => {
+  let computedStyle: any = {};
+
+  if (props.shadow) {
+    computedStyle = {
+      ...theme.shadow[props.shadow],
+      shadowColor: getThemeProperty(theme.colors, props.shadowColor, "white")
+    };
+  }
+
+  return computedStyle;
+};
+
+/**
  * create style object
  *
  * @param key
@@ -342,7 +360,7 @@ export const addPropToComputedStyle = (
 
 /**
  * position="absolute"
- * top="10"
+ * top={10}
  *
  * @param value
  */

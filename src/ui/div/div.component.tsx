@@ -26,9 +26,12 @@ const Div: React.FunctionComponent<DivProps> = (props: DivProps) => {
     pl,
     minH,
     minW,
+    maxW,
+    maxH,
     position,
     style,
     flexDir,
+    row,
     rounded,
     roundedTop,
     roundedRight,
@@ -53,6 +56,12 @@ const Div: React.FunctionComponent<DivProps> = (props: DivProps) => {
     shadow,
     shadowColor,
     opacity,
+    overflow,
+    top,
+    left,
+    right,
+    bottom,
+    zIndex,
     ...rest
   } = props;
   const theme = useContext(ThemeContext);
@@ -88,7 +97,9 @@ Div.defaultProps = {
   shadowColor: "gray900",
   position: "relative",
   bgMode: "cover",
-  pointerEvents: "auto"
+  pointerEvents: "auto",
+  row: false,
+  borderStyle: "solid"
 };
 
 export { Div };

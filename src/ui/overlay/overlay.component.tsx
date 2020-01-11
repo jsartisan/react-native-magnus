@@ -31,6 +31,9 @@ const Overlay: React.FunctionComponent<OverlayProps> = (
     roundedLeft,
     visible,
     children,
+    overlayColor,
+    overlayOpacity,
+
     ...rest
   } = props;
   const theme = useContext(ThemeContext);
@@ -41,7 +44,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = (
       animationType="fade"
       transparent
       visible={visible}
-      onRequestClose={() => { }}
+      onRequestClose={() => {}}
       {...rest}
     >
       <RNView style={computedStyle.modal}>
@@ -58,7 +61,9 @@ Overlay.defaultProps = {
   rounded: "md",
   visible: false,
   alignItems: "center",
-  justifyContent: "center"
+  justifyContent: "center",
+  overlayOpacity: 0.6,
+  overlayColor: "gray900"
 };
 
 export { Overlay };

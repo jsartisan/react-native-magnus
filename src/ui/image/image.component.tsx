@@ -22,6 +22,8 @@ const Image: React.FunctionComponent<ImageProps> = props => {
     pl,
     minH,
     minW,
+    maxH,
+    maxW,
     style,
     rounded,
     roundedTop,
@@ -47,6 +49,9 @@ const Image: React.FunctionComponent<ImageProps> = props => {
     right,
     bottom,
     left,
+    zIndex,
+    opacity,
+    alignSelf,
     ...rest
   } = props;
   const theme = useContext(ThemeContext);

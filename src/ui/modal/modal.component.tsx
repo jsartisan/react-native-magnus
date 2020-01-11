@@ -36,7 +36,7 @@ interface ModalProps
   useNativeDriver?: boolean;
   deviceHeight?: number;
   deviceWidth?: number;
-  visible?: boolean;
+  isVisible?: boolean;
   hideModalContentWhileAnimating?: boolean;
   propagateSwipe?: boolean;
   onModalShow?: () => void;
@@ -93,7 +93,7 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
     alignItems,
     justifyContent,
     children,
-    visible,
+    isVisible,
     ...rest
   } = props;
   const theme = useContext(ThemeContext);
@@ -101,12 +101,12 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
 
   return (
     <RNModal
-      isVisible={visible}
+      isVisible={isVisible}
       hideModalContentWhileAnimating
       {...rest}
       style={computedStyle.modal}
     >
-      <Div bg={bg} h={h} style={computedStyle.container}>
+      <Div bg={bg} h={h || "100%"} style={computedStyle.container}>
         <SafeAreaView style={computedStyle.safeView}>{children}</SafeAreaView>
       </Div>
     </RNModal>
@@ -116,7 +116,7 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
 Modal.defaultProps = {
   bg: "white",
   h: "100%",
-  visible: false
+  isVisible: false
 };
 
 export { Modal };

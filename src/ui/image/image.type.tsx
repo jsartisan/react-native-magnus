@@ -15,12 +15,23 @@ export interface ImageProps
   w?: number | string;
   minH?: number;
   minW?: number;
+  maxH?: number;
+  maxW?: number;
   flex?: number;
   shadow?: number;
   shadowColor?: string;
   position?: "absolute" | "relative";
+  alignSelf?:
+    | "auto"
+    | "flex-start"
+    | "flex-end"
+    | "center"
+    | "stretch"
+    | "baseline";
   top?: number;
   right?: number;
   bottom?: number;
   left?: number;
+  opacity?: number;
+  zIndex?: number;
 }

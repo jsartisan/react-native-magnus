@@ -13,6 +13,10 @@ export interface InputProps
     RoundedPropsType {
   h?: number;
   w?: number;
+  minH?: number;
+  minW?: number;
+  maxH?: number;
+  maxW?: number;
   bg?: string;
   fontSize?: string;
   lineHeight?: number;
@@ -24,8 +28,8 @@ export interface InputProps
   flex?: number;
   shadowColor?: string;
   focusBorderColor?: string;
-  minW?: number | string;
-  minH?: number | string;
   suffix?: React.ReactNode;
   prefix?: React.ReactNode;
+  zIndex?: number;
+  opacity?: number;
 }

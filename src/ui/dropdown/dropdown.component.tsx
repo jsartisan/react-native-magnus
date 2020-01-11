@@ -5,17 +5,47 @@ import RNModal from "react-native-modal";
 
 import { Div } from "../div/div.component";
 import { Text } from "../text/text.component";
-import { ThemeContext } from "../../theme";
+import { ThemeContext, getThemeProperty } from "../../theme";
 import { getStyle } from "./dropdown.style";
-import { DropdownProps } from "./dropdown.type";
+import { DropdownProps, DropdownRef } from "./dropdown.type";
 
-type dropdownRef = {
-  open: () => void;
-  close: () => void;
-};
-
-const Dropdown = React.forwardRef<dropdownRef, DropdownProps>((props, ref) => {
-  const { title, showScrollIndicator, children } = props;
+const Dropdown = React.forwardRef<DropdownRef, DropdownProps>((props, ref) => {
+  const {
+    bg,
+    m,
+    mt,
+    mr,
+    mb,
+    ml,
+    p,
+    pr,
+    pt,
+    pb,
+    pl,
+    rounded,
+    roundedTop,
+    roundedRight,
+    roundedBottom,
+    roundedLeft,
+    borderColor,
+    borderBottomColor,
+    borderLeftColor,
+    borderTopColor,
+    borderRightColor,
+    borderWidth,
+    borderLeftWidth,
+    borderRightWidth,
+    borderBottomWidth,
+    borderTopWidth,
+    title,
+    showSwipeIndicator,
+    children,
+    backdropColor,
+    backdropOpacity,
+    flexDir,
+    flexWrap,
+    ...rest
+  } = props;
   const theme = useContext(ThemeContext);
   const computedStyle = getStyle(theme, props);
   const [isVisible, setIsVisible] = useState(false);
@@ -38,7 +68,7 @@ const Dropdown = React.forwardRef<dropdownRef, DropdownProps>((props, ref) => {
   const renderTitle = () => {
     if (title) {
       return typeof title === "string" ? (
-        <Text fontSize="text400" color="gray700" px="xl" pt="md" pb="lg">
+        <Text fontSize="text400" color="gray700">
           {title}
         </Text>
       ) : (
@@ -54,7 +84,7 @@ const Dropdown = React.forwardRef<dropdownRef, DropdownProps>((props, ref) => {
    */
   const renderIndicator = () => {
     return (
-      showScrollIndicator && (
+      showSwipeIndicator && (
         <Div
           h={7}
           rounded="xl"
@@ -72,25 +102,33 @@ const Dropdown = React.forwardRef<dropdownRef, DropdownProps>((props, ref) => {
       isVisible={isVisible}
       onSwipeComplete={() => setIsVisible(false)}
       swipeDirection={["down"]}
-      backdropColor="black"
+      backdropOpacity={backdropOpacity}
+      backdropColor={getThemeProperty(
+        theme.colors,
+        backdropColor,
+        "transparent"
+      )}
       onBackdropPress={() => setIsVisible(false)}
       style={{
         margin: 0,
         justifyContent: "flex-end"
       }}
+      {...rest}
     >
       <Div style={computedStyle.wrapper}>
         {renderIndicator()}
-        <SafeAreaView pointerEvents="box-none">
+        <SafeAreaView>
           <Div style={computedStyle.container}>
             {renderTitle()}
-            {React.Children.map(children, (child: React.ReactElement) => {
-              return React.cloneElement(child, {
-                onSelect: () => {
-                  setIsVisible(false);
-                }
-              });
-            })}
+            <Div style={computedStyle.options}>
+              {React.Children.map(children, (child: React.ReactElement) => {
+                return React.cloneElement(child, {
+                  onSelect: () => {
+                    setIsVisible(false);
+                  }
+                });
+              })}
+            </Div>
           </Div>
         </SafeAreaView>
       </Div>
@@ -101,8 +139,10 @@ const Dropdown = React.forwardRef<dropdownRef, DropdownProps>((props, ref) => {
 Dropdown.defaultProps = {
   bg: "white",
   rounded: "none",
-  flexDir: "column",
-  showScrollIndicator: true
+  showSwipeIndicator: true,
+  backdropColor: "gray900",
+  backdropOpacity: 1,
+  flexWrap: "nowrap"
 };
 
 export { Dropdown };

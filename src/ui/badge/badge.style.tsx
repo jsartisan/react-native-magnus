@@ -2,6 +2,7 @@ import { StyleSheet } from "react-native";
 
 import {
   getThemeProperty,
+  createShadowStyles,
   createSpacingStyles,
   createBorderWidthStyles,
   createBorderColorStyles,
@@ -19,58 +20,36 @@ export const getStyle = (theme: any, props: any) => {
   const computedStyle: any = {};
 
   computedStyle.container = {
+    alignSelf: props.alignSelf,
     minHeight: typeof props.count === "undefined" ? 10 : 30,
     minWidth: typeof props.count === "undefined" ? 10 : 30
   };
 
   computedStyle.div = {
+    zIndex: 1,
+    height: props.h,
+    width: props.w,
     alignItems: "center",
     justifyContent: "center",
+    alignSelf: "flex-start",
+    opacity: props.opacity,
+    minHeight: typeof props.children === "string" ? 30 : 10,
+    backgroundColor: getThemeProperty(theme.colors, props.bg, "transparent"),
+    minWidth: typeof props.children === "string" ? 30 : 10,
+    ...createPositionStyle(props),
     ...createBorderWidthStyles(props),
+    ...createShadowStyles(props, theme),
     ...createSpacingStyles(props, theme.spacing),
     ...createBorderColorStyles(props, theme.colors),
     ...createBorderRadiusStyles(props, theme.borderRadius),
-    backgroundColor: getThemeProperty(theme.colors, props.bg, "transparent"),
-    ...createPositionStyle(props),
-    minHeight: typeof props.children === "string" ? 30 : 10,
-    minWidth: typeof props.children === "string" ? 30 : 10,
-    zIndex: 9999
+    position: typeof props.children !== "string" ? "absolute" : props.position
   };
-
-  if (typeof props.children !== "string") {
-    computedStyle.div = {
-      ...computedStyle.div,
-      position: "absolute"
-    };
-  }
-
-  if (props.h) {
-    computedStyle.div = {
-      ...computedStyle.div,
-      height: props.h
-    };
-  }
-
-  if (props.w) {
-    computedStyle.div = {
-      ...computedStyle.div,
-      width: props.w
-    };
-  }
 
   computedStyle.text = {
     color: props.color,
     fontSize: getThemeProperty(theme.fontSize, props.fontSize, 16),
     paddingHorizontal: 10
   };
-
-  if (props.shadow) {
-    computedStyle.div = {
-      ...computedStyle.div,
-      ...theme.shadow[props.shadow],
-      shadowColor: getThemeProperty(theme.colors, props.shadowColor, "white")
-    };
-  }
 
   // merging style props to computed style
   if (props.style) {

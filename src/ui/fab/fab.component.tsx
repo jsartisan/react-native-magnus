@@ -40,17 +40,12 @@ class Fab extends React.Component<FabProps, FabState> {
     shadowColor: "gray900"
   };
 
-  mainBottomAnimation: any;
-
-  actionsBottomAnimation: any;
-
   animation: any;
-
-  actionsAnimation: any;
-
-  visibleAnimation: any;
-
   fadeAnimation: any;
+  visibleAnimation: any;
+  actionsAnimation: any;
+  mainBottomAnimation: any;
+  actionsBottomAnimation: any;
 
   constructor(props: FabProps) {
     super(props);

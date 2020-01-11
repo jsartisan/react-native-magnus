@@ -23,7 +23,7 @@ const Option: React.FunctionComponent<OptionProps> = props => {
   };
 
   return (
-    <Button {...rest} onPress={onPress} block>
+    <Button {...rest} onPress={onPress}>
       {children}
     </Button>
   );

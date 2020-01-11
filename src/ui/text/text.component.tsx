@@ -34,6 +34,12 @@ const Text: React.FunctionComponent<TextProps> = props => {
     textTransform,
     textDecorColor,
     textDecorStyle,
+    fontStyle,
+    textDecorLine,
+    textAlignVertical,
+    overflow,
+    opacity,
+    zIndex,
     style,
     ...rest
   } = props;
@@ -51,7 +57,8 @@ Text.defaultProps = {
   color: "gray900",
   textAlign: "auto",
   textTransform: "none",
-  fontSize: "text400"
+  fontSize: "text400",
+  overflow: "hidden"
 };
 
 export { Text };

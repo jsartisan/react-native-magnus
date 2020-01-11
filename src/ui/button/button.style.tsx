@@ -1,13 +1,13 @@
 import { StyleSheet } from "react-native";
 
 import {
-  createFlexStyles,
   getThemeProperty,
+  createShadowStyles,
   createSpacingStyles,
+  createPositionStyle,
   createBorderRadiusStyles,
   createBorderColorStyles,
-  createBorderWidthStyles,
-  createPositionStyle
+  createBorderWidthStyles
 } from "../../theme/theme.service";
 
 /**
@@ -24,21 +24,28 @@ export const getStyle = (theme: any, props: any) => {
     alignItems: "center",
     flexDirection: "row",
     alignSelf: props.alignSelf,
-    backgroundColor: getThemeProperty(theme.colors, props.bg, "transparent"),
     opacity: props.opacity,
+    flex: props.flex,
+    zIndex: props.zIndex,
+    width: props.w,
+    height: props.h,
+    minWidth: props.minW,
+    minHeight: props.minH,
+    maxWidth: props.maxW,
+    maxHeight: props.maxH,
     ...createPositionStyle(props),
-    ...createFlexStyles(props),
     ...createBorderWidthStyles(props),
+    ...createShadowStyles(props, theme),
     ...createSpacingStyles(props, theme.spacing),
     ...createBorderColorStyles(props, theme.colors),
-    ...createBorderRadiusStyles(props, theme.borderRadius)
+    ...createBorderRadiusStyles(props, theme.borderRadius),
+    backgroundColor: getThemeProperty(theme.colors, props.bg, "transparent")
   };
 
   computedStyle.text = {
-    color: getThemeProperty(theme.colors, props.color, "black"),
-    textAlign: "right",
-    fontSize: getThemeProperty(theme.fontSize, props.fontSize, 16),
     fontWeight: props.fontWeight,
+    color: getThemeProperty(theme.colors, props.color, "black"),
+    fontSize: getThemeProperty(theme.fontSize, props.fontSize, 16),
     lineHeight: getThemeProperty(theme.fontSize, props.fontSize, 16) * 1.2
   };
 
@@ -48,14 +55,10 @@ export const getStyle = (theme: any, props: any) => {
     minHeight: getThemeProperty(theme.fontSize, props.loaderSize, 16) * 1.2
   };
 
-  computedStyle.image = {
-    ...createBorderRadiusStyles(props, theme.borderRadius)
-  };
-
   computedStyle.container = {
     flexDirection: props.flexDir,
     alignItems: props.alignItems,
-    justifyContent: "center",
+    justifyContent: props.justifyContent,
     position: "relative"
   };
 
@@ -63,28 +66,6 @@ export const getStyle = (theme: any, props: any) => {
     computedStyle.button = {
       ...computedStyle.button,
       overflow: "hidden"
-    };
-  }
-
-  if (props.justifyContent) {
-    computedStyle.container = {
-      ...computedStyle.container,
-      justifyContent: props.justifyContent
-    };
-  }
-
-  if (props.zIndex) {
-    computedStyle.button = {
-      ...computedStyle.button,
-      zIndex: props.zIndex
-    };
-  }
-
-  if (props.shadow) {
-    computedStyle.button = {
-      ...computedStyle.button,
-      ...theme.shadow[props.shadow],
-      shadowColor: getThemeProperty(theme.colors, props.shadowColor, "red")
     };
   }
 
@@ -96,22 +77,7 @@ export const getStyle = (theme: any, props: any) => {
     };
 
     computedStyle.button = {
-      ...computedStyle.button,
-      alignSelf: "stretch"
-    };
-  }
-
-  if (props.w) {
-    computedStyle.button = {
-      ...computedStyle.button,
-      width: props.w
-    };
-  }
-
-  if (props.h) {
-    computedStyle.button = {
-      ...computedStyle.button,
-      height: props.h
+      ...computedStyle.button
     };
   }
 

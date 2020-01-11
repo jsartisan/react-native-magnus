@@ -30,6 +30,8 @@ export interface IconProps
   w?: number;
   minW?: number;
   minH?: number;
+  maxH?: number;
+  maxW?: number;
   bg?: string;
   name: string;
   color?: string;
@@ -42,6 +44,7 @@ export interface IconProps
   bottom?: string | number;
   fontFamily?: iconFontFamilyType;
   fontSize?: string;
+  zIndex?: number;
   alignSelf?:
     | "auto"
     | "flex-start"

@@ -18,7 +18,6 @@ export { Input } from "./input/input.component";
 export { Mention } from "./mention/mention.component";
 export { Textarea } from "./input/textarea.component";
 export { Div } from "./div/div.component";
-export { Row } from "./div/row.component";
 export { ScrollDiv } from "./scrolldiv/scrolldiv.component";
 export { Button } from "./button/button.component";
 export { Icon } from "./icon/icon.component";
@@ -33,6 +32,7 @@ export { Avatar } from "./avatar/avatar.component";
 export { Tag } from "./tag/tag.component";
 export { Modal } from "./modal/modal.component";
 export { Toggle } from "./toggle/toggle.component";
+export { DropdownRef } from "./dropdown/dropdown.type";
 
 export const Skeleton = {
   Box: SkeletonBox,

@@ -1,3 +1,4 @@
+import color from "color";
 import { StyleSheet } from "react-native";
 
 import {
@@ -17,7 +18,12 @@ export const getStyle = (theme: any, props: any) => {
   const computedStyle: any = {};
 
   computedStyle.modal = {
-    backgroundColor: "rgba(0, 0, 0, 0.6)",
+    backgroundColor: color(
+      getThemeProperty(theme.colors, props.overlayColor, "transparent")
+    )
+      .alpha(props.overlayOpacity)
+      .rgb()
+      .string(),
     flex: 1,
     alignItems: "center",
     justifyContent: "center"

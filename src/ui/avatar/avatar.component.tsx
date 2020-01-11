@@ -31,6 +31,11 @@ const Avatar: React.FunctionComponent<AvatarProps> = props => {
     color,
     fontSize,
     size,
+    alignSelf,
+    bottom,
+    left,
+    right,
+    top,
     borderBottomColor,
     borderLeftColor,
     borderTopColor,
@@ -42,6 +47,8 @@ const Avatar: React.FunctionComponent<AvatarProps> = props => {
     borderTopWidth,
     shadow,
     shadowColor,
+    opacity,
+    zIndex,
     ...rest
   } = props;
   const theme = useContext(ThemeContext);
@@ -77,7 +84,8 @@ Avatar.defaultProps = {
   fontSize: "text400",
   shadow: 0,
   shadowColor: "black500",
-  position: "relative"
+  position: "relative",
+  zIndex: 1
 };
 
 export { Avatar };

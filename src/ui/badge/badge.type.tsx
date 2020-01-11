@@ -26,6 +26,13 @@ export interface BadgeProps
     | "space-around"
     | "space-evenly";
   alignItems?: "flex-start" | "flex-end" | "center" | "stretch" | "baseline";
+  alignSelf?:
+    | "auto"
+    | "flex-start"
+    | "flex-end"
+    | "center"
+    | "stretch"
+    | "baseline";
   position?: "absolute" | "relative";
   top?: number;
   right?: number;
@@ -34,5 +41,6 @@ export interface BadgeProps
   color?: string;
   fontSize?: string;
   count?: string | number;
+  opacity?: number;
   children?: React.ReactNode[] | React.ReactNode;
 }

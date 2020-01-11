@@ -2,9 +2,10 @@ import { StyleSheet } from "react-native";
 
 import {
   getThemeProperty,
-  createBorderWidthStyles,
-  createBorderColorStyles,
+  createShadowStyles,
   createSpacingStyles,
+  createBorderColorStyles,
+  createBorderWidthStyles,
   createBorderRadiusStyles
 } from "../../theme/theme.service";
 
@@ -18,88 +19,29 @@ export const getStyle = (theme: any, props: any) => {
   const computedStyle: any = {};
 
   computedStyle.container = {
+    height: props.h,
+    width: props.w,
+    minHeight: props.minH,
+    minWidth: props.minW,
+    maxWidth: props.maxW,
+    maxHeight: props.maxH,
+    top: props.top,
+    left: props.left,
+    right: props.right,
+    bottom: props.bottom,
+    position: props.position,
     alignSelf: props.alignSelf,
+    alignItems: "center",
+    justifyContent: "center",
     color: getThemeProperty(theme.colors, props.color, "#000"),
     fontSize: getThemeProperty(theme.fontSize, props.fontSize, 16),
     backgroundColor: getThemeProperty(theme.colors, props.bg, "transparent"),
-    alignItems: "center",
-    justifyContent: "center",
     ...createBorderWidthStyles(props),
     ...createSpacingStyles(props, theme.spacing),
     ...createBorderColorStyles(props, theme.colors),
-    ...createBorderRadiusStyles(props, theme.borderRadius)
+    ...createBorderRadiusStyles(props, theme.borderRadius),
+    ...createShadowStyles(props, theme)
   };
-
-  if (props.h) {
-    computedStyle.container = {
-      ...computedStyle.container,
-      height: props.h
-    };
-  }
-
-  if (props.w) {
-    computedStyle.container = {
-      ...computedStyle.container,
-      width: props.w
-    };
-  }
-
-  if (props.minH) {
-    computedStyle.container = {
-      ...computedStyle.container,
-      minHeight: props.minH
-    };
-  }
-
-  if (props.minW) {
-    computedStyle.container = {
-      ...computedStyle.container,
-      minWidth: props.minW
-    };
-  }
-
-  if (props.position) {
-    computedStyle.container = {
-      ...computedStyle.container,
-      position: props.position
-    };
-  }
-
-  if (typeof props.top !== "undefined") {
-    computedStyle.container = {
-      ...computedStyle.container,
-      top: props.top
-    };
-  }
-
-  if (typeof props.right !== "undefined") {
-    computedStyle.container = {
-      ...computedStyle.container,
-      right: props.right
-    };
-  }
-
-  if (typeof props.bottom !== "undefined") {
-    computedStyle.container = {
-      ...computedStyle.container,
-      bottom: props.bottom
-    };
-  }
-
-  if (typeof props.left !== "undefined") {
-    computedStyle.container = {
-      ...computedStyle.container,
-      left: props.left
-    };
-  }
-
-  if (props.shadow) {
-    computedStyle.container = {
-      ...computedStyle.container,
-      ...theme.shadow[props.shadow],
-      shadowColor: getThemeProperty(theme.colors, props.shadowColor, "white")
-    };
-  }
 
   // merging style props to computed style
   if (props.style) {

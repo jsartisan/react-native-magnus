@@ -1,12 +1,12 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 
 import {
   getThemeProperty,
   createSpacingStyles,
   createBorderWidthStyles,
   createBorderColorStyles,
-  createBorderRadiusStyles,
-} from '../../theme/theme.service';
+  createBorderRadiusStyles
+} from "../../theme/theme.service";
 
 /**
  * computed style
@@ -18,33 +18,34 @@ export const getStyle = (theme: any, props: any) => {
   const computedStyle: any = {};
 
   computedStyle.wrapper = {
-    backgroundColor: getThemeProperty(theme.colors, props.bg, 'transparent'),
+    backgroundColor: getThemeProperty(theme.colors, props.bg, "transparent"),
     ...createBorderWidthStyles(props),
     ...createBorderColorStyles(props, theme.colors),
-    ...createBorderRadiusStyles(props, theme.borderRadius),
+    ...createBorderRadiusStyles(props, theme.borderRadius)
   };
 
   computedStyle.indicator = {
-    alignSelf: 'center',
-    marginVertical: 10,
+    alignSelf: "center",
+    marginVertical: 10
   };
 
   computedStyle.container = {
-    ...createSpacingStyles(props, theme.spacing),
+    height: props.h,
+    ...createSpacingStyles(props, theme.spacing)
   };
 
-  if (props.h) {
-    computedStyle.container = {
-      ...computedStyle.container,
-      height: props.h,
-    };
-  }
+  computedStyle.options = {
+    flexWrap: props.flexWrap,
+    flexDirection: props.flexDir,
+    alignItems: props.alignItems,
+    justifyContent: props.justifyContent
+  };
 
   // merging style props to computed style
   if (props.style) {
     computedStyle.container = {
       ...computedStyle.container,
-      ...props.style,
+      ...props.style
     };
   }
 

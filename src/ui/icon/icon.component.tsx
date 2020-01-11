@@ -31,6 +31,10 @@ const Icon: React.FunctionComponent<IconProps> = props => {
     name,
     color,
     rounded,
+    maxH,
+    maxW,
+    minW,
+    minH,
     roundedTop,
     roundedRight,
     roundedBottom,
@@ -49,6 +53,7 @@ const Icon: React.FunctionComponent<IconProps> = props => {
     borderTopWidth,
     fontFamily,
     fontSize,
+    zIndex,
     style,
     ...rest
   } = props;

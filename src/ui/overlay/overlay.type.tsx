@@ -24,4 +24,6 @@ export interface OverlayProps
   flexWrap?: "wrap" | "nowrap" | "wrap-reverse";
   children: React.ReactElement[] | React.ReactElement;
   visible?: boolean;
+  overlayColor?: string;
+  overlayOpacity?: number;
 }

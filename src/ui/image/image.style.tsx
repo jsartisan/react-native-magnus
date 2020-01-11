@@ -1,8 +1,9 @@
 import { StyleSheet } from "react-native";
 
 import {
-  getThemeProperty,
+  createShadowStyles,
   createSpacingStyles,
+  createPositionStyle,
   createBorderRadiusStyles,
   createBorderColorStyles,
   createBorderWidthStyles
@@ -18,86 +19,23 @@ export const getStyle = (theme: any, props: any) => {
   const computedStyle: any = {};
 
   computedStyle.image = {
-    position: props.position
-  };
-
-  computedStyle.image = {
+    flex: props.flex,
+    height: props.h,
+    width: props.w,
+    minHeight: props.minH,
+    minWidth: props.minH,
+    maxWidth: props.maxW,
+    maxHeight: props.maxH,
+    position: props.position,
+    zIndex: props.zIndex,
+    alignSelf: props.alignSelf,
+    ...createPositionStyle(props),
     ...createBorderWidthStyles(props),
+    ...createShadowStyles(props, theme),
     ...createSpacingStyles(props, theme.spacing),
     ...createBorderColorStyles(props, theme.colors),
     ...createBorderRadiusStyles(props, theme.borderRadius)
   };
-
-  if (props.flex) {
-    computedStyle.image = {
-      ...computedStyle.image,
-      flex: props.flex
-    };
-  }
-
-  if (props.shadow) {
-    computedStyle.image = {
-      ...computedStyle.image,
-      ...theme.shadow[props.shadow],
-      shadowColor: getThemeProperty(theme.colors, props.shadowColor, "white")
-    };
-  }
-
-  if (props.h) {
-    computedStyle.image = {
-      ...computedStyle.image,
-      height: props.h
-    };
-  }
-
-  if (props.w) {
-    computedStyle.image = {
-      ...computedStyle.image,
-      width: props.w
-    };
-  }
-
-  if (props.top) {
-    computedStyle.image = {
-      ...computedStyle.image,
-      top: props.top
-    };
-  }
-
-  if (props.right) {
-    computedStyle.image = {
-      ...computedStyle.image,
-      right: props.right
-    };
-  }
-
-  if (props.bottom) {
-    computedStyle.image = {
-      ...computedStyle.image,
-      bottom: props.bottom
-    };
-  }
-
-  if (props.left) {
-    computedStyle.image = {
-      ...computedStyle.image,
-      left: props.left
-    };
-  }
-
-  if (props.minH) {
-    computedStyle.image = {
-      ...computedStyle.image,
-      minHeight: props.minH
-    };
-  }
-
-  if (props.minW) {
-    computedStyle.image = {
-      ...computedStyle.image,
-      minWidth: props.minW
-    };
-  }
 
   // merging style props to computed style
   if (props.style) {

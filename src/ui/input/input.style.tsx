@@ -6,7 +6,9 @@ import {
   createBorderColorStyles,
   createSpacingStyles,
   createFlexStyles,
-  createBorderRadiusStyles
+  createBorderRadiusStyles,
+  createPositionStyle,
+  createShadowStyles
 } from "../../theme/theme.service";
 
 /**
@@ -21,9 +23,19 @@ export const getStyle = (theme: any, props: any, state: any) => {
   computedStyle.container = {
     flexDirection: "row",
     alignItems: "center",
+    zIndex: props.zIndex,
+    minHeight: props.minH,
+    minWidth: props.minW,
+    maxHeight: props.maxH,
+    maxWidth: props.maxW,
+    width: props.w,
+    height: props.h,
+    opacity: props.opacity,
     backgroundColor: getThemeProperty(theme.colors, props.bg, "white"),
     ...createFlexStyles(props),
     ...createBorderWidthStyles(props),
+    ...createShadowStyles(props, theme),
+    ...createPositionStyle(props),
     ...createSpacingStyles(props, theme.spacing),
     ...createBorderColorStyles(props, theme.colors),
     ...createBorderRadiusStyles(props, theme.borderRadius)
@@ -43,6 +55,7 @@ export const getStyle = (theme: any, props: any, state: any) => {
   computedStyle.input = {
     flex: 1,
     padding: 0,
+    textAlignVertical: "center",
     color: getThemeProperty(theme.colors, props.color, "black"),
     fontSize: getThemeProperty(theme.fontSize, props.fontSize, 16)
   };
@@ -50,36 +63,16 @@ export const getStyle = (theme: any, props: any, state: any) => {
   computedStyle.suffix = {
     flexDirection: "row",
     justifyContent: "center",
+    alignSelf: props.suffix && props.suffix.props.alignSelf,
     marginLeft: 5
   };
 
   computedStyle.prefix = {
     flexDirection: "row",
     justifyContent: "center",
-    marginRight: 5
+    marginRight: 5,
+    alignSelf: props.prefix && props.prefix.props.alignSelf
   };
-
-  if (props.minH) {
-    computedStyle.container = {
-      ...computedStyle.container,
-      minHeight: props.minH
-    };
-  }
-
-  if (props.minW) {
-    computedStyle.container = {
-      ...computedStyle.container,
-      minWidth: props.minW
-    };
-  }
-
-  if (props.shadow) {
-    computedStyle.container = {
-      ...computedStyle.container,
-      ...theme.shadow[props.shadow],
-      shadowColor: getThemeProperty(theme.colors, props.shadowColor, "black")
-    };
-  }
 
   // merging style props to computed style
   if (props.style) {

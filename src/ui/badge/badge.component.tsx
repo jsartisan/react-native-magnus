@@ -48,8 +48,9 @@ const Badge: React.FunctionComponent<BadgeProps> = (props: BadgeProps) => {
     top,
     left,
     bottom,
-    count,
     color,
+    count,
+    opacity,
     ...rest
   } = props;
   const theme = useContext(ThemeContext);
@@ -57,11 +58,13 @@ const Badge: React.FunctionComponent<BadgeProps> = (props: BadgeProps) => {
 
   return (
     <RNView style={computedStyle.container}>
-      {typeof children !== "string" && children}
-      <RNView style={computedStyle.div} {...rest}>
-        {typeof children === "string" && (
-          <RNText style={computedStyle.text}>{children}</RNText>
-        )}
+      <RNView style={{ alignSelf: "flex-start" }}>
+        {typeof children !== "string" && children}
+        <RNView style={computedStyle.div} {...rest}>
+          {typeof children === "string" && (
+            <RNText style={computedStyle.text}>{children}</RNText>
+          )}
+        </RNView>
       </RNView>
     </RNView>
   );

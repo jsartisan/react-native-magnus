@@ -1,13 +1,13 @@
 import {
   ViewProps as RNViewProps,
-  ImageSourcePropType as RNImageSourcePropType,
-} from 'react-native';
+  ImageSourcePropType as RNImageSourcePropType
+} from "react-native";
 
 import {
   BorderPropsType,
   SpacingPropsType,
-  RoundedPropsType,
-} from '../../theme';
+  RoundedPropsType
+} from "../../theme";
 
 export interface AvatarProps
   extends RNViewProps,
@@ -21,9 +21,18 @@ export interface AvatarProps
   fontSize?: string;
   shadow?: number;
   shadowColor?: string;
-  position?: 'absolute' | 'relative';
+  position?: "absolute" | "relative";
   top?: number;
   right?: number;
   bottom?: number;
   left?: number;
+  alignSelf?:
+    | "auto"
+    | "flex-start"
+    | "flex-end"
+    | "center"
+    | "stretch"
+    | "baseline";
+  zIndex?: number;
+  opacity?: number;
 }

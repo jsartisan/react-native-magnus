@@ -1,13 +1,12 @@
 import * as React from "react";
 import { useContext, useState, useEffect, useImperativeHandle } from "react";
-import { Animated, SafeAreaView, View as RNView } from "react-native";
+import { Animated, SafeAreaView, View as RNView, Text } from "react-native";
 
 import { getStyle } from "./snackbar.style";
 import { ThemeContext } from "../../theme";
-import { Text } from "../text/text.component";
 import { SnackbarRefType, SnackbarProps } from "./snackbar.type";
 
-const DURATION_MEDIUM = 7000;
+let hideTimeout: number;
 
 const Snackbar = React.forwardRef<SnackbarRefType, SnackbarProps>(
   (props, ref) => {
@@ -42,13 +41,20 @@ const Snackbar = React.forwardRef<SnackbarRefType, SnackbarProps>(
       borderRightWidth,
       borderBottomWidth,
       borderTopWidth,
+      position,
+      flexDir,
+      justifyContent,
+      alignItems,
+      alignSelf,
+      shadow,
+      shadowColor,
+      opacity: opacityProp,
       ...rest
     } = props;
     const theme = useContext(ThemeContext);
     const computedStyle = getStyle(theme, props);
     const [opacity] = useState(new Animated.Value(0.0));
     const [hidden, setHidden] = useState(true);
-    let hideTimeout: number;
 
     /**
      * component lifecycle methods
@@ -57,7 +63,7 @@ const Snackbar = React.forwardRef<SnackbarRefType, SnackbarProps>(
       return function cleanup() {
         clearTimeout(hideTimeout);
       };
-    }, []);
+    }, [hideTimeout]);
 
     /**
      * hide the snackbar
@@ -69,8 +75,7 @@ const Snackbar = React.forwardRef<SnackbarRefType, SnackbarProps>(
 
       Animated.timing(opacity, {
         toValue: 0,
-        duration: 100,
-        useNativeDriver: true
+        duration: 100
       }).start(({ finished }) => {
         if (finished) {
           setHidden(true);
@@ -90,8 +95,7 @@ const Snackbar = React.forwardRef<SnackbarRefType, SnackbarProps>(
 
       Animated.timing(opacity, {
         toValue: 1,
-        duration: 200,
-        useNativeDriver: true
+        duration: 200
       }).start(({ finished }) => {
         if (finished) {
           const isInfinity =
@@ -128,6 +132,17 @@ const Snackbar = React.forwardRef<SnackbarRefType, SnackbarProps>(
       return null;
     }
 
+    /**
+     * renders children based on type
+     */
+    const renderChildren = () => {
+      if (typeof children === "string") {
+        return <Text style={computedStyle.text}>{children}</Text>;
+      }
+
+      return children;
+    };
+
     return (
       <SafeAreaView pointerEvents="box-none" style={computedStyle.wrapper}>
         <Animated.View
@@ -148,7 +163,7 @@ const Snackbar = React.forwardRef<SnackbarRefType, SnackbarProps>(
           {...rest}
         >
           {prefix && <RNView style={computedStyle.prefix}>{prefix}</RNView>}
-          <Text style={computedStyle.text}>{children}</Text>
+          {renderChildren()}
           {suffix && <RNView style={computedStyle.suffix}>{suffix}</RNView>}
         </Animated.View>
       </SafeAreaView>
@@ -157,16 +172,22 @@ const Snackbar = React.forwardRef<SnackbarRefType, SnackbarProps>(
 );
 
 Snackbar.defaultProps = {
-  bg: "white",
-  color: "gray900",
-  p: "md",
+  bg: "gray900",
+  color: "white",
+  p: "lg",
   m: "md",
   rounded: "md",
   fontSize: "text400",
-  duration: DURATION_MEDIUM,
+  duration: 4000,
   onDismiss: () => {},
   shadow: 2,
-  shadowColor: "gray500"
+  shadowColor: "gray500",
+  position: "absolute",
+  bottom: 0,
+  flexDir: "row",
+  justifyContent: "center",
+  alignItems: "center",
+  alignSelf: "center"
 };
 
 export { Snackbar };

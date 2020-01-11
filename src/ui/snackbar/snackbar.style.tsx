@@ -2,6 +2,7 @@ import { StyleSheet } from "react-native";
 
 import {
   getThemeProperty,
+  createShadowStyles,
   createSpacingStyles,
   createBorderColorStyles,
   createBorderWidthStyles,
@@ -18,8 +19,10 @@ export const getStyle = (theme: any, props: any) => {
   const computedStyle: any = {};
 
   computedStyle.wrapper = {
-    position: "absolute",
-    bottom: 0,
+    position: props.position,
+    top: props.top,
+    right: props.right,
+    bottom: props.bottom,
     width: "100%"
   };
 
@@ -38,33 +41,23 @@ export const getStyle = (theme: any, props: any) => {
   };
 
   computedStyle.container = {
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
+    flexDirection: props.flexDir,
+    justifyContent: props.justifyContent,
+    alignItems: props.justifyContent,
+    alignSelf: props.alignSelf,
+    width: props.w,
+    height: props.h,
+    minWidth: props.minW,
+    minHeight: props.minH,
+    maxWidth: props.maxW,
+    maxHeight: props.maxH,
+    opacity: props.opacity,
+    ...createShadowStyles(props, theme),
     ...createBorderWidthStyles(props),
     ...createSpacingStyles(props, theme.spacing),
     ...createBorderColorStyles(props, theme.colors),
-    ...createBorderRadiusStyles(props, theme.borderRadius)
-  };
-
-  if (props.shadow) {
-    computedStyle.container = {
-      ...computedStyle.container,
-      ...theme.shadow[props.shadow],
-      shadowColor: getThemeProperty(theme.colors, props.shadowColor, "white")
-    };
-  }
-
-  if (props.bg) {
-    computedStyle.container = {
-      ...computedStyle.container,
-      backgroundColor: getThemeProperty(theme.colors, props.bg, "transparent")
-    };
-  }
-
-  computedStyle.button = {
-    marginHorizontal: 8,
-    marginVertical: 6
+    ...createBorderRadiusStyles(props, theme.borderRadius),
+    backgroundColor: getThemeProperty(theme.colors, props.bg, "transparent")
   };
 
   return StyleSheet.create(computedStyle);
