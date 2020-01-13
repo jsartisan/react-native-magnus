@@ -77,7 +77,8 @@ export const getStyle = (theme: any, props: any) => {
     };
 
     computedStyle.button = {
-      ...computedStyle.button
+      ...computedStyle.button,
+      alignSelf: "stretch"
     };
   }
 

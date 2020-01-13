@@ -30,9 +30,7 @@
     "ui-library",
     "typescript"
   ],
-  "dependencies": {
-    "color": "^3.1.2"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.7.5",
     "@babel/runtime": "^7.7.6",
@@ -45,6 +43,7 @@
     "@typescript-eslint/eslint-plugin": "^1.13.0",
     "@typescript-eslint/parser": "^1.13.0",
     "babel-jest": "^24.9.0",
+    "color": "^3.1.2",
     "eslint": "^6.1.0",
     "eslint-config-airbnb": "^17.1.1",
     "eslint-config-prettier": "^6.0.0",
