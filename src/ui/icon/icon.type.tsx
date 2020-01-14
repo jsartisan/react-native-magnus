@@ -45,6 +45,7 @@ export interface IconProps
   fontFamily?: iconFontFamilyType;
   fontSize?: string;
   zIndex?: number;
+  opacity?: number;
   alignSelf?:
     | "auto"
     | "flex-start"

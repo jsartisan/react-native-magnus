@@ -33,6 +33,7 @@ export const getStyle = (theme: any, props: any) => {
     alignSelf: props.alignSelf,
     alignItems: "center",
     justifyContent: "center",
+    opacity: props.opacity,
     color: getThemeProperty(theme.colors, props.color, "#000"),
     fontSize: getThemeProperty(theme.fontSize, props.fontSize, 16),
     backgroundColor: getThemeProperty(theme.colors, props.bg, "transparent"),

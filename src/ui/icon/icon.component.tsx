@@ -53,6 +53,7 @@ const Icon: React.FunctionComponent<IconProps> = props => {
     borderTopWidth,
     fontFamily,
     fontSize,
+    opacity,
     zIndex,
     style,
     ...rest
