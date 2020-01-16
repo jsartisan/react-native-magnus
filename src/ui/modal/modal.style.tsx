@@ -17,7 +17,6 @@ export const getStyle = (theme: any, props: any) => {
 
   computedStyle.modal = {
     margin: 0,
-    alignItems: props.alignItems,
     justifyContent: props.justifyContent
   };
 

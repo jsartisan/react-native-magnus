@@ -58,7 +58,6 @@ interface ModalProps
     | "space-between"
     | "space-around"
     | "space-evenly";
-  alignItems?: "flex-start" | "flex-end" | "center" | "stretch" | "baseline";
 }
 
 const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
@@ -90,7 +89,6 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
     borderRightWidth,
     borderBottomWidth,
     borderTopWidth,
-    alignItems,
     justifyContent,
     children,
     isVisible,
@@ -116,7 +114,8 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
 Modal.defaultProps = {
   bg: "white",
   h: "100%",
-  isVisible: false
+  isVisible: false,
+  justifyContent: "flex-end"
 };
 
 export { Modal };
