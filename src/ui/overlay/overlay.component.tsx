@@ -60,8 +60,6 @@ Overlay.defaultProps = {
   p: "lg",
   rounded: "md",
   visible: false,
-  alignItems: "center",
-  justifyContent: "center",
   overlayOpacity: 0.6,
   overlayColor: "gray900"
 };

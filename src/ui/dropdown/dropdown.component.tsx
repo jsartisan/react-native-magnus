@@ -141,7 +141,7 @@ Dropdown.defaultProps = {
   rounded: "none",
   showSwipeIndicator: true,
   backdropColor: "gray900",
-  backdropOpacity: 1,
+  backdropOpacity: 0.5,
   flexWrap: "nowrap"
 };
 

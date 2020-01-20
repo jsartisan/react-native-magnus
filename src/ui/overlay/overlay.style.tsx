@@ -30,7 +30,6 @@ export const getStyle = (theme: any, props: any) => {
   };
 
   computedStyle.container = {
-    alignSelf: "center",
     backgroundColor: getThemeProperty(theme.colors, props.bg, "transparent"),
     ...createFlexStyles(props),
     ...createSpacingStyles(props, theme.spacing),

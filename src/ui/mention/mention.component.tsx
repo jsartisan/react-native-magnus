@@ -107,6 +107,8 @@ class Mention extends React.Component<MentionProps> {
   };
 
   render() {
+    const { isTrackingStarted } = this.state;
+
     const {
       m,
       mt,
@@ -148,17 +150,19 @@ class Mention extends React.Component<MentionProps> {
           return (
             <View style={{ flex: 1 }}>
               <>
-                {(data || []).length > 0 && (
-                  <FlatList
-                    data={data}
-                    showsVerticalScrollIndicator
-                    style={computedStyle.list}
-                    {...rest}
-                    renderItem={rowData => {
-                      return renderItem(rowData);
-                    }}
-                  />
-                )}
+                {(data || []).length > 0 &&
+                  isTrackingStarted &&
+                  loading === false && (
+                    <FlatList
+                      data={data}
+                      showsVerticalScrollIndicator
+                      style={computedStyle.list}
+                      {...rest}
+                      renderItem={rowData => {
+                        return renderItem(rowData);
+                      }}
+                    />
+                  )}
                 {loading && (
                   <View style={computedStyle.loading}>
                     <ActivityIndicator />
