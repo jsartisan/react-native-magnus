@@ -14,7 +14,11 @@ UI Design System for React Native
 
 </div>
 
-[![](https://magnus-ui.com/images/hero.png)](http://atomizecode.com)
+<p align="center">
+  <a href="https://magnus-ui.com">
+    <img width="400px" style="margin-right: 20px" src="https://magnus-ui.com/images/hero.png">
+  </a>
+</p>
 
 ## ✨ Features
 
