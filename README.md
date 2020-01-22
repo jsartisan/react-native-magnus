@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="https://magnus-ui.com">
+    <img width="80px" style="margin-right: 20px" src="https://magnus-ui.com/images/logo.svg">
+  </a>
+</p>
+
 <h1 align="center">Magnus UI for React Native</h1>
 
 <div align="center">
@@ -8,12 +14,13 @@ UI Design System for React Native
 
 </div>
 
+[![](https://magnus-ui.com/images/hero.png)](http://atomizecode.com)
+
 ## ✨ Features
 
 - UI design system for react native apps.
 - Theme customisations
 - Easy to use components
-
 
 ## 📦 Install
 
@@ -30,7 +37,7 @@ yarn add react-native-magnus
 ```jsx
 import { Button } from "react-native-magnus";
 
-<Button />
+<Button />;
 ```
 
 ## 🔗 Links
@@ -40,6 +47,7 @@ import { Button } from "react-native-magnus";
 - [Customizations](https://magnus-ui.com/docs/customization)
 
 ## 📦 Components
+
 - [Div](http://magnus-ui.com/docs/div)
 - [Text](http://magnus-ui.com/docs/text)
 - [Button](http://magnus-ui.com/docs/button)
@@ -54,8 +62,14 @@ import { Button } from "react-native-magnus";
 - [Skeleton](http://magnus-ui.com/docs/skeleton)
 - [Snackbar](http://magnus-ui.com/docs/snackbar)
 - [Tag](http://magnus-ui.com/docs/tag)
+- [Dropdown](http://magnus-ui.com/docs/dropdown)
+- [Fab](http://magnus-ui.com/docs/fab)
+- [Select](http://magnus-ui.com/docs/select)
+- [Tooltip](http://magnus-ui.com/docs/tooltip)
+- [Overlay](http://magnus-ui.com/docs/overlay)
 
 ## Examples
+
 - [Components Usage](https://snack.expo.io/@pawankumar2901/magnus-ui)
 - [Dribble Login Screen](https://snack.expo.io/@pawankumar2901/dribble-login-page)
 
