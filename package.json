@@ -1,6 +1,6 @@
 {
   "name": "react-native-magnus",
-  "version": "1.0.26",
+  "version": "1.0.27",
   "description": "UI Library for react native",
   "types": "lib/index.d.ts",
   "main": "lib/index.js",
