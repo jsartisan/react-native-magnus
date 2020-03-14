@@ -29,6 +29,7 @@ export { Drawer } from "./drawer/drawer.component";
 export { Snackbar } from "./snackbar/snackbar.component";
 export { SnackbarRefType } from "./snackbar/snackbar.type";
 export { Avatar } from "./avatar/avatar.component";
+export { AvatarGroup } from "./avatar/avatar.group.component";
 export { Tag } from "./tag/tag.component";
 export { Modal } from "./modal/modal.component";
 export { Toggle } from "./toggle/toggle.component";

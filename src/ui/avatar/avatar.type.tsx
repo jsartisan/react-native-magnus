@@ -17,7 +17,7 @@ export interface AvatarProps
   size?: number;
   color?: string;
   bg?: string;
-  src?: RNImageSourcePropType;
+  source?: RNImageSourcePropType;
   fontSize?: string;
   shadow?: number;
   shadowColor?: string;

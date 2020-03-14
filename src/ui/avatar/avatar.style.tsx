@@ -37,6 +37,22 @@ export const getStyle = (theme: any, props: any) => {
     ...createBorderRadiusStyles(props, theme.borderRadius)
   };
 
+  computedStyle.row = {
+    backgroundColor: getThemeProperty(theme.colors, props.bg, "transparent"),
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "row",
+    alignSelf: props.alignSelf,
+    zIndex: props.zIndex,
+    opacity: props.opacity,
+    ...createPositionStyle(props),
+    ...createBorderWidthStyles(props),
+    ...createShadowStyles(props, theme),
+    ...createSpacingStyles(props, theme.spacing),
+    ...createBorderColorStyles(props, theme.colors),
+    ...createBorderRadiusStyles(props, theme.borderRadius)
+  };
+
   computedStyle.text = {
     color: getThemeProperty(theme.colors, props.color, "#000"),
     fontSize: getThemeProperty(theme.fontSize, props.fontSize, 16),

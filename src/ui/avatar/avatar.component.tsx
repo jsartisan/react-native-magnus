@@ -49,6 +49,7 @@ const Avatar: React.FunctionComponent<AvatarProps> = props => {
     shadowColor,
     opacity,
     zIndex,
+    source,
     ...rest
   } = props;
   const theme = useContext(ThemeContext);
@@ -58,8 +59,8 @@ const Avatar: React.FunctionComponent<AvatarProps> = props => {
    * render the content based on the props passed
    */
   const renderContent = () => {
-    if (props.src) {
-      return <RNImage source={props.src} style={computedStyle.image} />;
+    if (source) {
+      return <RNImage source={source} style={computedStyle.image} />;
     }
 
     if (typeof children === "string") {
@@ -69,6 +70,16 @@ const Avatar: React.FunctionComponent<AvatarProps> = props => {
     return children;
   };
 
+  if (Array.isArray(children)) {
+    return (
+      <RNView style={[computedStyle.row]} {...rest}>
+        {React.Children.map(children, (child: React.ReactElement) => {
+          return React.cloneElement(child, {});
+        })}
+      </RNView>
+    );
+  }
+
   return (
     <RNView style={computedStyle.container} {...rest}>
       {renderContent()}
@@ -77,7 +88,7 @@ const Avatar: React.FunctionComponent<AvatarProps> = props => {
 };
 
 Avatar.defaultProps = {
-  bg: "white",
+  bg: "transparent",
   size: 48,
   color: "black500",
   rounded: "circle",
