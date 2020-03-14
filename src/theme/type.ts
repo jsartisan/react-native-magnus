@@ -2,7 +2,9 @@ export interface ThemeType {
   colors?: any;
   fontSize?: any;
   borderRadius?: any;
-  avatarSize?: any;
+  spacing?: any;
+  shadowColor?: any;
+  shadow?: any;
 }
 
 export interface BorderPropsType {

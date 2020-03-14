@@ -70,16 +70,6 @@ const Avatar: React.FunctionComponent<AvatarProps> = props => {
     return children;
   };
 
-  if (Array.isArray(children)) {
-    return (
-      <RNView style={[computedStyle.row]} {...rest}>
-        {React.Children.map(children, (child: React.ReactElement) => {
-          return React.cloneElement(child, {});
-        })}
-      </RNView>
-    );
-  }
-
   return (
     <RNView style={computedStyle.container} {...rest}>
       {renderContent()}

@@ -1,8 +1,7 @@
 import * as React from "react";
 
 import { useContext } from "react";
-import { getStyle } from "./avatar.style";
-import { Div } from "./../div/div.component";
+import { Div } from "../div/div.component";
 import { AvatarGroupProps } from "./avatar.group.type";
 import { ThemeContext, getThemeProperty } from "../../theme";
 
