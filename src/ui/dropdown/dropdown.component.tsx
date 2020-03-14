@@ -72,7 +72,7 @@ const Dropdown = React.forwardRef<DropdownRef, DropdownProps>((props, ref) => {
           {title}
         </Text>
       ) : (
-        { title }
+        title
       );
     }
 
