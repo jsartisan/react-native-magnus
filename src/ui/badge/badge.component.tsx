@@ -79,7 +79,7 @@ Badge.defaultProps = {
   right: 0,
   shadowColor: "gray900",
   position: "relative",
-  fontSize: "text100"
+  fontSize: "sm"
 };
 
 export { Badge };

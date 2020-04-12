@@ -22,6 +22,7 @@ function Toggle(props: ToggleProps): React.ReactElement {
     pt,
     pb,
     pl,
+    disabled,
     rounded,
     roundedTop,
     roundedRight,
@@ -76,7 +77,11 @@ function Toggle(props: ToggleProps): React.ReactElement {
   }, [animXValue, prevSwitchOn, on, duration]);
 
   return (
-    <TouchableOpacity onPress={onPress} activeOpacity={0.5} {...rest}>
+    <TouchableOpacity
+      onPress={!disabled ? onPress : () => {}}
+      activeOpacity={0.5}
+      {...rest}
+    >
       <Animated.View
         style={[
           computedStyle.container,
@@ -124,16 +129,17 @@ function Toggle(props: ToggleProps): React.ReactElement {
 }
 
 Toggle.defaultProps = {
-  switchOn: false,
   w: 40,
   h: 20,
   onPress: (): void => {},
   activeBg: "green600",
   bg: "gray200",
+  on: false,
   circleBg: "white",
   activeCircleBg: "rgb(102,134,205)",
   duration: 300,
-  rounded: "circle"
+  rounded: "circle",
+  disabled: false
 };
 
 export { Toggle };

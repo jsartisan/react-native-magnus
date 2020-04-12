@@ -23,7 +23,7 @@ export const getStyle = (theme: any, props: any) => {
     ...createBorderWidthStyles(props),
     ...createBorderColorStyles(props, theme.colors),
     ...createBorderRadiusStyles(props, theme.borderRadius),
-    maxHeight: ScreenHeight * 0.7
+    height: ScreenHeight * 0.7
   };
 
   computedStyle.indicator = {

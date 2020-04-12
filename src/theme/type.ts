@@ -39,6 +39,10 @@ export interface SpacingPropsType {
 
 export interface RoundedPropsType {
   rounded?: string | number;
+  roundedTopLeft?: string | number;
+  roundedTopRight?: string | number;
+  roundedBottomLeft?: string | number;
+  roundedBottomRight?: string | number;
   roundedTop?: string | number;
   roundedLeft?: string | number;
   roundedRight?: string | number;
@@ -46,6 +50,6 @@ export interface RoundedPropsType {
 }
 
 export interface ShadowPropsType {
-  shadow?: number;
+  shadow?: string;
   shadowColor?: string;
 }

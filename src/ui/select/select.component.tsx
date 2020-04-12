@@ -142,8 +142,7 @@ const Select = React.forwardRef<Ref, SelectProps>((props, ref) => {
 Select.defaultProps = {
   bg: "white",
   rounded: "none",
-  flexDir: "column",
-  showScrollIndicator: true
+  flexDir: "column"
 };
 
 export { Option, Select };

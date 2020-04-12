@@ -92,7 +92,7 @@ Animated.defaultProps = {
   bg: "transparent",
   flexWrap: "nowrap",
   rounded: "none",
-  shadow: 0,
+  shadow: "none",
   shadowColor: "gray900",
   position: "relative",
   bgMode: "cover",

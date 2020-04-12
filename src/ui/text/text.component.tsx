@@ -57,7 +57,7 @@ Text.defaultProps = {
   color: "gray900",
   textAlign: "auto",
   textTransform: "none",
-  fontSize: "text400",
+  fontSize: "md",
   overflow: "hidden"
 };
 

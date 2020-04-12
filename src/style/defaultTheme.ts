@@ -76,22 +76,23 @@ export const defaultTheme = {
   },
 
   fontSize: {
-    text100: 11,
-    text200: 12,
-    text300: 13,
-    text400: 15,
-    text500: 17,
-    text600: 19,
-    text700: 21,
-    text800: 24,
-    text900: 27
+    xs: 11,
+    sm: 12,
+    md: 13,
+    lg: 15,
+    xl: 17,
+    "2xl": 19,
+    "3xl": 21,
+    "4xl": 24,
+    "5xl": 27,
+    "6xl": 32
   },
 
   shadowColor: "#000",
 
   shadow: {
-    "0": {},
-    "1": {
+    none: {},
+    xs: {
       shadowOffset: {
         width: 0,
         height: 1
@@ -101,7 +102,7 @@ export const defaultTheme = {
 
       elevation: 1
     },
-    "2": {
+    sm: {
       shadowOffset: {
         width: 0,
         height: 2
@@ -111,7 +112,7 @@ export const defaultTheme = {
 
       elevation: 4
     },
-    "3": {
+    md: {
       shadowOffset: {
         width: 0,
         height: 4
@@ -121,7 +122,7 @@ export const defaultTheme = {
 
       elevation: 8
     },
-    "4": {
+    lg: {
       shadowOffset: {
         width: 0,
         height: 6
@@ -131,7 +132,7 @@ export const defaultTheme = {
 
       elevation: 12
     },
-    "5": {
+    xl: {
       shadowOffset: {
         width: 0,
         height: 8
@@ -141,7 +142,7 @@ export const defaultTheme = {
 
       elevation: 16
     },
-    "6": {
+    "2xl": {
       shadowOffset: {
         width: 0,
         height: 10
@@ -160,7 +161,7 @@ export const defaultTheme = {
     md: 6,
     lg: 8,
     xl: 12,
-    xxl: 16,
+    "2xl": 16,
     circle: 1000000
   },
 
@@ -171,6 +172,7 @@ export const defaultTheme = {
     md: 8,
     lg: 12,
     xl: 24,
-    xxl: 32
+    "2xl": 32,
+    "3xl": 64
   }
 };

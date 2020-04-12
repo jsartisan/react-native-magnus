@@ -11,10 +11,11 @@ export interface ToggleProps
   h?: number;
   w?: number;
   testID?: string;
-  on: boolean;
+  on?: boolean;
   onPress: () => void;
   activeBg?: string;
   bg?: string;
+  disabled?: boolean;
   circleBg?: string;
   activeCircleBg?: string;
   duration?: number;

@@ -65,7 +65,6 @@ const Circle: React.FunctionComponent<SkeletonProps> = props => {
 Box.defaultProps = {
   bg: "gray400",
   h: 15,
-  w: "100%",
   rounded: "md"
 };
 
