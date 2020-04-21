@@ -36,7 +36,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = (
 
     ...rest
   } = props;
-  const theme = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const computedStyle = getStyle(theme, props);
 
   return (

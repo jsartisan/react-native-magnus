@@ -17,7 +17,7 @@ const SCREEN_WIDTH = Dimensions.get("window").width;
 
 const Drawer = React.forwardRef<DrawerRef, DrawerProps>((props, ref) => {
   const { direction, drawerPercentage, animationTime, children } = props;
-  const theme = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const computedStyle = getStyle(theme, props);
   const [isVisible, setIsVisible] = useState(false);
   let DRAWER_WIDTH;

@@ -1,4 +1,6 @@
 export const defaultTheme = {
+  name: "default",
+
   colors: {
     gray900: "#262626",
     gray800: "#404040",

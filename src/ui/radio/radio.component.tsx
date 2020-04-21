@@ -1,16 +1,16 @@
-import * as React from 'react';
-import { useContext, useState } from 'react';
+import * as React from "react";
+import { useContext, useState } from "react";
 import {
   View as RNView,
   ActivityIndicator,
-  TouchableWithoutFeedback as RNButton,
-} from 'react-native';
-import { getStyle } from './radio.style';
-import { RadioProps } from './radio.type';
-import { ThemeContext } from '../../theme';
-import { Icon } from '../icon/icon.component';
-import { getIconName, getIconColor } from './radio.service';
-import { getThemeProperty } from '../../theme/theme.service';
+  TouchableWithoutFeedback as RNButton
+} from "react-native";
+import { getStyle } from "./radio.style";
+import { RadioProps } from "./radio.type";
+import { ThemeContext } from "../../theme";
+import { Icon } from "../icon/icon.component";
+import { getIconName, getIconColor } from "./radio.service";
+import { getThemeProperty } from "../../theme/theme.service";
 
 const Radio: React.FunctionComponent<RadioProps> = props => {
   const {
@@ -36,7 +36,7 @@ const Radio: React.FunctionComponent<RadioProps> = props => {
     inactiveColor,
     ...rest
   } = props;
-  const theme = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const [focussed, setFocussed] = useState(false);
   const computedStyle = getStyle(theme, props);
 
@@ -88,7 +88,7 @@ const Radio: React.FunctionComponent<RadioProps> = props => {
         fontSize={size}
         w={getThemeProperty(theme.fontSize, size, 16)}
         h={getThemeProperty(theme.fontSize, size, 16)}
-        style={{ zIndex: 2, position: 'relative' }}
+        style={{ zIndex: 2, position: "relative" }}
       />
     );
   };
@@ -100,7 +100,7 @@ const Radio: React.FunctionComponent<RadioProps> = props => {
     disabled,
     activeColor,
     inactiveColor,
-    theme,
+    theme
   );
   const icon = getIcon();
 
@@ -110,7 +110,8 @@ const Radio: React.FunctionComponent<RadioProps> = props => {
       style={computedStyle.button}
       onPress={onPress}
       onPressIn={onPressIn}
-      onPressOut={onPressOut}>
+      onPressOut={onPressOut}
+    >
       <RNView style={computedStyle.container}>
         <RNView>
           {focussed && <RNView style={computedStyle.highlightContainer} />}
@@ -125,10 +126,10 @@ const Radio: React.FunctionComponent<RadioProps> = props => {
 Radio.defaultProps = {
   loading: false,
   disabled: false,
-  size: 'text600',
+  size: "text600",
   value: null,
-  activeColor: 'blue600',
-  inactiveColor: 'gray900',
+  activeColor: "blue600",
+  inactiveColor: "gray900"
 };
 
 export { Radio };

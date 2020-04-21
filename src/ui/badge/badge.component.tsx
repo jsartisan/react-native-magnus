@@ -53,7 +53,7 @@ const Badge: React.FunctionComponent<BadgeProps> = (props: BadgeProps) => {
     opacity,
     ...rest
   } = props;
-  const theme = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const computedStyle = getStyle(theme, props);
 
   return (

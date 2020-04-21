@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import color from "color";
 import {
   Animated as RNAnimated,
@@ -75,9 +75,8 @@ const Button: React.FunctionComponent<ButtonProps> = props => {
     ...rest
   } = props;
 
-  const [active, setActive] = useState(false);
-  const theme = useContext(ThemeContext);
-  const computedStyle = getStyle(theme, { ...props, active });
+  const { theme } = useContext(ThemeContext);
+  const computedStyle = getStyle(theme, props);
   const underlayColor = getThemeProperty(
     theme.colors,
     props.underlayColor,
@@ -150,28 +149,12 @@ const Button: React.FunctionComponent<ButtonProps> = props => {
       );
     }
 
-    /**
-     * event listener when underlay is shown
-     */
-    const onShowUnderlay = () => {
-      setActive(true);
-    };
-
-    /**
-     * event listener when underlay is hidden
-     */
-    const onHideUnderlay = () => {
-      setActive(false);
-    };
-
     return (
       <RNButton
         {...rest}
         onPress={disabled || loading ? undefined : onPress}
         style={computedStyle.button}
         underlayColor={underlayColor}
-        onShowUnderlay={onShowUnderlay}
-        onHideUnderlay={onHideUnderlay}
       >
         {loading === true ? (
           <RNView style={computedStyle.container}>

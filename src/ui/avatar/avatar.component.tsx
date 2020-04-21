@@ -52,7 +52,7 @@ const Avatar: React.FunctionComponent<AvatarProps> = props => {
     source,
     ...rest
   } = props;
-  const theme = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const computedStyle = getStyle(theme, props);
 
   /**

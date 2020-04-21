@@ -29,7 +29,7 @@ const Box: React.FunctionComponent<SkeletonProps> = props => {
     roundedLeft,
     ...rest
   } = props;
-  const theme = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const computedStyle = getStyle(theme, props);
 
   Animatable.initializeRegistryWithDefinitions({

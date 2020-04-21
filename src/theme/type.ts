@@ -5,6 +5,7 @@ export interface ThemeType {
   spacing?: any;
   shadowColor?: any;
   shadow?: any;
+  name?: string;
 }
 
 export interface BorderPropsType {

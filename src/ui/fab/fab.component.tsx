@@ -319,7 +319,7 @@ class Fab extends React.Component<FabProps, FabState> {
 
     return (
       <ThemeContext.Consumer>
-        {theme => {
+        {({ theme }) => {
           const computedStyle = getStyle(theme, this.props);
 
           return (

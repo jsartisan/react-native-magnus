@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { ThemeContext } from './themeContext';
+import * as React from "react";
+import { ThemeContext } from "./theme.context";
 
 /**
  * passes theme to prop of Component

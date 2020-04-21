@@ -66,7 +66,7 @@ const Input = React.forwardRef<RNTextInput, InputProps>((props, ref) => {
     placeholderTextColor,
     ...rest
   } = props;
-  const theme = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const [isFocussed, setIsFocussed] = useState(false);
   const computedStyle = getStyle(theme, props, { isFocussed });
   const placeholderColor = placeholderTextColor

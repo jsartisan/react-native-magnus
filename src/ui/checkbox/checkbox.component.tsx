@@ -41,7 +41,7 @@ const Checkbox: React.FunctionComponent<CheckboxProps> = props => {
     onPress: onPressProp,
     ...rest
   } = props;
-  const theme = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const [checked, setChecked] = useState(
     "checked" in props ? props.checked : props.defaultChecked
   );

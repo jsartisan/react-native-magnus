@@ -94,7 +94,7 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
     isVisible,
     ...rest
   } = props;
-  const theme = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const computedStyle = getStyle(theme, props);
 
   return (

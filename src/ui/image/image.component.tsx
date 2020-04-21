@@ -54,7 +54,7 @@ const Image: React.FunctionComponent<ImageProps> = props => {
     alignSelf,
     ...rest
   } = props;
-  const theme = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const computedStyle = getStyle(theme, props);
 
   return (

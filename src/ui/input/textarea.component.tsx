@@ -45,7 +45,7 @@ const Textarea: React.FunctionComponent<TextInputProps> = props => {
     focusBorderColor,
     ...rest
   } = props;
-  const theme = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const [isFocussed, setIsFocussed] = useState(false);
   const computedStyle = getStyle(theme, props, { isFocussed });
 

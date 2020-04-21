@@ -11,6 +11,8 @@ import { defaultTheme } from "../style";
 export function computeTheme(customTheme: ThemeType | undefined): ThemeType {
   const computedTheme = { ...defaultTheme };
 
+  console.log("renders");
+
   if (!customTheme) {
     return computedTheme;
   }
@@ -34,6 +36,10 @@ export function computeTheme(customTheme: ThemeType | undefined): ThemeType {
       ...defaultTheme.borderRadius,
       ...customTheme.borderRadius
     };
+  }
+
+  if (customTheme.name) {
+    computedTheme.name = customTheme.name;
   }
 
   return computedTheme;

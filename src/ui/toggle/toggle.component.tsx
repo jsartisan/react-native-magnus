@@ -47,7 +47,7 @@ function Toggle(props: ToggleProps): React.ReactElement {
     ...rest
   } = props;
   const [animXValue] = useState(new Animated.Value(on ? 1 : 0));
-  const theme = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const computedStyle = getStyle(theme, props);
 
   const endPos = (w as number) - (h as number) + 3;

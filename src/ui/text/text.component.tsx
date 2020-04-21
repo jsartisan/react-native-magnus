@@ -43,7 +43,7 @@ const Text: React.FunctionComponent<TextProps> = props => {
     style,
     ...rest
   } = props;
-  const theme = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const computedStyle = getStyle(theme, props);
 
   return (

@@ -23,7 +23,7 @@ const Select = React.forwardRef<Ref, SelectProps>((props, ref) => {
     data,
     renderItem
   } = props;
-  const theme = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const [isVisible, setIsVisible] = useState(false);
   const [selectedValue, setSelectedValue] = useState(value);
   const computedStyle = getStyle(theme, props);

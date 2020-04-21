@@ -64,7 +64,7 @@ const Div: React.FunctionComponent<DivProps> = (props: DivProps) => {
     zIndex,
     ...rest
   } = props;
-  const theme = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const computedStyle = getStyle(theme, props);
 
   if (bgImg) {

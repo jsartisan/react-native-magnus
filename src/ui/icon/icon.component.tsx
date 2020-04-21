@@ -58,7 +58,7 @@ const Icon: React.FunctionComponent<IconProps> = props => {
     style,
     ...rest
   } = props;
-  const theme = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const computedStyle = getStyle(theme, props);
 
   const Icon = getIconSet(fontFamily);

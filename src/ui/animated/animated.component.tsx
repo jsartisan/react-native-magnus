@@ -57,7 +57,7 @@ const Animated: React.FunctionComponent<DivProps> = (props: DivProps) => {
     ...rest
   } = props;
 
-  const theme = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const computedStyle = getStyle(theme, props);
 
   if (bgImg) {

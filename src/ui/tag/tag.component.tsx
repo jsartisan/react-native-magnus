@@ -47,7 +47,7 @@ const Tag: React.FunctionComponent<TagProps> = (props: TagProps) => {
     onPress,
     ...rest
   } = props;
-  const theme = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const computedStyle = getStyle(theme, props);
 
   return (

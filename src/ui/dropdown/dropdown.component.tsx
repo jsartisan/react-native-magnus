@@ -46,7 +46,7 @@ const Dropdown = React.forwardRef<DropdownRef, DropdownProps>((props, ref) => {
     flexWrap,
     ...rest
   } = props;
-  const theme = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const computedStyle = getStyle(theme, props);
   const [isVisible, setIsVisible] = useState(false);
 

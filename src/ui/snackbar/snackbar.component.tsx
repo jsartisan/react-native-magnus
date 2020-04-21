@@ -51,7 +51,7 @@ const Snackbar = React.forwardRef<SnackbarRefType, SnackbarProps>(
       opacity: opacityProp,
       ...rest
     } = props;
-    const theme = useContext(ThemeContext);
+    const { theme } = useContext(ThemeContext);
     const computedStyle = getStyle(theme, props);
     const [opacity] = useState(new Animated.Value(0.0));
     const [hidden, setHidden] = useState(true);
