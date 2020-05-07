@@ -23,6 +23,7 @@ module.exports = {
   resolver: {
     blacklistRE: blacklist([
       new RegExp(`^${escape(path.join(root, 'node_modules'))}\\/.*$`),
+      new RegExp(`^${escape(path.join(root, 'docs', 'node_modules'))}\\/.*$`),
     ]),
 
     extraNodeModules: modules.reduce((acc, name) => {
