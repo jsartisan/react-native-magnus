@@ -25,7 +25,7 @@ Let's start.
 We will be using Magnus for making inputs and yup for creating validation schemas.
 
 ```bash
-yarn add color react-native-animatable react-native-modal react-native-vector-icons formik yup
+yarn add color react-native-animatable react-native-modal @expo/vector-icons formik yup
 ```
 
 Make sure you install pods after installing these dependencies.
