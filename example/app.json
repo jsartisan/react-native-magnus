@@ -1,0 +1,22 @@
+{
+  "name": "react-native-magnus-example",
+  "displayName": "Magnus Example",
+  "expo": {
+    "name": "react-native-magnus-example",
+    "slug": "react-native-magnus-example",
+    "description": "Example app for react-native-magnus",
+    "privacy": "public",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
