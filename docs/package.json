@@ -1,0 +1,65 @@
+{
+  "name": "react-native-magnus-docs",
+  "private": true,
+  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "version": "0.1.0",
+  "author": "Pawan Kumar <pawankumar2901@gmail.com>",
+  "dependencies": {
+    "dotenv": "^8.1.0",
+    "gatsby": "^2.13.73",
+    "gatsby-image": "^2.2.10",
+    "gatsby-plugin-canonical-urls": "^2.2.1",
+    "gatsby-plugin-google-analytics": "^2.1.21",
+    "gatsby-plugin-manifest": "^2.2.6",
+    "gatsby-plugin-offline": "^2.2.7",
+    "gatsby-plugin-postcss": "^2.2.1",
+    "gatsby-plugin-react-helmet": "^3.1.4",
+    "gatsby-plugin-resolve-src": "^2.0.0",
+    "gatsby-plugin-sharp": "^2.2.13",
+    "gatsby-plugin-sitemap": "^2.3.1",
+    "gatsby-remark-autolink-headers": "^2.1.8",
+    "gatsby-remark-code-buttons": "^2.0.1",
+    "gatsby-remark-copy-linked-files": "^2.1.13",
+    "gatsby-remark-images": "^3.1.19",
+    "gatsby-remark-prismjs": "^3.3.11",
+    "gatsby-remark-responsive-iframe": "^2.2.10",
+    "gatsby-remark-smartypants": "^2.1.5",
+    "gatsby-source-filesystem": "^2.1.11",
+    "gatsby-transformer-remark": "^2.6.19",
+    "gatsby-transformer-sharp": "^2.2.7",
+    "prism-react-renderer": "^1.0.2",
+    "prismjs": "^1.17.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.9.0",
+    "react-custom-scrollbars": "^4.2.1",
+    "react-dom": "^16.9.0",
+    "react-helmet": "^5.2.1",
+    "react-markdown": "^4.1.0",
+    "react-syntax-highlighter": "^12.2.1",
+    "simplebar-react": "^1.2.0"
+  },
+  "devDependencies": {
+    "prettier": "^1.18.2",
+    "tailwindcss": "^1.2.0"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop -H 0.0.0.0 -p 4000",
+    "deploy": "gatsby clean && gatsby build && cd public && firebase deploy",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  }
+}
