@@ -15,7 +15,7 @@ yarn add react-native-magnus
 After installing the `react-native-magnus`, make sure you install peer dependencies.
 
 ```bash
-yarn add color react-native-animatable react-native-modal @expo/vector-icons
+yarn add color react-native-animatable react-native-modal expo
 ```
 
 Install pods
