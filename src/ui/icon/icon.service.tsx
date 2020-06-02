@@ -1,19 +1,16 @@
-import {
-  AntDesign,
-  Entypo,
-  EvilIcons,
-  Feather,
-  FontAwesome,
-  FontAwesome5,
-  Fontisto,
-  Foundation,
-  Ionicons,
-  MaterialCommunityIcons,
-  MaterialIcons,
-  Zocial,
-  Octicons,
-  SimpleLineIcons,
-} from '@expo/vector-icons';
+import IconAntDesign from 'react-native-vector-icons/AntDesign';
+import IconEntypo from 'react-native-vector-icons/Entypo';
+import IconEvilIcons from 'react-native-vector-icons/EvilIcons';
+import IconFeather from 'react-native-vector-icons/Feather';
+import IconFontAwesome from 'react-native-vector-icons/FontAwesome';
+import IconFontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import IconFoundation from 'react-native-vector-icons/Foundation';
+import IconIonicons from 'react-native-vector-icons/Ionicons';
+import IconMaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import IconMaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import IconOcticons from 'react-native-vector-icons/Octicons';
+import IconZocial from 'react-native-vector-icons/Zocial';
+import IconSimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 
 import { iconFontFamilyType } from './icon.type';
 
@@ -22,60 +19,56 @@ import { iconFontFamilyType } from './icon.type';
  */
 export const getIconSet = (fontFamily: iconFontFamilyType = 'FontAwesome') => {
   if (fontFamily === 'AntDesign') {
-    return AntDesign;
+    return IconAntDesign;
   }
 
   if (fontFamily === 'Entypo') {
-    return Entypo;
+    return IconEntypo;
   }
 
   if (fontFamily === 'EvilIcons') {
-    return EvilIcons;
+    return IconEvilIcons;
   }
 
   if (fontFamily === 'Feather') {
-    return Feather;
+    return IconFeather;
   }
 
   if (fontFamily === 'FontAwesome') {
-    return FontAwesome;
+    return IconFontAwesome;
   }
 
   if (fontFamily === 'FontAwesome5') {
-    return FontAwesome5;
+    return IconFontAwesome5;
   }
 
   if (fontFamily === 'Foundation') {
-    return Foundation;
+    return IconFoundation;
   }
 
   if (fontFamily === 'Ionicons') {
-    return Ionicons;
+    return IconIonicons;
   }
 
   if (fontFamily === 'MaterialIcons') {
-    return MaterialIcons;
+    return IconMaterialIcons;
   }
 
   if (fontFamily === 'MaterialCommunityIcons') {
-    return MaterialCommunityIcons;
+    return IconMaterialCommunityIcons;
   }
 
   if (fontFamily === 'Zocial') {
-    return Zocial;
+    return IconZocial;
   }
 
   if (fontFamily === 'SimpleLineIcons') {
-    return SimpleLineIcons;
+    return IconSimpleLineIcons;
   }
 
   if (fontFamily === 'Octicons') {
-    return Octicons;
+    return IconOcticons;
   }
 
-  if (fontFamily === 'Fontisto') {
-    return Fontisto;
-  }
-
-  return Ionicons;
+  return IconIonicons;
 };

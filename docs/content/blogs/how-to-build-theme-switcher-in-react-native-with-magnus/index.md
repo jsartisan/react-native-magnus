@@ -20,7 +20,7 @@ yarn add react-native-magnus
 Magnus also uses many third-party libraries. So you will need to install them as well.
 
 ```bash
-yarn add color react-native-animatable react-native-modal @expo/vector-icons
+yarn add color react-native-animatable react-native-modal react-native-vector-icons
 ```
 
 After you are done installing the packages, make sure you install pods.
