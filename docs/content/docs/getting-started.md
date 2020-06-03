@@ -18,6 +18,8 @@ After installing the `react-native-magnus`, make sure you install peer dependenc
 yarn add color react-native-animatable react-native-modal react-native-vector-icons
 ```
 
+After installing these dependencies, follow these instructions to add icons : https://github.com/oblador/react-native-vector-icons#installation
+
 Install pods
 
 ```bash
