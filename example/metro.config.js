@@ -5,7 +5,7 @@ const escape = require('escape-string-regexp');
 
 const root = path.resolve(__dirname, '..');
 const pak = JSON.parse(
-  fs.readFileSync(path.join(root, 'package.json'), 'utf8')
+  fs.readFileSync(path.join(root, 'package.json'), 'utf8'),
 );
 
 const modules = [
