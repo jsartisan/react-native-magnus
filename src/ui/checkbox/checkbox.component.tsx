@@ -22,6 +22,7 @@ const Checkbox: React.FunctionComponent<CheckboxProps> = (props) => {
     mr,
     mb,
     ml,
+    ms,
     p,
     pr,
     pt,

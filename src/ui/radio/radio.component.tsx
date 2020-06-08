@@ -19,6 +19,7 @@ const Radio: React.FunctionComponent<RadioProps> = (props) => {
     mr,
     mb,
     ml,
+    ms,
     p,
     pr,
     pt,

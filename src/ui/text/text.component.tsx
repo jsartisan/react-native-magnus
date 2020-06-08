@@ -16,6 +16,7 @@ const Text: React.FunctionComponent<TextProps> = (props) => {
     mr,
     mb,
     ml,
+    ms,
     p,
     pr,
     pt,

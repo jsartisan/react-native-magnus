@@ -19,6 +19,7 @@ export interface BorderPropsType {
   borderRightWidth?: number;
   borderLeftWidth?: number;
   borderBottomWidth?: number;
+  borderEndWidth?: number;
 }
 
 export interface SpacingPropsType {
@@ -29,6 +30,7 @@ export interface SpacingPropsType {
   ml?: string | number;
   mx?: string | number;
   my?: string | number;
+  ms?: string | number;
   p?: string | number;
   pt?: string | number;
   pr?: string | number;

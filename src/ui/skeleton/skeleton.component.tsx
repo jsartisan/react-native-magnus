@@ -13,6 +13,7 @@ const Box: React.FunctionComponent<SkeletonProps> = (props) => {
     mr,
     mb,
     ml,
+    ms,
     p,
     pr,
     pt,

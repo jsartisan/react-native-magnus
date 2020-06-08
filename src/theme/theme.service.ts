@@ -67,6 +67,7 @@ export const createSpacingStyles = (props: any, theme: any) => {
     ml: 'marginLeft',
     mx: 'marginHorizontal',
     my: 'marginVertical',
+    ms: 'marginStart',
   };
 
   const computedStyle: any = {};
@@ -167,7 +168,7 @@ export const getThemeProperty = (theme: any, value: any, fallback: any) => {
 };
 
 /**
- * borderRadius={{ t: 10 }}
+ * borderRadius="xl"
  *
  * @param value
  * @param theme
@@ -250,6 +251,7 @@ export const createBorderWidthStyles = (props: any) => {
   propKeys = {
     borderWidth: 'borderWidth',
     borderTopWidth: 'borderTopWidth',
+    borderEndWidth: 'borderEndWidth',
     borderLeftWidth: 'borderLeftWidth',
     borderRightWidth: 'borderRightWidth',
     borderBottomWidth: 'borderBottomWidth',

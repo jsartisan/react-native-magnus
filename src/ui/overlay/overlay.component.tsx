@@ -15,6 +15,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = (
     mr,
     mb,
     ml,
+    ms,
     p,
     pr,
     pt,
