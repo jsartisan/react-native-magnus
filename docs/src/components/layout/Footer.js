@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 
 import Logo from "../common/Logo";
+import Truesight from "../common/Truesight";
 
 export default function Footer() {
   return (
@@ -12,6 +13,12 @@ export default function Footer() {
           <p className="mt-3 text-gray-600 text-sm">
             UI framework for developing modular and consistent apps in React
             Native
+          </p>
+          <p className="flex items-center mt-3">
+            Made with <i className="icon-heart mx-2 text-red-500" /> at
+            <a href="https://truesight.one" target="_blank" className="ml-2">
+              <Truesight fill="#1a71fd" size={20} />
+            </a>
           </p>
         </div>
         <div>
@@ -29,14 +36,14 @@ export default function Footer() {
               href="https://github.com/jsartisan/react-native-magnus"
               className="d-block flex text-gray-500 hover:text-gray-600"
             >
-              <i className="icon-github text-xl "></i>
+              <i className="icon-github text-xl " />
             </a>
             <a
               href="https://twitter.com/magnusui"
               target="_blank"
               className="block pl-5 flex text-gray-500 hover:text-gray-600"
             >
-              <i className="icon-twitter text-xl "></i>
+              <i className="icon-twitter text-xl " />
             </a>
           </div>
         </div>
