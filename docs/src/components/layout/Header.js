@@ -45,7 +45,7 @@ export default function Header({
                 target="_blank"
                 className="p-2 rounded block hover:bg-gray-200 flex text-gray-500 hover:text-gray-600 "
               >
-                <i className="icon-discord text-xl "></i>
+                <i className="icon-discord text-xl " />
               </a>
             </li>
             <li className="ml-1  md:ml-3 block">
@@ -54,7 +54,7 @@ export default function Header({
                 target="_blank"
                 className="p-2 rounded block hover:bg-gray-200 flex text-gray-500 hover:text-gray-600 "
               >
-                <i className="icon-github text-xl "></i>
+                <i className="icon-github text-xl " />
               </a>
             </li>
             <li className="ml-1 md:ml-3 block">
@@ -63,7 +63,15 @@ export default function Header({
                 target="_blank"
                 className="p-2 rounded block hover:bg-gray-200 flex text-gray-500 hover:text-gray-600"
               >
-                <i className="icon-twitter text-xl"></i>
+                <i className="icon-twitter text-xl" />
+              </a>
+            </li>
+            <li className="ml-3 hidden md:block">
+              <a
+                href="https://truesight.one"
+                className="bg-white border rounded block px-4 py-2 text-gray-900 hover:bg-gray-200"
+              >
+                Hire Us
               </a>
             </li>
             {showSidebarMenu && (
@@ -76,7 +84,7 @@ export default function Header({
                     className={`${
                       sidebarOpen ? "icon-close" : "icon-menu"
                     } text-xl`}
-                  ></i>
+                  />
                 </button>
               </li>
             )}
