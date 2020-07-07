@@ -8,17 +8,26 @@ export default function Hero() {
         <div className="mt-5 flex max-w-screen-xl mx-auto">
           <div className="mt-0 md:mt-10 mt-md-4 mt-md-5 flex-grow text-center md:text-left">
             <a
-              href="https://discord.gg/SYnXGEy"
+              href="https://www.producthunt.com/posts/magnus-ui"
               target="_blank"
               className="flex items-center justify-center md:justify-start"
             >
-              <i className="icon-discord text-social-discord text-2xl"></i>
-              <div className="bg-social-discord-light inline-block px-2 py-1 rounded-md text-sm inline-flex items-center ml-3">
-                <span className="inline-block bg-social-discord text-white my-1 rounded-md text-xs mr-1 px-1">
-                  NEW
-                </span>
-                <span className="text-gray-900 ml-1">
-                  Join our discord channel
+              <img
+                src="/images/ph-cat.png"
+                className="mx-3"
+                style={{ height: 100 }}
+              />
+              <div className="ml-3">
+                <div
+                  className="px-2 py-1 rounded-md text-sm inline-flex items-center"
+                  style={{ background: "#DA552F" }}
+                >
+                  <span className="text-white ml-1 flex-1 flex items-center">
+                    We are live on Product Hunt!
+                  </span>
+                </div>
+                <span className="text-gray-600 ml-1 flex-1 flex items-center mt-2">
+                  It will be a real help if you could support us 👉
                 </span>
               </div>
             </a>
@@ -45,11 +54,12 @@ export default function Hero() {
                   border: "1px solid #e1e1e1",
                 }}
               >
-                <i className="icon-github text-xl text-gray-600"></i>
+                <i className="icon-github text-xl text-gray-600" />
                 <span className="ml-3">Github</span>
               </a>
             </div>
           </div>
+
           <div className="flex-grow hidden md:block">
             <img
               src="/images/hero.png"
