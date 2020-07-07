@@ -7,7 +7,7 @@ export default function Hero() {
       <div className="px-3 pt-10 pb-5 mb-5 flex px-5">
         <div className="mt-5 flex max-w-screen-xl mx-auto">
           <div className="mt-0 md:mt-10 mt-md-4 mt-md-5 flex-grow text-center md:text-left">
-            <a
+            {/* <a
               href="https://www.producthunt.com/posts/magnus-ui"
               target="_blank"
               className="flex items-center justify-center md:justify-start"
@@ -30,7 +30,7 @@ export default function Hero() {
                   It will be a real help if you could support us 👉
                 </span>
               </div>
-            </a>
+            </a> */}
             <h1 className="pt-5 text-3xl md:text-4xl font-bold font-nunito">
               A Utility-First React Native UI Framework
             </h1>
