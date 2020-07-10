@@ -25,7 +25,7 @@ Before you dive into the framework, make sure you know about **What a design sys
   <a href="/docs/getting-started" class="bg-primary-500 text-white block py-3 min-w-200 text-center rounded-lg" style="min-width: 200px">
     Get started
   </a>
-  <a href="https://github.com/react-native-magnus/react-native-magnus" target="_blank" class="bg-white rounded-lg hover:bg-gray-100 flex items-center justify-center text-center mx-0 md:mx-3 block py-2 mt-3 md:mt-0 min-w-200" style="min-width: 200px; color: black;  border: 1px solid #e1e1e1;">
+  <a href="https://github.com/jsartisan/react-native-magnus" target="_blank" class="bg-white rounded-lg hover:bg-gray-100 flex items-center justify-center text-center mx-0 md:mx-3 block py-2 mt-3 md:mt-0 min-w-200" style="min-width: 200px; color: black;  border: 1px solid #e1e1e1;">
    Github
   </a>
 </div>
