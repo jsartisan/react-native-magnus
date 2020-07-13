@@ -1,6 +1,6 @@
 {
   "name": "react-native-magnus",
-  "version": "1.0.39",
+  "version": "1.0.40",
   "description": "A Utility-First React Native UI Framework",
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",
