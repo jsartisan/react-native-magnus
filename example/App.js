@@ -96,14 +96,14 @@ const App = () => {
               showsVerticalScrollIndicator={false}
               data={friends}
               renderItem={({item}) => (
-                <Image
-                  source={{uri: item.image}}
+                <Div
                   h={120}
                   w="100%"
                   resize
                   rounded="xl"
                   mb="xl"
-                  resizeMode="center"
+                  bg={{sm: 'blue500', md: 'red500'}}
+                  resizeMode="cover"
                 />
               )}
               keyExtractor={(item) => `friend-list-item-${item.id}`}

@@ -1,4 +1,6 @@
-import { ThemeType } from './type';
+import { Dimensions } from 'react-native';
+
+import { ThemeType, BreakpointType } from './type';
 import { defaultTheme } from '../style';
 
 /**
@@ -38,6 +40,13 @@ export function computeTheme(customTheme: ThemeType | undefined): ThemeType {
 
   if (customTheme.name) {
     computedTheme.name = customTheme.name;
+  }
+
+  if (customTheme.breakpoints) {
+    computedTheme.breakpoints = customTheme.breakpoints;
+    computedTheme.breakpoint = calculateCurrentDeviceBreakpoint(
+      customTheme.breakpoints
+    );
   }
 
   return computedTheme;
@@ -396,4 +405,92 @@ export const createPositionStyle = (props: any) => {
   });
 
   return computedStyle;
+};
+
+/**
+ * position="absolute"
+ * top={10}
+ * w={[100%, 50%]}
+ *  1005
+ *  50
+ * const DEFAULT_BREAKPOINTS = {
+  sm: 320,
+  md: 480,
+  lg: 768,
+  xl: 1024,
+};
+ *
+ * @param value
+ */
+export const createResponsiveStyle = (theme: ThemeType, value: any) => {
+  if (typeof value === 'string' || typeof value === 'number') {
+    return value;
+  }
+
+  if (!theme.breakpoints) {
+    throw new Error('No breakpoints defined');
+  }
+
+  if (!theme.breakpoint) {
+    throw new Error('Not able to calculate current breakpoint');
+  }
+
+  const currentBreakpointValue = theme.breakpoints[theme.breakpoint];
+
+  // if prop is array like bg=["red500", "blue500"]
+  if (Array.isArray(value)) {
+    if (value.length === 1) return value[0];
+
+    let currentValue = value[0];
+
+    if (currentBreakpointValue) {
+      value.forEach((propValue, index) => {
+        if (
+          currentBreakpointValue >=
+          theme.breakpoints[Object.keys(theme.breakpoints)[index]]
+        ) {
+          currentValue = propValue;
+        } else return;
+      });
+    }
+
+    return currentValue;
+  }
+
+  // if prop is object like bg={{ sm: 'red500', lg: 'blue500'}}
+  if (typeof value === 'object') {
+    let currentValue = value[Object.keys(value)[0]];
+
+    Object.keys(value).forEach((breakpointKey, index) => {
+      if (currentBreakpointValue >= theme.breakpoints[breakpointKey]) {
+        currentValue = value[breakpointKey];
+      } else return;
+    });
+
+    return currentValue;
+  }
+
+  return value;
+};
+
+/**
+ * calculates current device breakpoint
+ *
+ * @param breakpoints
+ */
+export const calculateCurrentDeviceBreakpoint = (
+  breakpoints: BreakpointType,
+  currentWidth: number = Dimensions.get('window').width
+) => {
+  let currentBreakpoint = Object.keys(breakpoints)[0];
+
+  Object.keys(breakpoints).forEach((breakpointKey: string) => {
+    const breakpointValue = breakpoints[breakpointKey];
+
+    if (currentWidth > breakpointValue) {
+      currentBreakpoint = breakpointKey;
+    } else return;
+  });
+
+  return currentBreakpoint;
 };

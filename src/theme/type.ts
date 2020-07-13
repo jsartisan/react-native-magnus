@@ -6,6 +6,8 @@ export interface ThemeType {
   shadowColor?: any;
   shadow?: any;
   name?: string;
+  breakpoints?: BreakpointsType;
+  breakpoint?: 'sm' | 'md' | 'lg' | 'xl';
 }
 
 export interface BorderPropsType {
@@ -55,4 +57,11 @@ export interface RoundedPropsType {
 export interface ShadowPropsType {
   shadow?: string;
   shadowColor?: string;
+}
+
+export interface BreakpointsType {
+  sm?: number;
+  md?: number;
+  lg?: number;
+  xl?: number;
 }

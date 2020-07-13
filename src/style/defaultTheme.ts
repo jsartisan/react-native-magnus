@@ -1,6 +1,17 @@
-export const defaultTheme = {
-  name: 'default',
+import { ThemeType } from '../theme/type';
+import { calculateCurrentDeviceBreakpoint } from '../theme/theme.service';
 
+const DEFAULT_BREAKPOINTS: { [index: string]: number } = {
+  sm: 320,
+  md: 480,
+  lg: 768,
+  xl: 1024,
+};
+
+export const defaultTheme: ThemeType = {
+  name: 'default',
+  breakpoints: DEFAULT_BREAKPOINTS,
+  breakpoint: calculateCurrentDeviceBreakpoint(DEFAULT_BREAKPOINTS),
   colors: {
     gray900: '#262626',
     gray800: '#404040',
