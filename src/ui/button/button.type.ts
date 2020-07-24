@@ -1,4 +1,4 @@
-import { TouchableHighlightProps as RNButtonProps } from 'react-native';
+import { PressableProps as RNButtonProps } from 'react-native';
 import {
   BorderPropsType,
   SpacingPropsType,
@@ -40,6 +40,7 @@ export interface ButtonProps
   loading?: boolean;
   disabled?: boolean;
   loaderColor?: string;
+  underlayColor?: string;
   minW?: number | string;
   minH?: number | string;
   fontSize?: string | number;

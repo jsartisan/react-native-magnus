@@ -5,21 +5,14 @@ import {
   Animated as RNAnimated,
   Text as RNText,
   View as RNView,
-  Platform as RNPlatform,
-  TouchableHighlight as RNButton,
+  Pressable as RNButton,
   ActivityIndicator as RNActivityIndicator,
-  TouchableNativeFeedback as RNTouchableNativeFeedback,
 } from 'react-native';
 
 import { getStyle } from './button.style';
 import { ThemeContext } from '../../theme';
 import { ButtonProps } from './button.type';
 import { getThemeProperty } from '../../theme/theme.service';
-
-const ANDROID_VERSION_PIE = 28;
-const ANDROID_VERSION_LOLLIPOP = 21;
-const canSupportRipple =
-  RNPlatform.OS === 'android' && RNPlatform.Version >= ANDROID_VERSION_LOLLIPOP;
 
 const Button: React.FunctionComponent<ButtonProps> = (props) => {
   const {
@@ -79,6 +72,7 @@ const Button: React.FunctionComponent<ButtonProps> = (props) => {
 
   const { theme } = useContext(ThemeContext);
   const computedStyle = getStyle(theme, props);
+
   const underlayColor = getThemeProperty(
     theme.colors,
     props.underlayColor,
@@ -87,6 +81,13 @@ const Button: React.FunctionComponent<ButtonProps> = (props) => {
       .rgb()
       .string()
   );
+
+  const calculatedRippleColor = color(
+    getThemeProperty(theme.colors, rippleColor, 'white')
+  )
+    .alpha(disabled ? 0 : 0.2)
+    .rgb()
+    .string();
 
   /**
    * renders children based on type
@@ -99,90 +100,41 @@ const Button: React.FunctionComponent<ButtonProps> = (props) => {
     return children;
   };
 
-  /**
-   * renders container based on props
-   */
-  const renderContainer = () => {
-    if (canSupportRipple === true && ripple === true) {
-      const useForeground =
-        RNPlatform.OS === 'android' &&
-        RNPlatform.Version >= ANDROID_VERSION_PIE;
-
-      const calculatedRippleColor = color(
-        getThemeProperty(theme.colors, rippleColor, 'white')
-      )
-        .alpha(disabled ? 0 : 0.2)
-        .rgb()
-        .string();
-
-      return (
-        <RNTouchableNativeFeedback
-          {...rest}
-          onPress={disabled || loading ? undefined : onPress}
-          useForeground={useForeground}
-          background={RNTouchableNativeFeedback.Ripple(
-            calculatedRippleColor,
-            borderless
-          )}
-        >
-          <RNView style={computedStyle.button}>
-            {loading === true ? (
-              <RNView style={computedStyle.container}>
-                <RNView style={computedStyle.loadingContainer}>
-                  <RNActivityIndicator
-                    size={getThemeProperty(theme.fontSize, loaderSize, 16)}
-                    color={getThemeProperty(
-                      theme.colors,
-                      loaderColor,
-                      '#e1e1e1'
-                    )}
-                  />
-                </RNView>
-              </RNView>
-            ) : (
-              <RNView style={computedStyle.container}>
-                {prefix}
-                {renderChildren()}
-                {suffix}
-              </RNView>
-            )}
+  return (
+    <RNButton
+      {...rest}
+      onPress={disabled || loading ? undefined : onPress}
+      style={({ pressed }) => [
+        computedStyle.button,
+        pressed && { backgroundColor: underlayColor },
+      ]}
+      android_ripple={
+        !ripple
+          ? {
+              color: calculatedRippleColor,
+              borderless,
+            }
+          : null
+      }
+    >
+      {loading ? (
+        <RNView style={computedStyle.container}>
+          <RNView style={computedStyle.loadingContainer}>
+            <RNActivityIndicator
+              size={getThemeProperty(theme.fontSize, loaderSize, 16)}
+              color={getThemeProperty(theme.colors, loaderColor, '#e1e1e1')}
+            />
           </RNView>
-        </RNTouchableNativeFeedback>
-      );
-    }
-
-    return (
-      <RNButton
-        {...rest}
-        onPress={disabled || loading ? undefined : onPress}
-        style={computedStyle.button}
-        underlayColor={underlayColor}
-      >
-        {loading === true ? (
-          <RNView style={computedStyle.container}>
-            <RNView style={computedStyle.loadingContainer}>
-              <RNActivityIndicator
-                size={getThemeProperty(theme.fontSize, loaderSize, 16)}
-                color={getThemeProperty(theme.colors, loaderColor, '#e1e1e1')}
-              />
-            </RNView>
-          </RNView>
-        ) : (
-          <RNAnimated.View style={computedStyle.container}>
-            {prefix}
-            {renderChildren()}
-            {suffix}
-          </RNAnimated.View>
-        )}
-      </RNButton>
-    );
-  };
-
-  /**
-   * if the platform supports ripple, then use TouchableNativeFeedback
-   */
-
-  return <>{renderContainer()}</>;
+        </RNView>
+      ) : (
+        <RNAnimated.View style={computedStyle.container}>
+          {prefix}
+          {renderChildren()}
+          {suffix}
+        </RNAnimated.View>
+      )}
+    </RNButton>
+  );
 };
 
 Button.defaultProps = {
