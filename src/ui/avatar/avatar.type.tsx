@@ -7,20 +7,20 @@ import {
   BorderPropsType,
   SpacingPropsType,
   RoundedPropsType,
+  ShadowPropsType,
 } from '../../theme';
 
 export interface AvatarProps
   extends RNViewProps,
     BorderPropsType,
     SpacingPropsType,
-    RoundedPropsType {
+    RoundedPropsType,
+    ShadowPropsType {
   size?: number;
   color?: string;
   bg?: string;
   source?: RNImageSourcePropType;
   fontSize?: string;
-  shadow?: number;
-  shadowColor?: string;
   position?: 'absolute' | 'relative';
   top?: number;
   right?: number;

@@ -8,22 +8,22 @@ import {
   SpacingPropsType,
   RoundedPropsType,
 } from '../../theme';
+import { ShadowPropsType } from 'lib/typescript';
 
 export interface ScrollDivProps
   extends RNScrollViewProps,
     BorderPropsType,
     SpacingPropsType,
+    ShadowPropsType,
     RoundedPropsType {
   h?: number | string;
   w?: number | string;
   bg?: string;
-  minH?: number;
-  minW?: number;
+  minH?: number | string;
+  minW?: number | string;
   bgImg?: RNImageSourcePropType;
   bgMode?: 'contain' | 'cover' | 'stretch';
   flex?: number;
-  shadow?: number;
-  shadowColor?: string;
   justifyContent?:
     | 'flex-start'
     | 'flex-end'

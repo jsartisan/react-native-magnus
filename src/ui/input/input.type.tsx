@@ -4,19 +4,21 @@ import {
   BorderPropsType,
   SpacingPropsType,
   RoundedPropsType,
+  ShadowPropsType,
 } from '../../theme';
 
 export interface InputProps
   extends RNTextInputProps,
     BorderPropsType,
     SpacingPropsType,
+    ShadowPropsType,
     RoundedPropsType {
   h?: number;
   w?: number;
-  minH?: number;
-  minW?: number;
-  maxH?: number;
-  maxW?: number;
+  minH?: number | string;
+  minW?: number | string;
+  maxH?: number | string;
+  maxW?: number | string;
   bg?: string;
   fontSize?: string;
   lineHeight?: number;
@@ -24,9 +26,7 @@ export interface InputProps
   loading?: boolean;
   loaderSize?: number | string;
   loaderColor?: string;
-  shadow?: number;
   flex?: number;
-  shadowColor?: string;
   focusBorderColor?: string;
   suffix?: React.ReactNode;
   prefix?: React.ReactNode;

@@ -16,10 +16,10 @@ export interface TooltipProps
   bg?: string;
   h?: number;
   w?: number;
-  minW?: number;
-  minH?: number;
-  maxW?: number;
-  maxH?: number;
+  minW?: number | string;
+  minH?: number | string;
+  maxW?: number | string;
+  maxH?: number | string;
   animationDuration?: number;
   onHidden?: () => void;
   opacity?: number;

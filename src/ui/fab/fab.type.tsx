@@ -1,15 +1,17 @@
-import { TouchableHighlightProps as RNButtonProps } from 'react-native';
+import { PressableProps as RNButtonProps } from 'react-native';
 import {
   BorderPropsType,
   SpacingPropsType,
   RoundedPropsType,
+  ShadowPropsType,
 } from '../../theme';
 
 export interface FabProps
   extends RNButtonProps,
     BorderPropsType,
     SpacingPropsType,
-    RoundedPropsType {
+    RoundedPropsType,
+    ShadowPropsType {
   h?: number;
   w?: number;
   bg?: string;
@@ -37,10 +39,8 @@ export interface FabProps
   fontSize?: string;
   loaderSize?: number | string;
   block?: boolean;
-  shadow?: number;
   borderless?: boolean;
   rippleColor?: string;
-  shadowColor?: string;
   center?: boolean;
   ripple?: boolean;
   icon: string | React.ReactNode;
@@ -54,5 +54,5 @@ export interface FabProps
   overlayOpacity?: number;
   onOpen?: () => void;
   useNativeDriver?: boolean;
-  children?: React.ReactElement[] | React.ReactElement;
+  children: React.ReactElement[] | React.ReactElement;
 }

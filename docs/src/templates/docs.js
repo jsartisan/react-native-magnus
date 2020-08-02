@@ -52,7 +52,7 @@ class DocsTemplate extends React.Component {
               <div className="c-docs__toc"></div>
             </div>
             <div className="md:w-2/12 relative text-right">
-              <div className="absolute left-0 top-0">
+              <div className="absolute top-0">
                 {post.tableOfContents.length > 0 && (
                   <div
                     className="table-of-contents  min-w-200 fixed mt-5 hidden md:block"

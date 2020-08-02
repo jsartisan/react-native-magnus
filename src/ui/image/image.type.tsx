@@ -5,21 +5,21 @@ import {
   SpacingPropsType,
   RoundedPropsType,
 } from '../../theme';
+import { ShadowPropsType } from 'lib/typescript';
 
 export interface ImageProps
   extends RNImageProps,
     BorderPropsType,
     SpacingPropsType,
+    ShadowPropsType,
     RoundedPropsType {
   h?: number | string;
   w?: number | string;
-  minH?: number;
-  minW?: number;
-  maxH?: number;
-  maxW?: number;
+  minH?: number | string;
+  minW?: number | string;
+  maxH?: number | string;
+  maxW?: number | string;
   flex?: number;
-  shadow?: number;
-  shadowColor?: string;
   position?: 'absolute' | 'relative';
   alignSelf?:
     | 'auto'

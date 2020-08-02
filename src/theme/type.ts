@@ -53,6 +53,6 @@ export interface RoundedPropsType {
 }
 
 export interface ShadowPropsType {
-  shadow?: string;
+  shadow?: string | number;
   shadowColor?: string;
 }

@@ -19,10 +19,10 @@ export interface DivProps
   h?: number | string;
   w?: number | string;
   bg?: string;
-  minH?: number;
-  minW?: number;
-  maxH?: number;
-  maxW?: number;
+  minH?: number | string;
+  minW?: number | string;
+  maxH?: number | string;
+  maxW?: number | string;
   bgImg?: RNImageSourcePropType;
   bgMode?: 'contain' | 'cover' | 'stretch';
   flex?: number;

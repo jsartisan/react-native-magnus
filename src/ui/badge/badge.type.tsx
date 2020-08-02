@@ -4,20 +4,20 @@ import {
   BorderPropsType,
   SpacingPropsType,
   RoundedPropsType,
+  ShadowPropsType,
 } from '../../theme';
 
 export interface BadgeProps
   extends RNViewProps,
     BorderPropsType,
     SpacingPropsType,
-    RoundedPropsType {
+    RoundedPropsType,
+    ShadowPropsType {
   h?: number | string;
   w?: number | string;
   bg?: string;
-  minH?: number;
-  minW?: number;
-  shadow?: number;
-  shadowColor?: string;
+  minH?: number | string;
+  minW?: number | string;
   justifyContent?:
     | 'flex-start'
     | 'flex-end'

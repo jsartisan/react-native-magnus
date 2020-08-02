@@ -3,12 +3,14 @@ import {
   BorderPropsType,
   SpacingPropsType,
   RoundedPropsType,
+  ShadowPropsType,
 } from '../../theme';
 
 export interface ButtonProps
   extends RNButtonProps,
     BorderPropsType,
     SpacingPropsType,
+    ShadowPropsType,
     RoundedPropsType {
   h?: number | string;
   w?: number | string;
@@ -48,10 +50,8 @@ export interface ButtonProps
   suffix?: React.ReactNode;
   prefix?: React.ReactNode;
   block?: boolean;
-  shadow?: number;
   borderless?: boolean;
   rippleColor?: string;
-  shadowColor?: string;
   ripple?: boolean;
   opacity?: number;
   zIndex?: number;

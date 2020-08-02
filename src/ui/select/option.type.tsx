@@ -1,14 +1,16 @@
-import { TouchableHighlightProps as RNButtonProps } from 'react-native';
+import { PressableProps as RNButtonProps } from 'react-native';
 import {
   BorderPropsType,
   SpacingPropsType,
   RoundedPropsType,
+  ShadowPropsType,
 } from '../../theme';
 
 export interface OptionProps
   extends RNButtonProps,
     BorderPropsType,
     SpacingPropsType,
+    ShadowPropsType,
     RoundedPropsType {
   h?: number | string;
   w?: number | string;
@@ -38,10 +40,8 @@ export interface OptionProps
   loaderSize?: number | string;
   suffix?: React.ReactNode;
   block?: boolean;
-  shadow?: number;
   borderless?: boolean;
   rippleColor?: string;
-  shadowColor?: string;
   center?: boolean;
   ripple?: boolean;
   value: any;

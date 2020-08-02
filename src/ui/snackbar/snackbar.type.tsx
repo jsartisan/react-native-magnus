@@ -4,6 +4,7 @@ import {
   BorderPropsType,
   SpacingPropsType,
   RoundedPropsType,
+  ShadowPropsType,
 } from '../../theme';
 
 export interface SnackbarRefType {
@@ -14,13 +15,12 @@ export interface SnackbarRefType {
 export interface SnackbarProps
   extends BorderPropsType,
     SpacingPropsType,
+    ShadowPropsType,
     RoundedPropsType {
   bg?: string;
   color?: string;
   duration?: number;
-  shadow?: number;
   fontSize?: string;
-  shadowColor?: string;
   onDismiss?: () => void;
   children: React.ReactNode;
   style?: StyleProp<ViewStyle>;
@@ -32,10 +32,10 @@ export interface SnackbarProps
   right?: number;
   w?: number;
   h?: number;
-  minH?: number;
-  minW?: number;
-  maxH?: number;
-  maxW?: number;
+  minH?: number | string;
+  minW?: number | string;
+  maxH?: number | string;
+  maxW?: number | string;
   opacity?: number;
   justifyContent?:
     | 'flex-start'

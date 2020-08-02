@@ -85,7 +85,7 @@ Avatar.defaultProps = {
   color: 'black500',
   rounded: 'circle',
   fontSize: 'text400',
-  shadow: 0,
+  shadow: 'none',
   shadowColor: 'black500',
   position: 'relative',
   zIndex: 1,

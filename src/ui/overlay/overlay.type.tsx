@@ -10,8 +10,8 @@ export interface OverlayProps
   w?: string | number;
   h?: number | string;
   flex?: number;
-  minH?: number;
-  minW?: number;
+  minH?: number | string;
+  minW?: number | string;
   justifyContent?:
     | 'flex-start'
     | 'flex-end'

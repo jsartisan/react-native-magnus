@@ -4,6 +4,7 @@ import {
   BorderPropsType,
   SpacingPropsType,
   RoundedPropsType,
+  ShadowPropsType,
 } from '../../theme';
 
 export type iconFontFamilyType =
@@ -26,18 +27,17 @@ export interface IconProps
   extends RNViewProps,
     BorderPropsType,
     SpacingPropsType,
-    RoundedPropsType {
+    RoundedPropsType,
+    ShadowPropsType {
   h?: number;
   w?: number;
-  minW?: number;
-  minH?: number;
-  maxH?: number;
-  maxW?: number;
+  minW?: number | string;
+  minH?: number | string;
+  maxH?: number | string;
+  maxW?: number | string;
   bg?: string;
   name: string;
   color?: string;
-  shadow?: number;
-  shadowColor?: string;
   position?: 'absolute' | 'relaitve';
   top?: string | number;
   left?: string | number;

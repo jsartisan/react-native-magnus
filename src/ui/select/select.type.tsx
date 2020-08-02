@@ -7,26 +7,26 @@ import {
   BorderPropsType,
   SpacingPropsType,
   RoundedPropsType,
+  ShadowPropsType,
 } from '../../theme';
 
 export interface SelectProps
   extends RNViewProps,
     BorderPropsType,
     SpacingPropsType,
-    RoundedPropsType {
+    RoundedPropsType,
+    ShadowPropsType {
   h?: number | string;
   title?: string | React.ReactNode;
   message?: string | React.ReactNode;
   w?: number | string;
   bg?: string;
-  minH?: number;
-  minW?: number;
+  minH?: number | string;
+  minW?: number | string;
   bgImg?: RNImageSourcePropType;
   showScrollIndicator?: boolean;
   bgMode?: 'contain' | 'cover' | 'stretch';
   flex?: number;
-  shadow?: number;
-  shadowColor?: string;
   justifyContent?:
     | 'flex-start'
     | 'flex-end'

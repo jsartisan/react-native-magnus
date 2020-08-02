@@ -72,7 +72,7 @@ p?: any;
 m?: any;
 color?: string;
 duration?: number;
-shadow?: number;
+shadow?: number | string;
 shadowColor?: string;
 onDismiss?: () => void;
 children: React.ReactNode;

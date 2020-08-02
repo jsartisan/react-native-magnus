@@ -17,8 +17,8 @@ export interface TagProps
   color?: string;
   w?: number | string;
   bg?: string;
-  minH?: number;
-  minW?: number;
+  minH?: number | string;
+  minW?: number | string;
   rounded?: string;
   borderColor?: string;
   borderWidth?: number;
