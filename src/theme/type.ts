@@ -6,8 +6,8 @@ export interface ThemeType {
   shadowColor?: any;
   shadow?: any;
   name?: string;
-  breakpoints?: BreakpointsType;
-  breakpoint?: 'sm' | 'md' | 'lg' | 'xl';
+  breakpoints: BreakpointsType;
+  breakpoint: BreakpointType;
 }
 
 export interface BorderPropsType {
@@ -25,21 +25,21 @@ export interface BorderPropsType {
 }
 
 export interface SpacingPropsType {
-  m?: string | number;
-  mt?: string | number;
-  mr?: string | number;
-  mb?: string | number;
-  ml?: string | number;
-  mx?: string | number;
-  my?: string | number;
-  ms?: string | number;
-  p?: string | number;
-  pt?: string | number;
-  pr?: string | number;
-  pb?: string | number;
-  pl?: string | number;
-  px?: string | number;
-  py?: string | number;
+  m?: ResponsiveType<string | number>;
+  mt?: ResponsiveType<string | number>;
+  mr?: ResponsiveType<string | number>;
+  mb?: ResponsiveType<string | number>;
+  ml?: ResponsiveType<string | number>;
+  mx?: ResponsiveType<string | number>;
+  my?: ResponsiveType<string | number>;
+  ms?: ResponsiveType<string | number>;
+  p?: ResponsiveType<string | number>;
+  pt?: ResponsiveType<string | number>;
+  pr?: ResponsiveType<string | number>;
+  pb?: ResponsiveType<string | number>;
+  pl?: ResponsiveType<string | number>;
+  px?: ResponsiveType<string | number>;
+  py?: ResponsiveType<string | number>;
 }
 
 export interface RoundedPropsType {
@@ -59,9 +59,54 @@ export interface ShadowPropsType {
   shadowColor?: string;
 }
 
+export type ResponsiveType<T> = T | T[] | BreakpointsValueType<T>;
+export type BreakpointType = 'sm' | 'md' | 'lg' | 'xl';
+export type BaseBgModeType = 'contain' | 'cover' | 'stretch' | 'repeat';
+
+export type BaseJustifyType =
+  | 'flex-start'
+  | 'flex-end'
+  | 'center'
+  | 'space-between'
+  | 'space-around'
+  | 'space-evenly';
+
+export type BaseAlignSelfType =
+  | 'auto'
+  | 'flex-start'
+  | 'flex-end'
+  | 'center'
+  | 'stretch'
+  | 'baseline';
+
+export type BaseFlexDirectionType =
+  | 'row'
+  | 'column'
+  | 'row-reverse'
+  | 'column-reverse';
+export type BaseFlexWrapType = 'wrap' | 'nowrap' | 'wrap-reverse';
+export type BasePositionType = 'absolute' | 'relative';
+export type BaseAlignItemsType =
+  | 'flex-start'
+  | 'flex-end'
+  | 'center'
+  | 'stretch'
+  | 'baseline';
+export type BaseOverflowType = 'hidden' | 'visible' | 'scroll';
+export type BaseBorderStyleType = 'solid' | 'dotted' | 'dashed';
+
+export type BaseDimensionType = string | number;
+
 export interface BreakpointsType {
-  sm?: number;
-  md?: number;
-  lg?: number;
-  xl?: number;
+  sm: number;
+  md: number;
+  lg: number;
+  xl: number;
+}
+
+export interface BreakpointsValueType<T> {
+  sm?: T;
+  md?: T;
+  lg?: T;
+  xl?: T;
 }

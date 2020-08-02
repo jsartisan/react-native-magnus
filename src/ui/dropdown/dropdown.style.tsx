@@ -31,7 +31,7 @@ export const getStyle = (theme: any, props: any) => {
 
   computedStyle.container = {
     height: props.h,
-    ...createSpacingStyles(props, theme.spacing),
+    ...createSpacingStyles(props, theme),
   };
 
   computedStyle.options = {

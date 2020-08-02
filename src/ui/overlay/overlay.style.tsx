@@ -32,7 +32,7 @@ export const getStyle = (theme: any, props: any) => {
   computedStyle.container = {
     backgroundColor: getThemeProperty(theme.colors, props.bg, 'transparent'),
     ...createFlexStyles(props),
-    ...createSpacingStyles(props, theme.spacing),
+    ...createSpacingStyles(props, theme),
     ...createBorderRadiusStyles(props, theme.borderRadius),
     width: props.w,
     height: props.h,

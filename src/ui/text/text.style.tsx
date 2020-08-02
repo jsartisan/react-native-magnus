@@ -47,7 +47,7 @@ export const getStyle = (theme: any, props: any) => {
       'transparent'
     ),
     ...createBorderWidthStyles(props),
-    ...createSpacingStyles(props, theme.spacing),
+    ...createSpacingStyles(props, theme),
     ...createBorderColorStyles(props, theme.colors),
     ...createBorderRadiusStyles(props, theme.borderRadius),
   };

@@ -36,7 +36,7 @@ export const getStyle = (theme: any, props: any, state: any) => {
     ...createFlexStyles(props),
     ...createShadowStyles(props, theme),
     ...createBorderWidthStyles(props),
-    ...createSpacingStyles(props, theme.spacing),
+    ...createSpacingStyles(props, theme),
     ...createBorderColorStyles(props, theme.colors),
     ...createBorderRadiusStyles(props, theme.borderRadius),
     backgroundColor: getThemeProperty(theme.colors, props.bg, 'transparent'),

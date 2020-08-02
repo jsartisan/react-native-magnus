@@ -22,7 +22,7 @@ export const getStyle = (theme: any, props: any) => {
     alignSelf: 'flex-start',
     position: props.position,
     backgroundColor: getThemeProperty(theme.colors, props.bg, 'transparent'),
-    ...createSpacingStyles(props, theme.spacing),
+    ...createSpacingStyles(props, theme),
   };
 
   computedStyle.text = {

@@ -97,12 +97,13 @@ const App = () => {
               data={friends}
               renderItem={({item}) => (
                 <Div
+                  bgImg={{uri: item.image}}
                   h={120}
                   w="100%"
                   resize
                   rounded="xl"
-                  mb="xl"
-                  bg={{sm: 'blue500', md: 'red500'}}
+                  mb={{sm: 'lg', md: 'xl'}}
+                  flexWrap="nowrap"
                   resizeMode="cover"
                 />
               )}

@@ -39,7 +39,7 @@ export const getStyle = (theme: any, props: any) => {
     ...createPositionStyle(props),
     ...createBorderWidthStyles(props),
     ...createShadowStyles(props, theme),
-    ...createSpacingStyles(props, theme.spacing),
+    ...createSpacingStyles(props, theme),
     ...createBorderColorStyles(props, theme.colors),
     ...createBorderRadiusStyles(props, theme.borderRadius),
     position: typeof props.children !== 'string' ? 'absolute' : props.position,

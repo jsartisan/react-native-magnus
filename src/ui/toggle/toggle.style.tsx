@@ -19,7 +19,7 @@ export const getStyle = (theme: any, props: any) => {
     height: props.h,
     width: props.w,
     alignItems: 'center',
-    ...createSpacingStyles(props, theme.spacing),
+    ...createSpacingStyles(props, theme),
     ...createBorderRadiusStyles(props, theme.borderRadius),
   };
 

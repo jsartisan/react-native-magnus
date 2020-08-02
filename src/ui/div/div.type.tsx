@@ -8,6 +8,16 @@ import {
   SpacingPropsType,
   RoundedPropsType,
   ShadowPropsType,
+  ResponsiveType,
+  BaseBgModeType,
+  BaseJustifyType,
+  BaseAlignSelfType,
+  BaseAlignItemsType,
+  BaseFlexWrapType,
+  BaseFlexDirectionType,
+  BasePositionType,
+  BaseOverflowType,
+  BaseBorderStyleType,
 } from '../../theme';
 
 export interface DivProps
@@ -16,42 +26,30 @@ export interface DivProps
     SpacingPropsType,
     RoundedPropsType,
     ShadowPropsType {
-  h?: number | string;
-  w?: number | string;
-  bg?: string;
-  minH?: number;
-  minW?: number;
-  maxH?: number;
-  maxW?: number;
+  h?: ResponsiveType<string | number>;
+  w?: ResponsiveType<string | number>;
+  bg?: ResponsiveType<string>;
+  minH?: ResponsiveType<string | number>;
+  minW?: ResponsiveType<string | number>;
+  maxH?: ResponsiveType<string | number>;
+  maxW?: ResponsiveType<string | number>;
   bgImg?: RNImageSourcePropType;
-  bgMode?: 'contain' | 'cover' | 'stretch';
-  flex?: number;
-  justifyContent?:
-    | 'flex-start'
-    | 'flex-end'
-    | 'center'
-    | 'space-between'
-    | 'space-around'
-    | 'space-evenly';
-  alignSelf?:
-    | 'auto'
-    | 'flex-start'
-    | 'flex-end'
-    | 'center'
-    | 'stretch'
-    | 'baseline';
-  alignItems?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
-  flexDir?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
-  flexWrap?: 'wrap' | 'nowrap' | 'wrap-reverse';
-  position?: 'absolute' | 'relative';
-  overflow?: 'hidden' | 'visible' | 'scroll';
-  borderStyle?: 'solid' | 'dotted' | 'dashed';
-  top?: number;
-  right?: number;
-  bottom?: number;
-  left?: number;
-  opacity?: number;
+  bgMode?: ResponsiveType<BaseBgModeType>;
+  flex?: ResponsiveType<number>;
+  justifyContent?: ResponsiveType<BaseJustifyType>;
+  alignSelf?: ResponsiveType<BaseAlignSelfType>;
+  alignItems?: ResponsiveType<BaseAlignItemsType>;
+  flexDir?: ResponsiveType<BaseFlexDirectionType>;
+  flexWrap?: ResponsiveType<BaseFlexWrapType>;
+  position?: ResponsiveType<BasePositionType>;
+  overflow?: ResponsiveType<BaseOverflowType>;
+  borderStyle?: ResponsiveType<BaseBorderStyleType>;
+  top?: ResponsiveType<number>;
+  right?: ResponsiveType<number>;
+  bottom?: ResponsiveType<number>;
+  left?: ResponsiveType<number>;
+  opacity?: ResponsiveType<number>;
   children?: React.ReactNode[] | React.ReactNode;
-  row?: boolean;
-  zIndex?: number;
+  row?: ResponsiveType<boolean>;
+  zIndex?: ResponsiveType<number>;
 }

@@ -5,6 +5,7 @@ import { View as RNView, Text as RNText } from 'react-native';
 import { BadgeProps } from './badge.type';
 import { getStyle } from './badge.style';
 import { ThemeContext } from '../../theme';
+import { Div } from '../div/div.component';
 
 const Badge: React.FunctionComponent<BadgeProps> = (props: BadgeProps) => {
   const {
@@ -57,6 +58,15 @@ const Badge: React.FunctionComponent<BadgeProps> = (props: BadgeProps) => {
   } = props;
   const { theme } = useContext(ThemeContext);
   const computedStyle = getStyle(theme, props);
+
+  return (
+    <Div
+      h={[20, 100]}
+      w={[20, 100]}
+      bg={['red500', 'yellow500']}
+      mt={[0, 'md']}
+    />
+  );
 
   return (
     <RNView style={computedStyle.container}>

@@ -16,7 +16,7 @@ export const getStyle = (theme: any, props: any) => {
   const computedStyle: any = {};
 
   computedStyle.container = {
-    ...createSpacingStyles(props, theme.spacing),
+    ...createSpacingStyles(props, theme),
     backgroundColor: getThemeProperty(theme.colors, props.bg, 'transparent'),
     ...createBorderRadiusStyles(props, theme.borderRadius),
   };

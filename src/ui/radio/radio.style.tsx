@@ -29,7 +29,7 @@ export const getStyle = (theme: any, props: any) => {
     flexDirection: 'row',
     alignItems: 'center',
     ...createBorderWidthStyles(props),
-    ...createSpacingStyles(props, theme.spacing),
+    ...createSpacingStyles(props, theme),
     ...createBorderColorStyles(props, theme.colors),
     ...createBorderRadiusStyles(props, theme.borderRadius),
   };

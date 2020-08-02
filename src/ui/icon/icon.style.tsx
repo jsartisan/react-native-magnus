@@ -38,7 +38,7 @@ export const getStyle = (theme: any, props: any) => {
     fontSize: getThemeProperty(theme.fontSize, props.fontSize, 16),
     backgroundColor: getThemeProperty(theme.colors, props.bg, 'transparent'),
     ...createBorderWidthStyles(props),
-    ...createSpacingStyles(props, theme.spacing),
+    ...createSpacingStyles(props, theme),
     ...createBorderColorStyles(props, theme.colors),
     ...createBorderRadiusStyles(props, theme.borderRadius),
     ...createShadowStyles(props, theme),

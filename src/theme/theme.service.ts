@@ -1,6 +1,6 @@
 import { Dimensions } from 'react-native';
 
-import { ThemeType, BreakpointType } from './type';
+import { ThemeType, BreakpointType, BreakpointsType } from './type';
 import { defaultTheme } from '../style';
 
 /**
@@ -86,9 +86,9 @@ export const createSpacingStyles = (props: any, theme: any) => {
 
     if (propKey in props) {
       computedStyle[styleProperty] = getThemeProperty(
-        theme,
-        props[propKey],
-        props[propKey]
+        theme.spacing,
+        createResponsiveStyle(props[propKey], theme),
+        createResponsiveStyle(props[propKey], theme)
       );
     }
   });
@@ -169,11 +169,15 @@ export const createDirectionalStyles = (
  * @param value
  */
 export const getThemeProperty = (theme: any, value: any, fallback: any) => {
-  if (typeof theme[value] !== 'undefined') {
-    return theme[value];
-  }
+  let computedValue = fallback;
 
-  return fallback;
+  try {
+    if (typeof theme[value] !== 'undefined') {
+      computedValue = theme[value];
+    }
+  } catch {}
+
+  return computedValue;
 };
 
 /**
@@ -332,7 +336,7 @@ export const createShadowStyles = (props: any, theme: any) => {
 
   if (props.shadow) {
     computedStyle = {
-      ...theme.shadow[props.shadow],
+      ...theme.shadow[createResponsiveStyle(props.shadow, theme)],
       shadowColor: getThemeProperty(theme.colors, props.shadowColor, 'white'),
     };
   }
@@ -422,17 +426,16 @@ export const createPositionStyle = (props: any) => {
  *
  * @param value
  */
-export const createResponsiveStyle = (theme: ThemeType, value: any) => {
+export const createResponsiveStyle = (
+  value: string | number | BreakpointsType | Array<string | number>,
+  theme: ThemeType
+) => {
+  if (typeof value === 'undefined') {
+    return undefined;
+  }
+
   if (typeof value === 'string' || typeof value === 'number') {
     return value;
-  }
-
-  if (!theme.breakpoints) {
-    throw new Error('No breakpoints defined');
-  }
-
-  if (!theme.breakpoint) {
-    throw new Error('Not able to calculate current breakpoint');
   }
 
   const currentBreakpointValue = theme.breakpoints[theme.breakpoint];
@@ -442,12 +445,16 @@ export const createResponsiveStyle = (theme: ThemeType, value: any) => {
     if (value.length === 1) return value[0];
 
     let currentValue = value[0];
+    const breakpointKeys = Object.keys(theme.breakpoints) as Array<
+      keyof typeof theme.breakpoints
+    >;
 
     if (currentBreakpointValue) {
-      value.forEach((propValue, index) => {
+      value.forEach((propValue, index: number) => {
+        if (!theme.breakpoints) throw Error('asdas');
+
         if (
-          currentBreakpointValue >=
-          theme.breakpoints[Object.keys(theme.breakpoints)[index]]
+          currentBreakpointValue >= theme.breakpoints[breakpointKeys[index]]
         ) {
           currentValue = propValue;
         } else return;
@@ -458,19 +465,24 @@ export const createResponsiveStyle = (theme: ThemeType, value: any) => {
   }
 
   // if prop is object like bg={{ sm: 'red500', lg: 'blue500'}}
-  if (typeof value === 'object') {
-    let currentValue = value[Object.keys(value)[0]];
+  if (typeof value === 'object' && value !== null) {
+    console.log('object:', value);
 
-    Object.keys(value).forEach((breakpointKey, index) => {
-      if (currentBreakpointValue >= theme.breakpoints[breakpointKey]) {
-        currentValue = value[breakpointKey];
-      } else return;
-    });
+    const valueKeys = Object.keys(value) as Array<keyof typeof value>;
+    let currentValue = value[valueKeys[0]];
+
+    if (currentBreakpointValue) {
+      valueKeys.forEach((breakpointKey: BreakpointType) => {
+        if (currentBreakpointValue >= theme.breakpoints[breakpointKey]) {
+          currentValue = value[breakpointKey];
+        } else return;
+      });
+    }
 
     return currentValue;
   }
 
-  return value;
+  throw Error('Could not compute');
 };
 
 /**
@@ -479,15 +491,18 @@ export const createResponsiveStyle = (theme: ThemeType, value: any) => {
  * @param breakpoints
  */
 export const calculateCurrentDeviceBreakpoint = (
-  breakpoints: BreakpointType,
+  breakpoints: BreakpointsType,
   currentWidth: number = Dimensions.get('window').width
-) => {
-  let currentBreakpoint = Object.keys(breakpoints)[0];
+): BreakpointType => {
+  const breakpointKeys = Object.keys(breakpoints) as Array<
+    keyof typeof breakpoints
+  >;
+  let currentBreakpoint = breakpointKeys[0];
 
-  Object.keys(breakpoints).forEach((breakpointKey: string) => {
+  breakpointKeys.forEach((breakpointKey: BreakpointType) => {
     const breakpointValue = breakpoints[breakpointKey];
 
-    if (currentWidth > breakpointValue) {
+    if (currentWidth > (breakpointValue || 0)) {
       currentBreakpoint = breakpointKey;
     } else return;
   });

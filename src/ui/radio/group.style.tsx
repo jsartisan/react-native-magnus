@@ -18,7 +18,7 @@ export const getStyle = (theme: any, props: any) => {
 
   computedStyle.container = {
     ...createBorderWidthStyles(props),
-    ...createSpacingStyles(props, theme.spacing),
+    ...createSpacingStyles(props, theme),
     ...createBorderColorStyles(props, theme.colors),
     ...createBorderRadiusStyles(props, theme.borderRadius),
   };

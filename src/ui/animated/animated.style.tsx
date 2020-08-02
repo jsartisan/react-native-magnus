@@ -41,7 +41,7 @@ export const getStyle = (theme: any, props: any) => {
     ...createPositionStyle(props),
     ...createShadowStyles(props, theme),
     ...createBorderWidthStyles(props),
-    ...createSpacingStyles(props, theme.spacing),
+    ...createSpacingStyles(props, theme),
     ...createBorderColorStyles(props, theme.colors),
     ...createBorderRadiusStyles(props, theme.borderRadius),
   };

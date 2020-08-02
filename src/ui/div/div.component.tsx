@@ -32,6 +32,7 @@ const Div: React.FunctionComponent<DivProps> = (props: DivProps) => {
     position,
     style,
     flexDir,
+    flex,
     row,
     rounded,
     roundedTop,
