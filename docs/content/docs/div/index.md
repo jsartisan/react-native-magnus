@@ -20,8 +20,6 @@ import { Div, Text } from "react-native-magnus";
 
 <img src="/images/docs/div/2.png"  style="height: 60px; width: auto;" />
 
-</div>
-
 ```jsx
 <Div h={40} w={40} bg="brand500"></Div>
 <Div h={40} w={40} bg="green500"></Div>
@@ -51,7 +49,7 @@ You can check complete list of colors from [here](/docs/colors-system)
 
 ### Shadows
 
-<img src="/images/docs/div/4.png"  style="height: 80px; width: auto;"   />
+<img src="/images/docs/div/4.png"  style="height: 80px; width: auto;"  />
 
 ```jsx
 <Div h={40} w={40} rounded="md" shadow="xs"></Div>
@@ -66,7 +64,7 @@ You can check complete list of colors from [here](/docs/colors-system)
 
 ### Border radius
 
-<img src="/images/docs/div/5.png"  style="height: 60px; width: auto;"   />
+<img src="/images/docs/div/5.png"  style="height: 60px; width: auto;" />
 
 ```jsx
 <Div h={40} w={40} bg="teal500"></Div>
@@ -78,7 +76,7 @@ You can check complete list of colors from [here](/docs/colors-system)
 
 ### Flex
 
-<img src="/images/docs/div/6.png"  style="height: 80px; width: auto;"   />
+<img src="/images/docs/div/6.png"  style="height: 80px; width: auto;" />
 
 ```jsx
 <Div row m="xl">
@@ -90,7 +88,7 @@ You can check complete list of colors from [here](/docs/colors-system)
 
 ### Example #1
 
-<img src="/images/docs/div/7.png"  style="height: 200px; width: auto;"   />
+<img src="/images/docs/div/7.png"  style="height: 200px; width: auto;"/>
 
 ```jsx
 <Div m="xl">
