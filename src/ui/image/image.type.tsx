@@ -4,8 +4,8 @@ import {
   BorderPropsType,
   SpacingPropsType,
   RoundedPropsType,
+  ShadowPropsType,
 } from '../../theme';
-import { ShadowPropsType } from 'lib/typescript';
 
 export interface ImageProps
   extends RNImageProps,
