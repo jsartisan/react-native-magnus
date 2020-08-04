@@ -7,7 +7,7 @@ Custom component for showing snackbar at the bottom.
 <img src="/images/docs/snackbar/1.gif" class="mobile" style="height: 600px; width: auto;" />
 
 ```jsx
-import { Button, Icon, Snackabr } from 'react-native-magnus'
+import { Button, Icon, Snackbar } from 'react-native-magnus'
 
 const snackbarLightRef = React.createRef<snackbarRef>();
 const snackbarDarkRef = React.createRef<snackbarRef>();
