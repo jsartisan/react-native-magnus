@@ -21,7 +21,7 @@ const theme = {
     bigText100: 32,
   },
   spacing: {
-    xs: 2
+    xs: 2,
     xxxl: 64
   }
 };
