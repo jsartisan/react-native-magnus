@@ -12,7 +12,7 @@ Custom components for rendering radio element.
 
 ```jsx
 import React, { useState } from "react";
-import { Radio } from "react-native-magnus";
+import { Radio,RadioGroup } from "react-native-magnus";
 
 const [radioValue1, setRadioValue1] = useState(null);
 
