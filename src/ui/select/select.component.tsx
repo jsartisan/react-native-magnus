@@ -79,7 +79,7 @@ const Select = React.forwardRef<Ref, SelectProps>((props, ref) => {
           {title}
         </Text>
       ) : (
-        { title }
+        title
       );
     }
 
@@ -87,6 +87,9 @@ const Select = React.forwardRef<Ref, SelectProps>((props, ref) => {
   };
 
   const renderFooter = () => {
+    if (!multiple) {
+      return;
+    }
     if (footer) {
       return footer;
     }
