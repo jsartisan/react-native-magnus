@@ -2,10 +2,6 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
-console.log({
-  appId: process.env.GATSBY_ALGOLIA_APP_ID,
-  apiKey: process.env.GATSBY_ALGOLIA_ADMIN_API_KEY,
-});
 const ALGOLIA_QUERY = `{
   allMarkdownRemark(
     sort: { fields: [frontmatter___date], order: DESC }

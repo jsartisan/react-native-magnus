@@ -19,7 +19,6 @@ const searchClient = algoliasearch(
 
 const Results = connectStateResults(
   ({ searchState, searchResults, children }) => {
-    const searchInput = document.querySelector(".ais-SearchBox-input");
     if (!searchState?.query?.length) return false;
 
     return (
