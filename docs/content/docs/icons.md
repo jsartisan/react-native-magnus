@@ -1,7 +1,7 @@
 ---
 title: Icons
 date: "2019-08-13"
-description: "Hello World"
+description: ""
 ---
 
 Every site have distinct sets of icons that they use throughout to maintain consistency. So, we didn't wanted to enforce any icon guidelines onto our users. So, we chose `react-native-vector-icons` for our icon system which provides over 3k+ icons from popular libraries.

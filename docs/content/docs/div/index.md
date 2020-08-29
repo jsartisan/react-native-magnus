@@ -1,7 +1,7 @@
 ---
 title: Div
 date: "2019-08-13"
-description: "Hello World"
+description: ""
 ---
 
 Wrapper around `<View />` of react native. It accepts every props that is available for `<View />`
@@ -15,6 +15,9 @@ import { Div, Text } from "react-native-magnus";
   <Text textAlign="center">This is a Div</Text>
 </Div>;
 ```
+
+[[info]]
+| You can also import `Box` which is an alias to Div. This is done because many users are familiar with `styled system` and those will like using Box instead of Div.
 
 ### Background Colors
 

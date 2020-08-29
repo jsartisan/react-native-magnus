@@ -1,7 +1,7 @@
 ---
 title: Toggle
 date: "2019-08-13"
-description: "Hello World"
+description: ""
 ---
 
 Custom toggle component

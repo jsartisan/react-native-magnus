@@ -1,7 +1,7 @@
 ---
 title: Select
 date: "2019-08-13"
-description: "Hello World"
+description: ""
 ---
 
 <img src="/images/docs/select/1.gif" class="mobile"  style="height: 600px; width: auto;" />

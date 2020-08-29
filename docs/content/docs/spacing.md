@@ -1,7 +1,7 @@
 ---
 title: Spacing
 date: "2019-08-13"
-description: "Hello World"
+description: ""
 ---
 
 Magnus provides consistent spacing for margins and padding so that you can build applications quickly. You can also easily directional

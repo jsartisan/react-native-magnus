@@ -1,7 +1,7 @@
 ---
 title: Customization
 date: "2019-08-13"
-description: "Hello World"
+description: ""
 ---
 
 You can provide a custom theme to customize the colors, font sizes, border radius etc. with the Provider component. Check the default theme to see which customization options are supported.

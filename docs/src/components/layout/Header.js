@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 
 import Logo from "../common/Logo";
+import Search from "../common/Search";
 
 export default function Header({
   location,
@@ -15,12 +16,13 @@ export default function Header({
       style={{ height: "70px" }}
     >
       <div className="flex items-center max-w-screen-xl w-full mx-auto">
-        <div className="flex items-center flex-grow relative">
+        <div className="flex items-center relative">
           <Logo hasText />
           <div className="text-gray-700 text-xs bg-gray-200 px-1 ml-3 md:ml-3 rounded-sm">
-            v 1.0.36
+            v 1.0.41
           </div>
         </div>
+        <Search />
         <div className="">
           <ul className="flex items-center ml-3 d-none d-sm-none d-md-flex list-none">
             <li className="hidden md:block">

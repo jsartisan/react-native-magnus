@@ -18,6 +18,7 @@ export { Input } from './input/input.component';
 export { Mention } from './mention/mention.component';
 export { Textarea } from './input/textarea.component';
 export { Div } from './div/div.component';
+export { Div as Box } from './div/div.component';
 export { ScrollDiv } from './scrolldiv/scrolldiv.component';
 export { Button } from './button/button.component';
 export { Icon } from './icon/icon.component';

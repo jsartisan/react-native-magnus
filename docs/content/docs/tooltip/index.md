@@ -1,7 +1,7 @@
 ---
 title: Tooltip
 date: "2019-08-13"
-description: "Hello World"
+description: ""
 ---
 
 <img src="/images/docs/tooltip/1.gif"  style="height: 150px; width: auto;" />

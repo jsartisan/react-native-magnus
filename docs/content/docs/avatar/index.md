@@ -1,7 +1,7 @@
 ---
 title: Avatar
 date: "2019-08-13"
-description: "Hello World"
+description: ""
 ---
 
 Used for display user's avatar.

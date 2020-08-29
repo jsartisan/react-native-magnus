@@ -1,7 +1,7 @@
 ---
 title: Icon
 date: "2019-08-13"
-description: "Hello World"
+description: ""
 ---
 
 Used for rendering icons

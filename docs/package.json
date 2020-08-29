@@ -5,9 +5,11 @@
   "version": "0.1.0",
   "author": "Pawan Kumar <pawankumar2901@gmail.com>",
   "dependencies": {
+    "algoliasearch": "^4.4.0",
     "dotenv": "^8.1.0",
     "gatsby": "^2.13.73",
     "gatsby-image": "^2.2.10",
+    "gatsby-plugin-algolia": "^0.11.2",
     "gatsby-plugin-canonical-urls": "^2.2.1",
     "gatsby-plugin-google-analytics": "^2.1.21",
     "gatsby-plugin-manifest": "^2.2.6",
@@ -20,6 +22,7 @@
     "gatsby-remark-autolink-headers": "^2.1.8",
     "gatsby-remark-code-buttons": "^2.0.1",
     "gatsby-remark-copy-linked-files": "^2.1.13",
+    "gatsby-remark-custom-blocks": "^2.3.10",
     "gatsby-remark-images": "^3.1.19",
     "gatsby-remark-prismjs": "^3.3.11",
     "gatsby-remark-responsive-iframe": "^2.2.10",
@@ -34,6 +37,7 @@
     "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^16.9.0",
     "react-helmet": "^5.2.1",
+    "react-instantsearch-dom": "^6.7.0",
     "react-markdown": "^4.1.0",
     "react-syntax-highlighter": "^12.2.1",
     "simplebar-react": "^1.2.0"

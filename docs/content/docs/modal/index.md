@@ -1,7 +1,7 @@
 ---
 title: Modal
 date: "2019-08-13"
-description: "Hello World"
+description: ""
 ---
 
 Wrapper around `<Modal />` of [react-native-modal](https://github.com/react-native-community/react-native-modal). It accepts all the props `react-native-modal` offers.

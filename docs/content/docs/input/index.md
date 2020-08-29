@@ -1,7 +1,7 @@
 ---
 title: Input
 date: "2019-08-13"
-description: "Hello World"
+description: ""
 ---
 
 Wrapper around `<TextInput />` of react-native

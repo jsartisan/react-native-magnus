@@ -192,5 +192,61 @@ img.mobile-2 {
   @apply text-blue-600;
 }
 
+/* custom blocks */
+.custom-block {
+}
+
+.custom-block.info {
+  @apply bg-blue-100;
+  @apply p-3;
+  @apply rounded-md;
+  @apply my-3;
+}
+
+.custom-block.info .language-text {
+  @apply bg-blue-200;
+}
+
+/* algolia search */
+.ais-SearchBox form {
+  @apply mx-5;
+  @apply flex;
+  @apply h-10;
+  @apply relative;
+}
+
+.ais-SearchBox form input {
+  @apply flex-grow;
+}
+
+.ais-SearchBox form input {
+  @apply flex-grow;
+  @apply h-full;
+  @apply px-3;
+  @apply pl-10;
+  @apply border-gray-300;
+  @apply border;
+  @apply rounded-md;
+  outline-offset: 0px;
+}
+
+.ais-SearchBox-submit {
+  @apply absolute;
+  @apply left-0;
+  @apply ml-4;
+  height: 18px;
+  margin-top: 11px;
+  @apply opacity-75;
+}
+
+.ais-SearchBox-submit svg {
+  height: 13px !important;
+  width: 13px !important;
+}
+
+.ais-SearchBox-reset {
+  @apply hidden;
+}
+
 @tailwind components;
 @tailwind utilities;

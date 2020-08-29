@@ -1,3 +1,50 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
+console.log({
+  appId: process.env.GATSBY_ALGOLIA_APP_ID,
+  apiKey: process.env.GATSBY_ALGOLIA_ADMIN_API_KEY,
+});
+const ALGOLIA_QUERY = `{
+  allMarkdownRemark(
+    sort: { fields: [frontmatter___date], order: DESC }
+    limit: 1000
+  ) {
+    edges {
+      node {
+        excerpt(pruneLength: 160)
+        fields {
+          slug
+          type
+        }
+        frontmatter {
+          title
+          description
+        }
+      }
+    }
+  }
+}`;
+
+const queries = [
+  {
+    query: ALGOLIA_QUERY,
+    transformer: ({ data }) =>
+      data.allMarkdownRemark.edges.map(({ node }) => {
+        return {
+          objectID: node.fields.slug,
+          title: node.frontmatter.title,
+          slug: node.fields.slug,
+          type: node.fields.type,
+          description: node.frontmatter.description,
+        };
+      }),
+    settings: {},
+    matchFields: ["slug", "title", "description", "type"],
+  },
+];
+
 module.exports = {
   siteMetadata: {
     title: `Magnus UI`,
@@ -59,6 +106,24 @@ module.exports = {
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
+          {
+            resolve: "gatsby-remark-custom-blocks",
+            options: {
+              blocks: {
+                danger: {
+                  classes: "danger",
+                },
+                info: {
+                  classes: "info",
+                  title: "optional",
+                },
+                warning: {
+                  classes: "warning",
+                  title: "optional",
+                },
+              },
+            },
+          },
         ],
       },
     },
@@ -66,6 +131,19 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: "UA-149664330-1",
+      },
+    },
+    {
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: "1Q4SUO0GGL",
+        apiKey: "6c2f5811885b393ebf3a9d4d671da2ae",
+        indexName: "documentation",
+        queries,
+        chunkSize: 10000, // default: 1000
+        settings: {},
+        enablePartialUpdates: true,
+        matchFields: ["slug", "title", "type", "description"],
       },
     },
   ],

@@ -1,7 +1,7 @@
 ---
 title: Badge
 date: "2019-08-13"
-description: "Hello World"
+description: ""
 ---
 
 Used to show status or some numerical value
