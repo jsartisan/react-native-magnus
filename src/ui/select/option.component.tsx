@@ -17,7 +17,9 @@ const Option: React.FunctionComponent<OptionProps> = (props) => {
     selectedValue,
     ...rest
   } = props;
-  const isSelected = selectedValue.includes(value);
+  const isSelected = Array.isArray(selectedValue)
+    ? selectedValue.includes(value)
+    : selectedValue === value;
 
   /**
    * on press select option

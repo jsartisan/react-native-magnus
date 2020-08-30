@@ -70,7 +70,7 @@ export default function Main() {
       <SafeAreaView style={{ flex: 1 }}>
         <Div m="lg">
           <Text
-            mt="xxl"
+            mt="2xl"
             color="black900"
             fontWeight="bold"
             fontSize="bigText100"
@@ -80,7 +80,7 @@ export default function Main() {
           <Text color="gray500" mt="sm">
             Lorem ipsum dolor sit, amet consectetur.
           </Text>
-          <Text fontSize="text300" color="gray600" mt="xxl">
+          <Text fontSize="text300" color="gray600" mt="2xl">
             Email
           </Text>
           <Input
@@ -204,7 +204,7 @@ Now let's integrate our input and submit button with Formik.
         return (
           <>
             <Text
-              mt="xxl"
+              mt="2xl"
               color="black900"
               fontWeight="bold"
               fontSize="bigText100"
@@ -214,7 +214,7 @@ Now let's integrate our input and submit button with Formik.
             <Text color="gray500" mt="sm">
               Lorem ipsum dolor sit, amet consectetur.
             </Text>
-            <Text fontSize="text300" color="gray600" mt="xxl">
+            <Text fontSize="text300" color="gray600" mt="2xl">
               Email
             </Text>
             <Input

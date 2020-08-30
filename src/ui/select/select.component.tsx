@@ -87,12 +87,11 @@ const Select = React.forwardRef<Ref, SelectProps>((props, ref) => {
   };
 
   const renderFooter = () => {
-    if (!multiple) {
-      return;
-    }
-    if (footer) {
-      return footer;
-    }
+    if (footer) return footer;
+
+    // if the component is single-valued and no footer is provided
+    // don't render anything in footer
+    if (!multiple) return false;
 
     return (
       <Button

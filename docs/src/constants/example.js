@@ -1,7 +1,7 @@
 const code = `<ThemeProvider theme={theme}>
   <SafeAreaView style={{ flex: 1 }}>
     <Div flex={1}>
-      <Div px="xl" pt="xxl" flex={1} bg="pink100">
+      <Div px="xl" pt="2xl" flex={1} bg="pink100">
         <Image resizeMode="contain" w={100} h={40} justifyContent="flex-end" source={{ uri: logoUrl }} />
         <Text mt="sm" color="brown100" fontSize="text500" fontWeight="bold" w="60%">Discover the world’s top Designers & Creatives.</Text>
         <Image resizeMode="contain" flex={1} w="100%" source={{ uri: coverArtUrl }} />

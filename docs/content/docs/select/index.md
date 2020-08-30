@@ -6,9 +6,55 @@ description: ""
 
 <img src="/images/docs/select/1.gif" class="mobile"  style="height: 600px; width: auto;" />
 
+## Single-Valued Component
+
 ```jsx
+import React, { useState } from 'react';
 import { Button, Select } from 'react-native-magnus'
 
+const [selectValue, setSelectedValue] = useState(null);
+const selectRef = React.createRef()
+
+<Button
+  flex={1}
+  block
+  borderWidth={1}
+  bg="white"
+  color="gray900"
+  borderColor="gray300"
+  onPress={() => {
+    if (selectRef.current) {
+      selectRef.current.open();
+    }
+  }}>
+  {selectValue.length ? selectValue.toString() : 'Select'}
+</Button>
+
+<Select.Container
+  onSelect={onSelectOption}
+  ref={selectRef}
+  value={selectValue}
+  title="This is your title"
+  mt="md"
+  pb="2xl"
+  message="This is the long message used to set some context"
+  roundedTop="xl"
+  data={[1, 2, 3, 4, 5, 6]}
+  renderItem={(item, index) => (
+    <Select.Option value={item} py="md" px="xl">
+      <Text>Option {index}</Text>
+    </Select.Option>
+  )}
+/>
+```
+
+## Multi-Valued Component
+
+If you want to have multi-valued select component, just pass the `multiple` props as `true`.
+
+```jsx
+import React, { useState } from 'react';
+import { Button, Select } from 'react-native-magnus'
 
 const [selectValue, setSelectedValue] = useState([]);
 const selectRef = React.createRef()
@@ -35,7 +81,7 @@ const selectRef = React.createRef()
   value={selectValue}
   title="This is your title"
   mt="md"
-  pb="xxl"
+  pb="2xl"
   message="This is the long message used to set some context"
   roundedTop="xl"
   data={[1, 2, 3, 4, 5, 6]}
