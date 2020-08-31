@@ -14,12 +14,12 @@ export default function Footer() {
             UI framework for developing modular and consistent apps in React
             Native
           </p>
-          <p className="flex items-center mt-3">
+          {/* <p className="flex items-center mt-3">
             Made with <i className="icon-heart mx-2 text-red-500" /> at
             <a href="https://truesight.one" target="_blank" className="ml-2">
               <Truesight fill="#1a71fd" size={20} />
             </a>
-          </p>
+          </p> */}
         </div>
         <div>
           <div className="flex pt-3 md:pt-0 pb-3">

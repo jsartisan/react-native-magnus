@@ -68,14 +68,14 @@ export default function Header({
                 <i className="icon-twitter text-xl" />
               </a>
             </li>
-            <li className="ml-3 hidden md:block">
+            {/* <li className="ml-3 hidden md:block">
               <a
                 href="https://truesight.one"
                 className="bg-white border rounded block px-4 py-2 text-gray-900 hover:bg-gray-200"
               >
                 Hire Us
               </a>
-            </li>
+            </li> */}
             {showSidebarMenu && (
               <li>
                 <button
