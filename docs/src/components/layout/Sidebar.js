@@ -33,7 +33,7 @@ export default function Sidebar({ active, close }) {
 
   return (
     <div
-      className={`bg-white sidebar px-5 pl-0 fixed overflow-y-scroll pb-20 ${
+      className={`bg-white sidebar px-5 pl-0 fixed z-10 overflow-y-scroll pb-20 ${
         active ? "block " : "hidden md:block"
       }`}
       style={{

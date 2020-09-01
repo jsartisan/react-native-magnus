@@ -56,8 +56,8 @@ img.mobile-2 {
 .docs .docs__content h2,
 .blogs .blogs__content h2 {
   @apply text-gray-700;
-  @apply pt-5;
-  @apply pb-2;
+  @apply mt-5;
+  @apply mb-2;
   @apply text-xl;
   @apply font-bold;
 }
@@ -65,13 +65,13 @@ img.mobile-2 {
 .docs .docs__content h3,
 .blogs .blogs__content h3 {
   @apply text-gray-700;
-  @apply pt-3;
+  @apply mt-3;
 }
 
 @screen md {
   .docs .docs__content h3,
   .blogs .blogs__content h3 {
-    @apply pt-10;
+    @apply mt-10;
   }
 
   .docs .docs__content table {
@@ -205,6 +205,17 @@ img.mobile-2 {
 
 .custom-block.info .language-text {
   @apply bg-blue-200;
+}
+
+.custom-block.warning {
+  @apply bg-yellow-300;
+  @apply p-3;
+  @apply rounded-md;
+  @apply my-3;
+}
+
+.custom-block.warning .language-text {
+  @apply bg-yellow-500;
 }
 
 /* algolia search */

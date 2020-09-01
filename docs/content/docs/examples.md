@@ -13,3 +13,11 @@ Here is few examples that will help you in understanding Magnus in a better way.
 </a>
 
 [See it on Expo](https://snack.expo.io/@pawankumar2901/dribble-login-page)
+
+### Login Form
+
+<a href="https://snack.expo.io/@pawankumar2901/login-page" target="_blank">
+<img src="/images/docs/examples/login-form.jpg" style="max-width: 350px;" />
+</a>
+
+[See it on Expo](https://snack.expo.io/@pawankumar2901/login-page)

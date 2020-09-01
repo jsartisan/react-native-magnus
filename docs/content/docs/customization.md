@@ -22,7 +22,7 @@ const theme = {
   },
   spacing: {
     xs: 2
-    xxxl: 64
+    '5xl': 64
   }
 };
 
