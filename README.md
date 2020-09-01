@@ -8,7 +8,7 @@
 
 <div align="center">
 
-UI Design System for React Native
+A Utility-First React Native UI Framework
 
 [![npm package](https://img.shields.io/npm/v/react-native-magnus.svg?style=flat-square)](https://www.npmjs.org/package/react-native-magnus) [![NPM downloads](http://img.shields.io/npm/dm/react-native-magnus.svg?style=flat-square)](http://npmjs.com/react-native-magnus) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
