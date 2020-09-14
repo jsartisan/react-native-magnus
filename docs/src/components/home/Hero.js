@@ -7,7 +7,7 @@ export default function Hero() {
       <div className="px-3 pt-10 pb-5 mb-5 flex px-5">
         <div className="mt-5 flex max-w-screen-xl mx-auto">
           <div className="mt-0 md:mt-10 mt-md-4 mt-md-5 flex-grow text-center md:text-left">
-            <a
+            {/* <a
               href="https://www.producthunt.com/posts/magnus-ui"
               target="_blank"
               className="flex items-center justify-center md:justify-start"
@@ -28,6 +28,21 @@ export default function Hero() {
                 </div>
                 <span className="text-gray-600 ml-1 flex-1 flex items-center mt-2">
                   It will be a real help if you could support us 👉
+                </span>
+              </div>
+            </a> */}
+            <a
+              href="https://discord.gg/SYnXGEy"
+              target="_blank"
+              className="flex items-center justify-center md:justify-start"
+            >
+              <i className="icon-discord text-social-discord text-2xl"></i>
+              <div className="bg-social-discord-light inline-block px-2 py-1 rounded-md text-sm inline-flex items-center ml-3">
+                <span className="inline-block bg-social-discord text-white my-1 rounded-md text-xs mr-1 px-1">
+                  NEW
+                </span>
+                <span className="text-gray-900 ml-1">
+                  Join our discord channel
                 </span>
               </div>
             </a>

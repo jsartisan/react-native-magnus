@@ -11,7 +11,8 @@ description: ""
 <br />
 
 ```jsx
-import { Button, Overlay, ActivityIndicator, Text } from 'react-native-magnus'
+import { ActivityIndicator } from 'react-native'
+import { Button, Overlay, Text } from 'react-native-magnus'
 
 const [overlayVisible, setOverlayVisible] = useState(false);
 
