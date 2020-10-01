@@ -67,19 +67,6 @@ const snackbarDarkRef = React.createRef<snackbarRef>();
 </Snackbar>
 ```
 
-bg?: string;
-p?: any;
-m?: any;
-color?: string;
-duration?: number;
-shadow?: number | string;
-shadowColor?: string;
-onDismiss?: () => void;
-children: React.ReactNode;
-style?: StyleProp<ViewStyle>;
-suffix?: React.ReactNode;
-prefix?: React.ReactNode;
-
 ## Props
 
 | Property          | Description                                            | Type                   | Default   |
