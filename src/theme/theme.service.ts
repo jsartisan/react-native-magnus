@@ -281,7 +281,7 @@ export const createBorderColorStyles = (props: any, theme: any) => {
   propKeys = {
     borderColor: 'borderColor',
     borderTopColor: 'borderTopColor',
-    borderRightColor: 'borderTopColor',
+    borderRightColor: 'borderRightColor',
     borderLeftColor: 'borderLeftColor',
     borderBottomColor: 'borderBottomColor',
   };

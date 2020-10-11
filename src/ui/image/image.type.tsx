@@ -34,4 +34,5 @@ export interface ImageProps
   left?: number;
   opacity?: number;
   zIndex?: number;
+  aspectRatio?: number;
 }

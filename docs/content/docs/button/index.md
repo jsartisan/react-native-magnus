@@ -5,7 +5,7 @@ title: Button
 Button is a wrapper around `<TouchableOpaicty />` or `<TouchableNativeFeedback />` of react-native. It accepts all props supported by them. On iOs, Button renders to TouchableOpaicty and on Android, it renders to TouchableNativeFeedback.
 
 [[warning]]
-| Button won't work with expo 38. This is because we moved to `Pressable` component and Pressable is not available in Expo yet, because expo does not support React Native v0.63. So we recommend using magnus version 1.0.40 till expo rolls out support for Pressable component.
+| Button won't work with expo 38. This is because we moved to `Pressable` component and Pressable is not available in Expo 38, because expo does not support React Native v0.63. So we recommend using magnus version 1.0.40 for expo versions <= 38.
 
 ## Example #1
 

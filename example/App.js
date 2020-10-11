@@ -9,6 +9,11 @@ import {
   Badge,
   Input,
   Icon,
+  Header,
+  Host,
+  Snackbar,
+  Portal,
+  SnackbarRefType,
 } from 'react-native-magnus';
 
 const friends = [
@@ -44,72 +49,116 @@ const friends = [
   },
 ];
 
+const snackbarLightRef = React.createRef();
+
 const App = () => {
   return (
     <ThemeProvider>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView style={{flex: 1}}>
-        <Div mx="xl" flex={1}>
-          {/* header */}
-          <Div row mt="xl" alignItems="center">
-            <Div flexGrow={1}>
-              <Text fontWeight="bold" fontSize="2xl">
-                Explore
-              </Text>
-              <Text color="gray700" mt="md" mb="sm">
-                My friends
-              </Text>
-            </Div>
-            <Badge bg="green500" zIndex={10} right={-5} top={0} h={12} w={12}>
-              <Button p="none" rounded="circle" onPress={() => {}}>
-                <Image
-                  h={40}
-                  w={40}
-                  source={{
-                    uri:
-                      'https://images.unsplash.com/photo-1561037404-61cd46aa615b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&q=80',
-                  }}
+        <Host>
+          <Div mx="xl" flex={1}>
+            {/* header */}
+            <Header
+              suffix={
+                <Badge
+                  bg="green500"
+                  zIndex={10}
+                  right={-5}
+                  top={0}
+                  h={12}
+                  w={12}>
+                  <Button
+                    p="none"
+                    rounded="circle"
+                    onPress={() => {}}
+                    onPress={() => {
+                      if (snackbarLightRef.current) {
+                        snackbarLightRef.current.show();
+                      }
+                    }}>
+                    <Image
+                      h={40}
+                      w={40}
+                      source={{
+                        uri:
+                          'https://images.unsplash.com/photo-1561037404-61cd46aa615b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&q=80',
+                      }}
+                    />
+                  </Button>
+                </Badge>
+              }
+              mt="xl"
+              alignItems="center"
+              prefix={
+                <>
+                  <Div>
+                    <Text fontWeight="bold" fontSize="2xl">
+                      Explore
+                    </Text>
+                    <Text color="gray700" mt="md" mb="sm">
+                      My friends
+                    </Text>
+                  </Div>
+                </>
+              }>
+              <Portal>
+                <Snackbar
+                  suffix={
+                    <Icon
+                      name="checkcircle"
+                      color="teal500"
+                      fontSize="subheader"
+                      fontFamily="AntDesign"
+                    />
+                  }
+                  onDismiss={() => {}}
+                  ref={snackbarLightRef}
+                  bg="green300"
+                  color="green800"
+                  duration={2000}>
+                  Here is a light snack for you!
+                </Snackbar>
+              </Portal>
+            </Header>
+            {/* input box */}
+            <Input
+              suffix={
+                <Icon
+                  name="search"
+                  color="gray700"
+                  fontSize="title"
+                  fontFamily="FontAwesome"
                 />
-              </Button>
-            </Badge>
-          </Div>
-          {/* input box */}
-          <Input
-            suffix={
-              <Icon
-                name="search"
-                color="gray700"
-                fontSize="title"
-                fontFamily="FontAwesome"
-              />
-            }
-            p="md"
-            fontSize="lg"
-            borderWidth={0}
-            placeholder="Search your doge homies"
-            mt="lg"
-            bg="gray100"
-          />
-          {/* list */}
-          <Div mt="xl" flex={1}>
-            <FlatList
-              showsVerticalScrollIndicator={false}
-              data={friends}
-              renderItem={({item}) => (
-                <Image
-                  source={{uri: item.image}}
-                  h={120}
-                  w="100%"
-                  resize
-                  rounded="xl"
-                  mb="xl"
-                  resizeMode="center"
-                />
-              )}
-              keyExtractor={(item) => `friend-list-item-${item.id}`}
+              }
+              p="md"
+              fontSize="lg"
+              borderWidth={0}
+              placeholder="Search your doge homies"
+              mt="lg"
+              bg="gray100"
             />
+            {/* list */}
+            <Div mt="xl" flex={1}>
+              <FlatList
+                showsVerticalScrollIndicator={false}
+                data={friends}
+                renderItem={({item}) => (
+                  <Image
+                    source={{uri: item.image}}
+                    h={120}
+                    w="100%"
+                    resize
+                    rounded="xl"
+                    mb="xl"
+                    resizeMode="center"
+                  />
+                )}
+                keyExtractor={(item) => `friend-list-item-${item.id}`}
+              />
+            </Div>
           </Div>
-        </Div>
+        </Host>
       </SafeAreaView>
     </ThemeProvider>
   );

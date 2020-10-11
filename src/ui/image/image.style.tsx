@@ -29,6 +29,7 @@ export const getStyle = (theme: any, props: any) => {
     position: props.position,
     zIndex: props.zIndex,
     alignSelf: props.alignSelf,
+    aspectRatio: props.aspectRatio,
     ...createPositionStyle(props),
     ...createBorderWidthStyles(props),
     ...createShadowStyles(props, theme),

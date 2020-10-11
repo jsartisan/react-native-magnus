@@ -173,8 +173,9 @@ export const defaultTheme = {
     'sm': 6,
     'md': 8,
     'lg': 12,
-    'xl': 24,
-    '2xl': 32,
-    '3xl': 64,
+    'xl': 16,
+    '2xl': 24,
+    '3xl': 32,
+    '4xl': 64,
   },
 };

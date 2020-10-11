@@ -35,4 +35,4 @@ export default function Main() {
 }
 ```
 
-Checkout the demo on Snack - <a href="https://snack.expo.io/@pawankumar2901/magnus---theme-customizations" target="_blank">https://snack.expo.io/@pawankumar2901/magnus---theme-customizations</a>
+<a href="https://snack.expo.io/@pawankumar2901/magnus---theme-customizations" target="_blank">Try this example on Snack</a>

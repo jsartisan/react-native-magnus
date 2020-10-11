@@ -54,6 +54,7 @@ const Image: React.FunctionComponent<ImageProps> = (props) => {
     zIndex,
     opacity,
     alignSelf,
+    aspectRatio,
     ...rest
   } = props;
   const { theme } = useContext(ThemeContext);

@@ -12,7 +12,7 @@ Here is few examples that will help you in understanding Magnus in a better way.
 <img src="/images/dribbble-login.png" style="max-width: 350px;" />
 </a>
 
-[See it on Expo](https://snack.expo.io/@pawankumar2901/dribble-login-page)
+<a href="https://snack.expo.io/@pawankumar2901/dribble-login-page" target="_blank">See it on Snack</a>
 
 ### Login Form
 
@@ -20,4 +20,4 @@ Here is few examples that will help you in understanding Magnus in a better way.
 <img src="/images/docs/examples/login-form.jpg" style="max-width: 350px;" />
 </a>
 
-[See it on Expo](https://snack.expo.io/@pawankumar2901/login-page)
+<a href="https://snack.expo.io/@pawankumar2901/login-page" target="_blank">See it on Snack</a>
