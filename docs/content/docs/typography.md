@@ -8,6 +8,8 @@ The default theme of magnus consists of following font sizes:
 
 <img src="/images/docs/typography/1.png"  style="height: 350px; width: auto;" />
 
+<a href="https://snack.expo.io/@pawankumar2901/magnus---typography" target="_blank">See it on Snack</a>
+
 | Size | Value |
 | ---- | ----- |
 | xs   | 11    |

@@ -18,6 +18,8 @@ import { Text } from "react-native-magnus";
 
 <img src="/images/docs/text/5.png" style="max-width: 400px; height: auto;"   />
 
+<a href="https://snack.expo.io/@pawankumar2901/text-example-#1" target="_blank">See it on Snack</a>
+
 ```jsx
 import * as React from "react";
 import { SafeAreaView, FlatList } from "react-native";
