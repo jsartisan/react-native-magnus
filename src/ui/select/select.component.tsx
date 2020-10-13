@@ -22,6 +22,7 @@ const Select = React.forwardRef<Ref, SelectProps>((props, ref) => {
     onSelect: onSelectProp,
     data,
     renderItem,
+    key,
   } = props;
   const { theme } = useContext(ThemeContext);
   const [isVisible, setIsVisible] = useState(false);
@@ -126,7 +127,7 @@ const Select = React.forwardRef<Ref, SelectProps>((props, ref) => {
           {renderTitle()}
           <FlatList
             data={data}
-            keyExtractor={(item) => item}
+            keyExtractor={(item) => (key ? item[key] : item)}
             renderItem={({ item, index }) =>
               React.cloneElement(renderItem(item, index), {
                 onSelect,
