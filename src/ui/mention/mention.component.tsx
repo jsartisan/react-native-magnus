@@ -6,181 +6,160 @@ import { MentionProps } from './mention.type';
 import { getStyle } from './mention.style';
 import { ThemeContext } from '../../theme';
 
-class Mention extends React.Component<MentionProps> {
-  static defaultProps = {
-    bg: 'white',
-    rounded: 'md',
-    borderColor: 'gray200',
-    borderWidth: 1,
-    horizontal: false,
-    loading: false,
-    shadow: 1,
-    shadowColor: 'gray900',
-    keyboardShouldPersistTaps: 'always',
-    trigger: '@',
-    position: 'absolute',
-    bottom: '100%',
-    onHide: () => {},
+const defaultProps = {
+  bg: 'white',
+  rounded: 'md',
+  borderColor: 'gray200',
+  borderWidth: 1,
+  horizontal: false,
+  loading: false,
+  shadow: 1,
+  shadowColor: 'gray900',
+  keyboardShouldPersistTaps: 'always',
+  trigger: '@',
+  position: 'absolute',
+  bottom: '100%',
+  onHide: () => {},
+};
+
+const Mention = (props: MentionProps) => {
+  const [previousChar, setPreviousChar] = React.useState(' ');
+  const [isTrackingStarted, setIsTrackingStarted] = React.useState(false);
+
+  const startTracking = () => {
+    setIsTrackingStarted(true);
   };
 
-  previousChar = ' ';
+  const stopTracking = () => {
+    const { onHide } = props;
 
-  isTrackingStarted = false;
+    setIsTrackingStarted(false);
 
-  state = {
-    textInputHeight: '',
-    isTrackingStarted: false,
+    onHide?.();
   };
 
-  startTracking = () => {
-    this.isTrackingStarted = true;
-    this.setState({
-      isTrackingStarted: true,
-    });
-  };
-
-  stopTracking = () => {
-    const { onHide } = this.props;
-
-    this.isTrackingStarted = false;
-    this.setState({
-      isTrackingStarted: false,
-    });
-
-    if (onHide) {
-      onHide();
-    }
-  };
-
-  updateSuggestions = (lastKeyword: string) => {
-    const { triggerCallback } = this.props;
+  const updateSuggestions = (lastKeyword: string) => {
+    const { triggerCallback } = props;
 
     triggerCallback(lastKeyword);
   };
 
-  identifyKeyword = (val: string) => {
-    const { trigger, triggerLocation } = this.props;
+  const identifyKeyword = (val: string) => {
+    const { trigger, triggerLocation } = props;
 
-    if (this.isTrackingStarted) {
-      const boundary = triggerLocation === 'new-word-only' ? 'B' : '';
-      const pattern = new RegExp(
-        `\\${boundary}${trigger}[a-z0-9_-]+|\\${boundary}${trigger}`,
-        'gi'
-      );
-      const keywordArray = val.match(pattern);
-      if (keywordArray && !!keywordArray.length) {
-        const lastKeyword = keywordArray[keywordArray.length - 1];
+    if (!isTrackingStarted) return;
 
-        this.updateSuggestions(lastKeyword);
-      }
+    const boundary = triggerLocation === 'new-word-only' ? 'B' : '';
+    const pattern = new RegExp(
+      `\\${boundary}${trigger}[a-z0-9_-]+|\\${boundary}${trigger}`,
+      'gi'
+    );
+    const keywordArray = val.match(pattern);
+    if (keywordArray && !!keywordArray.length) {
+      const lastKeyword = keywordArray[keywordArray.length - 1];
+
+      updateSuggestions(lastKeyword);
     }
   };
 
   /**
    * on change text
    */
-  onChangeText = (val: string) => {
-    const { isTrackingStarted } = this.state;
-    const { children, triggerLocation, trigger } = this.props;
+  const onChangeText = (val: string) => {
+    const { children, triggerLocation, trigger } = props;
 
-    if (children.props.onChangeText) {
-      children.props.onChangeText(val);
-    }
+    children.props.onChangeText?.(val);
 
     const lastChar = val.substr(val.length - 1);
     const wordBoundry =
       triggerLocation === 'new-word-only'
-        ? this.previousChar.trim().length === 0
+        ? previousChar.trim().length === 0
         : true;
     if (lastChar === trigger && wordBoundry) {
-      this.startTracking();
+      startTracking();
     } else if ((lastChar === ' ' && isTrackingStarted) || val === '') {
-      this.stopTracking();
+      stopTracking();
     }
-    this.previousChar = lastChar;
-    this.identifyKeyword(val);
+    setPreviousChar(lastChar);
+    identifyKeyword(val);
   };
 
-  resetTextbox = () => {
-    this.previousChar = ' ';
-    this.stopTracking();
+  const resetTextbox = () => {
+    setPreviousChar(' ');
+    stopTracking();
   };
 
-  render() {
-    const { isTrackingStarted } = this.state;
+  const {
+    m,
+    mt,
+    mr,
+    mb,
+    ml,
+    p,
+    pr,
+    pt,
+    pb,
+    pl,
+    borderColor,
+    borderBottomColor,
+    borderLeftColor,
+    borderTopColor,
+    borderRightColor,
+    borderWidth,
+    borderLeftWidth,
+    borderRightWidth,
+    borderBottomWidth,
+    borderTopWidth,
+    rounded,
+    roundedTop,
+    roundedRight,
+    roundedBottom,
+    roundedLeft,
+    children,
+    renderItem,
+    loading,
+    data,
+    ...rest
+  } = props;
 
-    const {
-      m,
-      mt,
-      mr,
-      mb,
-      ml,
-      p,
-      pr,
-      pt,
-      pb,
-      pl,
-      borderColor,
-      borderBottomColor,
-      borderLeftColor,
-      borderTopColor,
-      borderRightColor,
-      borderWidth,
-      borderLeftWidth,
-      borderRightWidth,
-      borderBottomWidth,
-      borderTopWidth,
-      rounded,
-      roundedTop,
-      roundedRight,
-      roundedBottom,
-      roundedLeft,
-      children,
-      renderItem,
-      loading,
-      data,
-      ...rest
-    } = this.props;
+  return (
+    <ThemeContext.Consumer>
+      {({ theme }) => {
+        const computedStyle = getStyle(theme, props);
 
-    return (
-      <ThemeContext.Consumer>
-        {({ theme }) => {
-          const computedStyle = getStyle(theme, this.props);
-
-          return (
-            <View style={{ flex: 1 }}>
-              <>
-                {(data || []).length > 0 &&
-                  isTrackingStarted &&
-                  loading === false && (
-                    <FlatList
-                      data={data}
-                      showsVerticalScrollIndicator
-                      style={computedStyle.list}
-                      {...rest}
-                      renderItem={(rowData) => {
-                        return renderItem(rowData);
-                      }}
-                    />
-                  )}
-                {loading && (
-                  <View style={computedStyle.loading}>
-                    <ActivityIndicator />
-                  </View>
+        return (
+          <View style={{ flex: 1 }}>
+            <>
+              {(data || []).length > 0 &&
+                isTrackingStarted &&
+                loading === false && (
+                  <FlatList
+                    data={data}
+                    showsVerticalScrollIndicator
+                    style={computedStyle.list}
+                    {...rest}
+                    renderItem={renderItem}
+                  />
                 )}
-              </>
+              {loading && (
+                <View style={computedStyle.loading}>
+                  <ActivityIndicator />
+                </View>
+              )}
+            </>
 
-              <View>
-                {React.cloneElement(children, {
-                  onChangeText: this.onChangeText,
-                })}
-              </View>
+            <View>
+              {React.cloneElement(children, {
+                onChangeText: onChangeText,
+              })}
             </View>
-          );
-        }}
-      </ThemeContext.Consumer>
-    );
-  }
-}
+          </View>
+        );
+      }}
+    </ThemeContext.Consumer>
+  );
+};
+
+Mention.defaultProps = defaultProps;
 
 export { Mention };
