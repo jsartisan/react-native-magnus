@@ -25,7 +25,7 @@ export const getStyle = (theme: any, props: any) => {
     flexWrap: props.flexWrap,
     alignItems: props.alignItems,
     justifyContent: props.justifyContent,
-
+    height: props.h,
     width: props.w,
     minWidth: props.minW,
     minHeight: props.minH,

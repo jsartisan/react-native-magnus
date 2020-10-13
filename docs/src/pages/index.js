@@ -1,7 +1,8 @@
 import React from "react";
 
 import Hero from "../components/home/Hero";
-import Components from "../components/home/Components";
+import Features from "../components/home/Features";
+import Preview from "../components/home/Preview";
 import Customizations from "../components/home/Customizations";
 import Composable from "../components/home/Composable";
 import Example from "../components/home/Example";
@@ -23,7 +24,8 @@ const IndexPage = () => (
     <div className="">
       <Header />
       <Hero />
-      <Components />
+      <Features />
+      <Preview />
       <Customizations />
       <Composable />
       <Example />

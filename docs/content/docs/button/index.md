@@ -9,6 +9,8 @@ Button is a wrapper around `<TouchableOpaicty />` or `<TouchableNativeFeedback /
 
 ## Example #1
 
+<a href="https://snack.expo.io/@pawankumar2901/circle-buttons-example" target="_blank">See it on Snack</a>
+
 <img src="/images/docs/button/1.png" style="max-width:200px;" />
 
 ```jsx
@@ -30,6 +32,8 @@ import { Button, Icon, Div } from "react-native-magnus";
 <br />
 
 ### Example #2
+
+<a href="https://snack.expo.io/@pawankumar2901/magnus---button-example-#2" target="_blank">See it on Snack</a>
 
 <img src="/images/docs/button/2.png" style="max-width:300px;" />
 
@@ -88,6 +92,8 @@ import { Button, Icon, Div } from "react-native-magnus";
 
 ### Example #3
 
+<a href="https://snack.expo.io/@pawankumar2901/magnus---button-example-#3" target="_blank">See it on Snack</a>
+
 <img src="/images/docs/button/3.png" style="max-width:300px;" />
 
 ```jsx
@@ -143,6 +149,8 @@ import { Button, Icon, Div } from "react-native-magnus";
 
 ### Example #4
 
+<a href="https://snack.expo.io/@pawankumar2901/magnus---button-example-#4" target="_blank">See it on Snack</a>
+
 <img src="/images/docs/button/4.png" style="max-width:300px;" />
 
 ```jsx
@@ -186,6 +194,8 @@ import { Button, Icon, Div } from "react-native-magnus";
 </br>
 
 ### Example #5
+
+<a href="https://snack.expo.io/@pawankumar2901/magnus---button-example-#5" target="_blank">See it on Snack</a>
 
 <img src="/images/docs/button/5.png" style="max-width:400px;" />
 

@@ -1,5 +1,9 @@
 @tailwind base;
 
+body {
+  background-color: #fafbfb;
+}
+
 /** global customizations */
 h3 {
   @apply text-lg;

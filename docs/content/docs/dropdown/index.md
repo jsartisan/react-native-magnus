@@ -50,6 +50,8 @@ const dropdownRef = React.createRef();
 
 ### Example #1
 
+<a href="https://snack.expo.io/@pawankumar2901/magnus---dropdown-example-#1" target="_blank">See it on Snack</a>
+
 <img src="/images/docs/dropdown/2.gif" class="mobile"  style="height: 600px; width: auto;" />
 
 ```jsx

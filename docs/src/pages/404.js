@@ -1,11 +1,5 @@
 import React from "react";
 
-import Hero from "../components/home/Hero";
-import Components from "../components/home/Components";
-import Customizations from "../components/home/Customizations";
-import Composable from "../components/home/Composable";
-import Example from "../components/home/Example";
-
 import Seo from "../components/common/Seo";
 import Layout from "../components/layout/Layout";
 import Header from "../components/layout/Header";

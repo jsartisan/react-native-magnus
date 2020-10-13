@@ -16,9 +16,9 @@ import { Text } from "react-native-magnus";
 
 ### Example #1
 
-<img src="/images/docs/text/5.png" style="max-width: 400px; height: auto;"   />
+<a href="https://snack.expo.io/@pawankumar2901/magnus---text-example-#1" target="_blank">See it on Snack</a>
 
-<a href="https://snack.expo.io/@pawankumar2901/text-example-#1" target="_blank">See it on Snack</a>
+<img src="/images/docs/text/5.png" style="max-width: 400px; height: auto;"   />
 
 ```jsx
 import * as React from "react";
