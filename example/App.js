@@ -151,7 +151,7 @@ const App = () => {
                     resize
                     rounded="xl"
                     mb="xl"
-                    resizeMode="center"
+                    resizeMode="cover"
                   />
                 )}
                 keyExtractor={(item) => `friend-list-item-${item.id}`}

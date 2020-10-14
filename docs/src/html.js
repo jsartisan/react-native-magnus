@@ -18,7 +18,7 @@ export default function HTML(props) {
       a.appendChild(r);
   })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`,
         }}
-      ></script>
+      />
     );
   };
 
@@ -31,8 +31,8 @@ export default function HTML(props) {
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
-        <meta name="generator" content="Gatsby 2.20.12"></meta>
-        <link rel="sitemap" type="application/xml" href="/sitemap.xml"></link>
+        <meta name="generator" content="Gatsby 2.20.12" />
+        <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
         <link
           rel="apple-touch-icon"
@@ -54,7 +54,7 @@ export default function HTML(props) {
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
         <meta name="msapplication-TileColor" content="#da532c" />
-        <meta name="theme-color" content="#ffffff"></meta>
+        <meta name="theme-color" content="#ffffff" />
         <link
           href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,800|Nunito+Sans:400,700,900"
           rel="stylesheet"
@@ -72,7 +72,7 @@ export default function HTML(props) {
           id="___gatsby"
           dangerouslySetInnerHTML={{ __html: props.body }}
         />
-        {props.postBodyComponents}
+        <div id="luxy"> {props.postBodyComponents}</div>
       </body>
     </html>
   );
