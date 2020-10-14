@@ -131,6 +131,7 @@ module.exports = {
       social: {
         discord: "#7289DA",
         "discord-light": "#e0e7ff",
+        react: "#06d7ff",
       },
     },
     spacing: {

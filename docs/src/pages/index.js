@@ -3,9 +3,8 @@ import React from "react";
 import Hero from "../components/home/Hero";
 import Features from "../components/home/Features";
 import Preview from "../components/home/Preview";
-import Customizations from "../components/home/Customizations";
-import Composable from "../components/home/Composable";
 import Example from "../components/home/Example";
+import WhatsInside from "../components/home/WhatsInside";
 
 import Seo from "../components/common/Seo";
 import Layout from "../components/layout/Layout";
@@ -26,6 +25,7 @@ const IndexPage = () => (
       <Hero />
       <Features />
       <Preview />
+      <WhatsInside />
       <Example />
     </div>
   </Layout>
