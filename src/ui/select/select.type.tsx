@@ -44,7 +44,7 @@ export interface SelectProps
   left?: number;
   multiple?: boolean;
   value: any;
-  children: React.ReactElement[] | React.ReactElement;
+  children?: React.ReactElement[] | React.ReactElement;
   footer?: React.ReactElement[] | React.ReactElement;
   onSelect: (value: any) => void;
   data: any[];
