@@ -1,13 +1,9 @@
 import React, { useEffect } from "react";
 import luxy from "luxy.js";
 
-export default function Preview() {
-  useEffect(() => {
-    luxy.init({
-      wrapperSpeed: 0,
-    });
-  });
+import CircleOut from "./CircleOut";
 
+export default function Preview() {
   return (
     <div
       className="py-20 mb-10 px-16 mt-20 max-w-screen-xl w-full mx-auto bg-white rounded-2xl"
@@ -16,10 +12,13 @@ export default function Preview() {
       <div className="max-w-screen-xl mx-auto">
         <div className="flex">
           <div className="w-6/12">
-            <h3 className="font-bold text-4xl text-gray-600">
-              <span className="font-bold text-gray-900">Accelerate</span> your
-              design workflow with ready to use interface elements and file
-              setup.
+            <h3 className="font-bold text-5xl text-gray-900 leading-tight">
+              Start{" "}
+              <span className="inline-block mr-2 font-bold relative">
+                saving time
+                <CircleOut />
+              </span>
+              on your next react native project
             </h3>
           </div>
           <div className="w-2/12" />
@@ -35,7 +34,7 @@ export default function Preview() {
                 data-speed-y="-7"
                 data-offset="120"
                 className="absolute luxy-el"
-                style={{ top: "15%" }}
+                style={{ top: "25%" }}
               >
                 <img src="/images/sketch.svg" />
               </div>
@@ -43,17 +42,22 @@ export default function Preview() {
                 data-speed-y="-8"
                 data-offset="130"
                 className="absolute right-0 luxy-el"
-                style={{ bottom: "5%" }}
+                style={{ bottom: "0%" }}
               >
                 <img src="/images/point-up-left.svg" />
               </div>
-              <div className="luxy-el " data-speed-y="-10" data-offset="250">
-                <img src="/images/switch-on.svg" className="absolute right-0" />
+              <div
+                data-speed-y="-10"
+                data-offset="250"
+                className="absolute right-0 luxy-el"
+                style={{ top: "20%" }}
+              >
+                <img src="/images/switch-on.svg" />
               </div>
               <div
                 data-speed-y="-6"
                 data-offset="120"
-                style={{ bottom: "2%" }}
+                style={{ bottom: "-5%" }}
                 className="absolute  right-0 luxy-el"
               >
                 <img src="/images/right-icon.svg" />

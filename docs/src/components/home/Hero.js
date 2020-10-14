@@ -23,9 +23,23 @@ export default function Hero() {
               </div>
             </a>
             <h1 className="pt-5 text-3xl md:text-4xl font-bold font-nunito">
-              A Utility-First React Native UI Framework
+              A{" "}
+              <span className="relative">
+                Utility-First
+                <div
+                  class="inline-block absolute left-0 w-full"
+                  style={{ bottom: -5 }}
+                >
+                  <img
+                    src="/images/underline-2.svg"
+                    className="absolute bottom-0 left-0 w-full z-10"
+                    style={{ height: 10 }}
+                  />
+                </div>
+              </span>{" "}
+              React Native UI Framework
             </h1>
-            <p className="mt-4 text-gray-600 font-nunito">
+            <p className="mt-4 text-gray-600 font-nunito w-1/2 mx-auto">
               Magnus UI is the ultimate UI framework that helps you in building
               consistent user interfaces effortlessly in react native.
             </p>
@@ -51,12 +65,17 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="flex-grow hidden md:block">
-            <img
-              src="/images/hero.png"
-              style={{ maxWidth: 600 }}
-              className="w-100 mx-auto"
-            />
+          <div className="bg-gray-200 max-w-5xl mx-auto p-8 rounded-4xl border border-gray-300 mt-12">
+            <div className="flex-grow hidden md:block mx-auto bg-white px-32 rounded-3xl shadow-lg">
+              <div
+                style={{
+                  paddingBottom: "76.2%",
+                  backgroundImage:
+                    "url(https://atomizedesign.com/images/sketch/sketch.png)",
+                }}
+                className="mx-auto bg-cover bg-center"
+              />
+            </div>
           </div>
         </div>
       </div>

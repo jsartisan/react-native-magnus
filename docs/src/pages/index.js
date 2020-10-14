@@ -26,8 +26,6 @@ const IndexPage = () => (
       <Hero />
       <Features />
       <Preview />
-      <Customizations />
-      <Composable />
       <Example />
     </div>
   </Layout>
