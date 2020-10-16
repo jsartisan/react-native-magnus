@@ -48,4 +48,5 @@ export interface SelectProps
   onSelect: (value: any) => void;
   data: any[];
   renderItem: (item: any, index: number) => React.ReactElement;
+  keyExtractor?: (item: any, index: number) => string;
 }
