@@ -197,7 +197,7 @@ class Tooltip extends React.Component<TooltipProps> {
           });
 
           return (
-            <View ref={this._container}>
+            <View ref={this._container} onLayout={() => null}>
               <View>{children}</View>
 
               <Modal

@@ -65,16 +65,10 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="bg-gray-200 max-w-5xl mx-auto p-8 rounded-4xl border border-gray-300 mt-12">
-            <div className="flex-grow hidden md:block mx-auto bg-white px-32 rounded-3xl shadow-lg">
-              <div
-                style={{
-                  paddingBottom: "76.2%",
-                  backgroundImage: "url(/images/hero-1.jpg)",
-                }}
-                className="mx-auto bg-contain bg-center bg-no-repeat"
-              />
-            </div>
+          <div className="bg-white max-w-5xl mx-auto p-8 rounded-4xl border border-gray-300 mt-12">
+            {/* <div className="flex-grow hidden md:block mx-auto bg-white px-32 rounded-3xl shadow-lg"> */}
+            <img src="/images/hero-1.jpg" />
+            {/* </div> */}
           </div>
         </div>
       </div>

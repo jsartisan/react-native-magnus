@@ -13,6 +13,7 @@ import {
   Host,
   Snackbar,
   Portal,
+  Tooltip,
   SnackbarRefType,
 } from 'react-native-magnus';
 
@@ -50,6 +51,7 @@ const friends = [
 ];
 
 const snackbarLightRef = React.createRef();
+const tooltipRef = React.createRef();
 
 const App = () => {
   return (
@@ -159,6 +161,19 @@ const App = () => {
             </Div>
           </Div>
         </Host>
+
+        <Tooltip ref={tooltipRef} text="Best tooltip ever!">
+          <Button
+            mt="sm"
+            block
+            onPress={() => {
+              if (tooltipRef.current) {
+                tooltipRef.current.show();
+              }
+            }}>
+            Show Tooltip
+          </Button>
+        </Tooltip>
       </SafeAreaView>
     </ThemeProvider>
   );

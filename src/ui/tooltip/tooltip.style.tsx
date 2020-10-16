@@ -78,7 +78,7 @@ export const getStyle = (theme: any, props: any, state: any) => {
     color: getThemeProperty(theme.colors, props.color, 'white'),
   };
 
-  // merging style props to computed style
+  //merging style props to computed style
   if (props.style) {
     computedStyle.container = {
       ...computedStyle.container,
