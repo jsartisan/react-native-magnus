@@ -12,7 +12,7 @@ export default function Hero() {
               target="_blank"
               className="flex items-center justify-center"
             >
-              <i className="icon-discord text-social-discord text-2xl"></i>
+              <i className="icon-discord text-social-discord text-2xl" />
               <div className="bg-social-discord-light inline-block px-2 py-1 rounded-md text-sm inline-flex items-center ml-3">
                 <span className="inline-block bg-social-discord text-white my-1 rounded-md text-xs mr-1 px-1">
                   NEW
@@ -70,10 +70,9 @@ export default function Hero() {
               <div
                 style={{
                   paddingBottom: "76.2%",
-                  backgroundImage:
-                    "url(https://atomizedesign.com/images/sketch/sketch.png)",
+                  backgroundImage: "url(/images/hero-1.jpg)",
                 }}
-                className="mx-auto bg-cover bg-center"
+                className="mx-auto bg-contain bg-center bg-no-repeat"
               />
             </div>
           </div>

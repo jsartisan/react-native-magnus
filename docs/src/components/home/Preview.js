@@ -6,7 +6,7 @@ import CircleOut from "./CircleOut";
 export default function Preview() {
   return (
     <div
-      className="py-20 mb-10 px-16 mt-20 max-w-screen-xl w-full mx-auto bg-white rounded-2xl"
+      className="py-20 mb-10 px-16 mt-16 max-w-screen-xl w-full mx-auto bg-white rounded-2xl"
       style={{ boxShadow: "0px 1px 1px rgba(0, 0, 0, 0.1)" }}
     >
       <div className="max-w-screen-xl mx-auto">

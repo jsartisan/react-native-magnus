@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Example() {
   return (
-    <div className="max-w-screen-xl mx-auto pt-20 border-t border-t-gray-200 mt-32">
+    <div className="max-w-screen-xl mx-auto pt-20 border-t border-t-gray-200 mt-16">
       <h3 className="text-3xl font-bold text-center w-1/2 mx-auto">
         Code the perfect design for each project using Magnus.
       </h3>

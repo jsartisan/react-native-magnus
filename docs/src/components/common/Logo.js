@@ -8,7 +8,7 @@ const Logo = ({
   centerMobile = false,
 }) => (
   <h1 className="c-logo">
-    <Link to="/" className="flex items-center">
+    <Link to="/" className="flex items-center" style={{ width: "max-content" }}>
       {hasImage && <img style={{ height: 25 }} src="/images/logo.svg" />}
       {hasText && (
         <div className=" font-nunito text-2xl font-semibold ml-3 hidden md:block">
