@@ -21,10 +21,10 @@ export default function Preview() {
               on your next react native project
             </h3>
             <p className="mt-5">
-              With the help of our utility first approach, you can rapidly
-              convert your designs into react native apps and you can save a lot
-              of time. Almost all magnus components have supprot for utilities
-              like spacing, border radius, font sizes, shadows etc
+              With the help of our utility first approach, you can rapidly
+              convert your designs to react native apps and you can save a lot
+              of time. Almost all Magnus components have support for utilities
+              like spacing, border-radius, font sizes, shadows, etc
             </p>
 
             <Link
