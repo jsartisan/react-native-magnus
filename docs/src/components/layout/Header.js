@@ -17,6 +17,7 @@ export default function Header({
         height: "70px",
         backdropFilter: "blur(32px)",
         backgroundColor: "rgba(241, 242, 244, 0.46)",
+        borderColor: "#dcdcdc91",
       }}
     >
       <div className="flex items-center max-w-screen-xl w-full mx-auto">

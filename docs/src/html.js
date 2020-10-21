@@ -18,7 +18,45 @@ export default function HTML(props) {
       a.appendChild(r);
   })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`,
         }}
-      ></script>
+      />
+    );
+  };
+
+  /**
+   * add drift chat widget
+   */
+  const addDriftChat = () => {
+    return (
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `<!-- Start of Async Drift Code -->
+            "use strict";
+
+            !function() {
+              var t = window.driftt = window.drift = window.driftt || [];
+              if (!t.init) {
+                if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
+                t.invoked = !0, t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ],
+                t.factory = function(e) {
+                  return function() {
+                    var n = Array.prototype.slice.call(arguments);
+                    return n.unshift(e), t.push(n), t;
+                  };
+                }, t.methods.forEach(function(e) {
+                  t[e] = t.factory(e);
+                }), t.load = function(t) {
+                  var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
+                  o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
+                  var i = document.getElementsByTagName("script")[0];
+                  i.parentNode.insertBefore(o, i);
+                };
+              }
+            }();
+            drift.SNIPPET_VERSION = '0.3.1';
+            drift.load('dcyzcaizxk2k');
+           `,
+        }}
+      />
     );
   };
 
@@ -31,8 +69,8 @@ export default function HTML(props) {
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
-        <meta name="generator" content="Gatsby 2.20.12"></meta>
-        <link rel="sitemap" type="application/xml" href="/sitemap.xml"></link>
+        <meta name="generator" content="Gatsby 2.20.12" />
+        <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
         <link
           rel="apple-touch-icon"
@@ -54,12 +92,12 @@ export default function HTML(props) {
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
         <meta name="msapplication-TileColor" content="#da532c" />
-        <meta name="theme-color" content="#ffffff"></meta>
+        <meta name="theme-color" content="#ffffff" />
         <link
           href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,800|Nunito+Sans:400,700,900"
           rel="stylesheet"
         />
-        {addHotJarSnippet()}
+        {addDriftChat()}
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>
