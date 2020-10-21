@@ -4,7 +4,7 @@ import { Link } from "gatsby";
 export default function Features() {
   return (
     <div
-      className="py-10 px-5"
+      className="py-10 pt-16 px-5"
       style={{ background: "#fafafa", borderTop: "1px solid #efefef" }}
     >
       <div className="max-w-screen-xl mx-auto">
@@ -15,7 +15,7 @@ export default function Features() {
                 className="mt-4"
                 style={{ height: 20 }}
                 src="/images/section-components-header.svg"
-                alt="Owney Mail"
+                alt="Magnus Components"
               />
               <h4 className="mt-5 font-bold text-2xl font-nunito">
                 Consistent and Modular Components
@@ -32,9 +32,9 @@ export default function Features() {
               </Link>
             </div>
           </div>
-          <div className="hidden md:block">
+          {/* <div className="hidden md:block">
             <img src="/images/react.svg" style={{ width: 200 }} />
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

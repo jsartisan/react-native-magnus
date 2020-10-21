@@ -5,6 +5,8 @@ import Components from "../components/home/Components";
 import Customizations from "../components/home/Customizations";
 import Composable from "../components/home/Composable";
 import Example from "../components/home/Example";
+import Preview from "../components/home/Preview";
+import Features from "../components/home/Features";
 
 import Seo from "../components/common/Seo";
 import Layout from "../components/layout/Layout";
@@ -23,9 +25,12 @@ const IndexPage = () => (
     <div className="">
       <Header />
       <Hero />
+      <Features />
       <Components />
       <Customizations />
       <Composable />
+      <Preview />
+
       <Example />
     </div>
   </Layout>

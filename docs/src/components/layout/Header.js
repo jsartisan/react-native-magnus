@@ -12,14 +12,18 @@ export default function Header({
 }) {
   return (
     <div
-      className="px-5 flex fixed top-0 left-0 w-full bg-white border-b z-10 w-full"
-      style={{ height: "70px" }}
+      className="px-5 flex fixed top-0 left-0 w-full border-b z-20 w-full"
+      style={{
+        height: "70px",
+        backdropFilter: "blur(32px)",
+        backgroundColor: "rgba(241, 242, 244, 0.46)",
+      }}
     >
       <div className="flex items-center max-w-screen-xl w-full mx-auto">
         <div className="flex items-center relative">
           <Logo hasText />
           <div className="text-gray-700 text-xs bg-gray-200 px-1 ml-3 md:ml-3 rounded-sm">
-            v 1.0.41
+            v 1.0.44
           </div>
         </div>
         <Search />

@@ -17,7 +17,7 @@ export default function Features() {
               className="mt-4"
               style={{ height: 20 }}
               src="/images/section-theme-header.svg"
-              alt="Owney Mail"
+              alt="Magnus Customizations"
             />
             <h4 className="mt-5 font-bold text-2xl font-nunito">
               Theme Customizations

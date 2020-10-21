@@ -98,10 +98,39 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
+          {
+            resolve: "gatsby-remark-code-buttons",
+            options: {
+              // Optional button container class name. Defaults
+              // to 'gatsby-code-button-container'.
+              buttonContainerClass: `customButtonContainerClass`,
+              // Optional button class name. Defaults to 'gatsby-code-button'.
+              buttonClass: `group relative`,
+              // Optional button text. Defaults to ''.
+              buttonText: `<div class="group-hover:block absolute top-0 left-0">Copy</div>`,
+              // Optional svg icon class name. Defaults to 'gatsby-code-button-icon'.
+              svgIconClass: `customSvgIconClass`,
+              // Optional svg icon. Defaults to svg string and can be
+              // replaced with any other valid svg. Use custom classes
+              // in the svg string and skip `iconClass` option.
+
+              // Optional tooltip text. Defaults to ''.
+              tooltipText: `customTooltipText`,
+              // Optional toaster class name. Defaults to ''.
+              toasterClass: `customToasterClass`,
+              // Optional toaster text class name. Defaults to ''.
+              toasterTextClass: `customToasterTextClass`,
+              // Optional toaster text. Defaults to ''.
+              toasterText: "customToasterText",
+              // Optional toaster duration. Defaults to 3500.
+              toasterDuration: 5000,
+            },
+          },
           `gatsby-remark-autolink-headers`,
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
+
           {
             resolve: "gatsby-remark-custom-blocks",
             options: {
