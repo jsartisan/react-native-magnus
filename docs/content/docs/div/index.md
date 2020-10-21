@@ -91,6 +91,8 @@ You can check complete list of colors from [here](/docs/colors-system)
 
 ### Example #1
 
+<a href="https://snack.expo.io/@pawankumar2901/magnus---div---example-1" target="_blank">See it on Snack</a>
+
 <img src="/images/docs/div/7.png"  style="height: 200px; width: auto;"/>
 
 ```jsx

@@ -6,6 +6,8 @@ description: ""
 
 Custom toggle component
 
+<a href="https://snack.expo.io/@pawankumar2901/magnus---toggle---example-1" target="_blank">See it on Snack</a>
+
 <img src="/images/docs/toggle/1.gif"  style="height: 50px; width: auto;" />
 
 ```jsx

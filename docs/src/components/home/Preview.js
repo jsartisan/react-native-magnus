@@ -20,6 +20,12 @@ export default function Preview() {
               </span>
               on your next react native project
             </h3>
+            <p className="mt-5">
+              With the help of our utility first approach, you can rapidly
+              convert your designs into react native apps and you can save a lot
+              of time. Almost all magnus components have supprot for utilities
+              like spacing, border radius, font sizes, shadows etc
+            </p>
 
             <Link
               to="/docs/examples"
@@ -40,7 +46,7 @@ export default function Preview() {
               }}
             >
               <div className="absolute" style={{ top: "15%" }}>
-                <img src="/images/preview.png" />
+                <img src="/images/preview.png" style={{ maxWidth: "120%" }} />
               </div>
             </div>
           </div>

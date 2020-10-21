@@ -18,6 +18,8 @@ Magnus provides consistent spacing for margins and padding so that you can build
 | 3xl  | 32    |
 | 4xl  | 64    |
 
+<a href="https://snack.expo.io/@pawankumar2901/magnus---spacing" target="_blank">See it on Snack</a>
+
 <br>
 
 ### Examples

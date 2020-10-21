@@ -103,27 +103,21 @@ module.exports = {
             options: {
               // Optional button container class name. Defaults
               // to 'gatsby-code-button-container'.
-              buttonContainerClass: `customButtonContainerClass`,
+              buttonContainerClass: `copy-snippet-button`,
               // Optional button class name. Defaults to 'gatsby-code-button'.
               buttonClass: `group relative`,
               // Optional button text. Defaults to ''.
-              buttonText: `<div class="group-hover:block absolute top-0 left-0">Copy</div>`,
+              buttonText: `<div class="group-hover:block">Copy</div>`,
               // Optional svg icon class name. Defaults to 'gatsby-code-button-icon'.
-              svgIconClass: `customSvgIconClass`,
-              // Optional svg icon. Defaults to svg string and can be
-              // replaced with any other valid svg. Use custom classes
-              // in the svg string and skip `iconClass` option.
-
-              // Optional tooltip text. Defaults to ''.
-              tooltipText: `customTooltipText`,
-              // Optional toaster class name. Defaults to ''.
-              toasterClass: `customToasterClass`,
+              svgIconClass: `copy-snippet-svg`,
+              tooltipText: ``,
+              toasterClass: `copy-snippet-toaster`,
               // Optional toaster text class name. Defaults to ''.
-              toasterTextClass: `customToasterTextClass`,
+              toasterTextClass: `copy-snippet-toaster-text`,
               // Optional toaster text. Defaults to ''.
-              toasterText: "customToasterText",
+              toasterText: "Copied to clipboard!",
               // Optional toaster duration. Defaults to 3500.
-              toasterDuration: 5000,
+              toasterDuration: 100000,
             },
           },
           `gatsby-remark-autolink-headers`,
