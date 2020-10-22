@@ -146,6 +146,7 @@ Select.defaultProps = {
   bg: 'white',
   rounded: 'none',
   flexDir: 'column',
+  // @ts-ignore
   keyExtractor: (item, index) => `${index}`,
 };
 
