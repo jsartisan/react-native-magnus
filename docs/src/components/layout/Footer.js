@@ -8,9 +8,9 @@ export default function Footer() {
   return (
     <div className="max-w-screen-xl mx-auto mt-16 py-10 md:pt-10 md:py-10 px-5 md:px-0">
       <div className="md:flex items-start flex-col md:flex-row border-t border-b border-b-gray-300 border-t-gray-300 pb-8 md:pb-0">
-        <div className="flex-grow md:flex items-center md:w-1/2 py-8 md:py-16">
+        <div className="flex-grow items-center md:w-1/2 py-8 md:py-16">
           <Logo hasText />
-          <p className="text-gray-600 flex-grow md:px-12 mt-5 md:mt-0 text-sm md:text-md">
+          <p className="text-gray-600 flex-grow  mt-5 md:mt-5 text-sm md:text-md">
             UI framework for developing modular and consistent apps in React
             Native
           </p>
@@ -25,18 +25,16 @@ export default function Footer() {
           <div className="md:pt-3 md:pt-0 pb-3 md:flex">
             <div className="flex-grow">
               <h3 className="font-bold pb-3 text-md  mt-0">Product</h3>
-              <Link
-                to="/docs/getting-started"
-                className="block text-gray-500 hover:text-gray-700"
+              <a
+                href="https://discord.gg/SYnXGEy"
+                target="_blank"
+                className="block text-gray-500 hover:text-gray-700  drift-open-chat cursor-pointer"
               >
                 Need Help?
-              </Link>
-              <Link
-                to="/docs"
-                className="block text-gray-500 hover:text-gray-700 mt-3"
-              >
+              </a>
+              <a className="block text-gray-500 hover:text-gray-700 mt-3 drift-open-chat cursor-pointer">
                 Give Feedback
-              </Link>
+              </a>
             </div>
             <div className="flex-grow mt-5 md:mt-0">
               <h3 className="font-bold pb-3 text-md  mt-0">Extras</h3>
@@ -46,12 +44,13 @@ export default function Footer() {
               >
                 Blog
               </Link>
-              <Link
-                to="/docs"
+              <a
+                target="_blank"
+                href="https://github.com/jsartisan/react-native-magnus"
                 className="block text-gray-500 hover:text-gray-700 mt-3"
               >
                 Github
-              </Link>
+              </a>
             </div>
             <div className="">
               <h3 className="font-bold pb-3 text-md md:text-right mt-5 md:mt-0">
