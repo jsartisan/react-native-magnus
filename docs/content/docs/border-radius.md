@@ -10,6 +10,8 @@ There are 6 values of border radius available in the default theme - that are `n
 
 <img src="/images/docs/div/5.png"  style="height: 60px; width: auto;"   />
 
+<a href="https://snack.expo.io/@pawankumar2901/magnus---border-radius" target="_blank">See it on Snack</a>
+
 ```jsx
 <Div h={40} w={40} bg="green500"></Div>
 <Div h={40} w={40} bg="green500" rounded="sm"></Div>

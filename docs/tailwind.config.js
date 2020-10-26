@@ -131,6 +131,7 @@ module.exports = {
       social: {
         discord: "#7289DA",
         "discord-light": "#e0e7ff",
+        react: "#06d7ff",
       },
     },
     spacing: {
@@ -181,6 +182,10 @@ module.exports = {
       default: "0.25rem",
       md: "0.375rem",
       lg: "0.5rem",
+      xl: "1rem",
+      "2xl": "1.5rem",
+      "3xl": "2rem",
+      "4xl": "3rem",
       full: "9999px",
     },
     borderWidth: {

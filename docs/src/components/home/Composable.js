@@ -4,7 +4,7 @@ import { Link } from "gatsby";
 export default function C() {
   return (
     <div
-      className="py-10 bg-gray-100 px-5"
+      className="py-10 pb-16 bg-gray-100 px-5"
       style={{ borderBottom: "1px solid #efefef" }}
     >
       <div className="max-w-screen-xl mx-auto ">
@@ -14,7 +14,7 @@ export default function C() {
               className="mt-4"
               style={{ height: 20 }}
               src="/images/section-composable-header.svg"
-              alt="Owney Mail"
+              alt="Magnus Composable"
             />
             <h4 className="mt-5 font-bold text-2xl font-nunito">
               Easily Composable

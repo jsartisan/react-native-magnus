@@ -10,21 +10,20 @@ import {
   ShadowPropsType,
 } from '../../theme';
 
-export interface SelectProps
+export interface HeaderProps
   extends RNViewProps,
     BorderPropsType,
     SpacingPropsType,
     RoundedPropsType,
     ShadowPropsType {
   h?: number | string;
-  title?: string | React.ReactNode;
-  message?: string | React.ReactNode;
   w?: number | string;
   bg?: string;
   minH?: number | string;
   minW?: number | string;
+  maxH?: number | string;
+  maxW?: number | string;
   bgImg?: RNImageSourcePropType;
-  showScrollIndicator?: boolean;
   bgMode?: 'contain' | 'cover' | 'stretch';
   flex?: number;
   justifyContent?:
@@ -34,19 +33,28 @@ export interface SelectProps
     | 'space-between'
     | 'space-around'
     | 'space-evenly';
+  alignSelf?:
+    | 'auto'
+    | 'flex-start'
+    | 'flex-end'
+    | 'center'
+    | 'stretch'
+    | 'baseline';
   alignItems?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
   flexDir?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
   flexWrap?: 'wrap' | 'nowrap' | 'wrap-reverse';
   position?: 'absolute' | 'relative';
+  overflow?: 'hidden' | 'visible' | 'scroll';
+  borderStyle?: 'solid' | 'dotted' | 'dashed';
   top?: number;
   right?: number;
   bottom?: number;
   left?: number;
-  multiple?: boolean;
-  value: any;
-  footer?: React.ReactElement[] | React.ReactElement;
-  onSelect: (value: any) => void;
-  data: any[];
-  renderItem: (item: any, index: number) => React.ReactElement;
-  keyExtractor?: (item: any, index: number) => string;
+  opacity?: number;
+  children?: React.ReactNode[] | React.ReactNode;
+  suffix?: React.ReactNode;
+  prefix?: React.ReactNode;
+  row?: boolean;
+  zIndex?: number;
+  alignment?: 'center' | 'left';
 }

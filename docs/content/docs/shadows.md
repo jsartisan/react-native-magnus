@@ -10,6 +10,8 @@ There are 6 values of shadows present in magnus's default theme - which are 1,2,
 
 <img src="/images/docs/div/4.png" style="max-width: 500px;" />
 
+<a href="https://snack.expo.io/@pawankumar2901/magnus---shadows" target="_blank">See it on Snack</a>
+
 ```jsx
 <Div shadow="xs" bg="white" h={40} w={40} rounded="md" />
 <Div shadow="sm" bg="white" h={40} w={40} rounded="md" />

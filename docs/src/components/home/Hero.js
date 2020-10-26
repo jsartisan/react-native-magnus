@@ -6,7 +6,7 @@ export default function Hero() {
     <>
       <div className="px-3 pt-10 pb-5 mb-5 flex px-5">
         <div className="mt-5 flex max-w-screen-xl mx-auto">
-          <div className="mt-0 md:mt-10 mt-md-4 mt-md-5 flex-grow text-center md:text-left">
+          <div className="mt-0 md:mt-10 mt-md-4 mt-md-5 flex-grow text-center md:text-left flex flex-col">
             {/* <a
               href="https://www.producthunt.com/posts/magnus-ui"
               target="_blank"
@@ -36,7 +36,7 @@ export default function Hero() {
               target="_blank"
               className="flex items-center justify-center md:justify-start"
             >
-              <i className="icon-discord text-social-discord text-2xl"></i>
+              <i className="icon-discord text-social-discord text-2xl" />
               <div className="bg-social-discord-light inline-block px-2 py-1 rounded-md text-sm inline-flex items-center ml-3">
                 <span className="inline-block bg-social-discord text-white my-1 rounded-md text-xs mr-1 px-1">
                   NEW
@@ -47,7 +47,21 @@ export default function Hero() {
               </div>
             </a>
             <h1 className="pt-5 text-3xl md:text-4xl font-bold font-nunito">
-              A Utility-First React Native UI Framework
+              {" "}
+              <span className="relative">
+                Utility-First
+                <div
+                  class="inline-block absolute left-0 w-full"
+                  style={{ bottom: -5 }}
+                >
+                  <img
+                    src="/images/underline-2.svg"
+                    className="absolute bottom-0 left-0 w-full z-10"
+                    style={{ height: 10 }}
+                  />
+                </div>
+              </span>{" "}
+              React Native UI Framework
             </h1>
             <p className="mt-5 text-gray-600 font-nunito">
               Magnus UI is the ultimate UI framework that helps you in building
@@ -72,6 +86,22 @@ export default function Hero() {
                 <i className="icon-github text-xl text-gray-600" />
                 <span className="ml-3">Github</span>
               </a>
+            </div>
+            <div class=" mt-12 border-l border-l-gray-100 pl-5">
+              <div class="text-md italic">
+                Started to check out @magnusui . Looks promising! I really like
+                the utility first approach they are taking, reminds me of
+                tailwindcss in that regard. And they just solved my dark mode
+                problem out of the box!
+              </div>
+              <footer class="blockquote-footer mt-2">
+                <a
+                  href="https://twitter.com/SlutskyTom/status/1256526192011808768"
+                  target="_blank"
+                >
+                  <cite title="Source Title">- Tom Slutsky</cite>
+                </a>
+              </footer>
             </div>
           </div>
 

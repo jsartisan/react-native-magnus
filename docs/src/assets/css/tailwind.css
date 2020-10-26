@@ -259,5 +259,45 @@ img.mobile-2 {
   @apply hidden;
 }
 
+/* copy snippet */
+.copy-snippet-svg {
+  display: none;
+}
+
+.gatsby-code-button {
+  @apply p-1;
+  @apply px-2;
+  @apply rounded-md;
+}
+
+.gatsby-code-button:hover {
+  background: #d6d6d6;
+}
+
+.gatsby-code-button-container {
+  top: 40px;
+  right: 4px;
+  z-index: 1 !important;
+  font-size: 13px;
+  margin-top: -25px;
+}
+
+.gatsby-code-button::after {
+  display: none !important;
+}
+
+.gatsby-code-button-toaster {
+  align-items: flex-end;
+}
+
+.gatsby-code-button-toaster-text {
+  max-width: 500px;
+  padding: 12px;
+  font-size: 18px;
+  background-color: #000;
+  margin-bottom: 20px;
+  border-radius: 17px;
+}
+
 @tailwind components;
 @tailwind utilities;

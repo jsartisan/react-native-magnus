@@ -1,16 +1,16 @@
-import IconAntDesign from 'react-native-vector-icons/AntDesign';
 import IconEntypo from 'react-native-vector-icons/Entypo';
-import IconEvilIcons from 'react-native-vector-icons/EvilIcons';
+import IconZocial from 'react-native-vector-icons/Zocial';
 import IconFeather from 'react-native-vector-icons/Feather';
+import IconIonicons from 'react-native-vector-icons/Ionicons';
+import IconOcticons from 'react-native-vector-icons/Octicons';
+import IconAntDesign from 'react-native-vector-icons/AntDesign';
+import IconEvilIcons from 'react-native-vector-icons/EvilIcons';
+import IconFoundation from 'react-native-vector-icons/Foundation';
 import IconFontAwesome from 'react-native-vector-icons/FontAwesome';
 import IconFontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import IconFoundation from 'react-native-vector-icons/Foundation';
-import IconIonicons from 'react-native-vector-icons/Ionicons';
 import IconMaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import IconMaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import IconOcticons from 'react-native-vector-icons/Octicons';
-import IconZocial from 'react-native-vector-icons/Zocial';
 import IconSimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
+import IconMaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import { iconFontFamilyType } from './icon.type';
 
@@ -19,56 +19,168 @@ import { iconFontFamilyType } from './icon.type';
  */
 export const getIconSet = (fontFamily: iconFontFamilyType = 'FontAwesome') => {
   if (fontFamily === 'AntDesign') {
-    return IconAntDesign;
+    return (
+      // @ts-ignore
+      (global.__expo &&
+        // @ts-ignore
+        global.__expo.Icon &&
+        // @ts-ignore
+        global.__expo.Icon.AntDesign) ||
+      IconAntDesign
+    );
   }
 
   if (fontFamily === 'Entypo') {
-    return IconEntypo;
+    return (
+      // @ts-ignore
+      (global.__expo &&
+        // @ts-ignore
+        global.__expo.Icon &&
+        // @ts-ignore
+        global.__expo.Icon.Entypo) ||
+      IconEntypo
+    );
   }
 
   if (fontFamily === 'EvilIcons') {
-    return IconEvilIcons;
+    return (
+      // @ts-ignore
+      (global.__expo &&
+        // @ts-ignore
+        global.__expo.Icon &&
+        // @ts-ignore
+        global.__expo.Icon.EvilIcons) ||
+      IconEvilIcons
+    );
   }
 
   if (fontFamily === 'Feather') {
-    return IconFeather;
+    return (
+      // @ts-ignore
+      (global.__expo &&
+        // @ts-ignore
+        global.__expo.Icon &&
+        // @ts-ignore
+        global.__expo.Icon.Feather) ||
+      IconFeather
+    );
   }
 
   if (fontFamily === 'FontAwesome') {
-    return IconFontAwesome;
+    return (
+      // @ts-ignore
+      (global.__expo &&
+        // @ts-ignore
+        global.__expo.Icon &&
+        // @ts-ignore
+        global.__expo.Icon.FontAwesome) ||
+      IconFontAwesome
+    );
   }
 
   if (fontFamily === 'FontAwesome5') {
-    return IconFontAwesome5;
+    return (
+      // @ts-ignore
+      (global.__expo &&
+        // @ts-ignore
+        global.__expo.Icon &&
+        // @ts-ignore
+        global.__expo.Icon.FontAwesome5) ||
+      IconFontAwesome5
+    );
   }
 
   if (fontFamily === 'Foundation') {
-    return IconFoundation;
+    return (
+      // @ts-ignore
+      (global.__expo &&
+        // @ts-ignore
+        global.__expo.Icon &&
+        // @ts-ignore
+        global.__expo.Icon.Foundation) ||
+      IconFoundation
+    );
   }
 
   if (fontFamily === 'Ionicons') {
-    return IconIonicons;
+    return (
+      // @ts-ignore
+      (global.__expo &&
+        // @ts-ignore
+        global.__expo.Icon &&
+        // @ts-ignore
+        global.__expo.Icon.Ionicons) ||
+      IconIonicons
+    );
   }
 
   if (fontFamily === 'MaterialIcons') {
-    return IconMaterialIcons;
+    return (
+      // @ts-ignore
+      (global.__expo &&
+        // @ts-ignore
+        global.__expo.Icon &&
+        // @ts-ignore
+        global.__expo.Icon.MaterialIcons) ||
+      IconMaterialIcons
+    );
   }
 
   if (fontFamily === 'MaterialCommunityIcons') {
-    return IconMaterialCommunityIcons;
+    return (
+      // @ts-ignore
+      (global.__expo &&
+        // @ts-ignore
+        global.__expo.Icon &&
+        // @ts-ignore
+        global.__expo.Icon.MaterialCommunityIcons) ||
+      IconMaterialCommunityIcons
+    );
   }
 
   if (fontFamily === 'Zocial') {
-    return IconZocial;
+    return (
+      // @ts-ignore
+      (global.__expo &&
+        // @ts-ignore
+        global.__expo.Icon &&
+        // @ts-ignore
+        global.__expo.Icon.Zocial) ||
+      IconZocial
+    );
   }
 
   if (fontFamily === 'SimpleLineIcons') {
-    return IconSimpleLineIcons;
+    return (
+      // @ts-ignore
+      (global.__expo &&
+        // @ts-ignore
+        global.__expo.Icon &&
+        // @ts-ignore
+        global.__expo.Icon.SimpleLineIcons) ||
+      IconSimpleLineIcons
+    );
   }
 
   if (fontFamily === 'Octicons') {
-    return IconOcticons;
+    return (
+      // @ts-ignore
+      (global.__expo &&
+        // @ts-ignore
+        global.__expo.Icon &&
+        // @ts-ignore
+        global.__expo.Icon.Octicons) ||
+      IconOcticons
+    );
   }
 
-  return IconIonicons;
+  return (
+    // @ts-ignore
+    (global.__expo &&
+      // @ts-ignore
+      global.__expo.Icon &&
+      // @ts-ignore
+      global.__expo.Icon.Ionicons) ||
+    IconIonicons
+  );
 };

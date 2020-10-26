@@ -8,6 +8,8 @@ Custom components for rendering radio element.
 
 <br />
 
+<a href="https://snack.expo.io/@pawankumar2901/magnus---radio---example-1" target="_blank">See it on Snack</a>
+
 <img src="/images/docs/radio/1.png"  style="height: 130px; width: auto;" />
 
 ```jsx

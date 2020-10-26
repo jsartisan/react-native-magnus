@@ -7,6 +7,9 @@ description: ""
 Renders floating action button
 
 <br />
+
+<a href="https://snack.expo.io/@pawankumar2901/magnus---fab---example-1" target="_blank">See it on Snack</a>
+
 <img src="/images/docs/fab/1.gif" class="mobile"  style="height: 600px; width: auto;" />
 
 ```jsx
