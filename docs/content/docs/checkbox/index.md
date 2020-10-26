@@ -6,6 +6,8 @@ description: ""
 
 Custom components for rendering checkbox input
 
+<a href="https://snack.expo.io/@pawankumar2901/magnus---checkbox---example-1" target="_blank">See it on Snack</a>
+
 <img src="/images/docs/checkbox/1.png"  style="height: 120px; width: auto;" />
 
 ```jsx

@@ -98,10 +98,33 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
+          {
+            resolve: "gatsby-remark-code-buttons",
+            options: {
+              // Optional button container class name. Defaults
+              // to 'gatsby-code-button-container'.
+              buttonContainerClass: `copy-snippet-button`,
+              // Optional button class name. Defaults to 'gatsby-code-button'.
+              buttonClass: `group relative`,
+              // Optional button text. Defaults to ''.
+              buttonText: `<div class="group-hover:block">Copy</div>`,
+              // Optional svg icon class name. Defaults to 'gatsby-code-button-icon'.
+              svgIconClass: `copy-snippet-svg`,
+              tooltipText: ``,
+              toasterClass: `copy-snippet-toaster`,
+              // Optional toaster text class name. Defaults to ''.
+              toasterTextClass: `copy-snippet-toaster-text`,
+              // Optional toaster text. Defaults to ''.
+              toasterText: "Copied to clipboard!",
+              // Optional toaster duration. Defaults to 3500.
+              toasterDuration: 100000,
+            },
+          },
           `gatsby-remark-autolink-headers`,
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
+
           {
             resolve: "gatsby-remark-custom-blocks",
             options: {

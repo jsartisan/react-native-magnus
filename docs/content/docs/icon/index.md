@@ -32,6 +32,8 @@ We are using `react-native-vector-icons` behinds the scene.
 
 ### Example #1
 
+<a href="https://snack.expo.io/@pawankumar2901/magnus---icon---example-1" target="_blank">See it on Snack</a>
+
 <img src="/images/docs/icon/2.png"  style="height: 80px; width: auto;" />
 
 </div>

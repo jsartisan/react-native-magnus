@@ -35,6 +35,9 @@ export { Tag } from './tag/tag.component';
 export { Modal } from './modal/modal.component';
 export { Toggle } from './toggle/toggle.component';
 export { DropdownRef } from './dropdown/dropdown.type';
+export { Header } from './header/header.component';
+export { Host } from './portal/host.component';
+export { Portal } from './portal/portal.component';
 
 export const Skeleton = {
   Box: SkeletonBox,

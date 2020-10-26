@@ -5,9 +5,11 @@ title: Button
 Button is a wrapper around `<TouchableOpaicty />` or `<TouchableNativeFeedback />` of react-native. It accepts all props supported by them. On iOs, Button renders to TouchableOpaicty and on Android, it renders to TouchableNativeFeedback.
 
 [[warning]]
-| Button won't work with expo 38. This is because we moved to `Pressable` component and Pressable is not available in Expo yet, because expo does not support React Native v0.63. So we recommend using magnus version 1.0.40 till expo rolls out support for Pressable component.
+| Button won't work with Expo versions < 38. This is because we moved to `Pressable` component and Pressable is not available in Expo in version < 38 , because they does not support React Native v0.63. So we recommend using magnus version 1.0.40 for versions < 38.
 
 ## Example #1
+
+<a href="https://snack.expo.io/@pawankumar2901/magnus---button---example-1" target="_blank">See it on Snack</a>
 
 <img src="/images/docs/button/1.png" style="max-width:200px;" />
 
@@ -30,6 +32,8 @@ import { Button, Icon, Div } from "react-native-magnus";
 <br />
 
 ### Example #2
+
+<a href="https://snack.expo.io/@pawankumar2901/magnus---button---example-2" target="_blank">See it on Snack</a>
 
 <img src="/images/docs/button/2.png" style="max-width:300px;" />
 
@@ -88,6 +92,8 @@ import { Button, Icon, Div } from "react-native-magnus";
 
 ### Example #3
 
+<a href="https://snack.expo.io/@pawankumar2901/magnus---button---example-3" target="_blank">See it on Snack</a>
+
 <img src="/images/docs/button/3.png" style="max-width:300px;" />
 
 ```jsx
@@ -143,6 +149,8 @@ import { Button, Icon, Div } from "react-native-magnus";
 
 ### Example #4
 
+<a href="https://snack.expo.io/@pawankumar2901/magnus---button---example-4" target="_blank">See it on Snack</a>
+
 <img src="/images/docs/button/4.png" style="max-width:300px;" />
 
 ```jsx
@@ -186,6 +194,8 @@ import { Button, Icon, Div } from "react-native-magnus";
 </br>
 
 ### Example #5
+
+<a href="https://snack.expo.io/@pawankumar2901/magnus---button---example-5" target="_blank">See it on Snack</a>
 
 <img src="/images/docs/button/5.png" style="max-width:400px;" />
 

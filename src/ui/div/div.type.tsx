@@ -24,7 +24,7 @@ export interface DivProps
   maxH?: number | string;
   maxW?: number | string;
   bgImg?: RNImageSourcePropType;
-  bgMode?: 'contain' | 'cover' | 'stretch';
+  bgMode?: 'contain' | 'cover' | 'stretch' | 'repeat';
   flex?: number;
   justifyContent?:
     | 'flex-start'

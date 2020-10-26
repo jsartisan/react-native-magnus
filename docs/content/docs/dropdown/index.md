@@ -5,6 +5,9 @@ description: ""
 ---
 
 <br />
+
+<a href="https://snack.expo.io/@pawankumar2901/magnus---dropdown---example-1" target="_blank">See it on Snack</a>
+
 <img src="/images/docs/dropdown/1.gif" class="mobile"  style="height: 600px; width: auto;" />
 
 ```jsx
@@ -49,6 +52,8 @@ const dropdownRef = React.createRef();
 <br />
 
 ### Example #1
+
+<a href="https://snack.expo.io/@pawankumar2901/magnus---dropdown---example-2" target="_blank">See it on Snack</a>
 
 <img src="/images/docs/dropdown/2.gif" class="mobile"  style="height: 600px; width: auto;" />
 
@@ -113,6 +118,8 @@ const dropdownRef = React.createRef();
 ```
 
 ### Example #2
+
+<a href="https://snack.expo.io/@pawankumar2901/magnus---dropdown---example-2" target="_blank">See it on Snack</a>
 
 <img src="/images/docs/dropdown/4.png" class="mobile-2"  style="height: 300px; width: auto;" />
 

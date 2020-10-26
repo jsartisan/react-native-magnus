@@ -4,6 +4,8 @@ title: Image
 
 Wrapper around [Image](https://facebook.github.io/react-native/docs/image.html) of react-native
 
+<a href="https://snack.expo.io/@pawankumar2901/magnus---image---example-1" target="_blank">See it on Snack</a>
+
 <img src="/images/docs/image/1.png"  style="height: 150px; width: auto;" />
 
 ```jsx
