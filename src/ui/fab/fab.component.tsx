@@ -14,68 +14,25 @@ import { Button } from '../button/button.component';
 import { Icon } from '../icon/icon.component';
 import { FabProps } from './fab.type';
 
-interface FabState {
-  active: boolean;
-}
+const Fab = (props: FabProps) => {
+  const [active, setActive] = React.useState(false);
 
-class Fab extends React.Component<FabProps, FabState> {
-  static defaultProps = {
-    color: 'white',
-    fontSize: 'text500',
-    overlayColor: 'gray700',
-    overlayOpacity: 0.5,
-    position: 'absolute',
-    openOnMount: false,
-    showBackground: true,
-    animated: true,
-    bottom: 30,
-    right: 30,
-    icon: 'plus',
-    activeIcon: 'close',
-    rounded: 'circle',
-    h: 40,
-    w: 40,
-    shadow: 3,
-    bg: 'red500',
-    useNativeDriver: false,
-    shadowColor: 'gray900',
-  };
+  const actionsBottomAnimation = new Animated.Value(
+    (props.h || 40) + (props.bottom || 40) - 10
+  );
+  const animation = new Animated.Value(0);
+  const actionsAnimation = new Animated.Value(0);
+  const fadeAnimation = new Animated.Value(1);
 
-  animation: any;
-  fadeAnimation: any;
-  visibleAnimation: any;
-  actionsAnimation: any;
-  mainBottomAnimation: any;
-  actionsBottomAnimation: any;
-
-  constructor(props: FabProps) {
-    super(props);
-
-    this.state = {
-      active: false,
-    };
-
-    this.mainBottomAnimation = new Animated.Value(props.bottom || 0);
-    this.actionsBottomAnimation = new Animated.Value(
-      (props.h || 40) + (props.bottom || 40) - 10
-    );
-    this.animation = new Animated.Value(0);
-    this.actionsAnimation = new Animated.Value(0);
-    this.visibleAnimation = new Animated.Value(0);
-    this.fadeAnimation = new Animated.Value(1);
-  }
-
-  componentDidMount() {
-    const { openOnMount } = this.props;
-
+  React.useEffect(() => {
+    const { openOnMount } = props;
     if (openOnMount) {
-      this.animateButton();
+      animateButton();
     }
-  }
+  }, [props.openOnMount]);
 
-  getIcon = () => {
-    const { active } = this.state;
-    const { icon, color: colorProp, fontSize, activeIcon } = this.props;
+  const getIcon = () => {
+    const { icon, color: colorProp, fontSize, activeIcon } = props;
 
     if (active === false) {
       if (typeof icon === 'string') {
@@ -98,59 +55,46 @@ class Fab extends React.Component<FabProps, FabState> {
     return false;
   };
 
-  reset = () => {
-    const {
-      animated,
-      onClose,
-      h,
-      bottom,
-      useNativeDriver = false,
-    } = this.props;
+  const reset = () => {
+    const { animated, onClose, h, bottom, useNativeDriver = false } = props;
 
     if (animated) {
-      Animated.spring(this.animation, {
+      Animated.spring(animation, {
         toValue: 0,
         useNativeDriver: useNativeDriver,
       }).start();
-      Animated.spring(this.actionsAnimation, {
+      Animated.spring(actionsAnimation, {
         toValue: 0,
         useNativeDriver,
       }).start();
-      Animated.spring(this.actionsBottomAnimation, {
+      Animated.spring(actionsBottomAnimation, {
         toValue: (h || 40) + (bottom || 40) - 10,
         useNativeDriver,
       }).start();
     }
-    this.updateState(
-      {
-        active: false,
-      },
-      () => {
-        if (onClose) {
-          onClose();
-        }
-      }
-    );
+    setActive(false);
+    if (onClose) {
+      onClose();
+    }
   };
 
-  animateButton = () => {
-    const { animated, onOpen, h, bottom, useNativeDriver = false } = this.props;
-    const { active } = this.state;
+  const animateButton = () => {
+    const { animated, onOpen, h, bottom, useNativeDriver = false } = props;
 
     if (!active) {
       if (animated) {
-        Animated.spring(this.animation, {
+        Animated.spring(animation, {
           toValue: 1,
           useNativeDriver,
         }).start();
       }
 
       if (animated) {
-        Animated.spring(this.actionsAnimation, {
+        Animated.spring(actionsAnimation, {
           toValue: 1,
           useNativeDriver,
         }).start();
-        Animated.spring(this.actionsBottomAnimation, {
+        Animated.spring(actionsBottomAnimation, {
           toValue: (h || 40) + (bottom || 40),
           useNativeDriver,
         }).start();
@@ -164,44 +108,26 @@ class Fab extends React.Component<FabProps, FabState> {
           },
         });
       }
+      setActive(true);
 
-      this.updateState(
-        {
-          active: true,
-        },
-        () => {
-          if (onOpen) {
-            onOpen();
-          }
-        }
-      );
+      if (onOpen) {
+        onOpen();
+      }
     } else {
-      this.reset();
+      reset();
     }
   };
 
-  updateState = (nextState: FabState, callback: any) => {
-    this.setState(nextState, () => {
-      if (callback) {
-        callback();
-      }
-    });
-  };
-
-  handlePressBackdrop = () => {
-    const { onPressBackdrop } = this.props;
+  const handlePressBackdrop = () => {
+    const { onPressBackdrop } = props;
 
     if (onPressBackdrop) {
       onPressBackdrop();
     }
-    this.reset();
+    reset();
   };
 
-  handlePressItem = () => {
-    this.reset();
-  };
-
-  renderMainButton = (computedStyles: any) => {
+  const renderMainButton = (computedStyles: any) => {
     const {
       animated,
       shadow,
@@ -210,22 +136,21 @@ class Fab extends React.Component<FabProps, FabState> {
       bottom,
       shadowColor,
       ...rest
-    } = this.props;
-    const { active } = this.state;
+    } = props;
 
     let animatedViewStyle;
     let animatedVisibleView;
 
     if (animated) {
       animatedVisibleView = {
-        opacity: this.fadeAnimation,
+        opacity: fadeAnimation,
       };
 
       animatedViewStyle = {
-        opacity: this.fadeAnimation,
+        opacity: fadeAnimation,
         transform: [
           {
-            rotate: this.animation.interpolate({
+            rotate: animation.interpolate({
               inputRange: [0, 1],
               outputRange: ['0deg', '180deg'],
             }),
@@ -236,7 +161,7 @@ class Fab extends React.Component<FabProps, FabState> {
       animatedVisibleView = {};
 
       animatedViewStyle = {
-        opacity: this.fadeAnimation,
+        opacity: fadeAnimation,
         transform: [
           {
             rotate: '45deg',
@@ -261,23 +186,20 @@ class Fab extends React.Component<FabProps, FabState> {
         accessible
         accessibilityLabel="Floating Action Button"
       >
-        <Button mb={bottom} mr={right} onPress={this.animateButton} {...rest}>
-          <Animated.View style={[animatedViewStyle]}>
-            {this.getIcon()}
-          </Animated.View>
+        <Button mb={bottom} mr={right} onPress={animateButton} {...rest}>
+          <Animated.View style={[animatedViewStyle]}>{getIcon()}</Animated.View>
         </Button>
       </Animated.View>
     );
   };
 
-  renderActions = (computedStyle: any) => {
-    const { animated, right, children } = this.props;
-    const { active } = this.state;
+  const renderActions = (computedStyle: any) => {
+    const { animated, right, children } = props;
 
     let animatedActionsStyle;
     if (animated) {
       animatedActionsStyle = {
-        opacity: this.actionsAnimation.interpolate({
+        opacity: actionsAnimation.interpolate({
           inputRange: [0, 1],
           outputRange: [0, 1],
         }),
@@ -290,7 +212,7 @@ class Fab extends React.Component<FabProps, FabState> {
       animatedActionsStyle,
       {
         right,
-        bottom: this.actionsBottomAnimation,
+        bottom: actionsBottomAnimation,
       },
     ];
     return (
@@ -303,7 +225,7 @@ class Fab extends React.Component<FabProps, FabState> {
                 child.props.onPress(e);
               }
 
-              this.reset();
+              reset();
             },
           });
         })}
@@ -311,8 +233,8 @@ class Fab extends React.Component<FabProps, FabState> {
     );
   };
 
-  renderTappableBackground = (theme: any, computedStyle: any) => {
-    const { overlayColor, overlayOpacity } = this.props;
+  const renderTappableBackground = (theme: any, computedStyle: any) => {
+    const { overlayColor, overlayOpacity } = props;
 
     const calculatedOverlayColor = color(
       getThemeProperty(theme.colors, overlayColor, 'white')
@@ -329,36 +251,30 @@ class Fab extends React.Component<FabProps, FabState> {
           computedStyle.overlay,
           { backgroundColor: calculatedOverlayColor },
         ]}
-        onPress={this.handlePressBackdrop}
+        onPress={handlePressBackdrop}
       />
     );
   };
 
-  render() {
-    const { active } = this.state;
-    const { showBackground } = this.props;
+  const { showBackground } = props;
 
-    return (
-      <ThemeContext.Consumer>
-        {({ theme }) => {
-          const computedStyle = getStyle(theme, this.props);
+  return (
+    <ThemeContext.Consumer>
+      {({ theme }) => {
+        const computedStyle = getStyle(theme, props);
 
-          return (
-            <Animated.View
-              pointerEvents="box-none"
-              style={computedStyle.overlay}
-            >
-              {active &&
-                showBackground &&
-                this.renderTappableBackground(theme, computedStyle)}
-              {this.renderActions(computedStyle)}
-              {this.renderMainButton(computedStyle)}
-            </Animated.View>
-          );
-        }}
-      </ThemeContext.Consumer>
-    );
-  }
-}
+        return (
+          <Animated.View pointerEvents="box-none" style={computedStyle.overlay}>
+            {active &&
+              showBackground &&
+              renderTappableBackground(theme, computedStyle)}
+            {renderActions(computedStyle)}
+            {renderMainButton(computedStyle)}
+          </Animated.View>
+        );
+      }}
+    </ThemeContext.Consumer>
+  );
+};
 
 export { Fab };
