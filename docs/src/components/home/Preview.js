@@ -20,7 +20,7 @@ export default function Preview() {
               </span>
               on your next react native project
             </h3>
-            <p className="mt-5">
+            <p className="mt-5 break-words">
               With the help of our utility first approach, you can rapidly
               convert your designs to react native apps and you can save a lot
               of time. Almost all Magnus components have support for utilities
@@ -46,7 +46,7 @@ export default function Preview() {
               }}
             >
               <div className="absolute" style={{ top: "15%" }}>
-                <img src="/images/preview.png" style={{ maxWidth: "120%" }} />
+                <img src="/images/preview.png" className="w-full md:w-120" />
               </div>
             </div>
           </div>
