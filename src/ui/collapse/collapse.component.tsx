@@ -1,96 +1,47 @@
 import * as React from 'react';
-import { useContext, useState } from 'react';
-import {
-  View as RNView,
-  ImageBackground as RNImageBackground,
-} from 'react-native';
+import { useState } from 'react';
+import { LayoutAnimation } from 'react-native';
 
+import { Div } from '../div/div.component';
 import { CollapseProps } from './collapse.type';
-import { getStyle } from './collapse.style';
-import { ThemeContext } from '../../theme';
+import { CollapseBody } from './collapse.body.component';
+import { CollapseHeader } from './collapse.header.component';
 
 const Collapse: React.FunctionComponent<CollapseProps> = (
   props: CollapseProps
 ) => {
-  const {
-    bg,
-    h,
-    w,
-    m,
-    mt,
-    mr,
-    mb,
-    ml,
-    ms,
-    p,
-    pr,
-    pt,
-    pb,
-    pl,
-    minH,
-    minW,
-    maxW,
-    maxH,
-    position,
-    style,
-    flexDir,
-    row,
-    rounded,
-    roundedTop,
-    roundedRight,
-    roundedBottom,
-    roundedLeft,
-    children,
-    bgImg,
-    bgMode,
-    alignItems,
-    justifyContent,
-    borderColor,
-    borderBottomColor,
-    borderLeftColor,
-    borderTopColor,
-    borderRightColor,
-    borderWidth,
-    borderLeftWidth,
-    borderRightWidth,
-    borderBottomWidth,
-    borderTopWidth,
-    borderEndWidth,
-    flexWrap,
-    shadow,
-    shadowColor,
-    opacity,
-    overflow,
-    top,
-    left,
-    right,
-    bottom,
-    zIndex,
-    defaultActive,
-    ...rest
-  } = props;
+  const { children, defaultActive, ...rest } = props;
   const [active, setActive] = useState(defaultActive);
-  const { theme } = useContext(ThemeContext);
-  const computedStyle = getStyle(theme, props);
+  let header = null;
+  let body = null;
 
-  if (bgImg) {
-    return (
-      <RNImageBackground
-        source={bgImg}
-        style={computedStyle.div}
-        resizeMode={props.bgMode}
-        imageStyle={computedStyle.image}
-        {...rest}
-      >
-        {children}
-      </RNImageBackground>
+  React.Children.forEach(children, (child) => {
+    if (child.type === CollapseHeader) {
+      header = child;
+    } else if (child.type === CollapseBody) {
+      body = child;
+    }
+  });
+
+  if (header === null) {
+    throw Error(
+      "header wasn't found to be rendered. Please make sure you have wrapped an CollapseHeader in the Collapse Component."
     );
   }
 
+  header = React.cloneElement(header, {
+    onPress: () => {
+      LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+      setActive(!active);
+    },
+    active,
+  });
+
   return (
-    <RNView style={computedStyle.div} {...rest}>
-      {children}
-    </RNView>
+    <Div {...rest}>
+      {header}
+      {active && body}
+    </Div>
   );
 };
 

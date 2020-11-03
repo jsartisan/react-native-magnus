@@ -39,6 +39,8 @@ export { Header } from './header/header.component';
 export { Host } from './portal/host.component';
 export { Portal } from './portal/portal.component';
 export { Collapse } from './collapse/collapse.component';
+export { CollapseHeader } from './collapse/collapse.header.component';
+export { CollapseBody } from './collapse/collapse.body.component';
 
 export const Skeleton = {
   Box: SkeletonBox,
