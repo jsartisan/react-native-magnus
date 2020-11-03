@@ -11,6 +11,8 @@ import {
   Icon,
   Header,
   Host,
+  Fab,
+  Portal,
 } from 'react-native-magnus';
 
 const friends = [
@@ -63,7 +65,11 @@ const App = () => {
                   top={0}
                   h={12}
                   w={12}>
-                  <Button p="none" rounded="circle" onPress={() => {}}>
+                  <Button
+                    bg="gray200"
+                    p="none"
+                    rounded="circle"
+                    onPress={() => {}}>
                     <Image
                       h={40}
                       w={40}
@@ -107,20 +113,59 @@ const App = () => {
                 showsVerticalScrollIndicator={false}
                 data={friends}
                 renderItem={({item}) => (
-                  <Image
-                    source={{uri: item.image}}
-                    h={120}
-                    w="100%"
-                    resize
-                    rounded="xl"
-                    mb="xl"
-                    resizeMode="cover"
-                  />
+                  <>
+                    <Image
+                      source={{uri: item.image}}
+                      h={120}
+                      w="100%"
+                      resize
+                      rounded="xl"
+                      mb="xl"
+                      bg="gray200"
+                      resizeMode="cover"
+                    />
+                  </>
                 )}
                 keyExtractor={(item) => `friend-list-item-${item.id}`}
               />
             </Div>
           </Div>
+          <Portal>
+            <Fab bg="blue600" h={50} w={50}>
+              <Button p="none" bg="transparent" justifyContent="flex-end">
+                <Div rounded="sm" bg="white" p="sm">
+                  <Text fontSize="text100">Cheer</Text>
+                </Div>
+                <Icon
+                  name="user"
+                  color="blue600"
+                  h={50}
+                  w={50}
+                  rounded="circle"
+                  ml="md"
+                  bg="white"
+                />
+              </Button>
+              <Button
+                p="none"
+                bg="transparent"
+                justifyContent="flex-end"
+                disabled>
+                <Div rounded="sm" bg="white" p="sm">
+                  <Text fontSize="text100">Boost</Text>
+                </Div>
+                <Icon
+                  name="user"
+                  color="blue600"
+                  h={50}
+                  w={50}
+                  rounded="circle"
+                  ml="md"
+                  bg="white"
+                />
+              </Button>
+            </Fab>
+          </Portal>
         </Host>
       </SafeAreaView>
     </ThemeProvider>

@@ -38,6 +38,7 @@ export { DropdownRef } from './dropdown/dropdown.type';
 export { Header } from './header/header.component';
 export { Host } from './portal/host.component';
 export { Portal } from './portal/portal.component';
+export { Collapse } from './collapse/collapse.component';
 
 export const Skeleton = {
   Box: SkeletonBox,
