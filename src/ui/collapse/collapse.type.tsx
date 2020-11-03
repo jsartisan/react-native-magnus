@@ -1,5 +1,5 @@
-import { ButtonProps } from '../button/button.type';
 import { DivProps } from '../div/div.type';
+import { ButtonProps } from '../button/button.type';
 
 export interface CollapseProps extends DivProps {
   defaultActive?: boolean;

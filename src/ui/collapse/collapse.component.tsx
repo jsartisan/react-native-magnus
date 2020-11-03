@@ -16,8 +16,10 @@ const Collapse: React.FunctionComponent<CollapseProps> = (
   let body = null;
 
   React.Children.forEach(children, (child) => {
+    // @ts-ignore
     if (child.type === CollapseHeader) {
       header = child;
+      // @ts-ignore
     } else if (child.type === CollapseBody) {
       body = child;
     }
