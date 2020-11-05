@@ -4,7 +4,7 @@ title: Snackbar
 
 Custom component for showing snackbar at the bottom.
 
-<a href="https://snack.expo.io/@pawankumar2901/magnus---snackbar-example-1">See it on Snack</a>
+<a href="https://snack.expo.io/@pawankumar2901/magnus---snackbar-example-1" target="_blank">See it on Snack</a>
 
 <img src="/images/docs/snackbar/1.gif" class="mobile" style="height: 600px; width: auto;" />
 
