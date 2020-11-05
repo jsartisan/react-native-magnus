@@ -65,5 +65,4 @@ All props of [Image](https://facebook.github.io/react-native/docs/image.html) of
 | borderRightWidth  | width for border right  | `number`          | -       |
 | borderLeftWidth   | width for border left   | `number`          | -       |
 | borderRightWidth  | width for border right  | `number`          | -       |
-
-| rounded | border radius | `any` | - |
+| rounded           | border radius           | `any`             | -       |

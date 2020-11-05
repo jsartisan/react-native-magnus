@@ -9,7 +9,7 @@ export interface CollapseProps extends DivProps {
 export interface CollapseBodyProps extends DivProps {}
 
 export interface CollapseHeaderProps extends ButtonProps {
-  active: boolean;
+  active?: boolean;
   activeSuffix?: React.ReactNode;
   activePrefix?: React.ReactNode;
 }

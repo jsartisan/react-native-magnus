@@ -52,8 +52,8 @@ export const getStyle = (theme: any, props: any) => {
 
   // merging style props to computed style
   if (props.style) {
-    computedStyle.div = {
-      ...computedStyle.div,
+    computedStyle.container = {
+      ...computedStyle.container,
       ...props.style,
     };
   }
@@ -77,7 +77,6 @@ export const getStyle = (theme: any, props: any) => {
   if (props.alignment === 'center') {
     computedStyle.center = {
       ...computedStyle.center,
-      ...StyleSheet.absoluteFillObject,
       justifyContent: 'center',
       alignItems: 'center',
     };
@@ -86,6 +85,13 @@ export const getStyle = (theme: any, props: any) => {
       ...computedStyle.container,
       justifyContent: 'space-between',
     };
+
+    if (props.suffix || props.prefix) {
+      computedStyle.center = {
+        ...computedStyle.center,
+        ...StyleSheet.absoluteFillObject,
+      };
+    }
   } else {
     computedStyle.suffix = {
       ...computedStyle.suffix,

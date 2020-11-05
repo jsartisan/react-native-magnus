@@ -47,22 +47,39 @@ const DocsTemplate = (props) => {
           </div>
           <div className="md:w-2/12 relative text-right">
             <div className="absolute text-right top-0">
-              {post.tableOfContents.length > 0 && (
-                <div
-                  className="table-of-contents  min-w-200 fixed mt-5 hidden md:block"
-                  style={{
-                    height: `calc(100vh - 70px)`,
-                    top: "70px",
-                  }}
-                >
-                  <h3 className="text-gray-800 font-bold uppercase text-sm">
-                    On this page
-                  </h3>
-                  <div
-                    dangerouslySetInnerHTML={{ __html: post.tableOfContents }}
-                  />
+              <div
+                className="table-of-contents  min-w-200 fixed mt-5 hidden md:block"
+                style={{
+                  height: `calc(100vh - 70px)`,
+                  top: "70px",
+                }}
+              >
+                <div className="mt-3 mb-5">
+                  <a
+                    target="_blank"
+                    href={`https://github.com/jsartisan/react-native-magnus/blob/master/docs/content${post.fileAbsolutePath
+                      .split("/content")
+                      .pop()}`}
+                    className="text-gray-700 text-sm flex justify-end items-center"
+                  >
+                    <i className="icon-github text-md text-gray-600" />
+                    <span className="inline-block ml-3">Edit on Github</span>
+                  </a>
                 </div>
-              )}
+
+                {post.tableOfContents.length > 0 && (
+                  <>
+                    <h3 className="text-gray-800 font-bold uppercase text-sm mt-5">
+                      On this page
+                    </h3>
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: post.tableOfContents,
+                      }}
+                    />
+                  </>
+                )}
+              </div>
             </div>
           </div>
         </div>
@@ -89,6 +106,7 @@ export const pageQuery = graphql`
       fields {
         slug
       }
+      fileAbsolutePath
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")

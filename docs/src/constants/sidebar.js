@@ -97,6 +97,10 @@ export const menu = [
         text: "Fab",
         url: "/docs/fab/",
       },
+      {
+        text: "Header",
+        url: "/docs/header/",
+      },
     ],
   },
   {
@@ -139,6 +143,10 @@ export const menu = [
         text: "Tag",
         url: "/docs/tag/",
       },
+      {
+        text: "Collapse",
+        url: "/docs/collapse/",
+      },
     ],
   },
   {
@@ -163,6 +171,15 @@ export const menu = [
       {
         text: "Snackbar",
         url: "/docs/snackbar/",
+      },
+    ],
+  },
+  {
+    text: "Misc",
+    links: [
+      {
+        text: "Portal",
+        url: "/docs/portal/",
       },
     ],
   },

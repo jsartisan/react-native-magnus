@@ -5,6 +5,7 @@ import {
   ImageBackground as RNImageBackground,
 } from 'react-native';
 
+import { Text } from '../text/text.component';
 import { getStyle } from './header.style';
 import { ThemeContext } from '../../theme';
 import { HeaderProps } from './header.type';
@@ -71,16 +72,33 @@ const Header: React.FunctionComponent<HeaderProps> = (props: HeaderProps) => {
   const { theme } = useContext(ThemeContext);
   const computedStyle = getStyle(theme, props);
 
+  /**
+   * renders children based on type
+   */
+  const renderChildren = () => {
+    if (typeof children === 'string') {
+      return (
+        <Text fontWeight="bold" fontSize="lg">
+          {children}
+        </Text>
+      );
+    }
+
+    return children;
+  };
+
   if (bgImg) {
     return (
       <RNImageBackground
         source={bgImg}
-        style={computedStyle.div}
+        style={computedStyle.container}
         resizeMode={props.bgMode}
         imageStyle={computedStyle.image}
         {...rest}
       >
-        {children}
+        <RNView style={computedStyle.prefix}>{prefix}</RNView>
+        <RNView style={computedStyle.center}>{renderChildren()}</RNView>
+        <RNView style={computedStyle.suffix}>{suffix}</RNView>
       </RNImageBackground>
     );
   }
@@ -88,7 +106,7 @@ const Header: React.FunctionComponent<HeaderProps> = (props: HeaderProps) => {
   return (
     <RNView style={computedStyle.container} {...rest}>
       <RNView style={computedStyle.prefix}>{prefix}</RNView>
-      <RNView style={computedStyle.center}>{children}</RNView>
+      <RNView style={computedStyle.center}>{renderChildren()}</RNView>
       <RNView style={computedStyle.suffix}>{suffix}</RNView>
     </RNView>
   );
