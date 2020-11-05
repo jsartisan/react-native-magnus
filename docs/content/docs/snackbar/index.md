@@ -18,7 +18,6 @@ import {
   Snackbar,
   SnackbarRefType,
 } from 'react-native-magnus';
-import Constants from 'expo-constants';
 
 const snackbarRef = React.createRef();
 
@@ -26,7 +25,7 @@ const App = () => {
   return (
     <ThemeProvider>
       <StatusBar barStyle="dark-content" />
-      <SafeAreaView style={{ flex: 1, marginTop: Constants.statusBarHeight }}>
+      <SafeAreaView style={{ flex: 1 }}>
         <Button
           block
           m="xl"
