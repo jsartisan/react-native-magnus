@@ -119,15 +119,6 @@ export default function HTML(props) {
   return (
     <html {...props.htmlAttributes}>
       <head>
-        <meta charSet="utf-8" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
-        <meta httpEquiv="x-ua-compatible" content="ie=edge" />
-        <meta name="generator" content="Gatsby 2.20.12" />
-        <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-
         <link
           rel="apple-touch-icon"
           sizes="180x180"
@@ -147,15 +138,22 @@ export default function HTML(props) {
         />
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+        {props.headComponents}
         <meta name="msapplication-TileColor" content="#da532c" />
-        <meta name="theme-color" content="#ffffff" />
         <link
           href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,800|Nunito+Sans:400,700,900"
           rel="stylesheet"
         />
+        <meta charSet="utf-8" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+        <meta httpEquiv="x-ua-compatible" content="ie=edge" />
+        <meta name="generator" content="Gatsby 2.20.12" />
+        <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
         {addDriftChat()}
         {addDriftHelperSnippet()}
-        {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}
