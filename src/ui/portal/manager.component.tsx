@@ -39,7 +39,7 @@ export const Manager = React.forwardRef((_, ref): any => {
 
   return portals.map(({ key, children }, index: number) => (
     <View
-      key={`react-native-portalize-${key}-${index}`}
+      key={`react-native-magnus-portal-${key}-${index}`}
       collapsable={false}
       pointerEvents="box-none"
       style={StyleSheet.absoluteFill}
