@@ -60,8 +60,8 @@ export default function Hero() {
                     style={{ height: 10 }}
                   />
                 </div>
-              </span>{" "}
-              React Native UI Framework
+              </span>
+              A React Native UI Framework
             </h1>
             <p className="mt-5 text-gray-600 font-nunito">
               Magnus UI is the ultimate UI framework that helps you in building
