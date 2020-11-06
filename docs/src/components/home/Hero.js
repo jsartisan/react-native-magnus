@@ -47,7 +47,7 @@ export default function Hero() {
               </div>
             </a>
             <h1 className="pt-5 text-3xl md:text-4xl font-bold font-nunito">
-              {" "}
+              A{" "}
               <span className="relative">
                 Utility-First
                 <div
@@ -61,7 +61,7 @@ export default function Hero() {
                   />
                 </div>
               </span>
-              A React Native UI Framework
+              React Native UI Framework
             </h1>
             <p className="mt-5 text-gray-600 font-nunito">
               Magnus UI is the ultimate UI framework that helps you in building
