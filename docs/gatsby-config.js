@@ -65,7 +65,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
+        name: `Magnus UI`,
         short_name: `starter`,
         start_url: `/`,
         background_color: `#ffffff`,
