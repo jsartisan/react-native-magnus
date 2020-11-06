@@ -4,67 +4,60 @@ title: Snackbar
 
 Custom component for showing snackbar at the bottom.
 
+<a href="https://snack.expo.io/@pawankumar2901/magnus---snackbar-example-1" target="_blank">See it on Snack</a>
+
 <img src="/images/docs/snackbar/1.gif" class="mobile" style="height: 600px; width: auto;" />
 
 ```jsx
-import { Button, Icon, Snackbar, SnackbarRefType } from 'react-native-magnus'
+import React from 'react';
+import { SafeAreaView, StatusBar } from 'react-native';
+import {
+  ThemeProvider,
+  Button,
+  Icon,
+  Snackbar,
+  SnackbarRefType,
+} from 'react-native-magnus';
 
-const snackbarLightRef = React.createRef<SnackbarRefType>();
-const snackbarDarkRef = React.createRef<SnackbarRefType>();
+const snackbarRef = React.createRef();
 
-<Button
-  onPress={() => {
-    if (snackbarLightRef.current) {
-      snackbarLightRef.current.show();
-    }
-  }}
->
-  Light
-</Button>
-<Button
-  onPress={() => {
-    if (snackbarDarkRef.current) {
-      snackbarDarkRef.current.show();
-    }
-  }}
->
-  Dark
-</Button>
+const App = () => {
+  return (
+    <ThemeProvider>
+      <StatusBar barStyle="dark-content" />
+      <SafeAreaView style={{ flex: 1 }}>
+        <Button
+          block
+          m="xl"
+          onPress={() => {
+            if (snackbarRef.current) {
+              snackbarRef.current.show();
+            }
+          }}>
+          Open Snackbar
+        </Button>
+        <Snackbar
+          suffix={
+            <Icon
+              name="checkcircle"
+              color="white"
+              fontSize="subheader"
+              fontFamily="AntDesign"
+            />
+          }
+          onDismiss={() => {}}
+          ref={snackbarRef}
+          bg="green700"
+          color="white"
+          duration={2000}>
+          Here is a light snack for you!
+        </Snackbar>
+      </SafeAreaView>
+    </ThemeProvider>
+  );
+};
 
-<Snackbar
-  suffix={
-    <Icon
-      name="checkcircle"
-      color="teal500"
-      fontSize="subheader"
-      fontFamily="AntDesign"
-    />
-  }
-  onDismiss={() => {}}
-  ref={snackbarLightRef}
-  bg="green300"
-  color="green800"
-  duration={2000}
->
-  Here is a light snack for you!
-</Snackbar>
-<Snackbar
-  suffix={
-    <Icon
-      name="checkcircle"
-      color="white"
-      fontSize="subheader"
-      fontFamily="AntDesign"
-    />
-  }
-  onDismiss={() => {}}
-  ref={snackbarDarkRef}
-  bg="green800"
-  color="white"
-  duration={2000}
->
-  Here is a dark snack for you!
-</Snackbar>
+export default App;
 ```
 
 ## Props
