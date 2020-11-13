@@ -61,7 +61,7 @@ import { Checkbox, Text } from 'react-native-magnus'
 | borderTopWidth    | width for border top                      | `number`                                                  | -            |
 | borderRightWidth  | width for border right                    | `number`                                                  | -            |
 | borderLeftWidth   | width for border left                     | `number`                                                  | -            |
-| borderRightWidth  | width for border right                    | `number`                                                  | -            |
+| borderBottomWidth | width for border bottom                   | `number`                                                  | -            |
 | onPress           | event triggered on pressing the checkbox  | `((event: RNGestureResponderEvent) => void) | undefined;` | `() => void` |
 | checked           | state to control the state of checkbox    | `boolean`                                                 | `-`          |
 | loading           | shows ActivityIndicator when true         | `boolean`                                                 | `false`      |

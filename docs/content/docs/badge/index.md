@@ -67,9 +67,9 @@ import { Badge } from 'react-native-magnus'
 | borderBottomColor | color for border bottom                                               | `string`                 | -          |
 | borderWidth       | width for border                                                      | `number`                 | -          |
 | borderTopWidth    | width for border top                                                  | `number`                 | -          |
-| borderRightWidth  | width for border right                                                | `number`                 | -          |
+| borderRightWidth  | width for border bottom                                               | `number`                 | -          |
 | borderLeftWidth   | width for border left                                                 | `number`                 | -          |
-| borderRightWidth  | width for border right                                                | `number`                 | -          |
+| borderBottomWidth | width for border bottom                                               | `number`                 | -          |
 | position          | used to position the childrens                                        | `absolute" | "relative"` | `relative` |
 | top               | number of logical pixels to offset the top edge of this component.    | `number`                 | `0`        |
 | right             | number of logical pixels to offset the right edge of this component.  | `number`                 | `0`        |

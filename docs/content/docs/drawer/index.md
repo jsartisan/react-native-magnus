@@ -64,6 +64,6 @@ const drawerRef = React.createRef();
 | borderTopWidth    | width for border top          | `number`           | -       |
 | borderRightWidth  | width for border right        | `number`           | -       |
 | borderLeftWidth   | width for border left         | `number`           | -       |
-| borderRightWidth  | width for border right        |
+| borderBottomWidth | width for border bottom       |
 | direction         | direction of drawer           | `"left' | "right"` | `left`  |
 | animationTime     | animation time for drawer     | `number`           | `300`   |

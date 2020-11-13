@@ -244,7 +244,7 @@ const dropdownRef = React.createRef();
 | borderTopWidth     | width for border top                   | `number`                   | -         |
 | borderRightWidth   | width for border right                 | `number`                   | -         |
 | borderLeftWidth    | width for border left                  | `number`                   | -         |
-| borderRightWidth   | width for border right                 | `number`                   | -         |
+| borderBottomWidth  | width for border bottom                | `number`                   | -         |
 | borderWidth        | width for border                       | `any`                      | -         |
 | showSwipeIndicator | shows swipe indicator in the container | `boolean`                  | -         |
 | title              | shows title in the container           | `string | React.ReactNode` | -         |

@@ -78,7 +78,7 @@ As `<Input>` accepts every prop of `<TextInput>`, We can set input for password 
 | borderTopWidth    | width for border top                                       | `number`          | -         |
 | borderRightWidth  | width for border right                                     | `number`          | -         |
 | borderLeftWidth   | width for border left                                      | `number`          | -         |
-| borderRightWidth  | width for border right                                     | `number`          | -         |
+| borderBottomWidth | width for border bottom                                    | `number`          | -         |
 | shadow            | describe the depth of shadow to be used                    | `number`          | -         |
 | shadowColor       | color for shadow                                           | `string`          | -         |
 | color             | color for input text                                       | `string`          | -         |

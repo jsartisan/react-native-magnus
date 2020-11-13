@@ -63,5 +63,5 @@ import { Skeleton } from 'react-native-magnus'
 | borderTopWidth    | width for border top           | `number`          | -       |
 | borderRightWidth  | width for border right         | `number`          | -       |
 | borderLeftWidth   | width for border left          | `number`          | -       |
-| borderRightWidth  | width for border right         | `number`          | -       |
+| borderBottomWidth | width for border bottom        | `number`          | -       |
 | flex              | flex property for container    | `number`          | -       |

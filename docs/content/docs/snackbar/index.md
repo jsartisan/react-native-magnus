@@ -9,15 +9,15 @@ Custom component for showing snackbar at the bottom.
 <img src="/images/docs/snackbar/1.gif" class="mobile" style="height: 600px; width: auto;" />
 
 ```jsx
-import React from 'react';
-import { SafeAreaView, StatusBar } from 'react-native';
+import React from "react";
+import { SafeAreaView, StatusBar } from "react-native";
 import {
   ThemeProvider,
   Button,
   Icon,
   Snackbar,
   SnackbarRefType,
-} from 'react-native-magnus';
+} from "react-native-magnus";
 
 const snackbarRef = React.createRef();
 
@@ -33,7 +33,8 @@ const App = () => {
             if (snackbarRef.current) {
               snackbarRef.current.show();
             }
-          }}>
+          }}
+        >
           Open Snackbar
         </Button>
         <Snackbar
@@ -49,7 +50,8 @@ const App = () => {
           ref={snackbarRef}
           bg="green700"
           color="white"
-          duration={2000}>
+          duration={2000}
+        >
           Here is a light snack for you!
         </Snackbar>
       </SafeAreaView>
@@ -94,7 +96,7 @@ export default App;
 | borderTopWidth    | width for border top                                   | `number`               | -         |
 | borderRightWidth  | width for border right                                 | `number`               | -         |
 | borderLeftWidth   | width for border left                                  | `number`               | -         |
-| borderRightWidth  | width for border right                                 | `number`               | -         |
+| borderBottomWidth | width for border bottom                                | `number`               | -         |
 | bg                | background color                                       | `string`               | `white`   |
 | color             | color for text                                         | `string`               | `gray900` |
 | duration          | duration for which the snackbar will be shown          | `number`               | `7000`    |
