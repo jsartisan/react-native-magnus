@@ -31,8 +31,6 @@ import { AppRegistry } from "react-native";
 import { ThemeProvider, Text } from "react-native-magnus";
 import App from "./src/App";
 
-// here we are adding our custom font sizes and
-// customizing text100
 const theme = {
   shadows: {
     "3xl": {

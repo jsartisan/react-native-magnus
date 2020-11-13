@@ -80,7 +80,7 @@ export default function Main() {
           <Text color="gray500" mt="sm">
             Lorem ipsum dolor sit, amet consectetur.
           </Text>
-          <Text fontSize="text300" color="gray600" mt="2xl">
+          <Text fontSize="md" color="gray600" mt="2xl">
             Email
           </Text>
           <Input
@@ -90,7 +90,7 @@ export default function Main() {
             autoCapitalize={false}
           />
 
-          <Text fontSize="text300" color="gray600" mt="xl">
+          <Text fontSize="md" color="gray600" mt="xl">
             Password
           </Text>
 
@@ -214,7 +214,7 @@ Now let's integrate our input and submit button with Formik.
             <Text color="gray500" mt="sm">
               Lorem ipsum dolor sit, amet consectetur.
             </Text>
-            <Text fontSize="text300" color="gray600" mt="2xl">
+            <Text fontSize="md" color="gray600" mt="2xl">
               Email
             </Text>
             <Input
@@ -229,7 +229,7 @@ Now let's integrate our input and submit button with Formik.
               // highlight-end
             />
 
-            <Text fontSize="text300" color="gray600" mt="xl">
+            <Text fontSize="md" color="gray600" mt="xl">
               Password
             </Text>
 
@@ -352,14 +352,14 @@ All of our field errors are stored in **errors** object.
   // highlight-start
     <Div h={20}>
       <Div position="absolute" top={0} zIndex={1}>
-        <Text color="red500" fontSize="text300" mt="sm">
+        <Text color="red500" fontSize="md" mt="sm">
           {touched.email && errors.email}
         </Text>
       </Div>
     </Div>
   // highlight-end
 
-  <Text fontSize="text300" color="gray600" mt="xl">
+  <Text fontSize="md" color="gray600" mt="xl">
     Password
   </Text>
 
@@ -376,7 +376,7 @@ All of our field errors are stored in **errors** object.
   // highlight-start
     <Div h={20}>
       <Div position="absolute" top={0} zIndex={1}>
-        <Text color="red500" fontSize="text300" mt="sm">
+        <Text color="red500" fontSize="md" mt="sm">
           {touched.password && errors.password}
         </Text>
       </Div>

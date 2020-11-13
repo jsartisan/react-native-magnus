@@ -66,6 +66,6 @@ import { Checkbox, Text } from 'react-native-magnus'
 | checked           | state to control the state of checkbox    | `boolean`                                                 | `-`          |
 | loading           | shows ActivityIndicator when true         | `boolean`                                                 | `false`      |
 | disabled          | show disabled icon when true              | `boolean`                                                 | `false`      |
-| size              | size for icon                             | `string`                                                  | `text700`    |
+| size              | size for icon                             | `string`                                                  | `md`         |
 | activeColor       | color for icon when checkbox is checked   | `string`                                                  | `blue600`    |
 | inactiveColor     | color for icon when checkbox is unchecked | `string`                                                  | `gray400`    |

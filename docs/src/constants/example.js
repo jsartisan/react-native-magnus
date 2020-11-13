@@ -5,7 +5,7 @@ const code = `<ThemeProvider theme={theme}>
         <Image resizeMode="contain" w={100} h={40} justifyContent="flex-end" source={{ uri: logoUrl }} />
         <Text mt="sm" color="brown100" fontSize="text500" fontWeight="bold" w="60%">Discover the world’s top Designers & Creatives.</Text>
         <Image resizeMode="contain" flex={1} w="100%" source={{ uri: coverArtUrl }} />
-        <Text pb="xl" mt="sm" color="brown100" fontSize="text300" w="60%">Art by Irina Valeeva</Text>
+        <Text pb="xl" mt="sm" color="brown100" fontSize="md" w="60%">Art by Irina Valeeva</Text>
       </Div>
       <Div p="lg">
         <Button py="lg" bg="twitter"  block color="white" prefix={<Icon fontSize="text500"mr="md" name="twitter" color="white" />}>Sign-in with Twitter</Button>
@@ -13,7 +13,7 @@ const code = `<ThemeProvider theme={theme}>
         <Button mt="md" py="lg" bg="google" justifyContent="center" alignItems="center" block color="white" prefix={<Icon fontSize="text500"mr="md" name="google" color="white" />}>Sign-in with Google</Button>
         <Div alignItems="center" justifyContent="center" flexDir="row" mt="xl">
           <Div h={1} flex={1} bg="gray200"></Div>
-          <Text px="lg" fontSize="text300" color="gray500" textTransform="uppercase">Or With Email</Text>
+          <Text px="lg" fontSize="md" color="gray500" textTransform="uppercase">Or With Email</Text>
           <Div></Div>
           <Div h={1} flex={1} bg="gray200"></Div>
         </Div>
