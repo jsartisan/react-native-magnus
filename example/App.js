@@ -96,7 +96,7 @@ const App = () => {
                 <Icon
                   name="search"
                   color="gray700"
-                  fontSize="title"
+                  fontSize="md"
                   fontFamily="FontAwesome"
                 />
               }
@@ -132,9 +132,13 @@ const App = () => {
           </Div>
           <Portal>
             <Fab bg="blue600" h={50} w={50}>
-              <Button p="none" bg="transparent" justifyContent="flex-end">
+              <Button
+                p="none"
+                bg="transparent"
+                justifyContent="flex-end"
+                onPress={() => alert('Pressed!')}>
                 <Div rounded="sm" bg="white" p="sm">
-                  <Text fontSize="text100">Cheer</Text>
+                  <Text fontSize="md">Cheer</Text>
                 </Div>
                 <Icon
                   name="user"
@@ -146,13 +150,9 @@ const App = () => {
                   bg="white"
                 />
               </Button>
-              <Button
-                p="none"
-                bg="transparent"
-                justifyContent="flex-end"
-                disabled>
+              <Button p="none" bg="transparent" justifyContent="flex-end">
                 <Div rounded="sm" bg="white" p="sm">
-                  <Text fontSize="text100">Boost</Text>
+                  <Text fontSize="md">Boost</Text>
                 </Div>
                 <Icon
                   name="user"

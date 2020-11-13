@@ -29,7 +29,7 @@ export const getStyle = (theme: any, props: any) => {
     height: SCREEN_HEIGHT,
     zIndex: 0,
     margin: 0,
-    backgroundColor: getThemeProperty(theme.colors, props.bg, 'white'),
+    backgroundColor: getThemeProperty(theme.colors, props.bg),
     ...createBorderWidthStyles(props),
     ...createBorderColorStyles(props, theme.colors),
     ...createBorderRadiusStyles(props, theme.borderRadius),

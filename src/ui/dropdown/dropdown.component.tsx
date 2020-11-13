@@ -70,7 +70,7 @@ const Dropdown = React.forwardRef<DropdownRef, DropdownProps>((props, ref) => {
   const renderTitle = () => {
     if (title) {
       return typeof title === 'string' ? (
-        <Text fontSize="text400" color="gray700">
+        <Text fontSize="md" color="gray700">
           {title}
         </Text>
       ) : (
@@ -105,11 +105,7 @@ const Dropdown = React.forwardRef<DropdownRef, DropdownProps>((props, ref) => {
       onSwipeComplete={() => setIsVisible(false)}
       swipeDirection={['down']}
       backdropOpacity={backdropOpacity}
-      backdropColor={getThemeProperty(
-        theme.colors,
-        backdropColor,
-        'transparent'
-      )}
+      backdropColor={getThemeProperty(theme.colors, backdropColor)}
       onBackdropPress={() => setIsVisible(false)}
       style={{
         margin: 0,

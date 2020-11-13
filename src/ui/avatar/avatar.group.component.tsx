@@ -8,8 +8,8 @@ import { ThemeContext, getThemeProperty } from '../../theme';
 const AvatarGroup: React.FunctionComponent<AvatarGroupProps> = (props) => {
   const { children, ml, offset, ...rest } = props;
   const { theme } = useContext(ThemeContext);
-  const calculatedOffset = getThemeProperty(theme.spacing, offset, offset);
-  const calculatedMarginLeft = getThemeProperty(theme.spacing, ml, ml);
+  const calculatedOffset = getThemeProperty(theme.spacing, offset);
+  const calculatedMarginLeft = getThemeProperty(theme.spacing, ml);
 
   return (
     <Div {...rest} ml={calculatedOffset + calculatedMarginLeft}>

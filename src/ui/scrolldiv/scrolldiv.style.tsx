@@ -23,7 +23,7 @@ export const getStyle = (theme: any, props: any) => {
     alignItems: props.alignItems,
     justifyContent: props.justifyContent,
     position: props.position,
-    backgroundColor: getThemeProperty(theme.colors, props.bg, 'transparent'),
+    backgroundColor: getThemeProperty(theme.colors, props.bg),
     ...createBorderWidthStyles(props),
     ...createSpacingStyles(props, theme.spacing),
     ...createBorderColorStyles(props, theme.colors),
@@ -45,7 +45,7 @@ export const getStyle = (theme: any, props: any) => {
     computedStyle.div = {
       ...computedStyle.div,
       ...theme.shadow[props.shadow],
-      shadowColor: getThemeProperty(theme.colors, props.shadowColor, 'white'),
+      shadowColor: getThemeProperty(theme.colors, props.shadowColor),
     };
   }
 

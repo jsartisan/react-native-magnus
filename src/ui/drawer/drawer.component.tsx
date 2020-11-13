@@ -43,11 +43,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>((props, ref) => {
       isVisible={isVisible}
       onSwipeComplete={() => setIsVisible(false)}
       swipeDirection={direction === 'left' ? 'left' : 'right'}
-      backdropColor={getThemeProperty(
-        theme.colors,
-        props.backdropColor,
-        'black'
-      )}
+      backdropColor={getThemeProperty(theme.colors, props.backdropColor)}
       backdropTransitionOutTiming={0}
       animationInTiming={animationTime}
       animationOutTiming={animationTime}

@@ -83,7 +83,7 @@ As `<Input>` accepts every prop of `<TextInput>`, We can set input for password 
 | shadowColor       | color for shadow                                           | `string`          | -         |
 | color             | color for input text                                       | `string`          | -         |
 | loading           | loading state for input. Shows ActivityIndicator when true | `boolean`         | `false`   |
-| loaderSize        | size for loader component                                  | `string | number` | `text400` |
+| loaderSize        | size for loader component                                  | `string | number` | `md`      |
 | loaderColor       | color for loader component                                 | `string`          | `gray300` |
 | focusBorderColor  | border color when input is focussed                        | `string`          | `-`       |
 | suffix            | renders a components at the end of input container         | `React.ReactNode` | `-`       |

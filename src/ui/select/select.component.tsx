@@ -76,7 +76,7 @@ const Select = React.forwardRef<Ref, SelectProps>((props, ref) => {
   const renderTitle = () => {
     if (title) {
       return typeof title === 'string' ? (
-        <Text fontSize="text400" color="gray700" px="xl" pt="md" pb="lg">
+        <Text fontSize="md" color="gray700" px="xl" pt="md" pb="lg">
           {title}
         </Text>
       ) : (

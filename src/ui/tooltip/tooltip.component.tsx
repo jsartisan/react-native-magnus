@@ -39,6 +39,7 @@ class Tooltip extends React.Component<TooltipProps> {
     mx: 'lg',
     minW: 50,
     zIndex: 1,
+    fontSize: 'md',
     useNativeDriver: false,
   };
 

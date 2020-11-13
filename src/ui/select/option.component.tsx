@@ -42,16 +42,14 @@ const Option: React.FunctionComponent<OptionProps> = (props) => {
   const renderSuffix = () => {
     if (suffix && isSelected) {
       if (typeof suffix === 'string') {
-        return (
-          <Icon name={suffix} fontSize="text500" color="green600" mr="md" />
-        );
+        return <Icon name={suffix} fontSize="md" color="green600" mr="md" />;
       }
 
       return suffix;
     }
 
     if (isSelected) {
-      return <Icon name="check" fontSize="text500" color="green600" mr="md" />;
+      return <Icon name="check" fontSize="md" color="green600" mr="md" />;
     }
 
     return false;

@@ -18,9 +18,7 @@ export const getStyle = (theme: any, props: any) => {
   const computedStyle: any = {};
 
   computedStyle.modal = {
-    backgroundColor: color(
-      getThemeProperty(theme.colors, props.overlayColor, 'transparent')
-    )
+    backgroundColor: color(getThemeProperty(theme.colors, props.overlayColor))
       .alpha(props.overlayOpacity)
       .rgb()
       .string(),
@@ -30,7 +28,7 @@ export const getStyle = (theme: any, props: any) => {
   };
 
   computedStyle.container = {
-    backgroundColor: getThemeProperty(theme.colors, props.bg, 'transparent'),
+    backgroundColor: getThemeProperty(theme.colors, props.bg),
     ...createFlexStyles(props),
     ...createSpacingStyles(props, theme.spacing),
     ...createBorderRadiusStyles(props, theme.borderRadius),

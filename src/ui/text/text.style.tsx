@@ -33,19 +33,15 @@ export const getStyle = (theme: any, props: any) => {
     textAlignVertical: props.textAlignVertical,
     lineHeight: props.lineHeight
       ? props.lineHeight
-      : 1.5 * getThemeProperty(theme.fontSize, props.fontSize, 16),
-    color: getThemeProperty(theme.colors, props.color, '#000'),
-    fontSize: getThemeProperty(theme.fontSize, props.fontSize, 16),
-    backgroundColor: getThemeProperty(theme.colors, props.bg, 'transparent'),
+      : 1.5 * getThemeProperty(theme.fontSize, props.fontSize),
+    color: getThemeProperty(theme.colors, props.color),
+    fontSize: getThemeProperty(theme.fontSize, props.fontSize),
+    backgroundColor: getThemeProperty(theme.colors, props.bg),
     textAlign: props.textAlign,
     textTransform: props.textTransform,
     overflow: props.overflow,
     opacity: props.opacity,
-    textDecorationColor: getThemeProperty(
-      theme.colors,
-      props.textDecorColor,
-      'transparent'
-    ),
+    textDecorationColor: getThemeProperty(theme.colors, props.textDecorColor),
     ...createBorderWidthStyles(props),
     ...createSpacingStyles(props, theme.spacing),
     ...createBorderColorStyles(props, theme.colors),

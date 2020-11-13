@@ -39,7 +39,7 @@ export const getStyle = (theme: any, props: any, state: any) => {
     ...createSpacingStyles(props, theme.spacing),
     ...createBorderColorStyles(props, theme.colors),
     ...createBorderRadiusStyles(props, theme.borderRadius),
-    backgroundColor: getThemeProperty(theme.colors, props.bg, 'transparent'),
+    backgroundColor: getThemeProperty(theme.colors, props.bg),
   };
 
   computedStyle.image = {
@@ -59,7 +59,7 @@ export const getStyle = (theme: any, props: any, state: any) => {
     borderRightColor: 'transparent',
     opacity: props.opacity,
     zIndex: props.zIndex,
-    borderBottomColor: getThemeProperty(theme.colors, props.bg, 'transparent'),
+    borderBottomColor: getThemeProperty(theme.colors, props.bg),
   };
 
   computedStyle.text = {
@@ -71,11 +71,11 @@ export const getStyle = (theme: any, props: any, state: any) => {
     textAlignVertical: props.textAlignVertical,
     lineHeight: props.lineHeight
       ? props.lineHeight
-      : 1.5 * getThemeProperty(theme.fontSize, props.fontSize, 16),
+      : 1.5 * getThemeProperty(theme.fontSize, props.fontSize),
     textAlign: props.textAlign,
     textTransform: props.textTransform,
-    fontSize: getThemeProperty(theme.fontSize, props.fontSize, 16),
-    color: getThemeProperty(theme.colors, props.color, 'white'),
+    fontSize: getThemeProperty(theme.fontSize, props.fontSize),
+    color: getThemeProperty(theme.colors, props.color),
   };
 
   // merging style props to computed style

@@ -31,7 +31,7 @@ export const getStyle = (theme: any, props: any, state: any) => {
     width: props.w,
     height: props.h,
     opacity: props.opacity,
-    backgroundColor: getThemeProperty(theme.colors, props.bg, 'white'),
+    backgroundColor: getThemeProperty(theme.colors, props.bg),
     ...createFlexStyles(props),
     ...createBorderWidthStyles(props),
     ...createShadowStyles(props, theme),
@@ -46,8 +46,9 @@ export const getStyle = (theme: any, props: any, state: any) => {
       ...computedStyle.container,
       borderColor: getThemeProperty(
         theme.colors,
-        props.focusBorderColor,
-        computedStyle.container.borderColor
+        props.focusBorderColor
+          ? props.focusBorderColor
+          : computedStyle.container.borderColor
       ),
     };
   }
@@ -56,8 +57,8 @@ export const getStyle = (theme: any, props: any, state: any) => {
     flex: 1,
     padding: 0,
     textAlignVertical: 'center',
-    color: getThemeProperty(theme.colors, props.color, 'black'),
-    fontSize: getThemeProperty(theme.fontSize, props.fontSize, 16),
+    color: getThemeProperty(theme.colors, props.color),
+    fontSize: getThemeProperty(theme.fontSize, props.fontSize),
   };
 
   computedStyle.suffix = {

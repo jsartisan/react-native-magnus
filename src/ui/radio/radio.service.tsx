@@ -29,10 +29,10 @@ export const getIconColor = (
 ) => {
   switch (true) {
     case disabled:
-      return getThemeProperty(theme.colors, inactiveColor, 'blue');
+      return getThemeProperty(theme.colors, inactiveColor);
     case checked:
-      return getThemeProperty(theme.colors, activeColor, 'blue');
+      return getThemeProperty(theme.colors, activeColor);
     default:
-      return getThemeProperty(theme.colors, inactiveColor, 'blue');
+      return getThemeProperty(theme.colors, inactiveColor);
   }
 };

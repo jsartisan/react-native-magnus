@@ -21,14 +21,14 @@ export const getStyle = (theme: any, props: any) => {
     flexDirection: 'row',
     alignSelf: 'flex-start',
     position: props.position,
-    backgroundColor: getThemeProperty(theme.colors, props.bg, 'transparent'),
+    backgroundColor: getThemeProperty(theme.colors, props.bg),
     ...createSpacingStyles(props, theme.spacing),
   };
 
   computedStyle.text = {
-    color: getThemeProperty(theme.colors, props.color, 'black'),
+    color: getThemeProperty(theme.colors, props.color),
     textAlign: 'right',
-    fontSize: getThemeProperty(theme.fontSize, props.fontSize, 16),
+    fontSize: getThemeProperty(theme.fontSize, props.fontSize),
   };
 
   computedStyle.container = {
@@ -42,7 +42,7 @@ export const getStyle = (theme: any, props: any) => {
     computedStyle.button = {
       ...computedStyle.button,
       ...theme.shadow[props.shadow],
-      shadowColor: getThemeProperty(theme.colors, props.shadowColor, 'white'),
+      shadowColor: getThemeProperty(theme.colors, props.shadowColor),
     };
   }
 
@@ -98,11 +98,7 @@ export const getStyle = (theme: any, props: any) => {
   if (props.borderColor) {
     computedStyle.button = {
       ...computedStyle.button,
-      borderColor: getThemeProperty(
-        theme.colors,
-        props.borderColor,
-        'transparent'
-      ),
+      borderColor: getThemeProperty(theme.colors, props.borderColor),
     };
   }
 

@@ -182,7 +182,7 @@ Snackbar.defaultProps = {
   p: 'lg',
   m: 'md',
   rounded: 'md',
-  fontSize: 'text400',
+  fontSize: 'md',
   duration: 4000,
   onDismiss: () => {},
   shadow: 2,

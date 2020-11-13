@@ -82,11 +82,11 @@ const Avatar: React.FunctionComponent<AvatarProps> = (props) => {
 Avatar.defaultProps = {
   bg: 'transparent',
   size: 48,
-  color: 'black500',
+  color: 'gray500',
   rounded: 'circle',
-  fontSize: 'text400',
+  fontSize: 'md',
   shadow: 'none',
-  shadowColor: 'black500',
+  shadowColor: 'gray500',
   position: 'relative',
   zIndex: 1,
 };

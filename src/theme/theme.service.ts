@@ -76,11 +76,7 @@ export const createSpacingStyles = (props: any, theme: any) => {
     const styleProperty = propKeys[propKey];
 
     if (propKey in props) {
-      computedStyle[styleProperty] = getThemeProperty(
-        theme,
-        props[propKey],
-        props[propKey]
-      );
+      computedStyle[styleProperty] = getThemeProperty(theme, props[propKey]);
     }
   });
 
@@ -159,12 +155,12 @@ export const createDirectionalStyles = (
  * @param theme
  * @param value
  */
-export const getThemeProperty = (theme: any, value: any, fallback: any) => {
+export const getThemeProperty = (theme: any, value: any) => {
   if (typeof theme[value] !== 'undefined') {
     return theme[value];
   }
 
-  return fallback;
+  return value;
 };
 
 /**
@@ -196,18 +192,10 @@ export const createBorderRadiusStyles = (props: any, theme: any) => {
     if (propKey in props) {
       if (styleProperty instanceof Array) {
         styleProperty.forEach((property) => {
-          computedStyle[property] = getThemeProperty(
-            theme,
-            props[propKey],
-            props[propKey]
-          );
+          computedStyle[property] = getThemeProperty(theme, props[propKey]);
         });
       } else {
-        computedStyle[styleProperty] = getThemeProperty(
-          theme,
-          props[propKey],
-          props[propKey]
-        );
+        computedStyle[styleProperty] = getThemeProperty(theme, props[propKey]);
       }
     }
   });
@@ -294,18 +282,10 @@ export const createBorderColorStyles = (props: any, theme: any) => {
     if (propKey in props) {
       if (styleProperty instanceof Array) {
         styleProperty.forEach((property) => {
-          computedStyle[property] = getThemeProperty(
-            theme,
-            props[propKey],
-            props[propKey]
-          );
+          computedStyle[property] = getThemeProperty(theme, props[propKey]);
         });
       } else {
-        computedStyle[styleProperty] = getThemeProperty(
-          theme,
-          props[propKey],
-          props[propKey]
-        );
+        computedStyle[styleProperty] = getThemeProperty(theme, props[propKey]);
       }
     }
   });
@@ -324,7 +304,7 @@ export const createShadowStyles = (props: any, theme: any) => {
   if (props.shadow) {
     computedStyle = {
       ...theme.shadow[props.shadow],
-      shadowColor: getThemeProperty(theme.colors, props.shadowColor, 'white'),
+      shadowColor: getThemeProperty(theme.colors, props.shadowColor),
     };
   }
 

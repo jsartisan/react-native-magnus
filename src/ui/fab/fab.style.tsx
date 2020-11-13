@@ -31,7 +31,7 @@ export const getStyle = (theme: any, props: any) => {
     computedStyle.button = {
       ...computedStyle.button,
       ...theme.shadow[props.shadow],
-      shadowColor: getThemeProperty(theme.colors, props.shadowColor, 'white'),
+      shadowColor: getThemeProperty(theme.colors, props.shadowColor),
     };
   }
 

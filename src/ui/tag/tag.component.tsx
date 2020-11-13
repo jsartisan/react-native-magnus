@@ -68,7 +68,7 @@ Tag.defaultProps = {
   py: 'sm',
   bg: 'gray200',
   color: 'gray800',
-  fontSize: 'text200',
+  fontSize: 'md',
   textAlign: 'auto',
   textTransform: 'none',
   rounded: 'md',

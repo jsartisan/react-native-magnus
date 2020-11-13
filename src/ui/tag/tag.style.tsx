@@ -18,17 +18,13 @@ export const getStyle = (theme: any, props: any) => {
   const computedStyle: any = {};
 
   computedStyle.div = {
-    borderColor: getThemeProperty(
-      theme.colors,
-      props.borderColor,
-      'transparent'
-    ),
+    borderColor: getThemeProperty(theme.colors, props.borderColor),
     borderWidth: props.borderWidth,
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
     alignSelf: 'flex-start',
-    backgroundColor: getThemeProperty(theme.colors, props.bg, 'transparent'),
+    backgroundColor: getThemeProperty(theme.colors, props.bg),
     ...createBorderWidthStyles(props),
     ...createSpacingStyles(props, theme.spacing),
     ...createBorderColorStyles(props, theme.colors),
@@ -36,15 +32,11 @@ export const getStyle = (theme: any, props: any) => {
   };
 
   computedStyle.text = {
-    color: getThemeProperty(theme.colors, props.color, '#000'),
-    fontSize: getThemeProperty(theme.fontSize, props.fontSize, 16),
+    color: getThemeProperty(theme.colors, props.color),
+    fontSize: getThemeProperty(theme.fontSize, props.fontSize),
     textAlign: props.textAlign,
     textTransform: props.textTransform,
-    textDecorationColor: getThemeProperty(
-      theme.colors,
-      props.textDecorColor,
-      'transparent'
-    ),
+    textDecorationColor: getThemeProperty(theme.colors, props.textDecorColor),
   };
 
   computedStyle.prefix = {

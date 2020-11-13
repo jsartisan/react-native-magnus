@@ -101,8 +101,8 @@ const Checkbox: React.FunctionComponent<CheckboxProps> = (props) => {
     if (loading) {
       return (
         <ActivityIndicator
-          size={getThemeProperty(theme.fontSize, size, 16)}
-          color={getThemeProperty(theme.colors, activeColor, 'blue')}
+          size={getThemeProperty(theme.fontSize, size)}
+          color={getThemeProperty(theme.colors, activeColor)}
           style={{ zIndex: 2, position: 'relative' }}
         />
       );
@@ -188,7 +188,7 @@ const Checkbox: React.FunctionComponent<CheckboxProps> = (props) => {
 Checkbox.defaultProps = {
   loading: false,
   disabled: false,
-  size: 'text700',
+  size: 'xl',
   defaultChecked: false,
   activeColor: 'blue600',
   inactiveColor: 'gray400',

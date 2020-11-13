@@ -18,11 +18,7 @@ export const getStyle = (theme: any, props: any) => {
   const computedStyle: any = {};
 
   computedStyle.div = {
-    borderColor: getThemeProperty(
-      theme.colors,
-      props.borderColor,
-      'transparent'
-    ),
+    borderColor: getThemeProperty(theme.colors, props.borderColor),
   };
 
   computedStyle.container = {
@@ -35,9 +31,9 @@ export const getStyle = (theme: any, props: any) => {
   };
 
   computedStyle.highlightContainer = {
-    backgroundColor: getThemeProperty(theme.colors, 'gray100', '#e1e1e1'),
-    height: getThemeProperty(theme.fontSize, props.size, 16) + 5,
-    width: getThemeProperty(theme.fontSize, props.size, 16) + 5,
+    backgroundColor: getThemeProperty(theme.colors, 'gray100'),
+    height: getThemeProperty(theme.fontSize, props.size) + 5,
+    width: getThemeProperty(theme.fontSize, props.size) + 5,
     alignItems: 'center',
     justifyContent: 'center',
     top: -2.5,

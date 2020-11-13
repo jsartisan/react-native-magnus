@@ -21,7 +21,7 @@ interface FabState {
 class Fab extends React.Component<FabProps, FabState> {
   static defaultProps = {
     color: 'white',
-    fontSize: 'text500',
+    fontSize: 'md',
     overlayColor: 'gray700',
     overlayOpacity: 0.5,
     position: 'absolute',
@@ -299,6 +299,9 @@ class Fab extends React.Component<FabProps, FabState> {
           return React.cloneElement(child, {
             mb: child.props.mb ? child.props.mb : 'xl',
             onPress: (e: GestureResponderEvent) => {
+              // if fab is not active, don't allow pressing buttons
+              if (!active) return;
+
               if (child.props.onPress) {
                 child.props.onPress(e);
               }
@@ -315,7 +318,7 @@ class Fab extends React.Component<FabProps, FabState> {
     const { overlayColor, overlayOpacity } = this.props;
 
     const calculatedOverlayColor = color(
-      getThemeProperty(theme.colors, overlayColor, 'white')
+      getThemeProperty(theme.colors, overlayColor)
     )
       .alpha(overlayOpacity || 1)
       .rgb()
@@ -345,7 +348,7 @@ class Fab extends React.Component<FabProps, FabState> {
 
           return (
             <Animated.View
-              pointerEvents="box-none"
+              pointerEvents={'box-none'}
               style={computedStyle.overlay}
             >
               {active &&

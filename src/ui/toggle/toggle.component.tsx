@@ -92,8 +92,8 @@ function Toggle(props: ToggleProps): React.ReactElement {
             backgroundColor: animXValue.interpolate({
               inputRange: [0, 1],
               outputRange: [
-                getThemeProperty(theme.colors, bg, 'white'),
-                getThemeProperty(theme.colors, activeBg, 'white'),
+                getThemeProperty(theme.colors, bg),
+                getThemeProperty(theme.colors, activeBg),
               ],
             }),
           },
@@ -106,8 +106,8 @@ function Toggle(props: ToggleProps): React.ReactElement {
               backgroundColor: animXValue.interpolate({
                 inputRange: [0, 1],
                 outputRange: [
-                  getThemeProperty(theme.colors, circleBg, 'white'),
-                  getThemeProperty(theme.colors, activeCircleBg, 'white'),
+                  getThemeProperty(theme.colors, circleBg),
+                  getThemeProperty(theme.colors, activeCircleBg),
                 ],
               }),
             },

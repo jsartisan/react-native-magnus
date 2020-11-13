@@ -78,7 +78,7 @@ const Radio: React.FunctionComponent<RadioProps> = (props) => {
   const getIcon = () => {
     return loading ? (
       <ActivityIndicator
-        size={getThemeProperty(theme.fontSize, size, 16)}
+        size={getThemeProperty(theme.fontSize, size)}
         color={iconColor}
       />
     ) : (
@@ -87,8 +87,8 @@ const Radio: React.FunctionComponent<RadioProps> = (props) => {
         color={iconColor}
         fontFamily="MaterialIcons"
         fontSize={size}
-        w={getThemeProperty(theme.fontSize, size, 16)}
-        h={getThemeProperty(theme.fontSize, size, 16)}
+        w={getThemeProperty(theme.fontSize, size)}
+        h={getThemeProperty(theme.fontSize, size)}
         style={{ zIndex: 2, position: 'relative' }}
       />
     );
@@ -127,7 +127,7 @@ const Radio: React.FunctionComponent<RadioProps> = (props) => {
 Radio.defaultProps = {
   loading: false,
   disabled: false,
-  size: 'text600',
+  size: 'lg',
   value: null,
   activeColor: 'blue600',
   inactiveColor: 'gray900',

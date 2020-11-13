@@ -34,7 +34,7 @@ export const getStyle = (theme: any, props: any) => {
     alignSelf: 'flex-start',
     opacity: props.opacity,
     minHeight: typeof props.children === 'string' ? 30 : 10,
-    backgroundColor: getThemeProperty(theme.colors, props.bg, 'transparent'),
+    backgroundColor: getThemeProperty(theme.colors, props.bg),
     minWidth: typeof props.children === 'string' ? 30 : 10,
     ...createPositionStyle(props),
     ...createBorderWidthStyles(props),
@@ -47,7 +47,7 @@ export const getStyle = (theme: any, props: any) => {
 
   computedStyle.text = {
     color: props.color,
-    fontSize: getThemeProperty(theme.fontSize, props.fontSize, 16),
+    fontSize: getThemeProperty(theme.fontSize, props.fontSize),
     paddingHorizontal: 10,
   };
 

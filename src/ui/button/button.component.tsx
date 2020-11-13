@@ -75,15 +75,16 @@ const Button: React.FunctionComponent<ButtonProps> = (props) => {
 
   const underlayColor = getThemeProperty(
     theme.colors,
-    props.underlayColor,
-    color(getThemeProperty(theme.colors, props.bg, '#e1e1e1'))
-      .darken(0.1)
-      .rgb()
-      .string()
+    props.underlayColor
+      ? props.underlayColor
+      : color(getThemeProperty(theme.colors, props.bg))
+          .darken(0.1)
+          .rgb()
+          .string()
   );
 
   const calculatedRippleColor = color(
-    getThemeProperty(theme.colors, rippleColor, 'white')
+    getThemeProperty(theme.colors, rippleColor)
   )
     .alpha(disabled ? 0 : 0.2)
     .rgb()
@@ -121,8 +122,8 @@ const Button: React.FunctionComponent<ButtonProps> = (props) => {
         <RNView style={computedStyle.container}>
           <RNView style={computedStyle.loadingContainer}>
             <RNActivityIndicator
-              size={getThemeProperty(theme.fontSize, loaderSize, 16)}
-              color={getThemeProperty(theme.colors, loaderColor, '#e1e1e1')}
+              size={getThemeProperty(theme.fontSize, loaderSize)}
+              color={getThemeProperty(theme.colors, loaderColor)}
             />
           </RNView>
         </RNView>
@@ -144,13 +145,13 @@ Button.defaultProps = {
   rounded: 'md',
   loading: false,
   disabled: false,
-  loaderSize: 'text400',
+  loaderSize: 'md',
   loaderColor: 'gray400',
   block: false,
   position: 'relative',
   shadowColor: 'gray800',
   shadow: 0,
-  fontSize: 'text400',
+  fontSize: 'md',
   rippleColor: 'white',
   ripple: true,
   borderless: false,

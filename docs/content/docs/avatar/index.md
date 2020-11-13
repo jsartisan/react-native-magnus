@@ -81,4 +81,4 @@ import { Avatar, Icon } from 'react-native-magnus';
 | bottom            | number of logical pixels to offset the bottom edge of this component. | `number`                 | -          |
 | left              | number of logical pixels to offset the left edge of this component.   | `number`                 | -          |
 | src               | image source                                                          | `ImageSourcePropType`    | -          |
-| fontSize          | fontSize for text                                                     | `string`                 | `text400`  |
+| fontSize          | fontSize for text                                                     | `string`                 | `md`       |

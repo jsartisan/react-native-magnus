@@ -81,7 +81,7 @@ import { Fab } from "react-native-magnus";
 | disabled          | disabled state for button. Decreases the opacity and onPress handler won't work when true     | `boolean`                                                 | `false`      |
 | loading           | loading state for button. Renders the ActivityIndicator inside button when true               | `boolean`                                                 | `false`      |
 | loaderColor       | color for ActivityIndicator for loading state                                                 | `string`                                                  | `gray400`    |
-| loaderSize        | size for ActivityIndicator for loading state                                                  | `string`                                                  | `text400`    |
+| loaderSize        | size for ActivityIndicator for loading state                                                  | `string`                                                  | `md`         |
 | borderColor       | color for border                                                                              | `string`                                                  | -            |
 | borderTopColor    | color for border top                                                                          | `string`                                                  | -            |
 | borderRightColor  | color for border right                                                                        | `string`                                                  | -            |

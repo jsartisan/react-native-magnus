@@ -2,10 +2,10 @@
 title: Button
 ---
 
-Button is a wrapper around `<TouchableOpaicty />` or `<TouchableNativeFeedback />` of react-native. It accepts all props supported by them. On iOs, Button renders to TouchableOpaicty and on Android, it renders to TouchableNativeFeedback.
+Button is a wrapper around `<TouchableOpaicty />` or `<TouchableNativeFeedback />` of react-native. It accepts all props supported by them. On iOs, Button renders to TouchableOpacity and on Android, it renders to TouchableNativeFeedback.
 
 [[warning]]
-| Button won't work with Expo versions < 38. This is because we moved to `Pressable` component and Pressable is not available in Expo in version < 38 , because they does not support React Native v0.63. So we recommend using magnus version 1.0.40 for versions < 38.
+| Button won't work with Expo versions < 38. This is because we moved to `Pressable` component and Pressable is not available in Expo in version < 38. So we recommend using magnus version < 1.0.40 for expo versions < 38.
 
 ## Example #1
 
@@ -254,7 +254,7 @@ Accepts all props supported by `TouchableHighlight` and `TouchableNativeFeedback
 | rounded           | border radius                                                                             | `string`                                                                                  | `none`     |
 | loading           | loading state for button. Renders the ActivityIndicator inside button when true           | `boolean`                                                                                 | `false`    |
 | loaderColor       | color for ActivityIndicator for loading state                                             | `string`                                                                                  | `gray400`  |
-| loaderSize        | size for ActivityIndicator for loading state                                              | `string`                                                                                  | `text400`  |
+| loaderSize        | size for ActivityIndicator for loading state                                              | `string`                                                                                  | `md`       |
 | disabled          | disabled state for button. Decreases the opacity and onPress handler won't work when true | `boolean`                                                                                 | `false`    |
 | borderColor       | color for border                                                                          | `string`                                                                                  | -          |
 | borderTopColor    | color for border top                                                                      | `string`                                                                                  | -          |

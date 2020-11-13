@@ -20,7 +20,7 @@ export const getStyle = (theme: any, props: any) => {
   const computedStyle: any = {};
 
   computedStyle.container = {
-    backgroundColor: getThemeProperty(theme.colors, props.bg, 'transparent'),
+    backgroundColor: getThemeProperty(theme.colors, props.bg),
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: props.flexDir,
@@ -38,7 +38,7 @@ export const getStyle = (theme: any, props: any) => {
   };
 
   computedStyle.row = {
-    backgroundColor: getThemeProperty(theme.colors, props.bg, 'transparent'),
+    backgroundColor: getThemeProperty(theme.colors, props.bg),
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
@@ -54,8 +54,8 @@ export const getStyle = (theme: any, props: any) => {
   };
 
   computedStyle.text = {
-    color: getThemeProperty(theme.colors, props.color, '#000'),
-    fontSize: getThemeProperty(theme.fontSize, props.fontSize, 16),
+    color: getThemeProperty(theme.colors, props.color),
+    fontSize: getThemeProperty(theme.fontSize, props.fontSize),
     textAlignVertical: 'center',
     textAlign: 'center',
   };

@@ -36,7 +36,7 @@ export const getStyle = (theme: any, props: any) => {
     overflow: props.overflow,
     zIndex: props.zIndex,
     borderStyle: props.borderStyle,
-    backgroundColor: getThemeProperty(theme.colors, props.bg, 'transparent'),
+    backgroundColor: getThemeProperty(theme.colors, props.bg),
     ...createFlexStyles(props),
     ...createPositionStyle(props),
     ...createShadowStyles(props, theme),

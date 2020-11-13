@@ -28,8 +28,8 @@ export const getStyle = (theme: any, props: any) => {
 
   computedStyle.text = {
     flex: 1,
-    fontSize: getThemeProperty(theme.fontSize, props.fontSize, 16),
-    color: getThemeProperty(theme.colors, props.color, 'white'),
+    fontSize: getThemeProperty(theme.fontSize, props.fontSize),
+    color: getThemeProperty(theme.colors, props.color),
   };
 
   computedStyle.prefix = {
@@ -57,7 +57,7 @@ export const getStyle = (theme: any, props: any) => {
     ...createSpacingStyles(props, theme.spacing),
     ...createBorderColorStyles(props, theme.colors),
     ...createBorderRadiusStyles(props, theme.borderRadius),
-    backgroundColor: getThemeProperty(theme.colors, props.bg, 'transparent'),
+    backgroundColor: getThemeProperty(theme.colors, props.bg),
   };
 
   return StyleSheet.create(computedStyle);

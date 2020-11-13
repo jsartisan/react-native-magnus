@@ -30,7 +30,7 @@ import { Tag, Icon } from 'react-native-magnus'
 </Tag>
 <Tag
   ml="sm"
-  bg="warning300"
+  bg="yellow300"
   borderColor="yellow700"
   borderWidth={1}
 >

@@ -72,11 +72,11 @@ const Input = React.forwardRef<RNTextInput, InputProps>((props, ref) => {
   const [isFocussed, setIsFocussed] = useState(false);
   const computedStyle = getStyle(theme, props, { isFocussed });
   const placeholderColor = placeholderTextColor
-    ? color(getThemeProperty(theme.colors, placeholderTextColor, '#e1e1e1'))
+    ? color(getThemeProperty(theme.colors, placeholderTextColor))
         .alpha(0.4)
         .rgb()
         .string()
-    : color(getThemeProperty(theme.colors, colorProp, '#e1e1e1'))
+    : color(getThemeProperty(theme.colors, colorProp))
         .alpha(0.4)
         .rgb()
         .string();
@@ -121,8 +121,8 @@ const Input = React.forwardRef<RNTextInput, InputProps>((props, ref) => {
       {loading && (
         <RNView style={computedStyle.suffix}>
           <RNActivityIndicator
-            size={getThemeProperty(theme.fontSize, loaderSize, 16)}
-            color={getThemeProperty(theme.colors, loaderColor, '#e1e1e1')}
+            size={getThemeProperty(theme.fontSize, loaderSize)}
+            color={getThemeProperty(theme.colors, loaderColor)}
           />
         </RNView>
       )}
@@ -133,14 +133,14 @@ const Input = React.forwardRef<RNTextInput, InputProps>((props, ref) => {
 Input.defaultProps = {
   p: 'md',
   borderColor: 'gray200',
-  fontSize: 'text300',
+  fontSize: 'md',
   borderWidth: 1,
   rounded: 'md',
   loading: false,
   color: 'gray800',
   shadow: 0,
-  shadowColor: 'black500',
-  loaderSize: 'text400',
+  shadowColor: 'gray500',
+  loaderSize: 'md',
   loaderColor: 'gray300',
 };
 

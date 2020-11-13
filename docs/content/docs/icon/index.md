@@ -94,7 +94,7 @@ We are using `react-native-vector-icons` behinds the scene.
 | shadow            | describe the depth of shadow to be used                               | `number`                 | -           |
 | shadowColor       | color for shadow                                                      | `string`                 | -           |
 | fontFamily        | name of the font family for icon                                      | `string`                 | `AntDesign` |
-| fontSize          | fontSize for icon                                                     | `string`                 | `text400`   |
+| fontSize          | fontSize for icon                                                     | `string`                 | `md`        |
 | name              | name of icon                                                          | `string`                 | `-`         |
 | color             | icon color                                                            | `string`                 | `gray500`   |
 | position          | used to position the childrens                                        | `absolute" | "relative"` | `relative`  |

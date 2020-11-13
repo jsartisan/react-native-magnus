@@ -39,20 +39,20 @@ export const getStyle = (theme: any, props: any) => {
     ...createSpacingStyles(props, theme.spacing),
     ...createBorderColorStyles(props, theme.colors),
     ...createBorderRadiusStyles(props, theme.borderRadius),
-    backgroundColor: getThemeProperty(theme.colors, props.bg, 'transparent'),
+    backgroundColor: getThemeProperty(theme.colors, props.bg),
   };
 
   computedStyle.text = {
     fontWeight: props.fontWeight,
-    color: getThemeProperty(theme.colors, props.color, 'black'),
-    fontSize: getThemeProperty(theme.fontSize, props.fontSize, 16),
-    lineHeight: getThemeProperty(theme.fontSize, props.fontSize, 16) * 1.2,
+    color: getThemeProperty(theme.colors, props.color),
+    fontSize: getThemeProperty(theme.fontSize, props.fontSize),
+    lineHeight: getThemeProperty(theme.fontSize, props.fontSize) * 1.2,
   };
 
   computedStyle.loadingContainer = {
     alignItems: 'center',
     justifyContent: 'center',
-    minHeight: getThemeProperty(theme.fontSize, props.loaderSize, 16) * 1.2,
+    minHeight: getThemeProperty(theme.fontSize, props.loaderSize) * 1.2,
   };
 
   computedStyle.container = {
