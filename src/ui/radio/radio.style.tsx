@@ -90,12 +90,14 @@ export const getStyle = (theme: any, props: any, extraProps: any) => {
     width: getThemeProperty(theme.fontSize, props.fontSize) + 5,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 3,
+    ...createBorderRadiusStyles(props, theme.borderRadius),
+    position: 'absolute',
+    left: -2.5,
+    top: -2.5,
   };
 
   computedStyle.icon = {
     zIndex: 2,
-    position: 'absolute',
   };
 
   if (props.disabled) {

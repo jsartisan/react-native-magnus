@@ -70,4 +70,12 @@ export interface IRadioProps
   checked?: boolean;
   onChange?: any;
   value?: any;
+  children?: ((states: IRadioStates) => React.ReactNode) | React.ReactNode;
+}
+
+interface IRadioStates {
+  focussed?: boolean;
+  checked?: boolean;
+  disabled?: boolean;
+  loading?: boolean;
 }

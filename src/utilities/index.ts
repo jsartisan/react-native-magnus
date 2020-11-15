@@ -1,38 +1,43 @@
-import { Platform, Dimensions, StatusBar } from 'react-native';
+import * as React from 'react';
+import { Dimensions } from 'react-native';
 
-const { Version, OS } = Platform;
+const WINDOW = Dimensions.get('window');
 
-export const IS_ANDROID = OS === 'android';
-export const IS_LT_LOLLIPOP = Version < 21;
-export const ANDROID_VERSION_LOLLIPOP = 21;
-export const ANDROID_VERSION_PIE = 28;
+export const WINDOW_WIDTH = WINDOW.width;
+export const WINDOW_HEIGHT = WINDOW.height;
 
-export const canSupportRipple =
-  Platform.OS === 'android' && Platform.Version >= ANDROID_VERSION_LOLLIPOP;
+//is the value an empty array?
+export const isEmptyArray = (value?: any) =>
+  Array.isArray(value) && value.length === 0;
 
-const X_WIDTH = 375;
-const X_HEIGHT = 812;
+// is the given object a Function?
+export const isFunction = (obj: any): obj is Function =>
+  typeof obj === 'function';
 
-const XSMAX_WIDTH = 414;
-const XSMAX_HEIGHT = 896;
+// is the given object an Object?
+export const isObject = (obj: any): obj is Object =>
+  obj !== null && typeof obj === 'object';
 
-const { height: W_HEIGHT, width: W_WIDTH } = Dimensions.get('window');
+// is the given object an integer?
+export const isInteger = (obj: any): boolean =>
+  String(Math.floor(Number(obj))) === obj;
 
-let isIPhoneX = false;
+// is the given object a string?
+export const isString = (obj: any): obj is string =>
+  Object.prototype.toString.call(obj) === '[object String]';
 
-if (Platform.OS === 'ios' && !Platform.isPad && !Platform.isTVOS) {
-  isIPhoneX =
-    (W_WIDTH === X_WIDTH && W_HEIGHT === X_HEIGHT) ||
-    (W_WIDTH === XSMAX_WIDTH && W_HEIGHT === XSMAX_HEIGHT);
-}
+// is the given object a NaN?
+// eslint-disable-next-line no-self-compare
+export const isNaN = (obj: any): boolean => obj !== obj;
 
-export function getStatusBarHeight(skipAndroid: boolean) {
-  return Platform.select({
-    ios: isIPhoneX ? 44 : 20,
-    android: skipAndroid ? 0 : StatusBar.currentHeight,
-    default: 0,
-  });
-}
+// Does a React component have exactly 0 children?
+export const isEmptyChildren = (children: any): boolean =>
+  React.Children.count(children) === 0;
 
-export { isIphoneX, isIOS } from './platform';
-export { ScreenHeight, ScreenWidth } from './dimension';
+// is the given object/value a promise?
+export const isPromise = (value: any): value is PromiseLike<any> =>
+  isObject(value) && isFunction(value.then);
+
+// is the given object/value a type of synthetic event?
+export const isInputEvent = (value: any): value is React.SyntheticEvent<any> =>
+  value && isObject(value) && isObject(value.target);

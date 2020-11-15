@@ -61,119 +61,37 @@ const App = () => {
       <StatusBar barStyle="dark-content" />
       <SafeAreaView style={{flex: 1}}>
         <Host>
-          <Div mx="xl" flex={1}>
-            {/* header */}
-            <Header
-              suffix={
-                <Badge
-                  bg="green500"
-                  zIndex={10}
-                  right={-5}
-                  top={0}
-                  h={12}
-                  w={12}>
-                  <Button
-                    bg="gray200"
-                    p="none"
-                    rounded="circle"
-                    onPress={() => {}}>
-                    <Image
-                      h={40}
-                      w={40}
-                      source={{
-                        uri:
-                          'https://images.unsplash.com/photo-1561037404-61cd46aa615b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&q=80',
-                      }}
-                    />
-                  </Button>
-                </Badge>
-              }>
-              <Div flexGrow={1}>
-                <Text fontWeight="bold" fontSize="2xl">
-                  Explore
-                </Text>
-                <Text color="gray700" mt="md" mb="sm">
-                  My friends
-                </Text>
-              </Div>
-            </Header>
-            {/* input box */}
-            <Input
-              suffix={
-                <Icon
-                  name="search"
-                  color="gray700"
-                  fontSize="md"
-                  fontFamily="FontAwesome"
-                />
-              }
-              p="md"
-              fontSize="lg"
-              borderWidth={0}
-              placeholder="Search your doge homies"
-              mt="lg"
-              bg="gray100"
-            />
-
-            {/* list */}
-            <Div mt="md" flex={1}>
-              <FlatList
-                showsVerticalScrollIndicator={false}
-                data={friends}
-                renderItem={({item}) => (
-                  <>
-                    <Image
-                      source={{uri: item.image}}
-                      h={120}
-                      w="100%"
-                      resize
-                      rounded="xl"
-                      mb="xl"
-                      bg="gray200"
-                      resizeMode="cover"
-                    />
-                  </>
-                )}
-                keyExtractor={(item) => `friend-list-item-${item.id}`}
-              />
+          <Div m="lg">
+            <Div>
+              <Checkbox.Group row onChange={setCheckboxValue}>
+                {['Pepproni', 'Cheese', 'Olive'].map((value) => (
+                  <Checkbox value={value} mr="md" key={value}>
+                    {({checked}) => (
+                      <Div
+                        bg={checked ? 'blue700' : 'gray300'}
+                        py="md"
+                        px="xl"
+                        rounded="circle">
+                        <Text color={checked ? 'white' : 'gray800'}>
+                          {value}
+                        </Text>
+                      </Div>
+                    )}
+                  </Checkbox>
+                ))}
+              </Checkbox.Group>
+              <Checkbox.Group row onChange={setCheckboxValue} mt="lg">
+                {['Pepproni', 'Cheese', 'Olive'].map((value) => (
+                  <Checkbox value={value} mr="md" key={value} />
+                ))}
+              </Checkbox.Group>
+              <Radio.Group row onChange={setCheckboxValue} mt="md">
+                {['Pepproni', 'Cheese', 'Olive'].map((value) => (
+                  <Radio value={value} mr="md" key={value} />
+                ))}
+              </Radio.Group>
             </Div>
           </Div>
-          <Portal>
-            <Fab bg="blue600" h={50} w={50}>
-              <Button
-                p="none"
-                bg="transparent"
-                justifyContent="flex-end"
-                onPress={() => alert('Pressed!')}>
-                <Div rounded="sm" bg="white" p="sm">
-                  <Text fontSize="md">Cheer</Text>
-                </Div>
-                <Icon
-                  name="user"
-                  color="blue600"
-                  h={50}
-                  w={50}
-                  rounded="circle"
-                  ml="md"
-                  bg="white"
-                />
-              </Button>
-              <Button p="none" bg="transparent" justifyContent="flex-end">
-                <Div rounded="sm" bg="white" p="sm">
-                  <Text fontSize="md">Boost</Text>
-                </Div>
-                <Icon
-                  name="user"
-                  color="blue600"
-                  h={50}
-                  w={50}
-                  rounded="circle"
-                  ml="md"
-                  bg="white"
-                />
-              </Button>
-            </Fab>
-          </Portal>
         </Host>
       </SafeAreaView>
     </ThemeProvider>

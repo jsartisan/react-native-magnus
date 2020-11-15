@@ -8,26 +8,40 @@ Custom components for rendering checkbox input
 
 <a href="https://snack.expo.io/@pawankumar2901/magnus---checkbox---example-1" target="_blank">See it on Snack</a>
 
-<img src="/images/docs/checkbox/1.png"  style="height: 120px; width: auto;" />
+<img src="/images/docs/checkbox/1.gif"  style="height: 120px; width: auto;" />
 
 ```jsx
-import { Checkbox, Text } from 'react-native-magnus'
+import { Checkbox, Text } from "react-native-magnus";
 
-<Checkbox defaultChecked>
-  <Text>Normal Checkbox</Text>
-</Checkbox>
-<Checkbox activeColor="green500" inactiveColor="green300">
-  <Text>Green Checkbox</Text>
-</Checkbox>
-<Checkbox disabled >
-  <Text>Disabled Checkbox</Text>
-</Checkbox>
-<Checkbox loading>
-  <Text>Loading state Checkbox</Text>
-</Checkbox>
+ <Checkbox.Group row onChange={setCheckboxValue}>
+  <Checkbox value={1} />
+  <Checkbox value={2} activeColor="green500" />
+  <Checkbox value={3} disabled />
+  <Checkbox value={3} loading />
+  <Checkbox
+    value={4}
+    activeIcon={<Icon name="user" color="green500" />}
+    inactiveIcon={<Icon name="user" />}
+  />
+</Checkbox.Group>
+<Text p="md" textAlign="center" bg="blue100" mt="md">
+  {checkboxValue.join(',')}
+</Text>
 ```
 
 <br />
+
+# Example 1
+
+```jsx
+<Checkbox.Group onChange={setCheckboxValue}>
+  <Checkbox value={1} prefix={<Text flex={1}>Option 1</Text>} />
+  <Checkbox value={2} prefix={<Text flex={1}>Option 2</Text>} />
+  <Checkbox value={3} prefix={<Text flex={1}>Option 3</Text>} />
+</Checkbox.Group>
+```
+
+# Example 2
 
 ## Props
 

@@ -7,7 +7,7 @@ import {
   createBorderColorStyles,
   createBorderWidthStyles,
 } from '../../theme/theme.service';
-import { ScreenHeight } from '../../utilities/dimension';
+import { WINDOW_HEIGHT } from '../../utilities';
 
 /**
  * computed style
@@ -23,7 +23,7 @@ export const getStyle = (theme: any, props: any) => {
     ...createBorderWidthStyles(props),
     ...createBorderColorStyles(props, theme.colors),
     ...createBorderRadiusStyles(props, theme.borderRadius),
-    height: ScreenHeight * 0.7,
+    height: WINDOW_HEIGHT * 0.7,
   };
 
   computedStyle.indicator = {

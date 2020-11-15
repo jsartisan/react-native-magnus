@@ -70,4 +70,12 @@ export interface ICheckboxProps
   checked?: boolean;
   onChange?: any;
   value?: any;
+  children?: ((states: ICheckboxStates) => React.ReactNode) | React.ReactNode;
+}
+
+interface ICheckboxStates {
+  focussed?: boolean;
+  checked?: boolean;
+  disabled?: boolean;
+  loading?: boolean;
 }

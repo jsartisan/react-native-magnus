@@ -15,6 +15,7 @@ import { getThemeProperty } from '../../theme/theme.service';
 import { getIconName, getIconColor } from './radio.service';
 import { IRadioProps, IRadio } from './radio.type';
 import { RadioGroup } from './group.component';
+import { isFunction } from '../../utilities';
 
 const Radio: IRadio<IRadioProps> = (props) => {
   const {
@@ -99,13 +100,11 @@ const Radio: IRadio<IRadioProps> = (props) => {
       setChecked(true);
     }
 
-    // if there is onPress prop passed, call it
-    if (typeof onPressProp === 'function') {
+    if (isFunction(onPressProp)) {
       onPressProp(event);
     }
 
-    // if onChange prop is a valid function, call it
-    if (typeof onChange === 'function') {
+    if (isFunction(onPressProp)) {
       onChange(value);
     }
   };
@@ -197,15 +196,22 @@ const Radio: IRadio<IRadioProps> = (props) => {
     );
   };
 
-  /**
-   * render children
-   */
   const renderChildren = () => {
-    if (typeof children === 'string') {
-      return <Text ml="sm">{children}</Text>;
+    if (isFunction(children)) {
+      return children({ focussed, disabled, checked, loading });
     }
 
-    return children;
+    return (
+      <>
+        {prefix}
+        <RNView>
+          <RNView style={computedStyle.highlightContainer} />
+          <RNView style={computedStyle.icon}>{icon}</RNView>
+        </RNView>
+        {children}
+        {suffix}
+      </>
+    );
   };
 
   const icon = getIcon();
@@ -218,14 +224,7 @@ const Radio: IRadio<IRadioProps> = (props) => {
       onPressIn={disabled ? undefined : onPressIn}
       onPressOut={disabled ? undefined : onPressOut}
     >
-      <RNView style={computedStyle.container}>
-        {prefix}
-        <RNView style={computedStyle.highlightContainer}>
-          <RNView style={computedStyle.icon}>{icon}</RNView>
-        </RNView>
-        {renderChildren()}
-        {suffix}
-      </RNView>
+      <RNView style={computedStyle.container}>{renderChildren()}</RNView>
     </RNButton>
   );
 };
@@ -238,7 +237,7 @@ Radio.defaultProps = {
   bg: 'transparent',
   p: 'none',
   color: 'white',
-  rounded: 'md',
+  rounded: 'circle',
   loading: false,
   disabled: false,
   loaderSize: 'md',
@@ -248,7 +247,7 @@ Radio.defaultProps = {
   shadowColor: 'gray800',
   shadow: 0,
   fontSize: '4xl',
-  borderless: false,
+  borderless: true,
   alignItems: 'center',
   justifyContent: 'center',
   alignSelf: 'flex-start',

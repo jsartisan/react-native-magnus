@@ -10,11 +10,11 @@ import {
 import { ThemeContext } from '../../theme';
 import { getStyle } from './checkbox.style';
 import { Icon } from '../icon/icon.component';
-import { Text } from '../text/text.component';
 import { ICheckbox, ICheckboxProps } from './checkbox.type';
 import { getThemeProperty } from '../../theme/theme.service';
 import { getIconName, getIconColor } from './checkbox.service';
 import { CheckboxGroup } from './group.component';
+import { isFunction } from '../../utilities';
 
 const Checkbox: ICheckbox<ICheckboxProps> = (props) => {
   const {
@@ -73,6 +73,7 @@ const Checkbox: ICheckbox<ICheckboxProps> = (props) => {
     activeColor,
     inactiveColor,
     defaultChecked,
+    renderer,
     checked: checkedProp,
     onPress: onPressProp,
     ...rest
@@ -100,12 +101,12 @@ const Checkbox: ICheckbox<ICheckboxProps> = (props) => {
       setChecked(!checked);
     }
 
-    if (typeof onPressProp === 'function') {
+    if (isFunction(onPressProp)) {
       onPressProp(event);
     }
 
     // if onChange prop is a valid function, call it
-    if (typeof onChange === 'function') {
+    if (isFunction(onChange)) {
       onChange(value);
     }
   };
@@ -197,15 +198,22 @@ const Checkbox: ICheckbox<ICheckboxProps> = (props) => {
     );
   };
 
-  /**
-   * render children
-   */
   const renderChildren = () => {
-    if (typeof children === 'string') {
-      return <Text ml="sm">{children}</Text>;
+    if (isFunction(children)) {
+      return children({ focussed, disabled, checked, loading });
     }
 
-    return children;
+    return (
+      <>
+        {prefix}
+        <RNView>
+          <RNView style={computedStyle.highlightContainer} />
+          <RNView style={computedStyle.icon}>{icon}</RNView>
+        </RNView>
+        {children}
+        {suffix}
+      </>
+    );
   };
 
   const icon = getIcon();
@@ -214,18 +222,11 @@ const Checkbox: ICheckbox<ICheckboxProps> = (props) => {
     <RNButton
       {...rest}
       style={computedStyle.button}
-      onPress={disabled ? undefined : onPress}
-      onPressIn={disabled ? undefined : onPressIn}
-      onPressOut={disabled ? undefined : onPressOut}
+      onPress={disabled || loading ? undefined : onPress}
+      onPressIn={disabled || loading ? undefined : onPressIn}
+      onPressOut={disabled || loading ? undefined : onPressOut}
     >
-      <RNView style={computedStyle.container}>
-        {prefix}
-        <RNView style={computedStyle.highlightContainer}>
-          <RNView style={computedStyle.icon}>{icon}</RNView>
-        </RNView>
-        {renderChildren()}
-        {suffix}
-      </RNView>
+      <RNView style={computedStyle.container}>{renderChildren()}</RNView>
     </RNButton>
   );
 };
@@ -247,8 +248,8 @@ Checkbox.defaultProps = {
   position: 'relative',
   shadowColor: 'gray800',
   shadow: 0,
-  fontSize: '4xl',
-  borderless: false,
+  fontSize: '5xl',
+  borderless: true,
   alignItems: 'center',
   justifyContent: 'center',
   alignSelf: 'flex-start',
