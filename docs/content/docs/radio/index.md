@@ -4,89 +4,141 @@ date: "2019-08-13"
 description: ""
 ---
 
-Custom components for rendering radio element.
-
-<br />
+Custom components for rendering radio input
 
 <a href="https://snack.expo.io/@pawankumar2901/magnus---radio---example-1" target="_blank">See it on Snack</a>
 
-<img src="/images/docs/radio/1.png"  style="height: 130px; width: auto;" />
+<img src="/images/docs/radio/1.png"  style="height: 50px; width: auto;" />
 
 ```jsx
-import React, { useState } from "react";
-import { Radio } from "react-native-magnus";
+import React from "react";
+import { SafeAreaView, StatusBar } from "react-native";
+import { Div, ThemeProvider, Radio } from "react-native-magnus";
 
-const [radioValue1, setRadioValue1] = useState(null);
+const App = () => {
+  return (
+    <ThemeProvider>
+      <StatusBar barStyle="dark-content" />
+      <SafeAreaView style={{ flex: 1 }}>
+        <Div m="lg">
+          <Div>
+            <Div row>
+              <Radio value={1} />
+              <Radio value={2} defaultChecked />
+              <Radio value={3} activeColor="green500" />
+              <Radio value={4} disabled />
+              <Radio value={5} loading />
+            </Div>
+          </Div>
+        </Div>
+      </SafeAreaView>
+    </ThemeProvider>
+  );
+};
 
-<RadioGroup
-  value={radioValue1}
-  onChange={(value: any) => setRadioValue1(value)}
->
-  <Radio value={1}>
-    <Text>Pikachu</Text>
-  </Radio>
-  <Radio value={2}>
-    <Text>Squirtle</Text>
-  </Radio>
-  <Radio value={3}>
-    <Text>Charmendar</Text>
-  </Radio>
-  <Radio value={4}>
-    <Text>Balbasaur</Text>
-  </Radio>
-</RadioGroup>;
+export default App;
 ```
 
-## Examples
+<br />
+
+## Example 1
+
+Checkbox with prefix text
+
+<img src="/images/docs/radio/2.png"  style="height: 120px; width: auto;" />
+
+```jsx
+import React from "react";
+import { SafeAreaView, StatusBar } from "react-native";
+import { Div, ThemeProvider, Radio, Text } from "react-native-magnus";
+
+const App = () => {
+  return (
+    <ThemeProvider>
+      <StatusBar barStyle="dark-content" />
+      <SafeAreaView style={{ flex: 1 }}>
+        <Div m="lg">
+          <Div>
+            <Radio.Group>
+              <Radio value={1} prefix={<Text flex={1}>Option 1</Text>} />
+              <Radio value={2} prefix={<Text flex={1}>Option 2</Text>} />
+              <Radio value={3} prefix={<Text flex={1}>Option 3</Text>} />
+            </Radio.Group>
+          </Div>
+        </Div>
+      </SafeAreaView>
+    </ThemeProvider>
+  );
+};
+
+export default App;
+```
+
+<br />
+
+## Example 2
+
+Custom renderer
+
+<img src="/images/docs/radio/3.png"  style="height: 80px; width: auto;" />
+
+```jsx
+import React from "react";
+import { SafeAreaView, StatusBar } from "react-native";
+import { Div, ThemeProvider, Radio, Text } from "react-native-magnus";
+
+const App = () => {
+  return (
+    <ThemeProvider>
+      <StatusBar barStyle="dark-content" />
+      <SafeAreaView style={{ flex: 1 }}>
+        <Div m="lg">
+          <Radio.Group row>
+            {["Option 1", "Option 2", "Option 3"].map((item) => (
+              <Radio value={item}>
+                {({ checked }) => (
+                  <Div
+                    bg={checked ? "blue600" : "blue100"}
+                    px="xl"
+                    py="md"
+                    mr="md"
+                    rounded="circle"
+                  >
+                    <Text color={checked ? "white" : "gray800"}>{item}</Text>
+                  </Div>
+                )}
+              </Radio>
+            ))}
+          </Radio.Group>
+        </Div>
+      </SafeAreaView>
+    </ThemeProvider>
+  );
+};
+
+export default App;
+```
 
 ## Props
 
-| Property          | Description                                                                                | Type                                                                                      | Default    |
-| ----------------- | ------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------- | ---------- |
-| m                 | margin                                                                                     | `string | number`                                                                         | -          |
-| mt                | margin top                                                                                 | `string | number`                                                                         | -          |
-| mr                | margin right                                                                               | `string | number`                                                                         | -          |
-| mb                | margin bottom                                                                              | `string | number`                                                                         | -          |
-| ml                | margin margin left                                                                         | `string | number`                                                                         | -          |
-| mx                | margin horizonal                                                                           | `string | number`                                                                         | -          |
-| my                | margin vertical                                                                            | `string | number`                                                                         | -          |
-| p                 | padding                                                                                    | `string | number`                                                                         | -          |
-| pt                | padding top                                                                                | `string | number`                                                                         | -          |
-| pr                | padding right                                                                              | `string | number`                                                                         | -          |
-| pb                | padding bottom                                                                             | `string | number`                                                                         | -          |
-| pl                | padding margin left                                                                        | `string | number`                                                                         | -          |
-| px                | padding horizonal                                                                          | `string | number`                                                                         | -          |
-| py                | padding vertical                                                                           | `string | number`                                                                         | -          |
-| p                 | padding                                                                                    | `any`                                                                                     | -          |
-| h                 | height                                                                                     | `number`                                                                                  | -          |
-| w                 | width                                                                                      | `number`                                                                                  | -          |
-| bg                | background color                                                                           | `string`                                                                                  | -          |
-| minH              | mininmum height                                                                            | `number`                                                                                  | -          |
-| minW              | minimum width                                                                              | `string`                                                                                  | -          |
-| rounded           | border radius                                                                              | `string | number`                                                                         | `none`     |
-| roundedTop        | border radius top                                                                          | `string | number`                                                                         | `none`     |
-| roundedBottom     | border radius bottom                                                                       | `string | number`                                                                         | `none`     |
-| roundedLeft       | border radius left                                                                         | `string | number`                                                                         | `none`     |
-| roundedRight      | border radius right                                                                        | `string | number`                                                                         | `none`     |
-| borderColor       | color for border                                                                           | `string`                                                                                  | -          |
-| borderTopColor    | color for border top                                                                       | `string`                                                                                  | -          |
-| borderRightColor  | color for border right                                                                     | `string`                                                                                  | -          |
-| borderLeftColor   | color for border left                                                                      | `string`                                                                                  | -          |
-| borderBottomColor | color for border bottom                                                                    | `string`                                                                                  | -          |
-| borderWidth       | width for border                                                                           | `number`                                                                                  | -          |
-| borderTopWidth    | width for border top                                                                       | `number`                                                                                  | -          |
-| borderRightWidth  | width for border right                                                                     | `number`                                                                                  | -          |
-| borderLeftWidth   | width for border left                                                                      | `number`                                                                                  | -          |
-| borderBottomWidth | width for border bottom                                                                    | `number`                                                                                  |
-| flex              | flex property for container                                                                | `number`                                                                                  | -          |
-| shadow            | describe the depth of shadow to be used                                                    | `number`                                                                                  | -          |
-| shadowColor       | color for shadow                                                                           | `string`                                                                                  | -          |
-| justifyContent    | describes how to align children within the main axis of their container                    | `"flex-start"| "flex-end" | "center" | "space-between" | "space-around" | "space-evenly"` | -          |
-| alignItems        | describes how to align children along the cross axis of their container                    | `"flex-start" | "flex-end" | "center" | "stretch" | "baseline";`                          | -          |
-| flexDir           | controls the direction in which children of a node are laid out                            | `"row" | "column" | "row-reverse" | "column-reverse";`                                    | `column`   |
-| flexWrap          | controls what happens when children overflow the size of the container along the main axis | `"wrap" | "nowrap" | "wrap-reverse";`                                                     | `nowrap`   |
-| position          | used to position the childrens                                                             | `absolute" | "relative"`                                                                  | `relative` |
-| top               | number of logical pixels to offset the top edge of this component.                         | `number`                                                                                  | -          |
-| right             | number of logical pixels to offset the right edge of this component.                       | `number`                                                                                  | -          |
-| bottom            | number of logical pixels to offset the bottom edge of this component.                      | `number`                                                                                  | -          |
-| left              | number of logical pixels to offset the left edge of this component.                        | `number`                                                                                  | -          |
+### Checkbox
+
+| Property      | Description                               | Type                                  | Default   |
+| ------------- | ----------------------------------------- | ------------------------------------- | --------- |
+| onChange      | event triggered on toggling the checkbox  | `((value: any) => void) | undefined;` | `-`       |
+| checked       | state to control the state of checkbox    | `boolean`                             | `-`       |
+| loading       | shows ActivityIndicator when true         | `boolean`                             | `false`   |
+| disabled      | show disabled icon when true              | `boolean`                             | `false`   |
+| fontSize      | font size for icon                        | `string`                              | `md`      |
+| activeColor   | color for icon when checkbox is checked   | `string`                              | `blue600` |
+| inactiveColor | color for icon when checkbox is unchecked | `string`                              | `gray400` |
+
+### Checkbox.Group
+
+Checkbox group is a wrapper around `Div` component. So it accepts all props of `Div` along with following extra props.
+
+| Property     | Description                              | Type                                   | Default |
+| ------------ | ---------------------------------------- | -------------------------------------- | ------- |
+| onChange     | event triggered on toggling the checkbox | `((values: any) => void) | undefined;` | -       |
+| value        | value for the checkbox group             | `any[]`                                | `[]`    |
+| defaultValue | default value for the checkbox group     | `any[]`                                | `[]`    |

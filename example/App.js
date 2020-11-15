@@ -1,6 +1,6 @@
 import React from 'react';
 import {SafeAreaView, StatusBar} from 'react-native';
-import {Div, ThemeProvider, Checkbox, Text} from 'react-native-magnus';
+import {Div, ThemeProvider, Radio, Text} from 'react-native-magnus';
 
 const App = () => {
   return (
@@ -8,9 +8,9 @@ const App = () => {
       <StatusBar barStyle="dark-content" />
       <SafeAreaView style={{flex: 1}}>
         <Div m="lg">
-          <Checkbox.Group row>
+          <Radio.Group row>
             {['Option 1', 'Option 2', 'Option 3'].map((item) => (
-              <Checkbox value={item}>
+              <Radio value={item}>
                 {({checked}) => (
                   <Div
                     bg={checked ? 'blue600' : 'blue100'}
@@ -21,9 +21,9 @@ const App = () => {
                     <Text color={checked ? 'white' : 'gray800'}>{item}</Text>
                   </Div>
                 )}
-              </Checkbox>
+              </Radio>
             ))}
-          </Checkbox.Group>
+          </Radio.Group>
         </Div>
       </SafeAreaView>
     </ThemeProvider>

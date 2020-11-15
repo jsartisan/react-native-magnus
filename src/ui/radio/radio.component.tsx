@@ -84,8 +84,10 @@ const Radio: IRadio<IRadioProps> = (props) => {
   const computedStyle = getStyle(theme, props, { focussed });
 
   useEffect(() => {
-    setChecked(checkedProp);
-  }, [checkedProp]);
+    if ('checked' in props) {
+      setChecked(props.checked);
+    }
+  }, [props]);
 
   /**
    * on press radio
@@ -104,7 +106,7 @@ const Radio: IRadio<IRadioProps> = (props) => {
       onPressProp(event);
     }
 
-    if (isFunction(onPressProp)) {
+    if (isFunction(onChange)) {
       onChange(value);
     }
   };
