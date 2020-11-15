@@ -73,7 +73,6 @@ const Checkbox: ICheckbox<ICheckboxProps> = (props) => {
     activeColor,
     inactiveColor,
     defaultChecked,
-    renderer,
     checked: checkedProp,
     onPress: onPressProp,
     ...rest

@@ -70,7 +70,7 @@ export interface IRadioProps
   checked?: boolean;
   onChange?: any;
   value?: any;
-  children?: ((states: IRadioStates) => React.ReactNode) | React.ReactNode;
+  children: ((states: IRadioStates) => React.ReactNode) | React.ReactNode;
 }
 
 interface IRadioStates {
