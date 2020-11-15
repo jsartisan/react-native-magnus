@@ -23,7 +23,6 @@ export { ScrollDiv } from './scrolldiv/scrolldiv.component';
 export { Button } from './button/button.component';
 export { Icon } from './icon/icon.component';
 export { Checkbox } from './checkbox/checkbox.component';
-export { RadioGroup } from './radio/group.component';
 export { Radio } from './radio/radio.component';
 export { Image } from './image/image.component';
 export { Drawer } from './drawer/drawer.component';

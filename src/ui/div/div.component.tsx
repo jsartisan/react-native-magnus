@@ -69,6 +69,8 @@ const Div: React.FunctionComponent<DivProps> = (props: DivProps) => {
   const { theme } = useContext(ThemeContext);
   const computedStyle = getStyle(theme, props);
 
+  // if there is a bgImage prop, use ImageBackground
+  // instead of regular View component
   if (bgImg) {
     return (
       <RNImageBackground

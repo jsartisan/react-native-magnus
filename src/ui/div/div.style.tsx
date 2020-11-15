@@ -2,7 +2,6 @@ import { StyleSheet } from 'react-native';
 
 import {
   getThemeProperty,
-  createFlexStyles,
   createShadowStyles,
   createPositionStyle,
   createSpacingStyles,
@@ -37,7 +36,7 @@ export const getStyle = (theme: any, props: any) => {
     zIndex: props.zIndex,
     borderStyle: props.borderStyle,
     backgroundColor: getThemeProperty(theme.colors, props.bg),
-    ...createFlexStyles(props),
+    flex: props.flex,
     ...createPositionStyle(props),
     ...createShadowStyles(props, theme),
     ...createBorderWidthStyles(props),
@@ -50,7 +49,7 @@ export const getStyle = (theme: any, props: any) => {
     ...createBorderRadiusStyles(props, theme.borderRadius),
   };
 
-  // merging style props to computed style
+  // merging custom style props to computed style
   if (props.style) {
     computedStyle.div = {
       ...computedStyle.div,

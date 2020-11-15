@@ -13,6 +13,9 @@ import {
   Host,
   Fab,
   Portal,
+  Checkbox,
+  Radio,
+  RadioGroup,
 } from 'react-native-magnus';
 
 const friends = [
@@ -49,6 +52,10 @@ const friends = [
 ];
 
 const App = () => {
+  const [radioValue1, setRadioValue1] = React.useState(null);
+  const [checkboxValue, setCheckboxValue] = React.useState([1]);
+  const [checked, setChecked] = React.useState(false);
+
   return (
     <ThemeProvider>
       <StatusBar barStyle="dark-content" />
@@ -107,8 +114,9 @@ const App = () => {
               mt="lg"
               bg="gray100"
             />
+
             {/* list */}
-            <Div mt="xl" flex={1}>
+            <Div mt="md" flex={1}>
               <FlatList
                 showsVerticalScrollIndicator={false}
                 data={friends}

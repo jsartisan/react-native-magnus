@@ -44,7 +44,7 @@ export interface IconProps
   right?: string | number;
   bottom?: string | number;
   fontFamily?: iconFontFamilyType;
-  fontSize?: string;
+  fontSize?: string | number;
   zIndex?: number;
   opacity?: number;
   alignSelf?:

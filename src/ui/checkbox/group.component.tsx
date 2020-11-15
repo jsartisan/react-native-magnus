@@ -11,8 +11,8 @@ interface ButtonProps extends DivProps {
   children: React.ReactElement[] | React.ReactElement;
 }
 
-const RadioGroup: React.FunctionComponent<ButtonProps> = (props) => {
-  const [value, setValue] = useState(props.value || props.defaultValue || null);
+const CheckboxGroup: React.FunctionComponent<ButtonProps> = (props) => {
+  const [value, setValue] = useState(props.value || props.defaultValue || []);
   const {
     children,
     onChange: onChangeProp,
@@ -27,12 +27,21 @@ const RadioGroup: React.FunctionComponent<ButtonProps> = (props) => {
    * @param value
    */
   const onChange = (optionValue: any) => {
+    const optionIndex = value.indexOf(optionValue);
+    const newValue = [...value];
+
+    if (optionIndex === -1) {
+      newValue.push(optionValue);
+    } else {
+      newValue.splice(optionIndex, 1);
+    }
+
     if (!('value' in props)) {
-      setValue(optionValue);
+      setValue(newValue);
     }
 
     if (onChangeProp) {
-      onChangeProp(optionValue);
+      onChangeProp(newValue);
     }
   };
 
@@ -43,7 +52,7 @@ const RadioGroup: React.FunctionComponent<ButtonProps> = (props) => {
     return React.Children.map(children, (child: React.ReactElement) => {
       return React.cloneElement(child, {
         onChange,
-        checked: value === child.props.value,
+        checked: value.indexOf(child.props.value) > -1,
       });
     });
   };
@@ -51,4 +60,4 @@ const RadioGroup: React.FunctionComponent<ButtonProps> = (props) => {
   return <Div {...rest}>{renderChildren()}</Div>;
 };
 
-export { RadioGroup };
+export { CheckboxGroup };
