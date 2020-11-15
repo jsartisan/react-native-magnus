@@ -22,7 +22,7 @@ const features2 = [
     description: "Consistent spacing throughout the app.",
   },
   {
-    title: "Icon Sytem",
+    title: "Icon System",
     icon: "/images/icon-system.svg",
     description: "Thousands of icons available.",
   },
