@@ -86,8 +86,10 @@ const Checkbox: ICheckbox<ICheckboxProps> = (props) => {
   const computedStyle = getStyle(theme, props, { focussed });
 
   useEffect(() => {
-    setChecked(checkedProp);
-  }, [checkedProp]);
+    if ('checked' in props) {
+      setChecked(props.checked);
+    }
+  }, [props]);
 
   /**
    * on press checkbox

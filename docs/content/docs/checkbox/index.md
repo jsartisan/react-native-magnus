@@ -8,40 +8,116 @@ Custom components for rendering checkbox input
 
 <a href="https://snack.expo.io/@pawankumar2901/magnus---checkbox---example-1" target="_blank">See it on Snack</a>
 
-<img src="/images/docs/checkbox/1.gif"  style="height: 120px; width: auto;" />
+<img src="/images/docs/checkbox/1.png"  style="height: 50px; width: auto;" />
 
 ```jsx
-import { Checkbox, Text } from "react-native-magnus";
+import React from "react";
+import { SafeAreaView, StatusBar } from "react-native";
+import { Div, ThemeProvider, Checkbox } from "react-native-magnus";
 
- <Checkbox.Group row onChange={setCheckboxValue}>
-  <Checkbox value={1} />
-  <Checkbox value={2} activeColor="green500" />
-  <Checkbox value={3} disabled />
-  <Checkbox value={3} loading />
-  <Checkbox
-    value={4}
-    activeIcon={<Icon name="user" color="green500" />}
-    inactiveIcon={<Icon name="user" />}
-  />
-</Checkbox.Group>
-<Text p="md" textAlign="center" bg="blue100" mt="md">
-  {checkboxValue.join(',')}
-</Text>
+const App = () => {
+  return (
+    <ThemeProvider>
+      <StatusBar barStyle="dark-content" />
+      <SafeAreaView style={{ flex: 1 }}>
+        <Div m="lg">
+          <Div>
+            <Div row>
+              <Checkbox value={1} />
+              <Checkbox value={2} defaultChecked />
+              <Checkbox value={3} activeColor="green500" />
+              <Checkbox value={4} disabled />
+              <Checkbox value={5} loading />
+            </Div>
+          </Div>
+        </Div>
+      </SafeAreaView>
+    </ThemeProvider>
+  );
+};
+
+export default App;
 ```
 
 <br />
 
-# Example 1
+## Example 1
+
+Checkbox with prefix text
+
+<img src="/images/docs/checkbox/2.png"  style="height: 120px; width: auto;" />
 
 ```jsx
-<Checkbox.Group onChange={setCheckboxValue}>
-  <Checkbox value={1} prefix={<Text flex={1}>Option 1</Text>} />
-  <Checkbox value={2} prefix={<Text flex={1}>Option 2</Text>} />
-  <Checkbox value={3} prefix={<Text flex={1}>Option 3</Text>} />
-</Checkbox.Group>
+import React from "react";
+import { SafeAreaView, StatusBar } from "react-native";
+import { Div, ThemeProvider, Checkbox, Text } from "react-native-magnus";
+
+const App = () => {
+  return (
+    <ThemeProvider>
+      <StatusBar barStyle="dark-content" />
+      <SafeAreaView style={{ flex: 1 }}>
+        <Div m="lg">
+          <Div>
+            <Div>
+              <Checkbox value={1} prefix={<Text flex={1}>Option 1</Text>} />
+              <Checkbox value={2} prefix={<Text flex={1}>Option 2</Text>} />
+              <Checkbox value={3} prefix={<Text flex={1}>Option 3</Text>} />
+            </Div>
+          </Div>
+        </Div>
+      </SafeAreaView>
+    </ThemeProvider>
+  );
+};
+
+export default App;
 ```
 
-# Example 2
+<br />
+
+## Example 2
+
+Custom renderer
+
+<img src="/images/docs/checkbox/3.png"  style="height: 80px; width: auto;" />
+
+```jsx
+import React from "react";
+import { SafeAreaView, StatusBar } from "react-native";
+import { Div, ThemeProvider, Checkbox, Text } from "react-native-magnus";
+
+const App = () => {
+  return (
+    <ThemeProvider>
+      <StatusBar barStyle="dark-content" />
+      <SafeAreaView style={{ flex: 1 }}>
+        <Div m="lg">
+          <Checkbox.Group row>
+            {["Option 1", "Option 2", "Option 3"].map((item) => (
+              <Checkbox value={item}>
+                {({ checked }) => (
+                  <Div
+                    bg={checked ? "blue600" : "blue100"}
+                    px="xl"
+                    py="md"
+                    mr="md"
+                    rounded="circle"
+                  >
+                    <Text color={checked ? "white" : "gray800"}>{item}</Text>
+                  </Div>
+                )}
+              </Checkbox>
+            ))}
+          </Checkbox.Group>
+        </Div>
+      </SafeAreaView>
+    </ThemeProvider>
+  );
+};
+
+export default App;
+```
 
 ## Props
 
