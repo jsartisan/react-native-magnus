@@ -15,7 +15,7 @@ import { Tag, Icon } from 'react-native-magnus'
 <Tag
   ml="sm"
   suffix={
-    <Icon name="close" color="black700" fontSize="caption" />
+    <Icon name="close" color="black700" fontSize="md" />
   }
 >
   Close
@@ -23,7 +23,7 @@ import { Tag, Icon } from 'react-native-magnus'
 <Tag
   ml="sm"
   suffix={
-    <Icon name="edit" color="black700" fontSize="caption" />
+    <Icon name="edit" color="black700" fontSize="md" />
   }
 >
   Edit

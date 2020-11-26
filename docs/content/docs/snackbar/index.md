@@ -42,7 +42,7 @@ const App = () => {
             <Icon
               name="checkcircle"
               color="white"
-              fontSize="subheader"
+              fontSize="md"
               fontFamily="AntDesign"
             />
           }

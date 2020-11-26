@@ -52,7 +52,7 @@ export const App = () => (
           <Icon
             name="checkcircle"
             color="teal500"
-            fontSize="subheader"
+            fontSize="md"
             fontFamily="AntDesign"
           />
         }
