@@ -13,38 +13,42 @@ Wrapper around `<Modal />` of [react-native-modal](https://github.com/react-nati
 <br />
 
 ```jsx
-import { Button, Modal, Icon } from 'react-native-magnus'
+import React, { useState } from 'react';
+import { SafeAreaView, StatusBar, FlatList } from 'react-native';
+import { Div, Button, Icon, Modal, ThemeProvider } from 'react-native-magnus';
 
-const modalRef = React.createRef();
+const App = () => {
+  const [visible, setVisible] = useState(false);
 
-<Button
-  onPress={() => {
-    if (modalRef.current) {
-      modalRef.current.open();
-    }
-  }}
->
-  Open Modal
-</Button>
+  return (
+    <ThemeProvider>
+      <StatusBar barStyle="dark-content" />
+      <SafeAreaView style={{ flex: 1}}>
+        <Button block m={10} onPress={() => setVisible(true)}>
+          Ajouter
+        </Button>
 
-<Modal ref={modalRef}>
-  <Button
-    bg="gray400"
-    h={35}
-    w={35}
-    position="absolute"
-    top={50}
-    right={15}
-    rounded="circle"
-    onPress={() => {
-      if (modalRef.current) {
-        modalRef.current.close();
-      }
-    }}
-  >
-    <Icon color="black900" name="close" />
-  </Button>
-</Modal>
+        <Modal isVisible={visible}>
+          <Button
+            bg="gray400"
+            h={35}
+            w={35}
+            position="absolute"
+            top={50}
+            right={15}
+            rounded="circle"
+            onPress={() => {
+              setVisible(false);
+            }}>
+            <Icon color="black900" name="close" />
+          </Button>
+        </Modal>
+      </SafeAreaView>
+    </ThemeProvider>
+  );
+};
+
+export default App;
 ```
 
 ## Props
