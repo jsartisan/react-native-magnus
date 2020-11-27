@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useContext } from 'react';
 import { SafeAreaView } from 'react-native';
 import { Animation, CustomAnimation } from 'react-native-animatable';
-import RNModal, { Orientation } from 'react-native-modal';
+import RNModal, { Orientation, ModalProps as RNModalProps } from 'react-native-modal';
 
 import {
   ThemeContext,
@@ -15,7 +15,8 @@ import { getStyle } from './modal.style';
 
 type OrNull<T> = null | T;
 interface ModalProps
-  extends BorderPropsType,
+  extends RNModalProps,
+    BorderPropsType,
     SpacingPropsType,
     RoundedPropsType {
   bg?: string;
