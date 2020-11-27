@@ -25,7 +25,7 @@ const App = () => {
       <StatusBar barStyle="dark-content" />
       <SafeAreaView style={{ flex: 1}}>
         <Button block m={10} onPress={() => setVisible(true)}>
-          Ajouter
+          Open Modal
         </Button>
 
         <Modal isVisible={visible}>
