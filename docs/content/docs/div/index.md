@@ -24,7 +24,7 @@ import { Div, Text } from "react-native-magnus";
 <img src="/images/docs/div/2.png"  style="height: 60px; width: auto;" />
 
 ```jsx
-<Div h={40} w={40} bg="brand500"></Div>
+<Div h={40} w={40} bg="pink500"></Div>
 <Div h={40} w={40} bg="green500"></Div>
 <Div h={40} w={40} bg="teal500"></Div>
 <Div h={40} w={40} bg="yellow500"></Div>
@@ -107,7 +107,7 @@ You can check complete list of colors from [here](/docs/colors-system)
       }}
     >
       <Div
-        bg="brand500"
+        bg="pink500"
         rounded="md"
         row
         flexWrap="wrap"

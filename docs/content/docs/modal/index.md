@@ -42,7 +42,7 @@ const modalRef = React.createRef();
       }
     }}
   >
-    <Icon color="black900" name="close" />
+    <Icon color="gray900" name="close" />
   </Button>
 </Modal>
 ```

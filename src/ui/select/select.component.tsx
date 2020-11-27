@@ -9,11 +9,10 @@ import { Text } from '../text/text.component';
 import { Button } from '../button/button.component';
 import { ThemeContext } from '../../theme';
 import { Option } from './option.component';
-import { SelectProps } from './select.type';
+import { SelectProps, SelectRef } from './select.type';
 
-type Ref = {};
-
-const Select = React.forwardRef<Ref, SelectProps>((props, ref) => {
+// TODO: Set a way to pass isVisible prop like Modal, Drawer
+const Select = React.forwardRef<SelectRef, SelectProps>((props, ref) => {
   const {
     value,
     title,

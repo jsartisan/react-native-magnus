@@ -32,6 +32,7 @@ export { Avatar } from './avatar/avatar.component';
 export { AvatarGroup } from './avatar/avatar.group.component';
 export { Tag } from './tag/tag.component';
 export { Modal } from './modal/modal.component';
+export { ModalRef } from './modal/modal.type';
 export { Toggle } from './toggle/toggle.component';
 export { DropdownRef } from './dropdown/dropdown.type';
 export { Header } from './header/header.component';

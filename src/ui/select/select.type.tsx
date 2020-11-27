@@ -10,6 +10,11 @@ import {
   ShadowPropsType,
 } from '../../theme';
 
+export type SelectRef = {
+  open: () => void;
+  close: () => void;
+};
+
 export interface SelectProps
   extends RNViewProps,
     BorderPropsType,

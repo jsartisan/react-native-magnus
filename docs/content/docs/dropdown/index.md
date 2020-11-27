@@ -18,7 +18,7 @@ const dropdownRef = React.createRef();
 
 <Button
   block
-  bg="brand500"
+  bg="pink500"
   mt="sm"
   p="md"
   color="white"
@@ -64,7 +64,7 @@ const dropdownRef = React.createRef();
 
 <Button
   block
-  bg="brand500"
+  bg="pink500"
   mt="sm"
   p="md"
   color="white"
@@ -132,7 +132,7 @@ const dropdownRef = React.createRef();
 
 <Button
   block
-  bg="brand500"
+  bg="pink500"
   mt="sm"
   p="md"
   color="white"
@@ -210,7 +210,7 @@ const dropdownRef = React.createRef();
     px="md"
     block
     prefix={
-      <Icon name="file1" mr="lg" color="brand500" fontSize="3xl" />
+      <Icon name="file1" mr="lg" color="pink500" fontSize="3xl" />
     }>
     Documents
   </Dropdown.Option>

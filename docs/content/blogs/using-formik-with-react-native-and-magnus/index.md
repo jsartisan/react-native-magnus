@@ -71,7 +71,7 @@ export default function Main() {
         <Div m="lg">
           <Text
             mt="2xl"
-            color="black900"
+            color="gray900"
             fontWeight="bold"
             fontSize="bigText100"
           >
@@ -205,7 +205,7 @@ Now let's integrate our input and submit button with Formik.
           <>
             <Text
               mt="2xl"
-              color="black900"
+              color="gray900"
               fontWeight="bold"
               fontSize="bigText100"
             >

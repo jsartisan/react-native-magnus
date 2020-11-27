@@ -1,30 +1,54 @@
-import React from 'react';
+import React, {useState, useRef} from 'react';
 import {SafeAreaView, StatusBar} from 'react-native';
-import {Div, ThemeProvider, Radio, Text} from 'react-native-magnus';
+import {
+  Div,
+  ThemeProvider,
+  Radio,
+  Text,
+  Select,
+  Button,
+  Modal,
+  Icon,
+  Dropdown,
+} from 'react-native-magnus';
 
 const App = () => {
+  const dropdownRef = React.useRef();
+
   return (
     <ThemeProvider>
-      <StatusBar barStyle="dark-content" />
       <SafeAreaView style={{flex: 1}}>
-        <Div m="lg">
-          <Radio.Group row>
-            {['Option 1', 'Option 2', 'Option 3'].map((item) => (
-              <Radio value={item}>
-                {({checked}) => (
-                  <Div
-                    bg={checked ? 'blue600' : 'blue100'}
-                    px="xl"
-                    py="md"
-                    mr="md"
-                    rounded="circle">
-                    <Text color={checked ? 'white' : 'gray800'}>{item}</Text>
-                  </Div>
-                )}
-              </Radio>
-            ))}
-          </Radio.Group>
-        </Div>
+        <Button
+          block
+          bg="pink500"
+          mt="sm"
+          p="md"
+          color="white"
+          onPress={() => dropdownRef.current.open()}>
+          Open Dropdown
+        </Button>
+
+        <Dropdown.Container
+          ref={dropdownRef}
+          title={
+            <Text mx="xl" color="gray500" pb="md">
+              This is your title
+            </Text>
+          }
+          mt="md"
+          pb="2xl"
+          showSwipeIndicator={true}
+          roundedTop="xl">
+          <Dropdown.Option py="md" px="xl" block>
+            First Option
+          </Dropdown.Option>
+          <Dropdown.Option py="md" px="xl" block>
+            Second Option
+          </Dropdown.Option>
+          <Dropdown.Option py="md" px="xl" block>
+            Third Option
+          </Dropdown.Option>
+        </Dropdown.Container>
       </SafeAreaView>
     </ThemeProvider>
   );

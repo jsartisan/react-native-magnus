@@ -1,67 +1,14 @@
 import * as React from 'react';
-import { useContext } from 'react';
+import RNModal from 'react-native-modal';
 import { SafeAreaView } from 'react-native';
-import { Animation, CustomAnimation } from 'react-native-animatable';
-import RNModal, { Orientation, ModalProps as RNModalProps } from 'react-native-modal';
+import { useContext, useState, useEffect, useImperativeHandle } from 'react';
 
-import {
-  ThemeContext,
-  BorderPropsType,
-  SpacingPropsType,
-  RoundedPropsType,
-} from '../../theme';
+import { ThemeContext } from '../../theme';
 import { Div } from '../div/div.component';
 import { getStyle } from './modal.style';
+import { ModalProps, ModalRef } from './modal.type';
 
-type OrNull<T> = null | T;
-interface ModalProps
-  extends RNModalProps,
-    BorderPropsType,
-    SpacingPropsType,
-    RoundedPropsType {
-  bg?: string;
-  h?: number | string;
-  children: React.ReactElement[] | React.ReactElement;
-  animationIn?: Animation | CustomAnimation;
-  animationInTiming?: number;
-  animationOut?: Animation | CustomAnimation;
-  animationOutTiming?: number;
-  avoidKeyboard?: boolean;
-  coverScreen?: boolean;
-  hasBackdrop?: boolean;
-  backdropColor?: string;
-  backdropOpacity?: number;
-  backdropTransitionInTiming?: number;
-  backdropTransitionOutTiming?: number;
-  customBackdrop?: React.ReactNode;
-  useNativeDriver?: boolean;
-  deviceHeight?: number;
-  deviceWidth?: number;
-  isVisible?: boolean;
-  hideModalContentWhileAnimating?: boolean;
-  propagateSwipe?: boolean;
-  onModalShow?: () => void;
-  onModalWillShow?: () => void;
-  onModalHide?: () => void;
-  onModalWillHide?: () => void;
-  onBackButtonPress?: () => void;
-  onBackdropPress?: () => void;
-  swipeThreshold?: number;
-  scrollTo?: OrNull<(e: any) => void>;
-  scrollOffset?: number;
-  scrollOffsetMax?: number;
-  scrollHorizontal?: boolean;
-  supportedOrientations?: Orientation[];
-  justifyContent?:
-    | 'flex-start'
-    | 'flex-end'
-    | 'center'
-    | 'space-between'
-    | 'space-around'
-    | 'space-evenly';
-}
-
-const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
+const Modal = React.forwardRef<ModalRef, ModalProps>((props, ref) => {
   const {
     bg,
     h,
@@ -97,22 +44,36 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps) => {
     isVisible,
     ...rest
   } = props;
+  const [visible, setVisible] = useState(isVisible);
   const { theme } = useContext(ThemeContext);
   const computedStyle = getStyle(theme, props);
 
+  useEffect(() => {
+    if ('isVisible' in props) {
+      setVisible(props.isVisible);
+    }
+  }, [props]);
+
+  /**
+   * exposing functions through ref
+   */
+  useImperativeHandle(ref, () => ({
+    open() {
+      setVisible(true);
+    },
+    close() {
+      setVisible(false);
+    },
+  }));
+
   return (
-    <RNModal
-      isVisible={isVisible}
-      hideModalContentWhileAnimating
-      {...rest}
-      style={computedStyle.modal}
-    >
+    <RNModal isVisible={visible} {...rest} style={computedStyle.modal}>
       <Div bg={bg} h={h || '100%'} style={computedStyle.container}>
         <SafeAreaView style={computedStyle.safeView}>{children}</SafeAreaView>
       </Div>
     </RNModal>
   );
-};
+});
 
 Modal.defaultProps = {
   bg: 'white',
