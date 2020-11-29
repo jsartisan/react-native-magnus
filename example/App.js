@@ -13,7 +13,7 @@ import {
 } from 'react-native-magnus';
 
 const App = () => {
-  const dropdownRef = React.useRef();
+  const [visible, setVisible] = useState(false);
 
   return (
     <ThemeProvider>
@@ -24,12 +24,12 @@ const App = () => {
           mt="sm"
           p="md"
           color="white"
-          onPress={() => dropdownRef.current.open()}>
+          onPress={() => setVisible(true)}>
           Open Dropdown
         </Button>
 
         <Dropdown.Container
-          ref={dropdownRef}
+          isVisible={visible}
           title={
             <Text mx="xl" color="gray500" pb="md">
               This is your title
