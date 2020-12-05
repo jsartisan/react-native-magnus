@@ -109,8 +109,6 @@ const Input = React.forwardRef<RNTextInput, InputProps>((props, ref) => {
       {prefix && <RNView style={computedStyle.prefix}>{prefix}</RNView>}
       <RNTextInput
         ref={ref}
-        onFocus={(e) => onFocusInput(e)}
-        onBlur={(e) => onBlurInput(e)}
         style={computedStyle.input}
         {...rest}
         placeholderTextColor={placeholderColor}

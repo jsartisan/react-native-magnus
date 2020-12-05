@@ -17,7 +17,8 @@ import { Image } from "react-native-magnus";
   m={10}
   rounded="circle"
   source={{
-    uri: "https://timedotcom.files.wordpress.com/2014/07/301386_full1.jpg",
+    uri:
+      "https://images.unsplash.com/photo-1593642532400-2682810df593?ixid=MXwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
   }}
 />;
 ```

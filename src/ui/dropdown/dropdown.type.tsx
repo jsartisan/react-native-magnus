@@ -1,4 +1,4 @@
-import { ModalProps as RNModalProps } from 'react-native-modal';
+import { ModalProps } from '../modal/modal.type';
 
 import {
   BorderPropsType,
@@ -6,19 +6,22 @@ import {
   RoundedPropsType,
 } from '../../theme';
 
-export type DropdownRef = {
+export interface IDropdownRef {
   open: () => void;
   close: () => void;
-};
+}
 
-export interface DropdownProps
-  extends RNModalProps,
+export interface IDropdownProps
+  extends ModalProps,
     BorderPropsType,
     SpacingPropsType,
     RoundedPropsType {
   title?: string | React.ReactNode;
   bg?: string;
   h?: number | string;
+  w?: number | string;
+  minW?: number | string;
+  minH?: number | string;
   showSwipeIndicator?: boolean;
   justifyContent?:
     | 'flex-start'
@@ -27,6 +30,7 @@ export interface DropdownProps
     | 'space-between'
     | 'space-around'
     | 'space-evenly';
+  overflow?: 'hidden' | 'visible' | 'scroll';
   alignItems?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
   flexDir?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
   flexWrap?: 'wrap' | 'nowrap' | 'wrap-reverse';

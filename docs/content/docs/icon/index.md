@@ -15,15 +15,15 @@ import { Icon } from 'react-native-magnus'
 <Icon
   name="star"
   color="yellow700"
-  fontSize="title"
+  fontSize="6xl"
   fontFamily="FontAwesome"
 />
-<Icon name="codesquare" color="red500" fontSize="title" />
-<Icon name="android1" color="teal500" fontSize="title" />
-<Icon name="heart" color="red500" fontSize="title" />
-<Icon name="apple1" color="blue700" fontSize="title" />
-<Icon name="appstore1" color="teal500" fontSize="title" />
-<Icon name="slack" color="yellow700" fontSize="title" />
+<Icon name="codesquare" color="red500" fontSize="6xl" />
+<Icon name="android1" color="teal500" fontSize="6xl" />
+<Icon name="heart" color="red500" fontSize="6xl" />
+<Icon name="apple1" color="blue700" fontSize="6xl" />
+<Icon name="appstore1" color="teal500" fontSize="6xl" />
+<Icon name="slack" color="yellow700" fontSize="6xl" />
 ```
 
 We are using `react-native-vector-icons` behinds the scene.

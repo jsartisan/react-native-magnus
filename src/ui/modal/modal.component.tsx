@@ -3,9 +3,9 @@ import RNModal from 'react-native-modal';
 import { SafeAreaView } from 'react-native';
 import { useContext, useState, useEffect, useImperativeHandle } from 'react';
 
+import { getStyle } from './modal.style';
 import { ThemeContext } from '../../theme';
 import { Div } from '../div/div.component';
-import { getStyle } from './modal.style';
 import { ModalProps, ModalRef } from './modal.type';
 
 const Modal = React.forwardRef<ModalRef, ModalProps>((props, ref) => {

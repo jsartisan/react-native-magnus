@@ -10,7 +10,6 @@ import {
 import { getStyle } from './radio.style';
 import { ThemeContext } from '../../theme';
 import { Icon } from '../icon/icon.component';
-import { Text } from '../text/text.component';
 import { getThemeProperty } from '../../theme/theme.service';
 import { getIconName, getIconColor } from './radio.service';
 import { IRadioProps, IRadio } from './radio.type';

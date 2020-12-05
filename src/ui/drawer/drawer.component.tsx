@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView, View } from 'react-native';
 import Modal from 'react-native-modal';
 import { useContext, useState, useImperativeHandle, useEffect } from 'react';
 
@@ -26,12 +26,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>((props, ref) => {
   } = props;
   const { theme } = useContext(ThemeContext);
   const computedStyle = getStyle(theme, props);
-  const [visible, setVisible] = useState(false);
-  let DRAWER_WIDTH;
-
-  if (drawerPercentage) {
-    DRAWER_WIDTH = WINDOW_WIDTH * (drawerPercentage / 100);
-  }
+  const [visible, setVisible] = useState(isVisible);
 
   useEffect(() => {
     if ('isVisible' in props) {
@@ -69,14 +64,9 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>((props, ref) => {
       style={computedStyle.drawer}
       {...rest}
     >
-      <SafeAreaView
-        style={{
-          ...computedStyle.container,
-          width: DRAWER_WIDTH,
-        }}
-      >
-        {children}
-      </SafeAreaView>
+      <View style={computedStyle.container}>
+        <SafeAreaView style={computedStyle.safeView}>{children}</SafeAreaView>
+      </View>
     </Modal>
   );
 });
