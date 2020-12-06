@@ -24,7 +24,7 @@ export default function Header({
         <div className="flex items-center relative">
           <Logo hasText />
           <div className="text-gray-700 text-xs bg-gray-200 px-1 ml-3 md:ml-3 rounded-sm">
-            v 1.0.50
+            v 1.0.54
           </div>
         </div>
         <Search />
