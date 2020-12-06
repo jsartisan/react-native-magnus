@@ -1,10 +1,9 @@
 import * as React from 'react';
 import { useContext } from 'react';
-import color from 'color';
 import {
-  Animated as RNAnimated,
   Text as RNText,
   View as RNView,
+  Animated as RNAnimated,
   Pressable as RNButton,
   ActivityIndicator as RNActivityIndicator,
 } from 'react-native';
@@ -13,6 +12,7 @@ import { getStyle } from './button.style';
 import { ThemeContext } from '../../theme';
 import { ButtonProps } from './button.type';
 import { getThemeProperty } from '../../theme/theme.service';
+import { getUnderlayColor, getRippleColor } from './button.service';
 
 const Button: React.FunctionComponent<ButtonProps> = (props) => {
   const {
@@ -72,23 +72,8 @@ const Button: React.FunctionComponent<ButtonProps> = (props) => {
 
   const { theme } = useContext(ThemeContext);
   const computedStyle = getStyle(theme, props);
-
-  const underlayColor = getThemeProperty(
-    theme.colors,
-    props.underlayColor
-      ? props.underlayColor
-      : color(getThemeProperty(theme.colors, props.bg))
-          .darken(0.1)
-          .rgb()
-          .string()
-  );
-
-  const calculatedRippleColor = color(
-    getThemeProperty(theme.colors, rippleColor)
-  )
-    .alpha(disabled ? 0 : 0.2)
-    .rgb()
-    .string();
+  const underlayColor = getUnderlayColor(theme, props);
+  const calculatedRippleColor = getRippleColor(theme, props);
 
   /**
    * renders children based on type

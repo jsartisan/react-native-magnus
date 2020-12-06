@@ -1,14 +1,18 @@
 import * as React from 'react';
+import Modal from 'react-native-modal';
 import { SafeAreaView, Platform, View } from 'react-native';
 import { useContext, useState, useImperativeHandle, useEffect } from 'react';
 
 import { Div } from '../div/div.component';
 import { getStyle } from './dropdown.style';
 import { Text } from '../text/text.component';
-import Modal from 'react-native-modal';
-import { Option } from './option.component';
+import { Option } from './dropdown.option.component';
 import { ThemeContext, getThemeProperty } from '../../theme';
-import { DropdownProps, DropdownRef } from './dropdown.type';
+import {
+  DropdownProps,
+  DropdownRef,
+  CompoundedDropdown,
+} from './dropdown.type';
 
 const Dropdown = React.forwardRef<DropdownRef, DropdownProps>((props, ref) => {
   const {
@@ -59,7 +63,7 @@ const Dropdown = React.forwardRef<DropdownRef, DropdownProps>((props, ref) => {
     if ('isVisible' in props) {
       setVisible(props.isVisible || false);
     }
-  }, [props]);
+  }, [props, visible]);
 
   /**
    * exposing functions through ref
@@ -141,7 +145,9 @@ const Dropdown = React.forwardRef<DropdownRef, DropdownProps>((props, ref) => {
       </View>
     </Modal>
   );
-});
+}) as CompoundedDropdown;
+
+Dropdown.Option = Option;
 
 Dropdown.defaultProps = {
   bg: 'white',

@@ -25,7 +25,7 @@ const AvatarGroup: React.FunctionComponent<AvatarGroupProps> = (props) => {
 AvatarGroup.defaultProps = {
   row: true,
   ml: 'none',
-  offset: 'md',
+  offset: 'lg',
 };
 
 export { AvatarGroup };

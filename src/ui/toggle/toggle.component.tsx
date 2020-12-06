@@ -3,9 +3,8 @@ import { Animated, TouchableOpacity } from 'react-native';
 import { useEffect, useRef, useState, useContext } from 'react';
 
 import { getStyle } from './toggle.style';
-import { ThemeContext, getThemeProperty } from '../../theme';
-
 import { ToggleProps } from './toggle.type';
+import { ThemeContext, getThemeProperty } from '../../theme';
 
 function Toggle(props: ToggleProps): React.ReactElement {
   const {

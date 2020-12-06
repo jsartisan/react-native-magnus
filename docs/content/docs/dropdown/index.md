@@ -26,7 +26,7 @@ const dropdownRef = React.createRef();
   Open Dropdown
 </Button>
 
- <Dropdown.Container
+ <Dropdown
   ref={dropdownRef}
   title={
     <Text mx="xl" color="gray500" pb="md">
@@ -46,7 +46,7 @@ const dropdownRef = React.createRef();
   <Dropdown.Option py="md" px="xl" block>
     Third Option
   </Dropdown.Option>
-</Dropdown.Container>
+</Dropdown>
 ```
 
 <br />

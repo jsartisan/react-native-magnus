@@ -4,9 +4,10 @@ import { Text as RNText, View as RNView, Image as RNImage } from 'react-native';
 
 import { getStyle } from './avatar.style';
 import { ThemeContext } from '../../theme';
-import { AvatarProps } from './avatar.type';
+import { AvatarGroup } from './avatar.group.component';
+import { AvatarProps, CompoundedAvatar } from './avatar.type';
 
-const Avatar: React.FunctionComponent<AvatarProps> = (props) => {
+const Avatar: CompoundedAvatar<AvatarProps> = (props) => {
   const {
     bg,
     m,
@@ -90,5 +91,7 @@ Avatar.defaultProps = {
   position: 'relative',
   zIndex: 1,
 };
+
+Avatar.Group = AvatarGroup;
 
 export { Avatar };

@@ -9,8 +9,8 @@ import {
   ActivityIndicator as RNActivityIndicator,
 } from 'react-native';
 
-import { InputProps } from './input.type';
 import { getStyle } from './input.style';
+import { InputProps } from './input.type';
 import { ThemeContext } from '../../theme';
 import { getThemeProperty } from '../../theme/theme.service';
 
@@ -83,6 +83,8 @@ const Input = React.forwardRef<RNTextInput, InputProps>((props, ref) => {
 
   /**
    * on focus input
+   *
+   * @param e
    */
   const onFocusInput = (e: NativeSyntheticEvent<TextInputFocusEventData>) => {
     setIsFocussed(true);
@@ -94,6 +96,7 @@ const Input = React.forwardRef<RNTextInput, InputProps>((props, ref) => {
 
   /**
    * on blur input
+   *
    * @param e
    */
   const onBlurInput = (e: NativeSyntheticEvent<TextInputFocusEventData>) => {
@@ -109,6 +112,8 @@ const Input = React.forwardRef<RNTextInput, InputProps>((props, ref) => {
       {prefix && <RNView style={computedStyle.prefix}>{prefix}</RNView>}
       <RNTextInput
         ref={ref}
+        onFocus={onFocusInput}
+        onBlur={onBlurInput}
         style={computedStyle.input}
         {...rest}
         placeholderTextColor={placeholderColor}

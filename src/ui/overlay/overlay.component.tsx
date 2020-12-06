@@ -1,14 +1,12 @@
 import * as React from 'react';
-import { useContext } from 'react';
 import { View as RNView, Modal as RNModal } from 'react-native';
+import { useContext, useState, useEffect, useImperativeHandle } from 'react';
 
 import { getStyle } from './overlay.style';
 import { ThemeContext } from '../../theme';
-import { OverlayProps } from './overlay.type';
+import { OverlayProps, OverlayRef } from './overlay.type';
 
-const Overlay: React.FunctionComponent<OverlayProps> = (
-  props: OverlayProps
-) => {
+const Overlay = React.forwardRef<OverlayRef, OverlayProps>((props, ref) => {
   const {
     m,
     mt,
@@ -23,6 +21,7 @@ const Overlay: React.FunctionComponent<OverlayProps> = (
     pl,
     bg,
     w,
+    h,
     alignItems,
     justifyContent,
     rounded,
@@ -30,15 +29,33 @@ const Overlay: React.FunctionComponent<OverlayProps> = (
     roundedRight,
     roundedBottom,
     roundedLeft,
-    visible,
+    isVisible,
     children,
     overlayColor,
     overlayOpacity,
-
     ...rest
   } = props;
   const { theme } = useContext(ThemeContext);
   const computedStyle = getStyle(theme, props);
+  const [visible, setVisible] = useState(isVisible || false);
+
+  useEffect(() => {
+    if ('isVisible' in props) {
+      setVisible(props.isVisible || false);
+    }
+  }, [props, visible]);
+
+  /**
+   * exposing functions to parent
+   */
+  useImperativeHandle(ref, () => ({
+    open() {
+      setVisible(true);
+    },
+    close() {
+      setVisible(false);
+    },
+  }));
 
   return (
     <RNModal
@@ -53,14 +70,14 @@ const Overlay: React.FunctionComponent<OverlayProps> = (
       </RNView>
     </RNModal>
   );
-};
+});
 
 Overlay.defaultProps = {
   bg: 'white',
   w: '80%',
   p: 'lg',
   rounded: 'md',
-  visible: false,
+  isVisible: false,
   overlayOpacity: 0.6,
   overlayColor: 'gray900',
 };

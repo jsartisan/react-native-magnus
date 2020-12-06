@@ -52,7 +52,7 @@ const Modal = React.forwardRef<ModalRef, ModalProps>((props, ref) => {
     if ('isVisible' in props) {
       setVisible(props.isVisible);
     }
-  }, [props]);
+  }, [props, visible]);
 
   /**
    * exposing functions through ref

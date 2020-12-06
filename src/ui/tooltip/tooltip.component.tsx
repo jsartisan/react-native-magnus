@@ -1,24 +1,21 @@
 import * as React from 'react';
-import { createRef } from 'react';
-
+import { useRef, useImperativeHandle, useContext } from 'react';
 import {
-  Animated,
-  Dimensions,
-  Easing,
+  View,
   Modal,
-  Platform,
+  Easing,
+  Animated,
   StatusBar,
   StyleSheet,
   TouchableWithoutFeedback,
-  View,
-  LayoutChangeEvent,
 } from 'react-native';
 
-import { Text } from '../text/text.component';
-import { TooltipProps } from './tooltip.type';
 import { getStyle } from './tooltip.style';
 import { ThemeContext } from '../../theme';
+import { Text } from '../text/text.component';
 import { Triangle } from './triangle.component';
+import { TooltipProps, TooltipRef } from './tooltip.type';
+import { useStateCallback, WINDOW_HEIGHT } from '../../utilities';
 
 const STATES = {
   HIDDEN: 'HIDDEN',
@@ -29,225 +26,191 @@ const STATES = {
 const EASING = Easing.bezier(0.4, 0, 0.2, 1);
 const SCREEN_INDENT = 8;
 
-class Tooltip extends React.Component<TooltipProps> {
-  static defaultProps = {
-    animationDuration: 300,
-    bg: 'gray900',
-    color: 'white',
-    p: 'lg',
-    rounded: 'xl',
-    mx: 'lg',
-    minW: 50,
-    zIndex: 1,
-    fontSize: 'md',
-    useNativeDriver: false,
-  };
-
-  _container = createRef<View>();
-
-  state = {
-    menuState: STATES.HIDDEN,
-
+const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
+  const container = useRef<View>(null);
+  const [state, setState] = useStateCallback({
+    visible: STATES.HIDDEN,
     top: 0,
     left: 0,
-
     menuWidth: 0,
     menuHeight: 0,
-
     buttonWidth: 0,
     buttonHeight: 0,
-
-    menuMarginAnimation: new Animated.Value(-8),
+    marginAnimation: new Animated.Value(-8),
     opacityAnimation: new Animated.Value(0),
+  });
+  const {
+    visible,
+    menuHeight,
+    buttonHeight,
+    opacityAnimation,
+    marginAnimation,
+  } = state;
+  let { top } = state;
+  const windowHeight = WINDOW_HEIGHT - (StatusBar.currentHeight || 0);
+  let invert = false;
+  if (top + menuHeight + buttonHeight + SCREEN_INDENT > windowHeight) {
+    top = top - menuHeight - SCREEN_INDENT;
+    invert = true;
+  } else if (top < SCREEN_INDENT) {
+    top = SCREEN_INDENT + buttonHeight;
+  } else {
+    top = top + buttonHeight + SCREEN_INDENT;
+    invert = false;
+  }
+  const shadowMenuContainerStyle = {
+    opacity: opacityAnimation,
+    top,
+    marginTop: marginAnimation,
   };
+  const {
+    text,
+    style,
+    children,
+    bg,
+    animationDuration,
+    useNativeDriver,
+    ...rest
+  } = props;
+  const animationStarted = visible === STATES.ANIMATING;
+  const modalVisible = visible === STATES.SHOWN || animationStarted;
+  const { theme } = useContext(ThemeContext);
+  const computedStyle = getStyle(theme, props, {
+    ...state,
+    invert,
+  });
 
-  // Start menu animation
-  _onMenuLayout = (e: LayoutChangeEvent) => {
-    if (this.state.menuState === STATES.ANIMATING) {
-      return;
-    }
+  /**
+   * on dismissal of tooltip
+   *
+   * TODO: add onDismiss event
+   */
+  const onDismiss = () => {};
 
-    const { width, height } = e.nativeEvent.layout;
-    const { useNativeDriver } = this.props;
-
-    this.setState(
-      {
-        menuState: STATES.ANIMATING,
-        menuWidth: width,
-        menuHeight: height,
-      },
-      () => {
-        Animated.parallel([
-          Animated.timing(this.state.menuMarginAnimation, {
-            toValue: 0,
-            duration: this.props.animationDuration,
-            easing: EASING,
-            useNativeDriver: useNativeDriver!,
-          }),
-          Animated.timing(this.state.opacityAnimation, {
-            toValue: 1,
-            duration: this.props.animationDuration,
-            easing: EASING,
-            useNativeDriver: useNativeDriver!,
-          }),
-        ]).start();
-      }
-    );
-  };
-
-  _onDismiss = () => {
-    if (this.props.onHidden) {
-      this.props.onHidden();
-    }
-  };
-
-  show = () => {
-    if (this._container.current) {
-      this._container.current.measureInWindow(
+  /**
+   * shows the tooltip
+   */
+  const show = () => {
+    if (container.current) {
+      container.current.measureInWindow(
         (left: any, top: any, buttonWidth: any, buttonHeight: any) => {
-          this.setState({
-            buttonHeight,
-            buttonWidth,
-            left,
-            menuState: STATES.SHOWN,
-            top,
-          });
+          setState(
+            {
+              ...state,
+              buttonHeight,
+              buttonWidth,
+              left,
+              visible: STATES.SHOWN,
+              top,
+            },
+            () => {
+              Animated.parallel([
+                Animated.timing(state.marginAnimation, {
+                  toValue: 0,
+                  duration: animationDuration,
+                  easing: EASING,
+                  useNativeDriver: useNativeDriver!,
+                }),
+                Animated.timing(state.opacityAnimation, {
+                  toValue: 1,
+                  duration: animationDuration,
+                  easing: EASING,
+                  useNativeDriver: useNativeDriver!,
+                }),
+              ]).start();
+            }
+          );
         }
       );
     }
   };
 
-  hide = (onHidden: () => void = () => {}) => {
-    const { useNativeDriver } = this.props;
-
-    Animated.timing(this.state.opacityAnimation, {
+  /**
+   * hides the tooltip
+   *
+   * @param onHidden
+   */
+  const hide = () => {
+    Animated.timing(state.opacityAnimation, {
       toValue: 0,
-      duration: this.props.animationDuration,
+      duration: animationDuration,
       easing: EASING,
       useNativeDriver: useNativeDriver!,
     }).start(() => {
-      // Reset state
-      this.setState(
-        {
-          menuState: STATES.HIDDEN,
-          menuMarginAnimation: new Animated.Value(-8),
-          opacityAnimation: new Animated.Value(0),
-        },
-        () => {
-          if (onHidden) {
-            onHidden();
-          }
-
-          // Invoke onHidden callback if defined
-          if (Platform.OS !== 'ios' && this.props.onHidden) {
-            this.props.onHidden();
-          }
-        }
-      );
+      setState({
+        ...state,
+        visible: STATES.HIDDEN,
+        marginAnimation: new Animated.Value(-8),
+        opacityAnimation: new Animated.Value(0),
+      });
     });
   };
 
-  // @@ TODO: Rework this
-  _hide = () => {
-    this.hide();
-  };
+  /**
+   * exposing functions to parent
+   */
+  useImperativeHandle(ref, () => ({
+    show() {
+      show();
+    },
+    hide() {
+      hide();
+    },
+  }));
 
-  render() {
-    const dimensions = Dimensions.get('window');
-    const windowHeight = dimensions.height - (StatusBar.currentHeight || 0);
+  return (
+    <View ref={container} onLayout={() => null}>
+      <View>{children}</View>
+      <Modal
+        visible={modalVisible}
+        onRequestClose={hide}
+        supportedOrientations={[
+          'portrait',
+          'portrait-upside-down',
+          'landscape',
+          'landscape-left',
+          'landscape-right',
+        ]}
+        transparent
+        onDismiss={onDismiss}
+      >
+        <TouchableWithoutFeedback onPress={hide} accessible={false}>
+          <View style={StyleSheet.absoluteFill}>
+            <Animated.View
+              style={[
+                styles.shadowMenuContainer,
+                shadowMenuContainerStyle,
+                style,
+              ]}
+            >
+              <Triangle invert={invert} style={computedStyle.triangle} />
+              <Animated.View style={computedStyle.container}>
+                {typeof text === 'string' ? (
+                  <Text {...rest}>{text}</Text>
+                ) : (
+                  text
+                )}
+              </Animated.View>
+            </Animated.View>
+          </View>
+        </TouchableWithoutFeedback>
+      </Modal>
+    </View>
+  );
+});
 
-    const {
-      menuHeight,
-      buttonHeight,
-      opacityAnimation,
-      menuMarginAnimation,
-    } = this.state;
-
-    // Adjust position of menu
-    let { top } = this.state;
-    let invert = false;
-
-    if (top + menuHeight + buttonHeight + SCREEN_INDENT > windowHeight) {
-      top = top - menuHeight - SCREEN_INDENT;
-      invert = true;
-    } else if (top < SCREEN_INDENT) {
-      top = SCREEN_INDENT + buttonHeight;
-    } else {
-      top = top + buttonHeight + SCREEN_INDENT;
-      invert = false;
-    }
-
-    const shadowMenuContainerStyle = {
-      opacity: opacityAnimation,
-      top,
-      marginTop: menuMarginAnimation,
-    };
-
-    const { menuState } = this.state;
-    const animationStarted = menuState === STATES.ANIMATING;
-    const modalVisible = menuState === STATES.SHOWN || animationStarted;
-
-    const { text, style, children } = this.props;
-
-    return (
-      <ThemeContext.Consumer>
-        {({ theme }) => {
-          const computedStyle = getStyle(theme, this.props, {
-            ...this.state,
-            invert,
-          });
-
-          return (
-            <View ref={this._container} onLayout={() => null}>
-              <View>{children}</View>
-              <Modal
-                visible={modalVisible}
-                onRequestClose={this._hide}
-                supportedOrientations={[
-                  'portrait',
-                  'portrait-upside-down',
-                  'landscape',
-                  'landscape-left',
-                  'landscape-right',
-                ]}
-                transparent
-                onDismiss={this._onDismiss}
-              >
-                <TouchableWithoutFeedback
-                  onPress={this._hide}
-                  accessible={false}
-                >
-                  <View style={StyleSheet.absoluteFill}>
-                    <Animated.View
-                      onLayout={this._onMenuLayout}
-                      style={[
-                        styles.shadowMenuContainer,
-                        shadowMenuContainerStyle,
-                        style,
-                      ]}
-                    >
-                      <Triangle
-                        invert={invert}
-                        style={computedStyle.triangle}
-                      />
-                      <Animated.View style={computedStyle.container}>
-                        {typeof text === 'string' ? (
-                          <Text style={computedStyle.text}>{text}</Text>
-                        ) : (
-                          text
-                        )}
-                      </Animated.View>
-                    </Animated.View>
-                  </View>
-                </TouchableWithoutFeedback>
-              </Modal>
-            </View>
-          );
-        }}
-      </ThemeContext.Consumer>
-    );
-  }
-}
+Tooltip.defaultProps = {
+  animationDuration: 300,
+  bg: 'gray900',
+  color: 'white',
+  p: 'md',
+  rounded: 'xl',
+  mx: 'lg',
+  minW: 50,
+  zIndex: 1,
+  fontSize: 'md',
+  useNativeDriver: false,
+};
 
 const styles = StyleSheet.create({
   shadowMenuContainer: {

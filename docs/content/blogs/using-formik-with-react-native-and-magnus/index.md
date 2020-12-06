@@ -69,12 +69,7 @@ export default function Main() {
     <ThemeProvider>
       <SafeAreaView style={{ flex: 1 }}>
         <Div m="lg">
-          <Text
-            mt="2xl"
-            color="gray900"
-            fontWeight="bold"
-            fontSize="bigText100"
-          >
+          <Text mt="2xl" color="gray900" fontWeight="bold" fontSize="2xl">
             Login
           </Text>
           <Text color="gray500" mt="sm">

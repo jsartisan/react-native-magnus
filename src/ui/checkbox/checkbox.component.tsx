@@ -2,21 +2,18 @@ import * as React from 'react';
 import { useContext, useState, useEffect } from 'react';
 import {
   View as RNView,
-  ActivityIndicator,
   Pressable as RNButton,
   GestureResponderEvent as RNGestureResponderEvent,
 } from 'react-native';
 
 import { ThemeContext } from '../../theme';
 import { getStyle } from './checkbox.style';
-import { Icon } from '../icon/icon.component';
-import { ICheckbox, ICheckboxProps } from './checkbox.type';
-import { getThemeProperty } from '../../theme/theme.service';
-import { getIconName, getIconColor } from './checkbox.service';
-import { CheckboxGroup } from './group.component';
 import { isFunction } from '../../utilities';
+import { getIcon } from './checkbox.service';
+import { CheckboxGroup } from './group.component';
+import { CompundedCheckbox, CheckboxProps } from './checkbox.type';
 
-const Checkbox: ICheckbox<ICheckboxProps> = (props) => {
+const Checkbox: CompundedCheckbox<CheckboxProps> = (props) => {
   const {
     m,
     mt,
@@ -80,14 +77,14 @@ const Checkbox: ICheckbox<ICheckboxProps> = (props) => {
   } = props;
   const { theme } = useContext(ThemeContext);
   const [checked, setChecked] = useState(
-    'checked' in props ? checkedProp : props.defaultChecked
+    ('checked' in props ? checkedProp : props.defaultChecked) || false
   );
   const [focussed, setFocussed] = useState(false);
   const computedStyle = getStyle(theme, props, { focussed });
 
   useEffect(() => {
     if ('checked' in props) {
-      setChecked(props.checked);
+      setChecked(props.checked || false);
     }
   }, [props]);
 
@@ -131,75 +128,6 @@ const Checkbox: ICheckbox<ICheckboxProps> = (props) => {
     setFocussed(false);
   };
 
-  const iconName = getIconName(checked, disabled);
-  const iconColor = getIconColor(
-    checked,
-    disabled,
-    activeColor,
-    inactiveColor,
-    theme
-  );
-
-  /**
-   * get icon
-   * shows activity indication if loading state is true
-   */
-  const getIcon = () => {
-    if (loading) {
-      return (
-        <ActivityIndicator
-          size={getThemeProperty(theme.fontSize, fontSize)}
-          color={getThemeProperty(theme.colors, activeColor)}
-          style={{ zIndex: 2, position: 'relative' }}
-        />
-      );
-    }
-
-    if (checked) {
-      if (activeIcon && typeof activeIcon === 'string') {
-        return (
-          <Icon
-            name={activeIcon}
-            color={iconColor}
-            style={{ zIndex: 2, position: 'relative' }}
-            fontFamily="AntDesign"
-            fontSize={fontSize}
-          />
-        );
-      }
-
-      if (activeIcon) {
-        return activeIcon;
-      }
-    } else {
-      if (inactiveIcon && typeof inactiveIcon === 'string') {
-        return (
-          <Icon
-            name={inactiveIcon}
-            color={iconColor}
-            style={{ zIndex: 2, position: 'relative' }}
-            fontFamily="AntDesign"
-            fontSize={fontSize}
-          />
-        );
-      }
-
-      if (inactiveIcon) {
-        return inactiveIcon;
-      }
-    }
-
-    return (
-      <Icon
-        name={iconName}
-        color={iconColor}
-        style={{ zIndex: 2, position: 'relative' }}
-        fontFamily="MaterialIcons"
-        fontSize={fontSize}
-      />
-    );
-  };
-
   const renderChildren = () => {
     if (isFunction(children)) {
       return children({ focussed, disabled, checked, loading });
@@ -218,7 +146,7 @@ const Checkbox: ICheckbox<ICheckboxProps> = (props) => {
     );
   };
 
-  const icon = getIcon();
+  const icon = getIcon(theme, props, checked);
 
   return (
     <RNButton
@@ -259,7 +187,6 @@ Checkbox.defaultProps = {
   flexDir: 'row',
 };
 
-// passing RadioGroup as part of Radio
 Checkbox.Group = CheckboxGroup;
 
 export { Checkbox };

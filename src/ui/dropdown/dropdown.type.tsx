@@ -1,10 +1,18 @@
 import { ModalProps } from '../modal/modal.type';
 
+import { Option } from './dropdown.option.component';
 import {
   BorderPropsType,
   SpacingPropsType,
   RoundedPropsType,
 } from '../../theme';
+
+export interface CompoundedDropdown
+  extends React.ForwardRefExoticComponent<
+    DropdownProps & React.RefAttributes<DropdownRef>
+  > {
+  Option: typeof Option;
+}
 
 export interface DropdownRef {
   open: () => void;

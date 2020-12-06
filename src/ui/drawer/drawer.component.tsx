@@ -1,11 +1,10 @@
 import * as React from 'react';
-import { SafeAreaView, View } from 'react-native';
 import Modal from 'react-native-modal';
+import { SafeAreaView, View } from 'react-native';
 import { useContext, useState, useImperativeHandle, useEffect } from 'react';
 
 import { getStyle } from './drawer.style';
 import { ThemeContext } from '../../theme';
-import { WINDOW_WIDTH } from '../../utilities';
 import { DrawerProps, DrawerRef } from './drawer.type';
 import { getThemeProperty } from '../../theme/theme.service';
 
@@ -21,6 +20,8 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>((props, ref) => {
     onBackdropPress,
     isVisible,
     animationOutTiming,
+    swipeDirection,
+    onSwipeComplete,
     children,
     ...rest
   } = props;
@@ -30,9 +31,9 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>((props, ref) => {
 
   useEffect(() => {
     if ('isVisible' in props) {
-      setVisible(props.isVisible);
+      setVisible(props.isVisible || false);
     }
-  }, [props]);
+  }, [props, visible]);
 
   /**
    * exposing functions to parent

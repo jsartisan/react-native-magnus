@@ -2,9 +2,9 @@ import * as React from 'react';
 import * as Animatable from 'react-native-animatable';
 
 import { Div } from '../div/div.component';
-import { SkeletonProps } from './skeleton.type';
+import { SkeletonProps, CompundedSkeleton } from './skeleton.type';
 
-const Box: React.FunctionComponent<SkeletonProps> = (props) => {
+const Skeleton: CompundedSkeleton<SkeletonProps> = (props) => {
   const { duration, ...rest } = props;
 
   Animatable.initializeRegistryWithDefinitions({
@@ -33,14 +33,14 @@ const Box: React.FunctionComponent<SkeletonProps> = (props) => {
   );
 };
 
-const Circle: React.FunctionComponent<SkeletonProps> = (props) => {
-  return <Box {...props} />;
+export const Circle: React.FunctionComponent<SkeletonProps> = (props) => {
+  return <Skeleton {...props} />;
 };
 
-Box.defaultProps = {
+Skeleton.defaultProps = {
   bg: 'gray400',
   h: 15,
-  w: 15,
+  w: '100%',
   rounded: 'lg',
   duration: 1000,
 };
@@ -52,4 +52,7 @@ Circle.defaultProps = {
   rounded: 'circle',
 };
 
-export { Box, Circle };
+Skeleton.Box = Skeleton;
+Skeleton.Circle = Circle;
+
+export { Skeleton };

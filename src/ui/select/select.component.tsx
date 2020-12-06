@@ -1,17 +1,16 @@
 import * as React from 'react';
-import { useContext, useState, useImperativeHandle } from 'react';
-import { SafeAreaView, FlatList } from 'react-native';
 import RNModal from 'react-native-modal';
+import { SafeAreaView, FlatList } from 'react-native';
+import { useContext, useState, useImperativeHandle, useEffect } from 'react';
 
 import { getStyle } from './select.style';
 import { Div } from '../div/div.component';
-import { Text } from '../text/text.component';
-import { Button } from '../button/button.component';
 import { ThemeContext } from '../../theme';
-import { Option } from './option.component';
-import { SelectProps, SelectRef } from './select.type';
+import { Text } from '../text/text.component';
+import { Option } from './select.option.component';
+import { Button } from '../button/button.component';
+import { SelectProps, SelectRef, CompoundedSelect } from './select.type';
 
-// TODO: Set a way to pass isVisible prop like Modal, Drawer
 const Select = React.forwardRef<SelectRef, SelectProps>((props, ref) => {
   const {
     value,
@@ -24,19 +23,25 @@ const Select = React.forwardRef<SelectRef, SelectProps>((props, ref) => {
     onSelect: onSelectProp,
   } = props;
   const { theme } = useContext(ThemeContext);
-  const [isVisible, setIsVisible] = useState(false);
+  const [visible, setVisible] = useState(props.isVisible || false);
   const [selectedValue, setSelectedValue] = useState(value);
   const computedStyle = getStyle(theme, props);
+
+  useEffect(() => {
+    if ('isVisible' in props) {
+      setVisible(props.isVisible || false);
+    }
+  }, [props, visible]);
 
   /**
    * exposing functions to parent
    */
   useImperativeHandle(ref, () => ({
     close() {
-      setIsVisible(false);
+      setVisible(false);
     },
     open() {
-      setIsVisible(true);
+      setVisible(true);
     },
   }));
 
@@ -62,7 +67,7 @@ const Select = React.forwardRef<SelectRef, SelectProps>((props, ref) => {
       finalValue = copy;
     } else {
       setSelectedValue(value);
-      setIsVisible(false);
+      setVisible(false);
       finalValue = value;
     }
 
@@ -100,7 +105,7 @@ const Select = React.forwardRef<SelectRef, SelectProps>((props, ref) => {
         mx="xl"
         mt="lg"
         onPress={() => {
-          setIsVisible(false);
+          setVisible(false);
         }}
       >
         Submit
@@ -112,9 +117,9 @@ const Select = React.forwardRef<SelectRef, SelectProps>((props, ref) => {
     <RNModal
       backdropTransitionOutTiming={0}
       animationIn="slideInUp"
-      isVisible={isVisible}
+      isVisible={visible}
       backdropColor="black"
-      onBackdropPress={() => setIsVisible(false)}
+      onBackdropPress={() => setVisible(false)}
       hideModalContentWhileAnimating
       style={{
         margin: 0,
@@ -139,14 +144,17 @@ const Select = React.forwardRef<SelectRef, SelectProps>((props, ref) => {
       </Div>
     </RNModal>
   );
-});
+}) as CompoundedSelect;
 
 Select.defaultProps = {
   bg: 'white',
   rounded: 'none',
   flexDir: 'column',
+  isVisible: false,
   // @ts-ignore
   keyExtractor: (item, index) => `${index}`,
 };
 
-export { Option, Select };
+Select.Option = Option;
+
+export { Select };
