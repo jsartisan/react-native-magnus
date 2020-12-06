@@ -8,11 +8,11 @@ import {
 } from '../../theme';
 import { CheckboxGroup } from './group.component';
 
-export type ICheckbox<P> = React.FunctionComponent<P> & {
+export type CompundedCheckbox<P> = React.FunctionComponent<P> & {
   Group: typeof CheckboxGroup;
 };
 
-export interface ICheckboxProps
+export interface CheckboxProps
   extends RNButtonProps,
     BorderPropsType,
     SpacingPropsType,

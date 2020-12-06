@@ -1,0 +1,9 @@
+{
+  "settings": {
+    "import/core-modules": [ "react-native-magnus" ]
+  },
+
+  "rules": {
+    "react/prop-types": "off"
+  }
+}

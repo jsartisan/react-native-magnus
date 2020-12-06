@@ -1,33 +1,49 @@
 {
-  "name": "example",
+  "name": "react-native-magnus-example",
   "version": "0.0.1",
+  "description": "Example for React Native Magnus",
+  "author": "",
   "private": true,
   "scripts": {
-    "android": "react-native run-android",
-    "ios": "react-native run-ios",
-    "start": "react-native start",
-    "test": "jest",
-    "lint": "eslint ."
+    "start": "expo start",
+    "android": "expo android",
+    "ios": "expo ios",
+    "web": "expo start:web"
   },
+  "main": "node_modules/expo/AppEntry.js",
   "dependencies": {
-    "color": "^3.1.2",
+    "@expo/vector-icons": "^10.2.0",
+    "@react-native-community/async-storage": "~1.11.0",
+    "@react-native-community/masked-view": "0.1.10",
+    "@react-navigation/drawer": "^5.6.1",
+    "@react-navigation/native": "^5.2.1",
+    "@react-navigation/stack": "^5.2.16",
+    "expo": "^39.0.0",
+    "expo-font": "~8.2.1",
+    "expo-keep-awake": "~8.2.1",
+    "expo-splash-screen": "~0.3.1",
+    "file-loader": "^4.0.0",
     "react": "16.11.0",
-    "react-native": "0.63.3",
+    "react-dom": "16.11.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.0.tar.gz",
     "react-native-animatable": "^1.3.3",
+    "react-native-gesture-handler": "~1.6.0",
     "react-native-modal": "^11.5.6",
-    "react-native-vector-icons": "^6.6.0"
+    "react-native-reanimated": "~1.9.0",
+    "react-native-safe-area-context": "3.0.2",
+    "react-native-screens": "~2.9.0",
+    "react-native-vector-icons": "^6.6.0",
+    "react-native-web": "~0.14.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.2",
-    "@babel/runtime": "^7.6.2",
-    "@react-native-community/eslint-config": "^0.0.5",
-    "babel-jest": "^24.9.0",
-    "eslint": "^6.5.1",
-    "jest": "^24.9.0",
-    "metro-react-native-babel-preset": "^0.58.0",
-    "react-test-renderer": "16.11.0"
-  },
-  "jest": {
-    "preset": "react-native"
+    "@babel/plugin-proposal-class-properties": "^7.3.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.3.1",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-flow": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.3.3",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "babel-preset-expo": "^8.2.3",
+    "expo-cli": "^3.4.1"
   }
 }

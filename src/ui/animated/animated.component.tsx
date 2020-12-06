@@ -1,16 +1,19 @@
 import * as React from 'react';
 import { useContext } from 'react';
-import { ImageBackground as RNImageBackground } from 'react-native';
+import {
+  ImageBackground as RNImageBackground,
+  View as RNView,
+} from 'react-native';
 import * as Animatable from 'react-native-animatable';
 
-import { DivProps } from './animated.type';
+import { AnimatedProps } from './animated.type';
 import { ThemeContext } from '../../theme';
 import { getStyle } from './animated.style';
 import { registerAnimations } from './animated.service';
 
 registerAnimations();
 
-const Animated: React.FunctionComponent<DivProps> = (props: DivProps) => {
+const Animated: React.FunctionComponent<AnimatedProps> = (props) => {
   const {
     h,
     w,
@@ -54,6 +57,7 @@ const Animated: React.FunctionComponent<DivProps> = (props: DivProps) => {
     flexWrap,
     shadow,
     shadowColor,
+    delay,
     ...rest
   } = props;
 
@@ -62,15 +66,22 @@ const Animated: React.FunctionComponent<DivProps> = (props: DivProps) => {
 
   if (bgImg) {
     return (
-      <RNImageBackground
-        source={bgImg}
-        style={computedStyle.div}
-        resizeMode={props.bgMode}
-        imageStyle={computedStyle.image}
-        {...rest}
+      <Animatable.View
+        animation={`magnus-${animation}`}
+        duration={duration}
+        easing="ease-in-out"
+        iterationCount={1}
       >
-        {children}
-      </RNImageBackground>
+        <RNImageBackground
+          source={bgImg}
+          style={computedStyle.div}
+          resizeMode={props.bgMode}
+          imageStyle={computedStyle.image}
+          {...rest}
+        >
+          {children}
+        </RNImageBackground>
+      </Animatable.View>
     );
   }
 
@@ -80,10 +91,11 @@ const Animated: React.FunctionComponent<DivProps> = (props: DivProps) => {
       duration={duration}
       easing="ease-in-out"
       iterationCount={1}
-      style={{ ...computedStyle.div }}
-      {...rest}
+      delay={delay}
     >
-      {children}
+      <RNView style={{ ...computedStyle.div }} {...rest}>
+        {children}
+      </RNView>
     </Animatable.View>
   );
 };

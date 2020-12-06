@@ -1,13 +1,18 @@
 import * as React from 'react';
-import { useContext, useState, useImperativeHandle } from 'react';
-import { SafeAreaView } from 'react-native';
-import RNModal from 'react-native-modal';
+import Modal from 'react-native-modal';
+import { SafeAreaView, Platform, View } from 'react-native';
+import { useContext, useState, useImperativeHandle, useEffect } from 'react';
 
 import { Div } from '../div/div.component';
-import { Text } from '../text/text.component';
-import { ThemeContext, getThemeProperty } from '../../theme';
 import { getStyle } from './dropdown.style';
-import { DropdownProps, DropdownRef } from './dropdown.type';
+import { Text } from '../text/text.component';
+import { Option } from './dropdown.option.component';
+import { ThemeContext, getThemeProperty } from '../../theme';
+import {
+  DropdownProps,
+  DropdownRef,
+  CompoundedDropdown,
+} from './dropdown.type';
 
 const Dropdown = React.forwardRef<DropdownRef, DropdownProps>((props, ref) => {
   const {
@@ -43,24 +48,32 @@ const Dropdown = React.forwardRef<DropdownRef, DropdownProps>((props, ref) => {
     showSwipeIndicator,
     children,
     backdropColor,
-    backdropOpacity,
     flexDir,
     flexWrap,
+    isVisible,
+    onBackdropPress,
+    swipeDirection,
     ...rest
   } = props;
   const { theme } = useContext(ThemeContext);
   const computedStyle = getStyle(theme, props);
-  const [isVisible, setIsVisible] = useState(false);
+  const [visible, setVisible] = useState(props.isVisible || false);
+
+  useEffect(() => {
+    if ('isVisible' in props) {
+      setVisible(props.isVisible || false);
+    }
+  }, [props, visible]);
 
   /**
-   * exposing functions to parent
+   * exposing functions through ref
    */
   useImperativeHandle(ref, () => ({
     open() {
-      setIsVisible(true);
+      setVisible(true);
     },
     close() {
-      setIsVisible(false);
+      setVisible(false);
     },
   }));
 
@@ -99,48 +112,52 @@ const Dropdown = React.forwardRef<DropdownRef, DropdownProps>((props, ref) => {
   };
 
   return (
-    <RNModal
-      backdropTransitionOutTiming={0}
-      isVisible={isVisible}
-      onSwipeComplete={() => setIsVisible(false)}
-      swipeDirection={['down']}
-      backdropOpacity={backdropOpacity}
+    <Modal
+      isVisible={visible}
+      onSwipeComplete={() => setVisible(false)}
       backdropColor={getThemeProperty(theme.colors, backdropColor)}
-      onBackdropPress={() => setIsVisible(false)}
+      onBackdropPress={
+        'onBackdropPress' in props ? onBackdropPress : () => setVisible(false)
+      }
       style={{
         margin: 0,
-        justifyContent: 'flex-end',
+        justifyContent: Platform.OS === 'web' ? 'center' : 'flex-end',
       }}
+      swipeDirection="down"
       {...rest}
     >
-      <Div style={computedStyle.wrapper}>
+      <View style={computedStyle.wrapper}>
         {renderIndicator()}
         <SafeAreaView>
-          <Div style={computedStyle.container}>
+          <View style={computedStyle.container}>
             {renderTitle()}
-            <Div style={computedStyle.options}>
+            <View style={computedStyle.options}>
               {React.Children.map(children, (child: React.ReactElement) => {
                 return React.cloneElement(child, {
                   onSelect: () => {
-                    setIsVisible(false);
+                    setVisible(false);
                   },
                 });
               })}
-            </Div>
-          </Div>
+            </View>
+          </View>
         </SafeAreaView>
-      </Div>
-    </RNModal>
+      </View>
+    </Modal>
   );
-});
+}) as CompoundedDropdown;
+
+Dropdown.Option = Option;
 
 Dropdown.defaultProps = {
   bg: 'white',
   rounded: 'none',
-  showSwipeIndicator: true,
+  showSwipeIndicator: Platform.OS === 'web' ? false : true,
   backdropColor: 'gray900',
   backdropOpacity: 0.5,
   flexWrap: 'nowrap',
+  backdropTransitionOutTiming: 0,
+  overflow: 'hidden',
 };
 
 export { Dropdown };

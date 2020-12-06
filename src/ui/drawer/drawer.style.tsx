@@ -25,14 +25,18 @@ export const getStyle = (theme: any, props: any) => {
 
   computedStyle.container = {
     position: 'absolute',
-    width: SCREEN_WIDTH,
     height: SCREEN_HEIGHT,
+    width: SCREEN_WIDTH * (props.drawerPercentage / 100),
     zIndex: 0,
     margin: 0,
     backgroundColor: getThemeProperty(theme.colors, props.bg),
     ...createBorderWidthStyles(props),
     ...createBorderColorStyles(props, theme.colors),
     ...createBorderRadiusStyles(props, theme.borderRadius),
+  };
+
+  computedStyle.safeView = {
+    flex: 1,
   };
 
   if (props.direction === 'right') {

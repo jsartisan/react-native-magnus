@@ -42,5 +42,6 @@ export interface BadgeProps
   fontSize?: string;
   count?: string | number;
   opacity?: number;
+  zIndex?: number;
   children?: React.ReactNode[] | React.ReactNode;
 }

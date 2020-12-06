@@ -1,13 +1,11 @@
-import { ViewProps as RNViewProps } from 'react-native';
+import { DivProps } from '../div/div.type';
+import { Skeleton, Circle } from './skeleton.component';
 
-import { SpacingPropsType, RoundedPropsType } from '../../theme';
+export type CompundedSkeleton<P> = React.FunctionComponent<P> & {
+  Box: typeof Skeleton;
+  Circle: typeof Circle;
+};
 
-export interface SkeletonProps
-  extends RNViewProps,
-    SpacingPropsType,
-    RoundedPropsType {
-  bg?: string;
-  h?: number | string;
-  w?: number | string;
-  flex?: number;
+export interface SkeletonProps extends DivProps {
+  duration?: number;
 }

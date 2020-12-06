@@ -9,6 +9,19 @@ import {
   RoundedPropsType,
   ShadowPropsType,
 } from '../../theme';
+import { Option } from './select.option.component';
+
+export interface CompoundedSelect
+  extends React.ForwardRefExoticComponent<
+    SelectProps & React.RefAttributes<SelectRef>
+  > {
+  Option: typeof Option;
+}
+
+export type SelectRef = {
+  open: () => void;
+  close: () => void;
+};
 
 export interface SelectProps
   extends RNViewProps,
@@ -49,4 +62,5 @@ export interface SelectProps
   data: any[];
   renderItem: (item: any, index: number) => React.ReactElement;
   keyExtractor?: (item: any, index: number) => string;
+  isVisible?: boolean;
 }

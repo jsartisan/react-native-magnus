@@ -34,6 +34,22 @@ import { Avatar, Icon } from 'react-native-magnus';
 />
 ```
 
+## Avatar Group
+
+```jsx
+<Avatar.Group>
+  <Avatar bg="red500" color="white">
+    A
+  </Avatar>
+  <Avatar bg="blue500" color="white">
+    B
+  </Avatar>
+  <Avatar bg="yellow500" color="white">
+    C
+  </Avatar>
+</Avatar.Group>
+```
+
 ## Props
 
 | Property          | Description                                                           | Type                     | Default    |

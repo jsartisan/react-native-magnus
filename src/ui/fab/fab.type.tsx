@@ -15,7 +15,7 @@ export interface FabProps
   h?: number;
   w?: number;
   bg?: string;
-  position?: 'absolute' | 'relative';
+  position?: 'absolute' | 'relative' | 'fixed';
   alignItems?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
   flexDir?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
   justifyContent?:

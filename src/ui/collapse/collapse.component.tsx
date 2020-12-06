@@ -3,13 +3,11 @@ import { useState } from 'react';
 import { LayoutAnimation } from 'react-native';
 
 import { Div } from '../div/div.component';
-import { CollapseProps } from './collapse.type';
 import { CollapseBody } from './collapse.body.component';
 import { CollapseHeader } from './collapse.header.component';
+import { CollapseProps, CompoundedCollapse } from './collapse.type';
 
-const Collapse: React.FunctionComponent<CollapseProps> = (
-  props: CollapseProps
-) => {
+const Collapse: CompoundedCollapse<CollapseProps> = (props) => {
   const { children, defaultActive, ...rest } = props;
   const [active, setActive] = useState(defaultActive);
   let header = null;
@@ -27,7 +25,7 @@ const Collapse: React.FunctionComponent<CollapseProps> = (
 
   if (header === null) {
     throw Error(
-      "header wasn't found to be rendered. Please make sure you have wrapped an CollapseHeader in the Collapse Component."
+      "header wasn't found to be rendered. Please make sure you have wrapped an Collapse.Header in the Collapse Component."
     );
   }
 
@@ -61,5 +59,8 @@ Collapse.defaultProps = {
   borderStyle: 'solid',
   defaultActive: false,
 };
+
+Collapse.Body = CollapseBody;
+Collapse.Header = CollapseHeader;
 
 export { Collapse };

@@ -7,6 +7,11 @@ import {
   ShadowPropsType,
 } from '../../theme';
 
+export interface TooltipRef {
+  hide: any;
+  show: any;
+}
+
 export interface TooltipProps
   extends RNViewProps,
     BorderPropsType,
@@ -21,7 +26,7 @@ export interface TooltipProps
   maxW?: number | string;
   maxH?: number | string;
   animationDuration?: number;
-  onHidden?: () => void;
+  color?: string;
   opacity?: number;
   zIndex?: number;
   text: string | React.ReactNode;

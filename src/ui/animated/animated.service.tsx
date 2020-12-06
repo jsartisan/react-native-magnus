@@ -14,7 +14,7 @@ export const registerAnimations = () => {
         opacity: 1,
       },
     },
-    'magnus-fromLeft': {
+    'magnus-fromRight': {
       0: {
         opacity: 0,
         left: 30,
@@ -24,7 +24,7 @@ export const registerAnimations = () => {
         left: 0,
       },
     },
-    'magnus-fromRight': {
+    'magnus-fromLeft': {
       0: {
         opacity: 0,
         right: 30,
@@ -34,17 +34,17 @@ export const registerAnimations = () => {
         right: 0,
       },
     },
-    'magnus-fromBottom': {
+    'magnus-fromTop': {
       0: {
         opacity: 0,
         bottom: 30,
       },
       1: {
         opacity: 1,
-        right: 0,
+        bottom: 0,
       },
     },
-    'magnus-fromTop': {
+    'magnus-fromBottom': {
       0: {
         opacity: 0,
         top: 30,

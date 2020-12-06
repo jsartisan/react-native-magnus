@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Dimensions } from 'react-native';
 
 const WINDOW = Dimensions.get('window');
@@ -41,3 +42,29 @@ export const isPromise = (value: any): value is PromiseLike<any> =>
 // is the given object/value a type of synthetic event?
 export const isInputEvent = (value: any): value is React.SyntheticEvent<any> =>
   value && isObject(value) && isObject(value.target);
+
+/**
+ * useState with callback
+ *
+ * @param initialState
+ */
+export const useStateCallback = (initialState: any) => {
+  const [state, setState] = useState(initialState);
+  const cbRef = useRef(null); // mutable ref to store current callback
+
+  const setStateCallback = (state: any, cb: any) => {
+    cbRef.current = cb; // store passed callback to ref
+    setState(state);
+  };
+
+  useEffect(() => {
+    // cb.current is `null` on initial render, so we only execute cb on state *updates*
+    if (cbRef.current) {
+      //@ts-ignore
+      cbRef.current(state);
+      cbRef.current = null; // reset callback after execution
+    }
+  }, [state]);
+
+  return [state, setStateCallback];
+};

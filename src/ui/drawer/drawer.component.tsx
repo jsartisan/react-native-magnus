@@ -1,65 +1,73 @@
 import * as React from 'react';
-import { useContext, useState, useImperativeHandle } from 'react';
-import { Dimensions, SafeAreaView } from 'react-native';
 import Modal from 'react-native-modal';
+import { SafeAreaView, View } from 'react-native';
+import { useContext, useState, useImperativeHandle, useEffect } from 'react';
 
 import { getStyle } from './drawer.style';
 import { ThemeContext } from '../../theme';
-import { DrawerProps } from './drawer.type';
+import { DrawerProps, DrawerRef } from './drawer.type';
 import { getThemeProperty } from '../../theme/theme.service';
 
-export interface DrawerRef {
-  close: any;
-  open: any;
-}
-
-const SCREEN_WIDTH = Dimensions.get('window').width;
-
 const Drawer = React.forwardRef<DrawerRef, DrawerProps>((props, ref) => {
-  const { direction, drawerPercentage, animationTime, children } = props;
+  const {
+    direction,
+    drawerPercentage,
+    animationTime,
+    backdropColor,
+    animationInTiming,
+    animationIn,
+    animationOut,
+    onBackdropPress,
+    isVisible,
+    animationOutTiming,
+    swipeDirection,
+    onSwipeComplete,
+    children,
+    ...rest
+  } = props;
   const { theme } = useContext(ThemeContext);
   const computedStyle = getStyle(theme, props);
-  const [isVisible, setIsVisible] = useState(false);
-  let DRAWER_WIDTH;
+  const [visible, setVisible] = useState(isVisible);
 
-  if (drawerPercentage) {
-    DRAWER_WIDTH = SCREEN_WIDTH * (drawerPercentage / 100);
-  }
+  useEffect(() => {
+    if ('isVisible' in props) {
+      setVisible(props.isVisible || false);
+    }
+  }, [props, visible]);
 
   /**
    * exposing functions to parent
    */
   useImperativeHandle(ref, () => ({
     open() {
-      setIsVisible(true);
+      setVisible(true);
     },
     close() {
-      setIsVisible(false);
+      setVisible(false);
     },
   }));
 
   return (
     <Modal
-      isVisible={isVisible}
-      onSwipeComplete={() => setIsVisible(false)}
+      isVisible={visible}
+      onSwipeComplete={() => setVisible(false)}
       swipeDirection={direction === 'left' ? 'left' : 'right'}
-      backdropColor={getThemeProperty(theme.colors, props.backdropColor)}
-      backdropTransitionOutTiming={0}
-      animationInTiming={animationTime}
-      animationOutTiming={animationTime}
+      backdropColor={getThemeProperty(theme.colors, backdropColor)}
+      animationInTiming={animationInTiming ? animationInTiming : animationTime}
+      animationOutTiming={
+        animationOutTiming ? animationOutTiming : animationTime
+      }
       animationIn={direction === 'left' ? 'slideInLeft' : 'slideInRight'}
       animationOut={direction === 'left' ? 'slideOutLeft' : 'slideOutRight'}
-      onBackdropPress={() => setIsVisible(false)}
+      onBackdropPress={
+        'onBackdropPress' in props ? onBackdropPress : () => setVisible(false)
+      }
       style={computedStyle.drawer}
+      {...rest}
     >
-      <SafeAreaView
-        style={{
-          ...computedStyle.container,
-          width: DRAWER_WIDTH,
-        }}
-      >
-        {children}
-      </SafeAreaView>
+      <View style={computedStyle.container}>
+        <SafeAreaView style={computedStyle.safeView}>{children}</SafeAreaView>
+      </View>
     </Modal>
   );
 });
@@ -71,6 +79,7 @@ Drawer.defaultProps = {
   backdropColor: 'black',
   direction: 'left',
   rounded: 'none',
+  backdropTransitionOutTiming: 0,
 };
 
 export { Drawer };

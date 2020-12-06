@@ -20,6 +20,7 @@ export interface ImageProps
   maxH?: number | string;
   maxW?: number | string;
   flex?: number;
+  bg?: string;
   position?: 'absolute' | 'relative';
   alignSelf?:
     | 'auto'

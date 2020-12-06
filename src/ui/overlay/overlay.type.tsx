@@ -2,6 +2,11 @@ import { ModalProps as RNModalProps } from 'react-native';
 
 import { SpacingPropsType, RoundedPropsType } from '../../theme';
 
+export interface OverlayRef {
+  close: any;
+  open: any;
+}
+
 export interface OverlayProps
   extends RNModalProps,
     SpacingPropsType,
@@ -23,7 +28,7 @@ export interface OverlayProps
   flexDir?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
   flexWrap?: 'wrap' | 'nowrap' | 'wrap-reverse';
   children: React.ReactElement[] | React.ReactElement;
-  visible?: boolean;
+  isVisible?: boolean;
   overlayColor?: string;
   overlayOpacity?: number;
 }

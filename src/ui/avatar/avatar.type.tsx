@@ -3,12 +3,17 @@ import {
   ImageSourcePropType as RNImageSourcePropType,
 } from 'react-native';
 
+import { AvatarGroup } from './avatar.group.component';
 import {
   BorderPropsType,
   SpacingPropsType,
   RoundedPropsType,
   ShadowPropsType,
 } from '../../theme';
+
+export type CompoundedAvatar<P> = React.FunctionComponent<P> & {
+  Group: typeof AvatarGroup;
+};
 
 export interface AvatarProps
   extends RNViewProps,

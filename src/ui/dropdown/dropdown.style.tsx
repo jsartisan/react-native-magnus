@@ -18,6 +18,12 @@ export const getStyle = (theme: any, props: any) => {
   const computedStyle: any = {};
 
   computedStyle.wrapper = {
+    height: props.h,
+    width: props.w,
+    minHeight: props.minH,
+    minWidth: props.minW,
+    alignSelf: 'center',
+    overflow: props.overflow,
     backgroundColor: getThemeProperty(theme.colors, props.bg),
     ...createBorderWidthStyles(props),
     ...createBorderColorStyles(props, theme.colors),
@@ -30,7 +36,6 @@ export const getStyle = (theme: any, props: any) => {
   };
 
   computedStyle.container = {
-    height: props.h,
     ...createSpacingStyles(props, theme.spacing),
   };
 
