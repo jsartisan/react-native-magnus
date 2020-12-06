@@ -8,142 +8,140 @@ import { Text } from '../text/text.component';
 import Modal from 'react-native-modal';
 import { Option } from './option.component';
 import { ThemeContext, getThemeProperty } from '../../theme';
-import { IDropdownRef, IDropdownProps } from './dropdown.type';
+import { DropdownProps, DropdownRef } from './dropdown.type';
 
-const Dropdown = React.forwardRef<IDropdownRef, IDropdownProps>(
-  (props, ref) => {
-    const {
-      bg,
-      m,
-      mt,
-      mr,
-      mb,
-      ml,
-      ms,
-      p,
-      pr,
-      pt,
-      pb,
-      pl,
-      rounded,
-      roundedTop,
-      roundedRight,
-      roundedBottom,
-      roundedLeft,
-      borderColor,
-      borderBottomColor,
-      borderLeftColor,
-      borderTopColor,
-      borderRightColor,
-      borderWidth,
-      borderLeftWidth,
-      borderRightWidth,
-      borderBottomWidth,
-      borderTopWidth,
-      borderEndWidth,
-      title,
-      showSwipeIndicator,
-      children,
-      backdropColor,
-      flexDir,
-      flexWrap,
-      isVisible,
-      onBackdropPress,
-      swipeDirection,
-      ...rest
-    } = props;
-    const { theme } = useContext(ThemeContext);
-    const computedStyle = getStyle(theme, props);
-    const [visible, setVisible] = useState(props.isVisible || false);
+const Dropdown = React.forwardRef<DropdownRef, DropdownProps>((props, ref) => {
+  const {
+    bg,
+    m,
+    mt,
+    mr,
+    mb,
+    ml,
+    ms,
+    p,
+    pr,
+    pt,
+    pb,
+    pl,
+    rounded,
+    roundedTop,
+    roundedRight,
+    roundedBottom,
+    roundedLeft,
+    borderColor,
+    borderBottomColor,
+    borderLeftColor,
+    borderTopColor,
+    borderRightColor,
+    borderWidth,
+    borderLeftWidth,
+    borderRightWidth,
+    borderBottomWidth,
+    borderTopWidth,
+    borderEndWidth,
+    title,
+    showSwipeIndicator,
+    children,
+    backdropColor,
+    flexDir,
+    flexWrap,
+    isVisible,
+    onBackdropPress,
+    swipeDirection,
+    ...rest
+  } = props;
+  const { theme } = useContext(ThemeContext);
+  const computedStyle = getStyle(theme, props);
+  const [visible, setVisible] = useState(props.isVisible || false);
 
-    useEffect(() => {
-      if ('isVisible' in props) {
-        setVisible(props.isVisible);
-      }
-    }, [props]);
+  useEffect(() => {
+    if ('isVisible' in props) {
+      setVisible(props.isVisible || false);
+    }
+  }, [props]);
 
-    /**
-     * exposing functions through ref
-     */
-    useImperativeHandle(ref, () => ({
-      open() {
-        setVisible(true);
-      },
-      close() {
-        setVisible(false);
-      },
-    }));
+  /**
+   * exposing functions through ref
+   */
+  useImperativeHandle(ref, () => ({
+    open() {
+      setVisible(true);
+    },
+    close() {
+      setVisible(false);
+    },
+  }));
 
-    /**
-     * render title
-     */
-    const renderTitle = () => {
-      if (title) {
-        return typeof title === 'string' ? (
-          <Text fontSize="md" color="gray700">
-            {title}
-          </Text>
-        ) : (
-          title
-        );
-      }
-
-      return false;
-    };
-
-    /**
-     * render scroll indicator
-     */
-    const renderIndicator = () => {
-      return (
-        showSwipeIndicator && (
-          <Div
-            h={7}
-            rounded="xl"
-            w={40}
-            bg="gray200"
-            style={computedStyle.indicator}
-          />
-        )
+  /**
+   * render title
+   */
+  const renderTitle = () => {
+    if (title) {
+      return typeof title === 'string' ? (
+        <Text fontSize="md" color="gray700">
+          {title}
+        </Text>
+      ) : (
+        title
       );
-    };
+    }
 
+    return false;
+  };
+
+  /**
+   * render scroll indicator
+   */
+  const renderIndicator = () => {
     return (
-      <Modal
-        isVisible={visible}
-        onSwipeComplete={() => setVisible(false)}
-        backdropColor={getThemeProperty(theme.colors, backdropColor)}
-        onBackdropPress={
-          'onBackdropPress' in props ? onBackdropPress : () => setVisible(false)
-        }
-        style={{
-          margin: 0,
-          justifyContent: Platform.OS === 'web' ? 'center' : 'flex-end',
-        }}
-        swipeDirection="down"
-        {...rest}
-      >
-        <View style={computedStyle.wrapper}>
-          {renderIndicator()}
-          <SafeAreaView>
-            <View style={computedStyle.container}>
-              {renderTitle()}
-              <View style={computedStyle.options}>
-                {React.Children.map(children, (child: React.ReactElement) => {
-                  return React.cloneElement(child, {
-                    onSelect: () => {
-                      setVisible(false);
-                    },
-                  });
-                })}
-              </View>
-            </View>
-          </SafeAreaView>
-        </View>
-      </Modal>
+      showSwipeIndicator && (
+        <Div
+          h={7}
+          rounded="xl"
+          w={40}
+          bg="gray200"
+          style={computedStyle.indicator}
+        />
+      )
     );
-  }
-);
+  };
+
+  return (
+    <Modal
+      isVisible={visible}
+      onSwipeComplete={() => setVisible(false)}
+      backdropColor={getThemeProperty(theme.colors, backdropColor)}
+      onBackdropPress={
+        'onBackdropPress' in props ? onBackdropPress : () => setVisible(false)
+      }
+      style={{
+        margin: 0,
+        justifyContent: Platform.OS === 'web' ? 'center' : 'flex-end',
+      }}
+      swipeDirection="down"
+      {...rest}
+    >
+      <View style={computedStyle.wrapper}>
+        {renderIndicator()}
+        <SafeAreaView>
+          <View style={computedStyle.container}>
+            {renderTitle()}
+            <View style={computedStyle.options}>
+              {React.Children.map(children, (child: React.ReactElement) => {
+                return React.cloneElement(child, {
+                  onSelect: () => {
+                    setVisible(false);
+                  },
+                });
+              })}
+            </View>
+          </View>
+        </SafeAreaView>
+      </View>
+    </Modal>
+  );
+});
 
 Dropdown.defaultProps = {
   bg: 'white',
@@ -155,7 +153,5 @@ Dropdown.defaultProps = {
   backdropTransitionOutTiming: 0,
   overflow: 'hidden',
 };
-
-Dropdown.Option = Option;
 
 export { Dropdown };

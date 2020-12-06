@@ -28,6 +28,10 @@ import {
   ScrollDiv,
   DropdownRef,
   Drawer,
+  Header,
+  Toggle,
+  Select,
+  Animated,
 } from "react-native-magnus";
 
 const fontSizes = [
@@ -45,26 +49,18 @@ const fontSizes = [
 
 const App = () => {
   const ref = React.createRef<DropdownRef>();
+  const [on, toggle] = useState(false);
+  const [selectValue, setSelectedValue] = useState([]);
+  const selectRef = React.createRef();
+
+  const onSelectOption = (values) => setSelectedValue(values);
 
   return (
     <ThemeProvider>
       <Host>
-        <Fab top={0} bg="red500" h={50} w={50}>
-          <Button p="none" bg="transparent" justifyContent="flex-end">
-            <Div rounded="sm" bg="white" p="sm">
-              <Text fontSize="md">Cheer</Text>
-            </Div>
-            <Icon
-              name="user"
-              color="blue600"
-              h={50}
-              w={50}
-              rounded="circle"
-              ml="md"
-              bg="white"
-            />
-          </Button>
-        </Fab>
+        <ThemeProvider>
+          <SafeAreaView style={{ flex: 1 }} />
+        </ThemeProvider>
       </Host>
     </ThemeProvider>
   );

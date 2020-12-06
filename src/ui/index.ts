@@ -34,7 +34,7 @@ export { Tag } from './tag/tag.component';
 export { Modal } from './modal/modal.component';
 export { ModalRef } from './modal/modal.type';
 export { Toggle } from './toggle/toggle.component';
-export { DropdownRef } from './dropdown/dropdown.type';
+export { IDropdownRef } from './dropdown/dropdown.type';
 export { Header } from './header/header.component';
 export { Host } from './portal/host.component';
 export { Portal } from './portal/portal.component';

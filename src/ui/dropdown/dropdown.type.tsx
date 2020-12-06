@@ -6,12 +6,12 @@ import {
   RoundedPropsType,
 } from '../../theme';
 
-export interface IDropdownRef {
+export interface DropdownRef {
   open: () => void;
   close: () => void;
 }
 
-export interface IDropdownProps
+export interface DropdownProps
   extends ModalProps,
     BorderPropsType,
     SpacingPropsType,
