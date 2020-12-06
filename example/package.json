@@ -23,7 +23,6 @@
     "expo-keep-awake": "~8.2.1",
     "expo-splash-screen": "~0.3.1",
     "file-loader": "^4.0.0",
-    "modal-enhanced-react-native-web": "^0.2.0",
     "react": "16.11.0",
     "react-dom": "16.11.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.0.tar.gz",
@@ -34,8 +33,7 @@
     "react-native-safe-area-context": "3.0.2",
     "react-native-screens": "~2.9.0",
     "react-native-vector-icons": "^6.6.0",
-    "react-native-web": "~0.14.0",
-    "typeface-roboto": "^0.0.54"
+    "react-native-web": "~0.14.0"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.3.0",
