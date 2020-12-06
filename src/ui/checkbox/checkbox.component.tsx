@@ -70,7 +70,6 @@ const Checkbox: CompundedCheckbox<CheckboxProps> = (props) => {
     activeColor,
     inactiveColor,
     defaultChecked,
-    renderer,
     checked: checkedProp,
     onPress: onPressProp,
     ...rest

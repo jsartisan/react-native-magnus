@@ -60,6 +60,7 @@ export const useStateCallback = (initialState: any) => {
   useEffect(() => {
     // cb.current is `null` on initial render, so we only execute cb on state *updates*
     if (cbRef.current) {
+      //@ts-ignore
       cbRef.current(state);
       cbRef.current = null; // reset callback after execution
     }
