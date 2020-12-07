@@ -24,8 +24,7 @@
     "example": "yarn --cwd example",
     "web": "yarn --cwd example-web",
     "docs": "yarn --cwd docs",
-    "pods": "node -e \"process.exit(require('os').platform() !== 'darwin')\" && test -d example/ios && cd example/ios && pod install || printf ''",
-    "bootstrap": "yarn example && yarn docs && yarn && yarn pods"
+    "bootstrap": "yarn example && yarn docs && yarn"
   },
   "keywords": [
     "react-native",
