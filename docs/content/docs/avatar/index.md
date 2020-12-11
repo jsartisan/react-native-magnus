@@ -27,7 +27,7 @@ import { Avatar, Icon } from 'react-native-magnus';
 
 <Avatar
   shadow={1}
-  src={{
+  source={{
     uri:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1024px-React-icon.svg.png"
   }}
@@ -96,5 +96,5 @@ import { Avatar, Icon } from 'react-native-magnus';
 | right             | number of logical pixels to offset the right edge of this component.  | `number`                 | -          |
 | bottom            | number of logical pixels to offset the bottom edge of this component. | `number`                 | -          |
 | left              | number of logical pixels to offset the left edge of this component.   | `number`                 | -          |
-| src               | image source                                                          | `ImageSourcePropType`    | -          |
+| source            | image source                                                          | `ImageSourcePropType`    | -          |
 | fontSize          | fontSize for text                                                     | `string`                 | `md`       |
