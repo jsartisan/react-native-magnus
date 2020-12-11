@@ -7,6 +7,8 @@ import { getStyle } from './select.style';
 import { Div } from '../div/div.component';
 import { ThemeContext } from '../../theme';
 import { Text } from '../text/text.component';
+import { Input } from '../input/input.component';
+import { Icon } from '../icon/icon.component';
 import { Option } from './select.option.component';
 import { Button } from '../button/button.component';
 import { SelectProps, SelectRef, CompoundedSelect } from './select.type';
@@ -20,17 +22,46 @@ const Select = React.forwardRef<SelectRef, SelectProps>((props, ref) => {
     multiple,
     renderItem,
     keyExtractor,
+    searchableProps,
     onSelect: onSelectProp,
   } = props;
   const { theme } = useContext(ThemeContext);
   const [visible, setVisible] = useState(props.isVisible || false);
   const [selectedValue, setSelectedValue] = useState(value);
+  const [searchTerm, setSearchTerm] = useState<string>('');
+
   const computedStyle = getStyle(theme, props);
+
+  const resolveMultiLevelAccess = (obj: any, keys: string) => {
+    return keys.split('.').reduce((cur: any, key: string) => {
+      return cur[key];
+    }, obj);
+  };
+
+  const filterData = (data: any[], searchTerm: string) => {
+    if (!searchableProps || !searchableProps.length) return data;
+
+    var lowSearch = searchTerm.toLowerCase();
+    return data.filter((item) => {
+      return searchableProps.some((key) =>
+        String(resolveMultiLevelAccess(item, key))
+          .toLowerCase()
+          .includes(lowSearch)
+      );
+    });
+  };
+
+  const filteredData = React.useMemo(() => filterData(data, searchTerm), [
+    data,
+    searchTerm,
+  ]);
 
   useEffect(() => {
     if ('isVisible' in props) {
-      setVisible(props.isVisible || false);
+      setVisible(props.isVisible || visible);
     }
+
+    if (!visible) setSearchTerm('');
   }, [props, visible]);
 
   /**
@@ -91,6 +122,44 @@ const Select = React.forwardRef<SelectRef, SelectProps>((props, ref) => {
     return false;
   };
 
+  /**
+   * render searchbar at top select modal
+   */
+  const renderSearchbar = () => {
+    if (searchableProps?.length) {
+      return (
+        <Input
+          prefix={<Icon mr="lg" name="search" color="gray700" fontSize="3xl" />}
+          suffix={
+            <Button
+              h={30}
+              w={30}
+              rounded="circle"
+              bg="gray700"
+              onPress={() => setSearchTerm('')}
+            >
+              <Icon name="clear" color="white" fontSize="xl" />
+            </Button>
+          }
+          px="xl"
+          py="md"
+          mx="xl"
+          mt="md"
+          mb="xl"
+          pr="lg"
+          value={searchTerm}
+          onChangeText={(text) => setSearchTerm(text)}
+          fontSize="md"
+          borderWidth={0}
+          placeholder="Search items"
+          bg="gray200"
+        />
+      );
+    }
+
+    return false;
+  };
+
   const renderFooter = () => {
     if (footer) return footer;
 
@@ -120,6 +189,7 @@ const Select = React.forwardRef<SelectRef, SelectProps>((props, ref) => {
       isVisible={visible}
       backdropColor="black"
       onBackdropPress={() => setVisible(false)}
+      onBackButtonPress={() => setVisible(false)}
       hideModalContentWhileAnimating
       style={{
         margin: 0,
@@ -128,17 +198,28 @@ const Select = React.forwardRef<SelectRef, SelectProps>((props, ref) => {
     >
       <Div style={computedStyle.wrapper}>
         <SafeAreaView style={computedStyle.container}>
-          {renderTitle()}
-          <FlatList
-            data={data}
-            keyExtractor={keyExtractor}
-            renderItem={({ item, index }) =>
-              React.cloneElement(renderItem(item, index), {
-                onSelect,
-                selectedValue,
-              })
-            }
-          />
+          <Div>
+            {renderTitle()}
+            {renderSearchbar()}
+          </Div>
+
+          {filteredData.length ? (
+            <FlatList
+              data={filteredData}
+              keyExtractor={keyExtractor}
+              renderItem={({ item, index }) =>
+                React.cloneElement(renderItem(item, index), {
+                  onSelect,
+                  selectedValue,
+                })
+              }
+            />
+          ) : (
+            <Div flex={1} pl="xl">
+              <Text fontSize="lg">No results found.</Text>
+            </Div>
+          )}
+
           {renderFooter()}
         </SafeAreaView>
       </Div>
