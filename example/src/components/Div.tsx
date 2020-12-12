@@ -1,6 +1,6 @@
 import React from "react";
 import { ScrollView } from "react-native";
-import { Div, Image } from "react-native-magnus";
+import { Div, Image, Text } from "react-native-magnus";
 import ExampleHeader from "../utils/ExampleHeader";
 import ExampleSection from "../utils/ExampleSection";
 
@@ -24,12 +24,90 @@ const DivComponent: React.FC = () => {
 
         <ExampleSection name="shadows">
           <Div flexDir="row">
-            <Div h={40} w={40} bg="white" mr="md" rounded="sm" shadow={1} />
-            <Div h={40} w={40} bg="white" mr="md" rounded="sm" shadow={2} />
-            <Div h={40} w={40} bg="white" mr="md" rounded="sm" shadow={3} />
-            <Div h={40} w={40} bg="white" mr="md" rounded="sm" shadow={4} />
-            <Div h={40} w={40} bg="white" mr="md" rounded="sm" shadow={5} />
-            <Div h={40} w={40} bg="white" mr="md" rounded="sm" shadow={6} />
+            <Div
+              h={40}
+              w={40}
+              bg="white"
+              mr="md"
+              rounded="sm"
+              shadow="none"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Text>none</Text>
+            </Div>
+            <Div
+              h={40}
+              w={40}
+              bg="white"
+              mr="md"
+              rounded="sm"
+              shadow="xs"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Text>xs</Text>
+            </Div>
+            <Div
+              h={40}
+              w={40}
+              bg="white"
+              mr="md"
+              rounded="sm"
+              shadow="sm"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Text>sm</Text>
+            </Div>
+            <Div
+              h={40}
+              w={40}
+              bg="white"
+              mr="md"
+              rounded="sm"
+              shadow="md"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Text>md</Text>
+            </Div>
+            <Div
+              h={40}
+              w={40}
+              bg="white"
+              mr="md"
+              rounded="sm"
+              shadow="lg"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Text>lg</Text>
+            </Div>
+            <Div
+              h={40}
+              w={40}
+              bg="white"
+              mr="md"
+              rounded="sm"
+              shadow="xl"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Text>xl</Text>
+            </Div>
+            <Div
+              h={40}
+              w={40}
+              bg="white"
+              mr="md"
+              rounded="sm"
+              shadow="2xl"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Text>2xl</Text>
+            </Div>
           </Div>
         </ExampleSection>
 

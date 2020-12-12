@@ -17,6 +17,7 @@ const HomeScreen = () => {
           <Header
             py="lg"
             px="xl"
+            shadow="sm"
             suffix={
               <Badge bg="green500" zIndex={10} right={-5} top={0} h={12} w={12}>
                 <Button

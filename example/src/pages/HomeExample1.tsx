@@ -52,7 +52,7 @@ const HomeExample1: React.FC = () => {
     <Host>
       <Div flex={1}>
         {/* header */}
-        <Div bg="white">
+        <Div bg="white" shadow="sm">
           <Header
             py="md"
             px="xl"
