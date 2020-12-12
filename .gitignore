@@ -62,3 +62,4 @@ lib/
 .env.development
 .env.production
 .gitconfig
+example/yarn.lock
