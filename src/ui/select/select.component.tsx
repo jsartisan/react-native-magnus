@@ -129,17 +129,21 @@ const Select = React.forwardRef<SelectRef, SelectProps>((props, ref) => {
     if (searchableProps?.length) {
       return (
         <Input
-          prefix={<Icon mr="lg" name="search" color="gray700" fontSize="3xl" />}
+          prefix={
+            <Icon mr="lg" name="search1" color="gray700" fontSize="3xl" />
+          }
           suffix={
-            <Button
-              h={30}
-              w={30}
-              rounded="circle"
-              bg="gray700"
-              onPress={() => setSearchTerm('')}
-            >
-              <Icon name="clear" color="white" fontSize="xl" />
-            </Button>
+            searchTerm ? (
+              <Button
+                p="sm"
+                alignSelf="center"
+                rounded="circle"
+                bg="gray700"
+                onPress={() => setSearchTerm('')}
+              >
+                <Icon name="close" color="white" fontSize="xs" />
+              </Button>
+            ) : null
           }
           px="xl"
           py="md"

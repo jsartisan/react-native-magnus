@@ -42,14 +42,14 @@ const Option: React.FunctionComponent<OptionProps> = (props) => {
   const renderPrefix = () => {
     if (prefix && isSelected) {
       if (typeof prefix === 'string') {
-        return <Icon name={prefix} fontSize="md" color="green600" mr="md" />;
+        return <Icon name={prefix} fontSize="xl" color="green600" mr="md" />;
       }
 
       return prefix;
     }
 
     if (isSelected) {
-      return <Icon name="check" fontSize="md" color="green600" mr="md" />;
+      return <Icon name="check" fontSize="xl" color="green600" mr="md" />;
     }
 
     return false;
@@ -64,7 +64,7 @@ const Option: React.FunctionComponent<OptionProps> = (props) => {
   };
   return (
     <Button {...rest} onPress={onPress} block alignItems="center">
-      <Div w="5%">{renderPrefix()}</Div>
+      <Div w="8%">{renderPrefix()}</Div>
       <Div flex={1} bg="transparent">
         {renderChildren()}
       </Div>
