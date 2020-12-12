@@ -32,9 +32,12 @@ const Select = React.forwardRef<SelectRef, SelectProps>((props, ref) => {
 
   const computedStyle = getStyle(theme, props);
 
-  const resolveMultiLevelAccess = (obj: any, keys: string) => {
-    return keys.split('.').reduce((cur: any, key: string) => {
-      return cur[key];
+  const resolveMultiLevelAccess = (obj: any, key: string) => {
+    if (key.length === 0) return obj;
+
+    return key.split('.').reduce((cur: any, keySection: string) => {
+      if (!cur) return;
+      return cur[keySection];
     }, obj);
   };
 
@@ -57,11 +60,11 @@ const Select = React.forwardRef<SelectRef, SelectProps>((props, ref) => {
   ]);
 
   useEffect(() => {
+    if (visible) setSearchTerm('');
+
     if ('isVisible' in props) {
       setVisible(props.isVisible || visible);
     }
-
-    if (!visible) setSearchTerm('');
   }, [props, visible]);
 
   /**
@@ -207,7 +210,7 @@ const Select = React.forwardRef<SelectRef, SelectProps>((props, ref) => {
             {renderSearchbar()}
           </Div>
 
-          {filteredData.length ? (
+          {filteredData.length > 0 ? (
             <FlatList
               data={filteredData}
               keyExtractor={keyExtractor}
