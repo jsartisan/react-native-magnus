@@ -1,9 +1,8 @@
 import * as React from 'react';
 
 import { ThemeType } from './type';
-
-import { ThemeContext } from './theme.context';
 import { useTheme } from './theme.hook';
+import { ThemeContext } from './theme.context';
 
 export interface ThemeProviderProps {
   theme?: ThemeType;
