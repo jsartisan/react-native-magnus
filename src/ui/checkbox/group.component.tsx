@@ -5,7 +5,7 @@ import { Div } from '../div/div.component';
 import { DivProps } from '../div/div.type';
 
 interface ButtonProps extends DivProps {
-  onChange?: (value: any) => void;
+  onChange?: (value: any[]) => void;
   value?: any[];
   defaultValue?: any[];
   children: React.ReactElement[] | React.ReactElement;
