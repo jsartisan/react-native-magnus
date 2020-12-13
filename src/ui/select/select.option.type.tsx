@@ -38,7 +38,7 @@ export interface OptionProps
   minH?: number | string;
   fontSize?: string | number;
   loaderSize?: number | string;
-  suffix?: React.ReactNode;
+  prefix?: React.ReactNode;
   block?: boolean;
   borderless?: boolean;
   rippleColor?: string;

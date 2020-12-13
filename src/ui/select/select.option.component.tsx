@@ -10,8 +10,8 @@ import { Button } from '../button/button.component';
 const Option: React.FunctionComponent<OptionProps> = (props) => {
   const {
     children,
-    suffix,
     value,
+    prefix,
     onPress: onPressProp,
     onSelect,
     selectedValue,
@@ -39,17 +39,17 @@ const Option: React.FunctionComponent<OptionProps> = (props) => {
   /**
    * render suffix
    */
-  const renderSuffix = () => {
-    if (suffix && isSelected) {
-      if (typeof suffix === 'string') {
-        return <Icon name={suffix} fontSize="md" color="green600" mr="md" />;
+  const renderPrefix = () => {
+    if (prefix && isSelected) {
+      if (typeof prefix === 'string') {
+        return <Icon name={prefix} fontSize="xl" color="green600" mr="md" />;
       }
 
-      return suffix;
+      return prefix;
     }
 
     if (isSelected) {
-      return <Icon name="check" fontSize="md" color="green600" mr="md" />;
+      return <Icon name="check" fontSize="xl" color="green600" mr="md" />;
     }
 
     return false;
@@ -64,10 +64,10 @@ const Option: React.FunctionComponent<OptionProps> = (props) => {
   };
   return (
     <Button {...rest} onPress={onPress} block alignItems="center">
+      <Div w="8%">{renderPrefix()}</Div>
       <Div flex={1} bg="transparent">
         {renderChildren()}
       </Div>
-      {renderSuffix()}
     </Button>
   );
 };
