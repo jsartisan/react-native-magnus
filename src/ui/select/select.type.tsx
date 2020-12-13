@@ -63,4 +63,5 @@ export interface SelectProps
   renderItem: (item: any, index: number) => React.ReactElement;
   keyExtractor?: (item: any, index: number) => string;
   isVisible?: boolean;
+  searchableProps?: string[];
 }
