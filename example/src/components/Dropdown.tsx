@@ -8,6 +8,8 @@ import {
   Icon,
   Text,
 } from "react-native-magnus";
+
+import ExamplePage from "../utils/ExamplePage";
 import ExampleHeader from "../utils/ExampleHeader";
 import ExampleSection from "../utils/ExampleSection";
 
@@ -16,7 +18,7 @@ const DropdownComponent: React.FC = () => {
   const dropdownRef2 = React.useRef<DropdownRef>(null);
 
   return (
-    <>
+    <ExamplePage>
       <ExampleHeader name="dropdown" />
 
       <ScrollView>
@@ -185,7 +187,7 @@ const DropdownComponent: React.FC = () => {
           </Dropdown>
         </ExampleSection>
       </ScrollView>
-    </>
+    </ExamplePage>
   );
 };
 

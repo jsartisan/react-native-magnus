@@ -1,7 +1,16 @@
 import React from "react";
 import { ScrollView } from "react-native";
-import { Div, Input, Icon, Text, Select, Button } from "react-native-magnus";
-import { SelectRef } from "src/ui/select/select.type";
+import {
+  Div,
+  Input,
+  Icon,
+  Text,
+  Select,
+  Button,
+  SelectRef,
+} from "react-native-magnus";
+
+import ExamplePage from "../utils/ExamplePage";
 import ExampleHeader from "../utils/ExampleHeader";
 import ExampleSection from "../utils/ExampleSection";
 
@@ -21,15 +30,14 @@ const countryCodes: CountryCodeType[] = [
 
 const InputComponent: React.FC = () => {
   const selectCountryCodeRef = React.useRef<SelectRef>(null);
-  const [
-    selectedCountryCode,
-    setSelectedCountryCode,
-  ] = React.useState<CountryCodeType>();
+  const [selectedCountryCode, setSelectedCountryCode] = React.useState<
+    CountryCodeType
+  >();
   const onSelectCountryCodeOption = (value: CountryCodeType) =>
     setSelectedCountryCode(value);
 
   return (
-    <>
+    <ExamplePage>
       <ExampleHeader name="input" />
 
       <ScrollView>
@@ -155,7 +163,7 @@ const InputComponent: React.FC = () => {
           />
         </ExampleSection>
       </ScrollView>
-    </>
+    </ExamplePage>
   );
 };
 

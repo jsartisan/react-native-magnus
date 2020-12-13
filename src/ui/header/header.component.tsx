@@ -121,6 +121,7 @@ Header.defaultProps = {
   bgMode: 'cover',
   pointerEvents: 'auto',
   row: true,
+  p: 'lg',
   borderStyle: 'solid',
   alignItems: 'center',
   alignment: 'left',

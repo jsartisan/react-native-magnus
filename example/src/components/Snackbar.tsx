@@ -1,15 +1,17 @@
 import React from "react";
 import { ScrollView } from "react-native";
-import { Button, Icon, Snackbar, SnackbarRefType } from "react-native-magnus";
+import { Button, Icon, Snackbar, SnackbarRef } from "react-native-magnus";
+
+import ExamplePage from "../utils/ExamplePage";
 import ExampleHeader from "../utils/ExampleHeader";
 import ExampleSection from "../utils/ExampleSection";
 
 const SnackbarComponent: React.FC = () => {
-  const snackbarRef1 = React.useRef<SnackbarRefType>(null);
-  const snackbarRef2 = React.useRef<SnackbarRefType>(null);
+  const snackbarRef1 = React.useRef<SnackbarRef>(null);
+  const snackbarRef2 = React.useRef<SnackbarRef>(null);
 
   return (
-    <>
+    <ExamplePage>
       <ExampleHeader name="snackbar" />
 
       <ScrollView>
@@ -81,7 +83,7 @@ const SnackbarComponent: React.FC = () => {
       >
         Here is a dark snack for you!
       </Snackbar>
-    </>
+    </ExamplePage>
   );
 };
 

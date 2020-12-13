@@ -2,6 +2,7 @@ import React from "react";
 import { ScrollView } from "react-native";
 import { Button, Div, Select, Text } from "react-native-magnus";
 import { SelectRef } from "src/ui/select/select.type";
+import ExamplePage from "../utils/ExamplePage";
 import ExampleHeader from "../utils/ExampleHeader";
 import ExampleSection from "../utils/ExampleSection";
 
@@ -23,7 +24,7 @@ const SelectComponent: React.FC = () => {
   const selectRef4 = React.useRef<SelectRef>(null);
 
   return (
-    <>
+    <ExamplePage>
       <ExampleHeader name="select" />
 
       <ScrollView>
@@ -209,7 +210,7 @@ const SelectComponent: React.FC = () => {
           />
         </ExampleSection>
       </ScrollView>
-    </>
+    </ExamplePage>
   );
 };
 

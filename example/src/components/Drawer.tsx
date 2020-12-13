@@ -1,6 +1,7 @@
 import React from "react";
-import { Button, Drawer, Text } from "react-native-magnus";
-import { DrawerRef } from "lib/typescript/src/ui/drawer/drawer.type";
+import { Button, Drawer, Text, DrawerRef } from "react-native-magnus";
+
+import ExamplePage from "../utils/ExamplePage";
 import ExampleHeader from "../utils/ExampleHeader";
 import ExampleSection from "../utils/ExampleSection";
 
@@ -8,7 +9,7 @@ const DrawerComponent: React.FC = () => {
   const drawerRef = React.useRef<DrawerRef>(null);
 
   return (
-    <>
+    <ExamplePage>
       <ExampleHeader name="drawer" />
 
       <ExampleSection name="default">
@@ -18,7 +19,7 @@ const DrawerComponent: React.FC = () => {
 
         <Button onPress={() => drawerRef.current?.open()}>Open Drawer</Button>
       </ExampleSection>
-    </>
+    </ExamplePage>
   );
 };
 

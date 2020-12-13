@@ -2,11 +2,12 @@ import React from "react";
 import { ScrollView } from "react-native";
 import { Div, Icon, Tag } from "react-native-magnus";
 import ExampleHeader from "../utils/ExampleHeader";
+import ExamplePage from "../utils/ExamplePage";
 import ExampleSection from "../utils/ExampleSection";
 
 const TagComponent: React.FC = () => {
   return (
-    <>
+    <ExamplePage>
       <ExampleHeader name="tag" />
 
       <ScrollView>
@@ -43,7 +44,7 @@ const TagComponent: React.FC = () => {
           </Div>
         </ExampleSection>
       </ScrollView>
-    </>
+    </ExamplePage>
   );
 };
 

@@ -16,7 +16,7 @@ import {
   Button,
   Icon,
   Snackbar,
-  SnackbarRefType,
+  SnackbarRef,
 } from "react-native-magnus";
 
 const snackbarRef = React.createRef();

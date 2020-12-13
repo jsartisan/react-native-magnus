@@ -10,14 +10,15 @@ const HomeScreen = () => {
 
   return (
     <>
-      <StatusBar barStyle="light-content" backgroundColor="black" />
+      <SafeAreaView style={{ flex: 0, backgroundColor: "white" }} />
+      <StatusBar barStyle="dark-content" backgroundColor="black" />
       <SafeAreaView style={{ flex: 1 }}>
         <Div flex={1}>
           {/* header */}
           <Header
             py="lg"
             px="xl"
-            shadow="sm"
+            shadow="xs"
             suffix={
               <Badge bg="green500" zIndex={10} right={-5} top={0} h={12} w={12}>
                 <Button

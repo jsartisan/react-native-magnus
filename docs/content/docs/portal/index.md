@@ -29,9 +29,9 @@ Example with Snackbar
 
 ```jsx
 import React from "react";
-import { Modal, Host, Portal, Div, Icon, SnackbarRefType } from "react-native-magnus";
+import { Modal, Host, Portal, Div, Icon, SnackbarRef } from "react-native-magnus";
 
-const snackbarLightRef = React.createRef<SnackbarRefType>();
+const snackbarLightRef = React.createRef<SnackbarRef>();
 
 export const App = () => (
   <Host>

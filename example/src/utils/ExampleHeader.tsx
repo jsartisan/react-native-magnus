@@ -9,7 +9,7 @@ const ExampleHeader: React.FC<{ name: string }> = ({ name }) => {
     <Header
       py="lg"
       px="xl"
-      shadow="sm"
+      shadow="xs"
       prefix={
         <Button
           rounded="circle"

@@ -138,7 +138,7 @@ Toggle.defaultProps = {
   bg: 'gray200',
   on: false,
   circleBg: 'white',
-  activeCircleBg: 'rgb(102,134,205)',
+  activeCircleBg: 'white',
   duration: 300,
   rounded: 'circle',
   disabled: false,

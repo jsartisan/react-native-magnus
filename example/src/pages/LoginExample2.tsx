@@ -1,14 +1,27 @@
 import React from "react";
 import { StatusBar } from "react-native";
-import { Button, Div, Image, Input, Text } from "react-native-magnus";
+import { useNavigation } from "@react-navigation/native";
+import { Button, Div, Image, Input, Text, Icon } from "react-native-magnus";
+
+import ExamplePage from "../utils/ExamplePage";
 
 const LOGO_URL = `https://freepngimg.com/thumb/logo/69823-instagram-icons-symbol-youtube-computer-logo-thumb.png`;
 
 const LoginExample2: React.FC = () => {
+  const navigation = useNavigation();
+
   return (
-    <>
+    <ExamplePage>
       <StatusBar barStyle="dark-content" backgroundColor="white" />
       <Div px="2xl" bg="white" flex={1}>
+        <Button bg="gray100" mt="md" onPress={() => navigation.goBack()}>
+          <Icon
+            name="arrow-left"
+            color="blue500"
+            fontFamily="Feather"
+            fontSize="2xl"
+          />
+        </Button>
         <Div justifyContent="center" flex={1}>
           <Image
             mt="xl"
@@ -71,7 +84,7 @@ const LoginExample2: React.FC = () => {
           </Div>
         </Div>
       </Div>
-    </>
+    </ExamplePage>
   );
 };
 

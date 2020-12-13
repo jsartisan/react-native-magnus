@@ -1,6 +1,8 @@
 import React from "react";
 import { ScrollView } from "react-native";
 import { Checkbox, Div, Text } from "react-native-magnus";
+
+import ExamplePage from "../utils/ExamplePage";
 import ExampleHeader from "../utils/ExampleHeader";
 import ExampleSection from "../utils/ExampleSection";
 
@@ -8,7 +10,7 @@ const CheckboxComponent: React.FC = () => {
   const [checkboxValue, setCheckboxValue] = React.useState<any[]>();
 
   return (
-    <>
+    <ExamplePage>
       <ExampleHeader name="checkbox" />
 
       <ScrollView>
@@ -57,7 +59,7 @@ const CheckboxComponent: React.FC = () => {
           </Div>
         </ExampleSection>
       </ScrollView>
-    </>
+    </ExamplePage>
   );
 };
 

@@ -1,5 +1,6 @@
 import React from "react";
 import { StatusBar } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import {
   Div,
   Text,
@@ -8,6 +9,7 @@ import {
   Image,
   ThemeContext,
 } from "react-native-magnus";
+import ExamplePage from "../utils/ExamplePage";
 
 const logoUrl =
   "https://snack-code-uploads.s3-us-west-1.amazonaws.com/~asset/b679564184bacafa9ab962c3de08ea4c";
@@ -16,21 +18,37 @@ const coverArtUrl =
 
 const LoginExample1: React.FC = () => {
   const themeContext = React.useContext(ThemeContext);
+  const navigation = useNavigation();
 
   return (
-    <>
+    <ExamplePage>
       <StatusBar
         barStyle="dark-content"
         backgroundColor={themeContext.theme.colors.loginExample1Bg}
       />
       <Div flex={1}>
         <Div px="xl" pt="2xl" flex={1} bg="loginExample1Bg">
-          <Image
-            resizeMode="contain"
-            w={100}
-            h={40}
-            source={{ uri: logoUrl }}
-          />
+          <Div row>
+            <Button
+              bg="gray100"
+              ml="-md"
+              mr="lg"
+              onPress={() => navigation.goBack()}
+            >
+              <Icon
+                name="arrow-left"
+                color="pink500"
+                fontFamily="Feather"
+                fontSize="2xl"
+              />
+            </Button>
+            <Image
+              resizeMode="contain"
+              w={100}
+              h={40}
+              source={{ uri: logoUrl }}
+            />
+          </Div>
           <Text
             mt="sm"
             color="brown100"
@@ -99,7 +117,7 @@ const LoginExample1: React.FC = () => {
             flexDir="row"
             mt="xl"
           >
-            <Div h={1} flex={1} bg="gray200"></Div>
+            <Div h={1} flex={1} bg="gray200" />
             <Text
               px="lg"
               fontSize="lg"
@@ -108,8 +126,8 @@ const LoginExample1: React.FC = () => {
             >
               Or With Email
             </Text>
-            <Div></Div>
-            <Div h={1} flex={1} bg="gray200"></Div>
+            <Div />
+            <Div h={1} flex={1} bg="gray200" />
           </Div>
           <Div
             alignItems="center"
@@ -140,7 +158,7 @@ const LoginExample1: React.FC = () => {
           </Div>
         </Div>
       </Div>
-    </>
+    </ExamplePage>
   );
 };
 

@@ -1,12 +1,14 @@
 import React from "react";
 import { ScrollView } from "react-native";
 import { Div, Text } from "react-native-magnus";
+
+import ExamplePage from "../utils/ExamplePage";
 import ExampleHeader from "../utils/ExampleHeader";
 import ExampleSection from "../utils/ExampleSection";
 
 const TextComponent: React.FC = () => {
   return (
-    <>
+    <ExamplePage>
       <ExampleHeader name="text" />
 
       <ScrollView>
@@ -93,7 +95,7 @@ const TextComponent: React.FC = () => {
           </Text>
         </ExampleSection>
       </ScrollView>
-    </>
+    </ExamplePage>
   );
 };
 

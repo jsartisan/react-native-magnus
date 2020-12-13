@@ -1,7 +1,15 @@
 import React from "react";
 import { ScrollView } from "react-native";
-import { Button, Div, Icon, Text, Tooltip } from "react-native-magnus";
-import { TooltipRef } from "src/ui/tooltip/tooltip.type";
+import {
+  Button,
+  Div,
+  Icon,
+  Text,
+  Tooltip,
+  TooltipRef,
+} from "react-native-magnus";
+
+import ExamplePage from "../utils/ExamplePage";
 import ExampleHeader from "../utils/ExampleHeader";
 import ExampleSection from "../utils/ExampleSection";
 
@@ -10,15 +18,16 @@ const TooltipComponent: React.FC = () => {
   const tooltipRef2 = React.useRef<TooltipRef>(null);
 
   return (
-    <>
+    <ExamplePage>
       <ExampleHeader name="tooltip" />
 
       <ScrollView>
         <ExampleSection name="default">
-          <Tooltip ref={tooltipRef1} text="Best tooltip ever!" />
-          <Button mt="sm" block onPress={() => tooltipRef1.current?.show()}>
-            Show Tooltip
-          </Button>
+          <Tooltip ref={tooltipRef1} text="Best tooltip ever!">
+            <Button mt="sm" block onPress={() => tooltipRef1.current?.show()}>
+              Show Tooltip
+            </Button>
+          </Tooltip>
         </ExampleSection>
 
         <ExampleSection name="custom">
@@ -40,14 +49,14 @@ const TooltipComponent: React.FC = () => {
               </Div>
             }
             bg="red500"
-          />
-
-          <Button mt="sm" block onPress={() => tooltipRef2.current?.show()}>
-            Show me tooltip
-          </Button>
+          >
+            <Button mt="sm" block onPress={() => tooltipRef2.current?.show()}>
+              Show me tooltip
+            </Button>
+          </Tooltip>
         </ExampleSection>
       </ScrollView>
-    </>
+    </ExamplePage>
   );
 };
 

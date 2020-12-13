@@ -1,12 +1,14 @@
 import React from "react";
 import { ScrollView } from "react-native";
 import { Div, Skeleton } from "react-native-magnus";
+
+import ExamplePage from "../utils/ExamplePage";
 import ExampleHeader from "../utils/ExampleHeader";
 import ExampleSection from "../utils/ExampleSection";
 
 const SkeletonComponent: React.FC = () => {
   return (
-    <>
+    <ExamplePage>
       <ExampleHeader name="skeleton" />
 
       <ScrollView>
@@ -30,7 +32,7 @@ const SkeletonComponent: React.FC = () => {
           </Div>
         </ExampleSection>
       </ScrollView>
-    </>
+    </ExamplePage>
   );
 };
 

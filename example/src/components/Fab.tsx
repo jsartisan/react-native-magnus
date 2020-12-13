@@ -1,10 +1,12 @@
 import React from "react";
 import { Button, Div, Fab, Icon, Text } from "react-native-magnus";
+
+import ExamplePage from "../utils/ExamplePage";
 import ExampleHeader from "../utils/ExampleHeader";
 
 const FabComponent: React.FC = () => {
   return (
-    <>
+    <ExamplePage>
       <ExampleHeader name="fab (floating action button)" />
 
       <Fab bg="blue600" h={50} w={50}>
@@ -37,7 +39,7 @@ const FabComponent: React.FC = () => {
           />
         </Button>
       </Fab>
-    </>
+    </ExamplePage>
   );
 };
 

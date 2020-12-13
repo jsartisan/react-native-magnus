@@ -45,6 +45,7 @@ export interface TooltipProps
   textTransform?: 'none' | 'uppercase' | 'lowercase' | 'capitalize';
   letterSpacing?: number;
   useNativeDriver?: boolean;
+  children?: React.ReactNode[] | React.ReactNode;
 }
 
 export interface TriangelProps extends RNViewProps {

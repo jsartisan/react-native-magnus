@@ -1,6 +1,8 @@
 import React from "react";
 import { ScrollView } from "react-native";
 import { Button, Div, Icon, Modal, Text } from "react-native-magnus";
+
+import ExamplePage from "../utils/ExamplePage";
 import ExampleHeader from "../utils/ExampleHeader";
 import ExampleSection from "../utils/ExampleSection";
 
@@ -10,7 +12,7 @@ const ModalComponent: React.FC = () => {
   const [modalVisible3, setModalVisible3] = React.useState(false);
 
   return (
-    <>
+    <ExamplePage>
       <ExampleHeader name="modal" />
 
       <ScrollView>
@@ -98,7 +100,7 @@ const ModalComponent: React.FC = () => {
           </Modal>
         </ExampleSection>
       </ScrollView>
-    </>
+    </ExamplePage>
   );
 };
 

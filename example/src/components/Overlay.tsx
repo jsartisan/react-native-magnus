@@ -1,6 +1,8 @@
 import React from "react";
 import { ActivityIndicator, ScrollView } from "react-native";
 import { Button, Div, Overlay, Text } from "react-native-magnus";
+
+import ExamplePage from "../utils/ExamplePage";
 import ExampleHeader from "../utils/ExampleHeader";
 import ExampleSection from "../utils/ExampleSection";
 
@@ -8,7 +10,7 @@ const OverlayComponent: React.FC = () => {
   const [overlayVisible, setOverlayVisible] = React.useState(false);
 
   return (
-    <>
+    <ExamplePage>
       <ExampleHeader name="overlay" />
 
       <ScrollView>
@@ -36,7 +38,7 @@ const OverlayComponent: React.FC = () => {
           </Overlay>
         </ExampleSection>
       </ScrollView>
-    </>
+    </ExamplePage>
   );
 };
 

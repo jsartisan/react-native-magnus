@@ -1,16 +1,18 @@
 import React from "react";
 import { ScrollView } from "react-native";
 import { Button, Div, Icon } from "react-native-magnus";
+
+import ExamplePage from "../utils/ExamplePage";
 import ExampleHeader from "../utils/ExampleHeader";
 import ExampleSection from "../utils/ExampleSection";
 
 const ButtonComponent: React.FC = () => {
   return (
-    <>
+    <ExamplePage>
       <ExampleHeader name="button" />
 
       <ScrollView>
-        <ExampleSection name="border">
+        <ExampleSection name="background">
           <Div flexDir="row">
             <Button mr="sm">Default</Button>
             <Button bg="green600" mr="sm" underlayColor="green700">
@@ -28,7 +30,7 @@ const ButtonComponent: React.FC = () => {
           </Div>
         </ExampleSection>
 
-        <ExampleSection name="background">
+        <ExampleSection name="border">
           <Div flexDir="row">
             <Button
               bg="white"
@@ -92,7 +94,7 @@ const ButtonComponent: React.FC = () => {
             </Button>
 
             <Button h={40} w={40} rounded="circle" mr="sm">
-              <Icon name="heart" />
+              <Icon name="heart" color="white" />
             </Button>
           </Div>
         </ExampleSection>
@@ -214,7 +216,7 @@ const ButtonComponent: React.FC = () => {
           </Button>
         </ExampleSection>
       </ScrollView>
-    </>
+    </ExamplePage>
   );
 };
 

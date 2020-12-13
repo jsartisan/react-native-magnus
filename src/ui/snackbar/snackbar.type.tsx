@@ -7,7 +7,7 @@ import {
   ShadowPropsType,
 } from '../../theme';
 
-export interface SnackbarRefType {
+export interface SnackbarRef {
   show: () => void;
   hide: () => void;
 }

@@ -3,6 +3,24 @@ import PropTypes from "prop-types";
 
 export default function HTML(props) {
   /**
+   * add inspeclet
+   */
+  const addInspectletSnippet = () => {
+    return (
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `(function() {
+        window.__insp = window.__insp || [];
+        __insp.push(['wid', 1550740511]);
+        var ldinsp = function(){
+        if(typeof window.__inspld != "undefined") return; window.__inspld = 1; var insp = document.createElement('script'); insp.type = 'text/javascript'; insp.async = true; insp.id = "inspsync"; insp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cdn.inspectlet.com/inspectlet.js?wid=1550740511&r=' + Math.floor(new Date().getTime()/3600000); var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(insp, x); };
+        setTimeout(ldinsp, 0);
+        })();`,
+        }}
+      />
+    );
+  };
+  /**
    * hot jar tracking tool
    */
   const addHotJarSnippet = () => {
@@ -154,6 +172,7 @@ export default function HTML(props) {
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
         {addDriftChat()}
         {addDriftHelperSnippet()}
+        {process.env.NODE_ENV === "production" && addInspectletSnippet()}
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}
