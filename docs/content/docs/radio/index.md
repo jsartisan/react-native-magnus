@@ -121,24 +121,24 @@ export default App;
 
 ## Props
 
-### Checkbox
+### Radio
 
 | Property      | Description                               | Type                                  | Default   |
 | ------------- | ----------------------------------------- | ------------------------------------- | --------- |
-| onChange      | event triggered on toggling the checkbox  | `((value: any) => void) | undefined;` | `-`       |
-| checked       | state to control the state of checkbox    | `boolean`                             | `-`       |
+| onChange      | event triggered on toggling the radio     | `((value: any) => void) | undefined;` | `-`       |
+| checked       | state to control the state of radio       | `boolean`                             | `-`       |
 | loading       | shows ActivityIndicator when true         | `boolean`                             | `false`   |
 | disabled      | show disabled icon when true              | `boolean`                             | `false`   |
 | fontSize      | font size for icon                        | `string`                              | `md`      |
-| activeColor   | color for icon when checkbox is checked   | `string`                              | `blue600` |
-| inactiveColor | color for icon when checkbox is unchecked | `string`                              | `gray400` |
+| activeColor   | color for icon when radio is checked      | `string`                              | `blue600` |
+| inactiveColor | color for icon when radio is unchecked    | `string`                              | `gray400` |
 
-### Checkbox.Group
+### Radio.Group
 
-Checkbox group is a wrapper around `Div` component. So it accepts all props of `Div` along with following extra props.
+Radio group is a wrapper around `Div` component. So it accepts all props of `Div` along with following extra props.
 
 | Property     | Description                              | Type                                   | Default |
 | ------------ | ---------------------------------------- | -------------------------------------- | ------- |
 | onChange     | event triggered on toggling the checkbox | `((values: any) => void) | undefined;` | -       |
-| value        | value for the checkbox group             | `any[]`                                | `[]`    |
-| defaultValue | default value for the checkbox group     | `any[]`                                | `[]`    |
+| value        | value for the checkbox group             | `any`                                  | `-`     |
+| defaultValue | default value for the checkbox group     | `any`                                  | `-`     |
