@@ -57,6 +57,7 @@ export const getStyle = (theme: any, props: any, state: any) => {
     flex: 1,
     padding: 0,
     textAlignVertical: 'center',
+    textAlign: props.textAlign,
     color: getThemeProperty(theme.colors, props.color),
     fontSize: getThemeProperty(theme.fontSize, props.fontSize),
   };

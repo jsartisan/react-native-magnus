@@ -32,4 +32,5 @@ export interface InputProps
   prefix?: React.ReactNode;
   zIndex?: number;
   opacity?: number;
+  textAlign?: 'left' | 'right' | 'center';
 }
