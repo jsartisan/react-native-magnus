@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🚀 Getting started
+    url: https://magnus-ui.com/docs/getting-started/
+    about: Head over to this link to get started
+  - name: 🤔 Questions and Help
+    url: https://discord.com/invite/rBTTVJp
+    about: Reach out to us on discord or our github discussions page.
