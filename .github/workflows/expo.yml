@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v1
 
       - name: Setup Node.js
         uses: actions/setup-node@v1
@@ -22,6 +22,7 @@ jobs:
           expo-version: 3.x
           expo-username: ${{ secrets.EXPO_CLI_USERNAME }}
           expo-password: ${{ secrets.EXPO_CLI_PASSWORD }}
+          expo-cache: true
 
       - name: Get yarn cache
         id: yarn-cache
@@ -33,11 +34,10 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
-      - name: Change directory
-        run: cd example
 
       - name: Install dependencies
-        run: yarn
+        run: yarn bootstrap
 
-      - name: Publish using expo
-        run: yarn run publish
+      - name: Publish Expo app
+        working-directory: ./example
+        run: expo publish
