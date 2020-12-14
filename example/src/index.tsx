@@ -32,6 +32,7 @@ const App = () => {
           {pages.map((page) => {
             return (
               <Stack.Screen
+                key={`page-${page.onScreenName}`}
                 name={page.navigationPath}
                 component={page.component}
               />
@@ -41,6 +42,7 @@ const App = () => {
           {components.map((component) => {
             return (
               <Stack.Screen
+                key={`page-${component.onScreenName}`}
                 name={component.navigationPath}
                 component={component.component}
               />
