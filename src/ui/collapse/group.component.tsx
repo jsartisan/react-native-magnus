@@ -11,7 +11,7 @@ interface ButtonProps extends DivProps {
 }
 
 const CollapseGroup: React.FunctionComponent<ButtonProps> = (props) => {
-  const [active, setActive] = useState(props.defaultActive || null);
+  const [activeId, setActiveId] = useState(props.defaultActive || null);
   const { children, onChange: onChangeProp, ...rest } = props;
 
   /**
@@ -21,7 +21,7 @@ const CollapseGroup: React.FunctionComponent<ButtonProps> = (props) => {
    * @param value
    */
   const onChange = (optionId: any) => {
-    setActive(optionId);
+    setActiveId(optionId === activeId ? null : optionId);
 
     if (onChangeProp) {
       onChangeProp(optionId);
@@ -35,7 +35,7 @@ const CollapseGroup: React.FunctionComponent<ButtonProps> = (props) => {
     return React.Children.map(children, (child: React.ReactElement) => {
       return React.cloneElement(child, {
         onChange,
-        active: active === child.props.id,
+        active: activeId === child.props.id,
       });
     });
   };

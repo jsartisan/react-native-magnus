@@ -46,27 +46,29 @@ const Collapse: CompoundedCollapse<CollapseProps> = (props) => {
   }
 
   header = React.cloneElement(header, {
+    isActive,
+
     onPress: () => {
-      LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
       changeState(!isActive);
     },
-    isActive,
   });
 
   return (
     <Div {...rest}>
       {header}
-      {isActive && body}
+      {!!body && React.cloneElement(body, { expanded: !isActive })}
     </Div>
   );
 };
 
 Collapse.defaultProps = {
-  bg: 'transparent',
+  bg: 'white',
   flexDir: 'column',
   flexWrap: 'nowrap',
-  rounded: 'none',
+  rounded: 'md',
+  overflow: 'hidden',
   shadow: 'none',
+  mt: 'md',
   shadowColor: 'gray900',
   position: 'relative',
   bgMode: 'cover',

@@ -15,16 +15,11 @@ const CollapseComponent: React.FC = () => {
         <ExampleSection name="default">
           <Collapse>
             <Collapse.Header
-              active
-              color="gray900"
-              fontSize="md"
-              p="xl"
-              px="none"
-              prefix={<Icon name="wallet" mr="md" color="gray400" />}
+              prefix={<Icon name="wallet" px="xl" color="gray400" />}
             >
               Header 1
             </Collapse.Header>
-            <Collapse.Body pb="xl">
+            <Collapse.Body>
               <Text>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus
                 nobis corporis ut, ex sed aperiam. Debitis, facere! Animi quis
@@ -36,16 +31,11 @@ const CollapseComponent: React.FC = () => {
 
           <Collapse>
             <Collapse.Header
-              active
-              color="gray900"
-              fontSize="md"
-              p="xl"
-              px="none"
-              prefix={<Icon name="wallet" mr="md" color="gray400" />}
+              prefix={<Icon name="wallet" px="xl" color="gray400" />}
             >
               Header 2
             </Collapse.Header>
-            <Collapse.Body pb="xl">
+            <Collapse.Body>
               <Text>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus
                 nobis corporis ut, ex sed aperiam. Debitis, facere! Animi quis
@@ -60,16 +50,11 @@ const CollapseComponent: React.FC = () => {
           <Collapse.Group defaultActive={2}>
             <Collapse id={1}>
               <Collapse.Header
-                active
-                color="gray900"
-                fontSize="md"
-                p="xl"
-                px="none"
-                prefix={<Icon name="wallet" mr="md" color="gray400" />}
+                prefix={<Icon name="wallet" px="xl" color="gray400" />}
               >
                 Header 1
               </Collapse.Header>
-              <Collapse.Body pb="xl">
+              <Collapse.Body>
                 <Text>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus
                   nobis corporis ut, ex sed aperiam. Debitis, facere! Animi quis
@@ -81,16 +66,11 @@ const CollapseComponent: React.FC = () => {
 
             <Collapse id={2}>
               <Collapse.Header
-                active
-                color="gray900"
-                fontSize="md"
-                p="xl"
-                px="none"
-                prefix={<Icon name="wallet" mr="md" color="gray400" />}
+                prefix={<Icon name="wallet" px="xl" color="gray400" />}
               >
                 Header 2
               </Collapse.Header>
-              <Collapse.Body pb="xl">
+              <Collapse.Body>
                 <Text>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus
                   nobis corporis ut, ex sed aperiam. Debitis, facere! Animi quis

@@ -18,7 +18,9 @@ export interface CollapseProps extends DivProps {
   children: React.ReactNode[] | React.ReactNode;
 }
 
-export interface CollapseBodyProps extends DivProps {}
+export interface CollapseBodyProps extends DivProps {
+  expanded?: boolean;
+}
 
 export interface CollapseHeaderProps extends ButtonProps {
   active?: boolean;
