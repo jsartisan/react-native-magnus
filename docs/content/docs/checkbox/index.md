@@ -139,6 +139,6 @@ Checkbox group is a wrapper around `Div` component. So it accepts all props of `
 
 | Property     | Description                              | Type                                   | Default |
 | ------------ | ---------------------------------------- | -------------------------------------- | ------- |
-| onChange     | event triggered on toggling the checkbox | `((values: any) => void) | undefined;` | -       |
+| onChange     | event triggered on toggling the checkbox | `((values: any[]) => void) | undefined;` | -       |
 | value        | value for the checkbox group             | `any[]`                                | `[]`    |
 | defaultValue | default value for the checkbox group     | `any[]`                                | `[]`    |
