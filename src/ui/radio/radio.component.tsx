@@ -12,11 +12,11 @@ import { ThemeContext } from '../../theme';
 import { Icon } from '../icon/icon.component';
 import { getThemeProperty } from '../../theme/theme.service';
 import { getIconName, getIconColor } from './radio.service';
-import { IRadioProps, IRadio } from './radio.type';
+import { RadioProps, IRadio } from './radio.type';
 import { RadioGroup } from './group.component';
 import { isFunction } from '../../utilities';
 
-const Radio: IRadio<IRadioProps> = (props) => {
+const Radio: IRadio<RadioProps> = (props) => {
   const {
     m,
     mt,
