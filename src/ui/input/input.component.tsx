@@ -134,17 +134,19 @@ const Input = React.forwardRef<RNTextInput, InputProps>((props, ref) => {
 });
 
 Input.defaultProps = {
-  p: 'md',
-  borderColor: 'gray200',
-  fontSize: 'md',
-  borderWidth: 1,
+  px: 'xl',
+  py: 'lg',
+  fontSize: 'lg',
+  borderWidth: 0,
+  bg: 'white',
+  borderColor: 'gray400',
   rounded: 'md',
   loading: false,
   color: 'gray800',
   shadow: 0,
   shadowColor: 'gray500',
-  loaderSize: 'md',
-  loaderColor: 'gray300',
+  loaderSize: '3xl',
+  loaderColor: 'blue700',
 };
 
 export { Input };

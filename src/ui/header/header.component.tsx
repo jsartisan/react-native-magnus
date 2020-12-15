@@ -9,6 +9,7 @@ import { Text } from '../text/text.component';
 import { getStyle } from './header.style';
 import { ThemeContext } from '../../theme';
 import { HeaderProps } from './header.type';
+import { Div } from '../div/div.component';
 
 const Header: React.FunctionComponent<HeaderProps> = (props: HeaderProps) => {
   const {
@@ -69,6 +70,37 @@ const Header: React.FunctionComponent<HeaderProps> = (props: HeaderProps) => {
     suffix,
     ...rest
   } = props;
+
+  const {
+    color,
+    fontSize,
+    textDecorLine,
+    textDecorStyle,
+    fontStyle,
+    textDecorColor,
+    fontWeight,
+    lineHeight,
+    textAlign,
+    textTransform,
+    letterSpacing,
+    textAlignVertical,
+  } = rest;
+
+  const titleProps = {
+    color,
+    fontSize,
+    textDecorLine,
+    textDecorStyle,
+    fontStyle,
+    textDecorColor,
+    fontWeight,
+    lineHeight,
+    textAlign,
+    textTransform,
+    letterSpacing,
+    textAlignVertical,
+  };
+
   const { theme } = useContext(ThemeContext);
   const computedStyle = getStyle(theme, props);
 
@@ -77,11 +109,7 @@ const Header: React.FunctionComponent<HeaderProps> = (props: HeaderProps) => {
    */
   const renderChildren = () => {
     if (typeof children === 'string') {
-      return (
-        <Text fontWeight="bold" fontSize="lg">
-          {children}
-        </Text>
-      );
+      return <Text {...titleProps}>{children}</Text>;
     }
 
     return children;
@@ -113,18 +141,24 @@ const Header: React.FunctionComponent<HeaderProps> = (props: HeaderProps) => {
 };
 
 Header.defaultProps = {
+  // minH: 65,
+  p: 'lg',
   bg: 'white',
   rounded: 'none',
-  shadow: 'none',
+  shadow: 'sm',
   shadowColor: 'gray900',
   position: 'relative',
   bgMode: 'cover',
   pointerEvents: 'auto',
   row: true,
-  p: 'lg',
   borderStyle: 'solid',
   alignItems: 'center',
   alignment: 'left',
+  prefix: <Div px="sm" />,
+
+  fontWeight: 'bold',
+  fontSize: 'lg',
+  textTransform: 'uppercase',
 };
 
 export { Header };

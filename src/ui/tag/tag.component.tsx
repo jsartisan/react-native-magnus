@@ -64,11 +64,11 @@ const Tag: React.FunctionComponent<TagProps> = (props: TagProps) => {
 };
 
 Tag.defaultProps = {
-  px: 'md',
+  px: 'lg',
   py: 'sm',
-  bg: 'gray200',
-  color: 'gray800',
-  fontSize: 'md',
+  bg: 'gray400',
+  color: 'black',
+  fontSize: 'lg',
   textAlign: 'auto',
   textTransform: 'none',
   rounded: 'md',

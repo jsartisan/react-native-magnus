@@ -20,7 +20,7 @@ const CollapseHeader: React.FunctionComponent<CollapseHeaderProps> = (
 CollapseHeader.defaultProps = {
   block: true,
   roundedBottom: 'none',
-  bg: 'gray500',
+  bg: 'blue600',
   color: 'white',
   py: 'xl',
   px: 'none',

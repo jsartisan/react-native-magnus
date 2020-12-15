@@ -12,6 +12,10 @@ const ButtonComponent: React.FC = () => {
       <ExampleHeader name="button" />
 
       <ScrollView>
+        <ExampleSection name="default">
+          <Button>Button</Button>
+        </ExampleSection>
+
         <ExampleSection name="background">
           <Div flexDir="row">
             <Button mr="sm">Default</Button>
@@ -93,7 +97,7 @@ const ButtonComponent: React.FC = () => {
               2x Extra Large
             </Button>
 
-            <Button h={40} w={40} rounded="circle" mr="sm">
+            <Button rounded="circle" mr="sm">
               <Icon name="heart" color="white" />
             </Button>
           </Div>
@@ -101,47 +105,40 @@ const ButtonComponent: React.FC = () => {
 
         <ExampleSection name="icon buttons">
           <Div flexDir="row" flexWrap="wrap" mt="sm">
-            <Button
-              bg="white"
-              h={40}
-              w={40}
-              rounded="circle"
-              mr="sm"
-              shadow={1}
-            >
-              <Icon name="heart" color="red500" />
+            <Button bg="white" rounded="circle" mr="sm" p="xl">
+              <Icon name="heart" fontSize="4xl" color="red500" />
             </Button>
 
-            <Button bg="yellow500" h={40} w={40} rounded="circle" mr="sm">
-              <Icon name="star" color="white" />
+            <Button bg="yellow500" rounded="circle" mr="sm">
+              <Icon name="star" fontSize="4xl" color="white" />
             </Button>
 
-            <Button bg="blue500" h={40} w={40} rounded="circle" mr="sm">
-              <Icon name="like1" color="white" />
+            <Button bg="blue500" rounded="circle" mr="sm">
+              <Icon name="like1" fontSize="4xl" color="white" />
             </Button>
 
-            <Button bg="red500" h={40} w={40} rounded="circle" mr="sm">
-              <Icon name="codesquare" color="white" />
+            <Button bg="red500" rounded="circle" mr="sm">
+              <Icon name="codesquare" fontSize="4xl" color="white" />
             </Button>
 
-            <Button bg="green500" h={40} w={40} rounded="circle" mr="sm">
-              <Icon name="android1" color="white" />
+            <Button bg="green500" rounded="circle" mr="sm">
+              <Icon name="android1" fontSize="4xl" color="white" />
             </Button>
 
-            <Button bg="red100" h={40} w={40} rounded="circle" mr="sm">
-              <Icon name="heart" color="red500" />
+            <Button bg="red100" rounded="circle" mr="sm">
+              <Icon name="heart" fontSize="4xl" color="red500" />
             </Button>
 
-            <Button bg="blue100" h={40} w={40} rounded="circle" mr="sm">
-              <Icon name="apple1" color="blue500" />
+            <Button bg="blue100" rounded="circle" mr="sm">
+              <Icon name="apple1" fontSize="4xl" color="blue500" />
             </Button>
 
-            <Button bg="green100" h={40} w={40} rounded="circle" mr="sm">
-              <Icon name="appstore1" color="green600" />
+            <Button bg="green100" rounded="circle" mr="sm">
+              <Icon name="appstore1" fontSize="4xl" color="green600" />
             </Button>
 
-            <Button bg="yellow300" h={40} w={40} rounded="circle" mr="sm">
-              <Icon name="slack" color="yellow700" />
+            <Button bg="yellow300" rounded="circle" mr="sm">
+              <Icon name="slack" fontSize="4xl" color="yellow700" />
             </Button>
           </Div>
         </ExampleSection>
@@ -149,22 +146,16 @@ const ButtonComponent: React.FC = () => {
         <ExampleSection name="button with icons">
           <Div flexDir="row">
             <Button
-              px="xl"
-              py="md"
+              px="2xl"
               mr="md"
               bg="black"
-              color="white"
               suffix={<Icon name="arrowright" ml="md" color="white" />}
             >
               Contact Us
             </Button>
             <Button
-              px="xl"
-              py="md"
-              bg="blue500"
+              px="2xl"
               rounded="circle"
-              color="white"
-              shadow={2}
               prefix={<Icon name="caretright" mr="md" color="white" />}
             >
               Play now
@@ -174,26 +165,18 @@ const ButtonComponent: React.FC = () => {
 
         <ExampleSection name="full width button">
           <Div mt="sm">
-            <Button px="xl" py="md" bg="blue500" block>
-              Full width button
-            </Button>
+            <Button block>Full width button</Button>
             <Button
               block
-              prefix={<Icon mr="md" name="user" color="white" />}
-              bg="green600"
-              p="md"
-              mt="sm"
-              color="white"
+              prefix={<Icon mr="md" fontSize="xl" name="user" color="white" />}
+              mt="md"
             >
               Button with Left Icon
             </Button>
             <Button
               block
-              suffix={<Icon ml="md" name="user" color="white" />}
-              bg="blue500"
-              mt="sm"
-              p="md"
-              color="white"
+              suffix={<Icon ml="md" fontSize="xl" name="user" color="white" />}
+              mt="md"
             >
               Button with Right Icon
             </Button>
@@ -201,17 +184,10 @@ const ButtonComponent: React.FC = () => {
         </ExampleSection>
 
         <ExampleSection name="states">
-          <Button mt="sm" p="md" bg="blue500" block loading loaderColor="white">
+          <Button mt="sm" block loading>
             Loading
           </Button>
-          <Button
-            mt="sm"
-            p="md"
-            bg="blue500"
-            block
-            disabled
-            loaderColor="white"
-          >
+          <Button mt="sm" block disabled loaderColor="white">
             Disabled
           </Button>
         </ExampleSection>

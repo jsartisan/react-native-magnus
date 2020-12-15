@@ -28,10 +28,14 @@ const RadioComponent: React.FC = () => {
                 <Text ml="sm">Squirtle</Text>
               </Radio>
               <Radio value={3}>
-                <Text ml="sm">Charmendar</Text>
+                <Text ml="sm">Charmander</Text>
               </Radio>
               <Radio value={4}>
                 <Text ml="sm">Balbasaur</Text>
+              </Radio>
+
+              <Radio value={5} loading>
+                <Text ml="sm">More pokemons coming</Text>
               </Radio>
             </Radio.Group>
 

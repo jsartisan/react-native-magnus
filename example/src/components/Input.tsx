@@ -45,18 +45,17 @@ const InputComponent: React.FC = () => {
           <Input placeholder="Email" mt="md" />
         </ExampleSection>
 
-        <ExampleSection name="simple">
+        <ExampleSection name="center aligned">
+          <Input placeholder="Email" mt="md" textAlign="center" />
+        </ExampleSection>
+
+        <ExampleSection name="center aligned + prefix + suffix">
           <Input
-            prefix={
-              <Icon mr="lg" name="search1" color="gray700" fontSize="3xl" />
-            }
-            px="xl"
-            py="lg"
-            fontSize="lg"
-            borderWidth={0}
-            placeholder="Search your doge homies"
+            placeholder="Email"
             mt="md"
-            bg="white"
+            textAlign="center"
+            prefix={<Icon name="user" color="gray700" fontSize="3xl" />}
+            suffix={<Icon name="check" color="gray700" fontSize="3xl" />}
           />
         </ExampleSection>
 
@@ -64,20 +63,14 @@ const InputComponent: React.FC = () => {
           <Input
             placeholder="Email"
             mt="md"
-            bg="blue100"
-            color="gray800"
+            bg="black"
+            color="white"
             borderWidth={0}
           />
         </ExampleSection>
 
         <ExampleSection name="states">
-          <Input
-            placeholder="Email"
-            mt="md"
-            loading
-            bg="gray100"
-            borderWidth={0}
-          />
+          <Input placeholder="Email" mt="md" loading />
         </ExampleSection>
 
         <ExampleSection name="suffix/prefix">
@@ -85,12 +78,14 @@ const InputComponent: React.FC = () => {
             placeholder="Email"
             mt="md"
             shadow={1}
-            suffix={<Icon name="user" color="gray800" />}
+            suffix={<Icon name="user" color="gray700" fontSize="3xl" />}
           />
           <Input
             placeholder="Email"
             mt="md"
-            prefix={<Icon name="user" color="gray800" />}
+            prefix={
+              <Icon mr="lg" name="search1" color="gray700" fontSize="3xl" />
+            }
           />
         </ExampleSection>
 
@@ -153,13 +148,8 @@ const InputComponent: React.FC = () => {
                 </Button>
               </Div>
             }
-            px="xl"
-            py="lg"
-            fontSize="lg"
-            borderWidth={0}
             placeholder="Phone number"
             mt="md"
-            bg="white"
           />
         </ExampleSection>
       </ScrollView>
