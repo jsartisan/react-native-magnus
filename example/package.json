@@ -8,7 +8,8 @@
     "start": "expo start",
     "android": "expo android",
     "ios": "expo ios",
-    "web": "expo start:web"
+    "web": "expo start:web",
+    "publish": "expo publish"
   },
   "main": "node_modules/expo/AppEntry.js",
   "dependencies": {
