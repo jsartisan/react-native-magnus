@@ -21,7 +21,7 @@ export interface TextProps
   maxH?: number | string;
   maxW?: number | string;
   color?: string;
-  fontSize?: string;
+  fontSize?: string | number;
   textDecorLine?:
     | 'none'
     | 'underline'
