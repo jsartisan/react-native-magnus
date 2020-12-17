@@ -9,25 +9,20 @@ import ExampleSection from "../utils/ExampleSection";
 const HeaderComponent: React.FC = () => {
   return (
     <ExamplePage>
-      <ExampleHeader name="icon" />
+      <ExampleHeader name="header" />
 
       <ScrollView>
-        <ExampleSection name="default">
+        <ExampleSection name="default" withoutSpacingOnContent>
           <Header>My Title</Header>
         </ExampleSection>
 
-        <ExampleSection name="center aligned">
-          <Header
-            p="lg"
-            borderBottomWidth={1}
-            borderBottomColor="gray200"
-            alignment="center"
-          >
+        <ExampleSection name="center aligned" withoutSpacingOnContent>
+          <Header shadow="sm" alignment="center">
             My Title
           </Header>
         </ExampleSection>
 
-        <ExampleSection name="center aligned + prefix">
+        <ExampleSection name="center aligned + prefix" withoutSpacingOnContent>
           <Header
             p="lg"
             borderBottomWidth={1}
@@ -43,9 +38,8 @@ const HeaderComponent: React.FC = () => {
           </Header>
         </ExampleSection>
 
-        <ExampleSection name="prefix + suffix">
+        <ExampleSection name="prefix + suffix" withoutSpacingOnContent>
           <Header
-            p="lg"
             alignment="left"
             prefix={
               <Button bg="white" mr="lg">
@@ -62,10 +56,10 @@ const HeaderComponent: React.FC = () => {
           </Header>
         </ExampleSection>
 
-        <ExampleSection name="background color">
+        <ExampleSection name="background color" withoutSpacingOnContent>
           <Header
             bg="red"
-            p="lg"
+            color="white"
             prefix={
               <Button bg="red" mr="lg">
                 <Icon
@@ -82,14 +76,14 @@ const HeaderComponent: React.FC = () => {
               </Button>
             }
           >
-            <Text color="white">My Title</Text>
+            My Title
           </Header>
         </ExampleSection>
 
-        <ExampleSection name="background image">
+        <ExampleSection name="background image" withoutSpacingOnContent>
           <Header
             bg="red"
-            p="lg"
+            color="white"
             bgImg={{
               uri:
                 "https://venngage-wordpress.s3.amazonaws.com/uploads/2018/09/Monochrome-Type-Simple-Background-Image.jpg",
@@ -110,7 +104,7 @@ const HeaderComponent: React.FC = () => {
               </Button>
             }
           >
-            <Text color="white">My Title</Text>
+            My Title
           </Header>
         </ExampleSection>
       </ScrollView>

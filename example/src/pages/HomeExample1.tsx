@@ -57,9 +57,9 @@ const HomeExample1: React.FC = () => {
       <Host>
         <Div flex={1}>
           {/* header */}
-          <Div bg="white" shadow="sm">
+          <Div bg="white" shadow="lg">
             <Header
-              py="md"
+              shadow="none"
               px="xl"
               prefix={
                 <Button
@@ -150,7 +150,7 @@ const HomeExample1: React.FC = () => {
         </Div>
 
         <Portal>
-          <Fab bg="blue600" h={50} w={50}>
+          <Fab>
             <Button p="none" bg="transparent" justifyContent="flex-end">
               <Div rounded="sm" bg="white" p="sm">
                 <Text fontSize="md">Cheer</Text>

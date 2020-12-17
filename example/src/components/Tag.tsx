@@ -16,18 +16,20 @@ const TagComponent: React.FC = () => {
         </ExampleSection>
 
         <ExampleSection name="with suffix/prefix">
-          <Tag
-            ml="sm"
-            suffix={<Icon name="close" color="gray700" fontSize="md" />}
-          >
-            Close
-          </Tag>
-          <Tag
-            ml="sm"
-            prefix={<Icon name="edit" color="gray700" fontSize="md" />}
-          >
-            Edit
-          </Tag>
+          <Div flexDir="row">
+            <Tag
+              ml="sm"
+              suffix={<Icon name="close" color="gray700" fontSize="md" />}
+            >
+              Close
+            </Tag>
+            <Tag
+              ml="sm"
+              prefix={<Icon name="edit" color="gray700" fontSize="md" />}
+            >
+              Edit
+            </Tag>
+          </Div>
         </ExampleSection>
 
         <ExampleSection name="customizations">

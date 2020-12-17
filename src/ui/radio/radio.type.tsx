@@ -68,7 +68,7 @@ export interface IRadioProps
   activeIcon?: string | React.ReactNode;
   inactiveIcon?: string | React.ReactNode;
   checked?: boolean;
-  onChange?: any;
+  onChange?: (value: any) => void;
   value?: any;
   children: ((states: IRadioStates) => React.ReactNode) | React.ReactNode;
 }

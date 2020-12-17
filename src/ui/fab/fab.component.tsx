@@ -19,10 +19,10 @@ interface FabState {
 }
 
 class Fab extends React.Component<FabProps, FabState> {
-  static defaultProps = {
+  static defaultProps: Partial<FabProps> = {
     color: 'white',
-    fontSize: 'md',
-    overlayColor: 'gray700',
+    fontSize: '2xl',
+    overlayColor: 'gray900',
     overlayOpacity: 0.5,
     position: 'absolute',
     openOnMount: false,
@@ -33,11 +33,11 @@ class Fab extends React.Component<FabProps, FabState> {
     icon: 'plus',
     activeIcon: 'close',
     rounded: 'circle',
-    h: 40,
-    w: 40,
-    shadow: 3,
-    bg: 'red500',
+    h: 60,
+    w: 60,
+    bg: 'blue500',
     useNativeDriver: false,
+    shadow: 'xl',
     shadowColor: 'gray900',
   };
 
@@ -204,11 +204,11 @@ class Fab extends React.Component<FabProps, FabState> {
   renderMainButton = (computedStyles: any) => {
     const {
       animated,
-      shadow,
       position,
       right,
       bottom,
-      shadowColor,
+      // shadow,
+      // shadowColor,
       ...rest
     } = this.props;
     const { active } = this.state;

@@ -68,7 +68,8 @@ export interface CheckboxProps
   activeIcon?: string | React.ReactNode;
   inactiveIcon?: string | React.ReactNode;
   checked?: boolean;
-  onChange?: any;
+  onChecked?: (newValue: boolean) => void;
+  onChange?: (value: any) => void;
   value?: any;
   children?: ((states: ICheckboxStates) => React.ReactNode) | React.ReactNode;
 }

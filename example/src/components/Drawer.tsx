@@ -17,7 +17,9 @@ const DrawerComponent: React.FC = () => {
           <Text p="xl">Hello! I'm a drawer.</Text>
         </Drawer>
 
-        <Button onPress={() => drawerRef.current?.open()}>Open Drawer</Button>
+        <Button block onPress={() => drawerRef.current?.open()}>
+          Open Drawer
+        </Button>
       </ExampleSection>
     </ExamplePage>
   );

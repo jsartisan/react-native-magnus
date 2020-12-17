@@ -7,9 +7,7 @@ const ExampleHeader: React.FC<{ name: string }> = ({ name }) => {
 
   return (
     <Header
-      py="lg"
-      px="xl"
-      shadow="xs"
+      shadow="lg"
       prefix={
         <Button
           rounded="circle"
@@ -24,7 +22,7 @@ const ExampleHeader: React.FC<{ name: string }> = ({ name }) => {
       }
     >
       <Div>
-        <Text textTransform="capitalize" fontWeight="bold" fontSize="2xl">
+        <Text textTransform="uppercase" fontWeight="bold" fontSize="xl">
           {name}
         </Text>
         <Text color="gray700">Examples</Text>

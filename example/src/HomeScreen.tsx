@@ -11,14 +11,12 @@ const HomeScreen = () => {
   return (
     <>
       <SafeAreaView style={{ flex: 0, backgroundColor: "white" }} />
-      <StatusBar barStyle="dark-content" backgroundColor="black" />
+      <StatusBar barStyle="light-content" backgroundColor="black" />
       <SafeAreaView style={{ flex: 1 }}>
         <Div flex={1}>
           {/* header */}
           <Header
-            py="lg"
-            px="xl"
-            shadow="xs"
+            shadow="lg"
             suffix={
               <Badge bg="green500" zIndex={10} right={-5} top={0} h={12} w={12}>
                 <Button
@@ -40,7 +38,7 @@ const HomeScreen = () => {
             }
           >
             <Div>
-              <Text fontWeight="bold" fontSize="2xl">
+              <Text fontWeight="bold" fontSize="xl" textTransform="uppercase">
                 Explore
               </Text>
               <Text color="gray700">Magnus UI Components</Text>

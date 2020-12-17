@@ -19,10 +19,15 @@ const CollapseHeader: React.FunctionComponent<CollapseHeaderProps> = (
 
 CollapseHeader.defaultProps = {
   block: true,
-  bg: 'transparent',
+  roundedBottom: 'none',
+  bg: 'blue600',
+  color: 'white',
+  py: 'xl',
+  px: 'none',
   justifyContent: 'flex-start',
   suffix: (
     <Icon
+      px="xl"
       name="chevron-down"
       fontFamily="Feather"
       position="absolute"
@@ -31,6 +36,7 @@ CollapseHeader.defaultProps = {
   ),
   activeSuffix: (
     <Icon
+      px="xl"
       name="chevron-up"
       fontFamily="Feather"
       position="absolute"

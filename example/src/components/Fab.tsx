@@ -9,7 +9,7 @@ const FabComponent: React.FC = () => {
     <ExamplePage>
       <ExampleHeader name="fab (floating action button)" />
 
-      <Fab bg="blue600" h={50} w={50}>
+      <Fab>
         <Button p="none" bg="transparent" justifyContent="flex-end">
           <Div rounded="sm" bg="white" p="sm">
             <Text fontSize="md">Cheer</Text>
