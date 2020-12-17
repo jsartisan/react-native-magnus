@@ -1,6 +1,6 @@
-import { useNavigation } from "@react-navigation/native";
-import React from "react";
-import { Button, Div, Header, Icon, Text } from "react-native-magnus";
+import { useNavigation } from '@react-navigation/native';
+import React from 'react';
+import { Button, Div, Header, Icon, Text } from 'react-native-magnus';
 
 const ExampleHeader: React.FC<{ name: string }> = ({ name }) => {
   const navigation = useNavigation();
