@@ -35,3 +35,5 @@ export { Collapse } from './collapse/collapse.component';
 export { Skeleton } from './skeleton/skeleton.component';
 export { Select } from './select/select.component';
 export { SelectRef } from './select/select.type';
+export { StatusBar } from './statusbar/statusbar.component';
+export { StatusBarProps } from './statusbar/statusbar.type';
