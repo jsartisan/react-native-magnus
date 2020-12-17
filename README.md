@@ -4,7 +4,7 @@
   </a>
 </p>
 
-<h1 align="center">Magnus UI for React Native</h1>
+<h1 align="center">Magnus UI</h1>
 
 <div align="center">
 
@@ -20,13 +20,29 @@ A Utility-First React Native UI Framework
   </a>
 </p>
 
+**Build UI in React Native, without the tears**
+
+```jsx
+<Text fontSize="md" color="pink500">
+  Magnus UI 🚀
+</Text>
+```
+
 ## ✨ Features
 
-- UI design system for react native apps.
-- Theme customisations
-- Easy to use components
+- Universal (Android, iOS, Web, & more)
+- Works with Expo
+- Works with Vanilla React Native
+- Full theme support
+- Custom theme variants
+- TypeScript support
+- Super simple API
 
-## 📦 Install
+# Examples
+
+- [Example App]https://expo.io/@pawankumar2901/projects/react-native-magnus-example
+
+## 📦 Installation
 
 ```bash
 npm install react-native-magnus
@@ -43,12 +59,6 @@ import { Button } from 'react-native-magnus';
 
 <Button />;
 ```
-
-## 🔗 Links
-
-- [Home page](http://magnus-ui.com/)
-- [Getting Started](https://magnus-ui.com/docs/getting-started)
-- [Customizations](https://magnus-ui.com/docs/customization)
 
 ## 📦 Components
 
