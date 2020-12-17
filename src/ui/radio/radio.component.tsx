@@ -12,11 +12,11 @@ import { ThemeContext } from '../../theme';
 import { Icon } from '../icon/icon.component';
 import { getThemeProperty } from '../../theme/theme.service';
 import { getIconName, getIconColor } from './radio.service';
-import { IRadioProps, IRadio } from './radio.type';
+import { RadioProps, IRadio } from './radio.type';
 import { RadioGroup } from './group.component';
 import { isFunction } from '../../utilities';
 
-const Radio: IRadio<IRadioProps> = (props) => {
+const Radio: IRadio<RadioProps> = (props) => {
   const {
     m,
     mt,
@@ -146,7 +146,7 @@ const Radio: IRadio<IRadioProps> = (props) => {
       return (
         <ActivityIndicator
           size={getThemeProperty(theme.fontSize, fontSize)}
-          color={getThemeProperty(theme.colors, activeColor)}
+          color={getThemeProperty(theme.colors, loaderColor)}
           style={{ zIndex: 2, position: 'relative' }}
         />
       );
@@ -220,6 +220,7 @@ const Radio: IRadio<IRadioProps> = (props) => {
   return (
     <RNButton
       {...rest}
+      disabled={disabled || loading}
       style={computedStyle.button}
       onPress={disabled ? undefined : onPress}
       onPressIn={disabled ? undefined : onPressIn}
@@ -241,13 +242,13 @@ Radio.defaultProps = {
   rounded: 'circle',
   loading: false,
   disabled: false,
-  loaderSize: 'md',
-  loaderColor: 'gray400',
+  loaderSize: '2xl',
+  loaderColor: 'blue600',
   block: false,
   position: 'relative',
   shadowColor: 'gray800',
   shadow: 0,
-  fontSize: '4xl',
+  fontSize: '5xl',
   borderless: true,
   alignItems: 'center',
   justifyContent: 'center',

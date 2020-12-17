@@ -1,20 +1,25 @@
 import React from "react";
 import { Div, Text } from "react-native-magnus";
 
-const ExampleSection: React.FC<{ name: string }> = ({ name, children }) => {
+const ExampleSection: React.FC<{
+  name: string;
+  withoutSpacingOnContent?: boolean;
+}> = ({ name, withoutSpacingOnContent, children }) => {
   return (
-    <Div mx="xl" my="md">
+    <Div my="md">
       <Text
-        color="gray700"
+        color="gray600"
         textTransform="uppercase"
         fontSize="lg"
+        fontWeight="bold"
         mt="md"
         mb="sm"
+        mx="xl"
       >
         {name}
       </Text>
 
-      {children}
+      <Div mx={withoutSpacingOnContent ? "none" : "xl"}>{children}</Div>
     </Div>
   );
 };

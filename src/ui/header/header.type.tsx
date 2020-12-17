@@ -57,4 +57,21 @@ export interface HeaderProps
   row?: boolean;
   zIndex?: number;
   alignment?: 'center' | 'left';
+
+  color?: string;
+  fontSize?: string;
+  textDecorLine?:
+    | 'none'
+    | 'underline'
+    | 'line-through'
+    | 'underline line-through';
+  textDecorStyle?: 'solid' | 'double' | 'dotted' | 'dashed';
+  fontStyle?: 'normal' | 'italic';
+  textDecorColor?: string;
+  fontWeight?: string;
+  lineHeight?: number;
+  textAlign?: 'auto' | 'left' | 'right' | 'center' | 'justify';
+  textTransform?: 'none' | 'uppercase' | 'lowercase' | 'capitalize';
+  letterSpacing?: number;
+  textAlignVertical?: 'auto' | 'top' | 'bottom' | 'center';
 }

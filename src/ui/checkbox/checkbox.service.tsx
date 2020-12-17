@@ -57,6 +57,7 @@ export const getIcon = (
 ) => {
   const {
     fontSize,
+    loaderColor,
     activeIcon,
     activeColor,
     inactiveColor,
@@ -77,7 +78,7 @@ export const getIcon = (
     return (
       <ActivityIndicator
         size={getThemeProperty(theme.fontSize, fontSize)}
-        color={getThemeProperty(theme.colors, activeColor)}
+        color={getThemeProperty(theme.colors, loaderColor)}
         style={{ zIndex: 2, position: 'relative' }}
       />
     );

@@ -24,6 +24,7 @@ export const getStyle = (theme: any, props: any) => {
     ...createBorderColorStyles(props, theme.colors),
     ...createBorderRadiusStyles(props, theme.borderRadius),
     height: WINDOW_HEIGHT * 0.7,
+    overflow: 'hidden',
   };
 
   computedStyle.indicator = {

@@ -114,7 +114,13 @@ const Select = React.forwardRef<SelectRef, SelectProps>((props, ref) => {
   const renderTitle = () => {
     if (title) {
       return typeof title === 'string' ? (
-        <Text fontSize="md" color="gray700" px="xl" pt="md" pb="lg">
+        <Text
+          px="xl"
+          py="xl"
+          fontSize="lg"
+          fontWeight="bold"
+          textTransform="uppercase"
+        >
           {title}
         </Text>
       ) : (
@@ -148,12 +154,9 @@ const Select = React.forwardRef<SelectRef, SelectProps>((props, ref) => {
               </Button>
             ) : null
           }
-          px="xl"
-          py="md"
           mx="xl"
-          mt="md"
-          mb="xl"
-          pr="lg"
+          mt="-md"
+          mb="lg"
           value={searchTerm}
           onChangeText={(text) => setSearchTerm(text)}
           fontSize="md"
@@ -180,6 +183,7 @@ const Select = React.forwardRef<SelectRef, SelectProps>((props, ref) => {
         bg="green600"
         mx="xl"
         mt="lg"
+        mb="xl"
         onPress={() => {
           setVisible(false);
         }}
@@ -206,23 +210,25 @@ const Select = React.forwardRef<SelectRef, SelectProps>((props, ref) => {
       <Div style={computedStyle.wrapper}>
         <SafeAreaView style={computedStyle.container}>
           <Div>
-            {renderTitle()}
-            {renderSearchbar()}
+            <Div>{renderTitle()}</Div>
+            <Div>{renderSearchbar()}</Div>
           </Div>
 
           {filteredData.length > 0 ? (
-            <FlatList
-              data={filteredData}
-              keyExtractor={keyExtractor}
-              renderItem={({ item, index }) =>
-                React.cloneElement(renderItem(item, index), {
-                  onSelect,
-                  selectedValue,
-                })
-              }
-            />
+            <Div flex={1}>
+              <FlatList
+                data={filteredData}
+                keyExtractor={keyExtractor}
+                renderItem={({ item, index }) =>
+                  React.cloneElement(renderItem(item, index), {
+                    onSelect,
+                    selectedValue,
+                  })
+                }
+              />
+            </Div>
           ) : (
-            <Div flex={1} pl="xl">
+            <Div flex={1} px="2xl" py="xl">
               <Text fontSize="lg">No results found.</Text>
             </Div>
           )}
@@ -239,6 +245,7 @@ Select.defaultProps = {
   rounded: 'none',
   flexDir: 'column',
   isVisible: false,
+  // mb: 'xl',
   // @ts-ignore
   keyExtractor: (item, index) => `${index}`,
 };

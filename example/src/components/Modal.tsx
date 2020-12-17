@@ -24,8 +24,6 @@ const ModalComponent: React.FC = () => {
           <Modal isVisible={modalVisible1}>
             <Button
               bg="gray400"
-              h={35}
-              w={35}
               position="absolute"
               top={20}
               right={15}
@@ -52,8 +50,6 @@ const ModalComponent: React.FC = () => {
           <Modal isVisible={modalVisible2} h="50%">
             <Button
               bg="gray400"
-              h={35}
-              w={35}
               position="absolute"
               top={20}
               right={15}
@@ -80,8 +76,6 @@ const ModalComponent: React.FC = () => {
           <Modal isVisible={modalVisible3} h="30%" bg="black">
             <Button
               bg="gray400"
-              h={35}
-              w={35}
               position="absolute"
               top={20}
               right={15}

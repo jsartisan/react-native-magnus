@@ -1,17 +1,33 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { LayoutAnimation } from 'react-native';
+import { isFunction } from '../../utilities';
 
 import { Div } from '../div/div.component';
 import { CollapseBody } from './collapse.body.component';
 import { CollapseHeader } from './collapse.header.component';
 import { CollapseProps, CompoundedCollapse } from './collapse.type';
+import { CollapseGroup } from './group.component';
 
 const Collapse: CompoundedCollapse<CollapseProps> = (props) => {
-  const { children, defaultActive, ...rest } = props;
-  const [active, setActive] = useState(defaultActive);
+  const { children, defaultActive, active, onChange, id, ...rest } = props;
+  const [isActive, setIsActive] = useState(active || defaultActive);
   let header = null;
   let body = null;
+
+  useEffect(() => {
+    if ('active' in props) {
+      setIsActive(props.active);
+    }
+  }, [props]);
+
+  const changeState = (newState: boolean) => {
+    setIsActive(newState);
+
+    if (isFunction(onChange)) {
+      onChange(id);
+    }
+  };
 
   React.Children.forEach(children, (child) => {
     // @ts-ignore
@@ -30,27 +46,29 @@ const Collapse: CompoundedCollapse<CollapseProps> = (props) => {
   }
 
   header = React.cloneElement(header, {
+    isActive,
+
     onPress: () => {
-      LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
-      setActive(!active);
+      changeState(!isActive);
     },
-    active,
   });
 
   return (
     <Div {...rest}>
       {header}
-      {active && body}
+      {!!body && React.cloneElement(body, { expanded: !isActive })}
     </Div>
   );
 };
 
 Collapse.defaultProps = {
-  bg: 'transparent',
+  bg: 'white',
   flexDir: 'column',
   flexWrap: 'nowrap',
-  rounded: 'none',
+  rounded: 'md',
+  overflow: 'hidden',
   shadow: 'none',
+  mt: 'md',
   shadowColor: 'gray900',
   position: 'relative',
   bgMode: 'cover',
@@ -62,5 +80,6 @@ Collapse.defaultProps = {
 
 Collapse.Body = CollapseBody;
 Collapse.Header = CollapseHeader;
+Collapse.Group = CollapseGroup;
 
 export { Collapse };

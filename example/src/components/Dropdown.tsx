@@ -23,14 +23,7 @@ const DropdownComponent: React.FC = () => {
 
       <ScrollView>
         <ExampleSection name="example #1">
-          <Button
-            block
-            bg="pink500"
-            mt="sm"
-            p="md"
-            color="white"
-            onPress={() => dropdownRef1.current?.open()}
-          >
+          <Button block mt="sm" onPress={() => dropdownRef1.current?.open()}>
             Open Dropdown
           </Button>
 
@@ -91,14 +84,7 @@ const DropdownComponent: React.FC = () => {
         </ExampleSection>
 
         <ExampleSection name="example #2">
-          <Button
-            block
-            bg="pink500"
-            mt="sm"
-            p="md"
-            color="white"
-            onPress={() => dropdownRef2.current?.open()}
-          >
+          <Button block mt="sm" onPress={() => dropdownRef2.current?.open()}>
             Open Dropdown
           </Button>
 

@@ -131,11 +131,11 @@ function Toggle(props: ToggleProps): React.ReactElement {
 }
 
 Toggle.defaultProps = {
-  w: 40,
-  h: 20,
+  w: 55,
+  h: 30,
   onPress: (): void => {},
   activeBg: 'green600',
-  bg: 'gray200',
+  bg: 'gray400',
   on: false,
   circleBg: 'white',
   activeCircleBg: 'white',

@@ -71,6 +71,7 @@ const Checkbox: CompundedCheckbox<CheckboxProps> = (props) => {
     inactiveColor,
     defaultChecked,
     checked: checkedProp,
+    onChecked,
     onPress: onPressProp,
     ...rest
   } = props;
@@ -95,8 +96,10 @@ const Checkbox: CompundedCheckbox<CheckboxProps> = (props) => {
       return;
     }
 
-    if (!('checked' in props)) {
-      setChecked(!checked);
+    setChecked(!checked);
+
+    if (isFunction(onChecked)) {
+      onChecked(!checked);
     }
 
     if (isFunction(onPressProp)) {
@@ -171,8 +174,8 @@ Checkbox.defaultProps = {
   rounded: 'md',
   loading: false,
   disabled: false,
-  loaderSize: 'md',
-  loaderColor: 'gray400',
+  loaderSize: '2xl',
+  loaderColor: 'blue600',
   block: false,
   position: 'relative',
   shadowColor: 'gray800',

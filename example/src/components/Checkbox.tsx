@@ -7,7 +7,10 @@ import ExampleHeader from "../utils/ExampleHeader";
 import ExampleSection from "../utils/ExampleSection";
 
 const CheckboxComponent: React.FC = () => {
-  const [checkboxValue, setCheckboxValue] = React.useState<any[]>();
+  const [checkboxGroupValue, setCheckboxGroupValue] = React.useState<any[]>();
+  const [checkboxValue, setCheckboxValue] = React.useState<boolean>();
+
+  const handleChecked = (value: boolean) => setCheckboxValue(value);
 
   return (
     <ExamplePage>
@@ -15,29 +18,37 @@ const CheckboxComponent: React.FC = () => {
 
       <ScrollView>
         <ExampleSection name="default">
-          <Checkbox defaultChecked>
+          <Checkbox checked={checkboxValue} onChecked={handleChecked}>
             <Text ml="sm">Normal Checkbox</Text>
           </Checkbox>
         </ExampleSection>
 
         <ExampleSection name="colored">
-          <Checkbox activeColor="green500" inactiveColor="green900">
+          <Checkbox
+            activeColor="green500"
+            inactiveColor="green900"
+            checked={checkboxValue}
+            onChecked={handleChecked}
+          >
             <Text ml="sm">Green Checkbox</Text>
           </Checkbox>
         </ExampleSection>
 
         <ExampleSection name="states">
-          <Checkbox disabled>
+          <Checkbox disabled checked={checkboxValue} onChecked={handleChecked}>
             <Text ml="sm">Disabled Checkbox</Text>
           </Checkbox>
-          <Checkbox loading>
+          <Checkbox loading checked={checkboxValue} onChecked={handleChecked}>
             <Text ml="sm">Loading state Checkbox</Text>
           </Checkbox>
         </ExampleSection>
 
         <ExampleSection name="custom renderer">
           <Div mt="sm">
-            <Checkbox.Group row onChange={(value) => setCheckboxValue(value)}>
+            <Checkbox.Group
+              row
+              onChange={(value) => setCheckboxGroupValue(value)}
+            >
               {["Option 1", "Option 2", "Option 3"].map((item) => (
                 <Checkbox value={item} key={item}>
                   {({ checked }) => (
@@ -55,7 +66,7 @@ const CheckboxComponent: React.FC = () => {
               ))}
             </Checkbox.Group>
 
-            <Text mt="xl">Checked: {checkboxValue?.join(", ")}</Text>
+            <Text mt="xl">Checked: {checkboxGroupValue?.join(", ")}</Text>
           </Div>
         </ExampleSection>
       </ScrollView>

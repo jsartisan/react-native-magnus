@@ -12,7 +12,7 @@ export type IRadio<P> = React.FunctionComponent<P> & {
   Group: typeof RadioGroup;
 };
 
-export interface IRadioProps
+export interface RadioProps
   extends RNButtonProps,
     BorderPropsType,
     SpacingPropsType,
@@ -68,14 +68,17 @@ export interface IRadioProps
   activeIcon?: string | React.ReactNode;
   inactiveIcon?: string | React.ReactNode;
   checked?: boolean;
-  onChange?: any;
+  onChange?: (value: any) => void;
   value?: any;
-  children: ((states: IRadioStates) => React.ReactNode) | React.ReactNode;
+  children: ((states: RadioStates) => React.ReactNode) | React.ReactNode;
 }
 
-interface IRadioStates {
+interface RadioStates {
   focussed?: boolean;
   checked?: boolean;
   disabled?: boolean;
   loading?: boolean;
 }
+
+// Backwards compatability
+export type IRadioProps = RadioProps;
