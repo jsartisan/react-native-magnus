@@ -1,4 +1,5 @@
 import React from 'react';
+import { NativeScrollEvent, NativeSyntheticEvent } from 'react-native';
 import { Div } from '../div/div.component';
 import { ScrollDiv } from '../scrolldiv/scrolldiv.component';
 
@@ -14,44 +15,58 @@ const Carousel: CompoundedCarousel<CarouselProps> = ({
 }) => {
   const [selectedPage, setSelectedPage] = React.useState(1);
   const [totalPages, setTotalPages] = React.useState(1);
-  const [width, setWidth] = React.useState(0);
+  const [totalContentWidth, setTotalContentWidth] = React.useState(0);
 
   const items: JSX.Element[] = React.useMemo(() => {
     return (
       React.Children.map(children, (child) => {
-        if (!React.isValidElement(child)) return;
+        if (!React.isValidElement(child)) {
+          return;
+        }
 
-        if (child.type === CarouselItem) return child;
+        if (child.type === CarouselItem) {
+          return child;
+        }
 
-        console.warn('Only children of type Carousel.Item are allowed here.');
+        console.warn(
+          'Only children of type Carousel.Item are allowed here. Any other child components will be ignored.'
+        );
         return null;
       }) ?? []
     );
   }, [children]);
 
   const init = (width: number) => {
-    // initialise width
-    setWidth(width);
-    // initialise total pages
+    // initialize width
+    setTotalContentWidth(width);
+    // initialize total pages
     const totalItems = items.length;
     setTotalPages(Math.ceil(totalItems / itemsPerPage));
   };
 
-  const getPage = (offset: number) => {
-    for (let i = 1; i <= totalPages; i++) {
-      console.log(
-        `offset: ${offset} / width: ${width} / totalPages: ${totalPages} / pageIndex: ${i}`
-      );
+  const getPage = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
+    const widthOffset = event.nativeEvent.contentOffset.x;
 
-      if (offset + 1 < (width / totalPages) * i) return i;
-      if (i === totalPages) return i;
+    const widthOfEachItem = totalContentWidth / totalPages;
+    const pageWidth = widthOfEachItem * itemsPerPage;
+
+    for (let page = 1; page <= totalPages; page++) {
+      if (widthOffset + 1 < widthOfEachItem * page) {
+        return page;
+      }
+
+      if (page === totalPages) {
+        return page;
+      }
     }
 
     return 0;
   };
 
   const internal_renderIndicators = () => {
-    if (renderIndicators) return renderIndicators({ selectedPage, totalPages });
+    if (renderIndicators) {
+      return renderIndicators({ selectedPage, totalPages });
+    }
 
     return (
       <Div flexDir="row" justifyContent="center" my="lg">
@@ -85,8 +100,8 @@ const Carousel: CompoundedCarousel<CarouselProps> = ({
         showsHorizontalScrollIndicator={false}
         onContentSizeChange={(w, h) => init(w)}
         onScroll={(data) => {
-          setWidth(data.nativeEvent.contentSize.width);
-          setSelectedPage(getPage(data.nativeEvent.contentOffset.x));
+          setTotalContentWidth(data.nativeEvent.contentSize.width);
+          setSelectedPage(getPage(data));
         }}
         scrollEventThrottle={200}
         pagingEnabled

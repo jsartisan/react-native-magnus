@@ -1,11 +1,11 @@
-import React from "react";
-import { ScrollView } from "react-native";
-import { Carousel, Div, Text } from "react-native-magnus";
-import { DivProps } from "src/ui/div/div.type";
+import React from 'react';
+import { ScrollView } from 'react-native';
+import { Carousel, Div, Text } from 'react-native-magnus';
+import { DivProps } from 'src/ui/div/div.type';
 
-import ExampleHeader from "../utils/ExampleHeader";
-import ExamplePage from "../utils/ExamplePage";
-import ExampleSection from "../utils/ExampleSection";
+import ExampleHeader from '../utils/ExampleHeader';
+import ExamplePage from '../utils/ExamplePage';
+import ExampleSection from '../utils/ExampleSection';
 
 const CarouselComponent: React.FC = () => {
   return (
@@ -57,7 +57,7 @@ const CarouselComponent: React.FC = () => {
           </Card>
         </ExampleSection>
 
-        <ExampleSection name="2 items by interval">
+        <ExampleSection name="2 items by page">
           <Carousel itemsPerPage={2}>
             <Carousel.Item>
               <Div p="xl">
@@ -94,7 +94,7 @@ const CarouselComponent: React.FC = () => {
           </Carousel>
         </ExampleSection>
 
-        <ExampleSection name="2 items by interval but has only 3 items">
+        <ExampleSection name="2 items by page but has odd items number">
           <Carousel itemsPerPage={2}>
             <Carousel.Item>
               <Div p="xl">
@@ -116,6 +116,49 @@ const CarouselComponent: React.FC = () => {
               <Div p="xl">
                 <Text textTransform="uppercase" fontWeight="bold">
                   Title 3
+                </Text>
+                <Text>This is a content card</Text>
+              </Div>
+            </Carousel.Item>
+          </Carousel>
+
+          <Carousel itemsPerPage={2}>
+            <Carousel.Item>
+              <Div p="xl">
+                <Text textTransform="uppercase" fontWeight="bold">
+                  Title 1
+                </Text>
+                <Text>This is a content card</Text>
+              </Div>
+            </Carousel.Item>
+            <Carousel.Item>
+              <Div p="xl">
+                <Text textTransform="uppercase" fontWeight="bold">
+                  Title 2
+                </Text>
+                <Text>This is a content card</Text>
+              </Div>
+            </Carousel.Item>
+            <Carousel.Item>
+              <Div p="xl">
+                <Text textTransform="uppercase" fontWeight="bold">
+                  Title 3
+                </Text>
+                <Text>This is a content card</Text>
+              </Div>
+            </Carousel.Item>
+            <Carousel.Item>
+              <Div p="xl">
+                <Text textTransform="uppercase" fontWeight="bold">
+                  Title 4
+                </Text>
+                <Text>This is a content card</Text>
+              </Div>
+            </Carousel.Item>
+            <Carousel.Item>
+              <Div p="xl">
+                <Text textTransform="uppercase" fontWeight="bold">
+                  Title 5
                 </Text>
                 <Text>This is a content card</Text>
               </Div>
@@ -190,7 +233,7 @@ const CarouselComponent: React.FC = () => {
                           w={20}
                           h={7}
                           rounded="circle"
-                          bg={selectedPage === index ? "white" : "gray700"}
+                          bg={selectedPage === index ? 'white' : 'gray700'}
                           mx="xs"
                           key={index}
                         />
