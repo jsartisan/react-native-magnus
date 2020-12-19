@@ -141,7 +141,7 @@ const Header: React.FunctionComponent<HeaderProps> = (props: HeaderProps) => {
 };
 
 Header.defaultProps = {
-  // minH: 65,
+  minH: 70,
   p: 'lg',
   bg: 'white',
   rounded: 'none',
@@ -155,7 +155,7 @@ Header.defaultProps = {
   alignItems: 'center',
   alignment: 'left',
   prefix: <Div px="sm" />,
-
+  zIndex: 1,
   fontWeight: 'bold',
   fontSize: 'lg',
   textTransform: 'uppercase',

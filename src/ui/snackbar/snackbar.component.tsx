@@ -151,7 +151,6 @@ const Snackbar = React.forwardRef<SnackbarRef, SnackbarProps>((props, ref) => {
     <SafeAreaView pointerEvents="box-none" style={computedStyle.wrapper}>
       <Animated.View
         style={{
-          ...computedStyle.container,
           opacity,
           transform: [
             {
@@ -166,9 +165,11 @@ const Snackbar = React.forwardRef<SnackbarRef, SnackbarProps>((props, ref) => {
         }}
         {...rest}
       >
-        {prefix && <RNView style={computedStyle.prefix}>{prefix}</RNView>}
-        {renderChildren()}
-        {suffix && <RNView style={computedStyle.suffix}>{suffix}</RNView>}
+        <RNView style={computedStyle.container}>
+          {prefix && <RNView style={computedStyle.prefix}>{prefix}</RNView>}
+          {renderChildren()}
+          {suffix && <RNView style={computedStyle.suffix}>{suffix}</RNView>}
+        </RNView>
       </Animated.View>
     </SafeAreaView>
   );
