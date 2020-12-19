@@ -48,14 +48,16 @@ const Select = React.forwardRef<SelectRef, SelectProps>((props, ref) => {
   const computedStyle = getStyle(theme, props);
 
   const resolveMultiLevelAccess = (obj: any, key: string) => {
-    if (key.length === 0) {
-      return obj;
-    }
-
     return key.split('.').reduce((cur: any, keySection: string) => {
-      if (!cur) {
+      if (cur === null || cur === undefined) {
         return;
       }
+
+      if (cur[keySection] === null || cur[keySection] === undefined) {
+        console.warn(`Property "${key}" does not exists! `);
+        return;
+      }
+
       return cur[keySection];
     }, obj);
   };
@@ -248,15 +250,7 @@ const Select = React.forwardRef<SelectRef, SelectProps>((props, ref) => {
   };
 
   const renderNoResultsFound = () => {
-    if (renderNoResultsView) {
-      renderNoResultsView(searchTerm);
-    }
-
-    return (
-      <Div flex={1} px="2xl" py="xl">
-        <Text fontSize="lg">No results found for "{searchTerm}"</Text>
-      </Div>
-    );
+    renderNoResultsView && renderNoResultsView(searchTerm);
   };
 
   return (
@@ -314,6 +308,11 @@ Select.defaultProps = {
   isVisible: false,
   // mb: 'xl',
   // @ts-ignore
+  renderNoResultsView: (searchTerm) => (
+    <Div flex={1} px="2xl" py="xl">
+      <Text fontSize="lg">No results found for "{searchTerm}"</Text>
+    </Div>
+  ),
   keyExtractor: (item, index) => `${index}`,
 };
 
