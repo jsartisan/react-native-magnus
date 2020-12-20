@@ -63,5 +63,9 @@ export interface SelectProps
   renderItem: (item: any, index: number) => React.ReactElement;
   keyExtractor?: (item: any, index: number) => string;
   isVisible?: boolean;
-  searchableProps?: string[];
+
+  searchableProps?: '*' | string[];
+  renderNoResultsView?: (searchTerm: string) => React.ReactElement;
+  renderSubmitButton?: () => React.ReactElement;
+  renderSearchInput?: (props: { clearText: () => void }) => React.ReactElement;
 }

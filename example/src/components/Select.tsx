@@ -1,12 +1,12 @@
-import React from "react";
-import { ScrollView } from "react-native";
-import { Button, Div, Select, Text } from "react-native-magnus";
-import { SelectRef } from "src/ui/select/select.type";
-import ExamplePage from "../utils/ExamplePage";
-import ExampleHeader from "../utils/ExampleHeader";
-import ExampleSection from "../utils/ExampleSection";
+import React from 'react';
+import { ScrollView } from 'react-native';
+import { Button, Div, Input, Select, Text } from 'react-native-magnus';
+import { SelectRef } from 'src/ui/select/select.type';
+import ExamplePage from '../utils/ExamplePage';
+import ExampleHeader from '../utils/ExampleHeader';
+import ExampleSection from '../utils/ExampleSection';
 
-import { countryCodes, CountryCodeType } from "../utils/countryCodes";
+import { countryCodes, CountryCodeType } from '../utils/countryCodes';
 
 const SelectComponent: React.FC = () => {
   const [selectValue1, setSelectedValue1] = React.useState<string | null>(null);
@@ -41,7 +41,7 @@ const SelectComponent: React.FC = () => {
             borderColor="gray300"
             onPress={() => selectRef1.current?.open()}
           >
-            <Text>{selectValue1 ? selectValue1 : "Select"}</Text>
+            <Text>{selectValue1 ? selectValue1 : 'Select'}</Text>
           </Button>
 
           <Select
@@ -71,7 +71,7 @@ const SelectComponent: React.FC = () => {
             onPress={() => selectRef2.current?.open()}
           >
             <Text>
-              {selectValue2.length ? selectValue2.toString() : "Select"}
+              {selectValue2.length ? selectValue2.toString() : 'Select'}
             </Text>
           </Button>
 
@@ -92,7 +92,7 @@ const SelectComponent: React.FC = () => {
           />
         </ExampleSection>
 
-        <ExampleSection name="searchable">
+        <ExampleSection name="searchable + custom search input">
           <Button
             flex={1}
             block
@@ -102,21 +102,43 @@ const SelectComponent: React.FC = () => {
             borderColor="gray300"
             onPress={() => selectRef3.current?.open()}
           >
-            <Text>{selectValue3 ? selectValue3 : "Select"}</Text>
+            <Text>{selectValue3 ? selectValue3 : 'Select'}</Text>
           </Button>
 
           <Select
-            searchableProps={[""]}
+            searchableProps="*"
             onSelect={(value) => setSelectedValue3(value)}
             ref={selectRef3}
             value={selectValue3}
             title="This is your title"
             message="This is the long message used to set some context"
             roundedTop="xl"
-            data={[1, 2, 3, 4, 5, 6]}
-            renderItem={(item, index) => (
+            data={[
+              'Option 1',
+              'Option 2',
+              'Option 3',
+              'Option 4',
+              'Option 5',
+              'Option 6',
+            ]}
+            renderSearchInput={({ clearText }) => (
+              <Input
+                rounded="none"
+                placeholder="Search"
+                bg="red500"
+                color="white"
+                placeholderTextColor="white"
+                mb="lg"
+                suffix={
+                  <Button bg="red800" onPress={() => clearText()}>
+                    Clear
+                  </Button>
+                }
+              />
+            )}
+            renderItem={(item: number) => (
               <Select.Option value={item} py="md" px="xl">
-                <Text>Option {index + 1}</Text>
+                <Text>{item}</Text>
               </Select.Option>
             )}
           />
@@ -132,7 +154,7 @@ const SelectComponent: React.FC = () => {
             borderColor="gray300"
             onPress={() => selectRef4.current?.open()}
           >
-            <Text>{selectValue4 ? `+${selectValue4.dialCode}` : "Select"}</Text>
+            <Text>{selectValue4 ? `+${selectValue4.dialCode}` : 'Select'}</Text>
           </Button>
 
           <Select
@@ -140,7 +162,7 @@ const SelectComponent: React.FC = () => {
             value={selectValue4}
             data={countryCodes}
             onSelect={(value) => setSelectedValue4(value)}
-            searchableProps={["country.name", "dialCode"]}
+            searchableProps={['country.name', 'dialCode']}
             roundedTop="xl"
             title="Country phone code"
             renderItem={(item: CountryCodeType, index) => (
@@ -177,8 +199,8 @@ const SelectComponent: React.FC = () => {
           >
             <Text>
               {selectValue5.length
-                ? selectValue5.map((item) => `+${item.dialCode}`).join(", ")
-                : "Select"}
+                ? selectValue5.map((item) => `+${item.dialCode}`).join(', ')
+                : 'Select'}
             </Text>
           </Button>
 
@@ -188,7 +210,7 @@ const SelectComponent: React.FC = () => {
             value={selectValue5}
             data={countryCodes}
             onSelect={(value) => setSelectedValue5(value)}
-            searchableProps={["country.name", "dialCode"]}
+            searchableProps={['country.name', 'dialCode']}
             roundedTop="xl"
             title="Country phone code"
             renderItem={(item: CountryCodeType, index) => (
