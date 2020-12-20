@@ -1,5 +1,5 @@
-import React from "react";
-import { ScrollView } from "react-native";
+import React from 'react';
+import { ScrollView } from 'react-native';
 import {
   Div,
   Input,
@@ -8,11 +8,11 @@ import {
   Select,
   Button,
   SelectRef,
-} from "react-native-magnus";
+} from 'react-native-magnus';
 
-import ExamplePage from "../utils/ExamplePage";
-import ExampleHeader from "../utils/ExampleHeader";
-import ExampleSection from "../utils/ExampleSection";
+import ExamplePage from '../utils/ExamplePage';
+import ExampleHeader from '../utils/ExampleHeader';
+import ExampleSection from '../utils/ExampleSection';
 
 interface CountryCodeType {
   country: {
@@ -22,10 +22,10 @@ interface CountryCodeType {
   code: number;
 }
 const countryCodes: CountryCodeType[] = [
-  { country: { name: "Brazil" }, code: 55 },
-  { country: { name: "Spain" }, code: 34 },
-  { country: { name: "Italy" }, code: 39 },
-  { country: { name: "Portugal" }, code: 351 },
+  { country: { name: 'Brazil' }, code: 55 },
+  { country: { name: 'Spain' }, code: 34 },
+  { country: { name: 'Italy' }, code: 39 },
+  { country: { name: 'Portugal' }, code: 351 },
 ];
 
 const InputComponent: React.FC = () => {
@@ -95,7 +95,7 @@ const InputComponent: React.FC = () => {
             value={selectedCountryCode}
             data={countryCodes}
             onSelect={onSelectCountryCodeOption}
-            searchableProps={["country.name", "code"]}
+            searchableProps={['country.name', 'code']}
             renderItem={(item: CountryCodeType, index: number) => (
               <Select.Option
                 key={index}
@@ -115,20 +115,7 @@ const InputComponent: React.FC = () => {
                 </Div>
               </Select.Option>
             )}
-            title={
-              <Text
-                px="xl"
-                pt="md"
-                pb="lg"
-                fontSize="lg"
-                fontWeight="bold"
-                textTransform="uppercase"
-              >
-                Country phone code
-              </Text>
-            }
-            mt="md"
-            pb="2xl"
+            title="Country phone code"
             roundedTop="xl"
           />
 
@@ -143,7 +130,7 @@ const InputComponent: React.FC = () => {
                   <Text fontWeight="bold" textTransform="uppercase">
                     {selectedCountryCode
                       ? `+${selectedCountryCode.code}`
-                      : "Choose"}
+                      : 'Choose'}
                   </Text>
                 </Button>
               </Div>
