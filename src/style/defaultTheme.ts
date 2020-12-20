@@ -1,6 +1,15 @@
-export const defaultTheme = {
-  name: 'default',
+import { BreakpointsType, ThemeType } from '../theme/type';
 
+export const DEFAULT_BREAKPOINTS: BreakpointsType = {
+  sm: 320,
+  md: 480,
+  lg: 768,
+  xl: 1024,
+};
+
+export const defaultTheme: ThemeType = {
+  name: 'default',
+  breakpoints: DEFAULT_BREAKPOINTS,
   colors: {
     gray100: '#f7fafc',
     gray200: '#edf2f7',
@@ -108,11 +117,11 @@ export const defaultTheme = {
   },
 
   fontSize: {
-    'xs': 11,
-    'sm': 12,
-    'md': 13,
-    'lg': 15,
-    'xl': 17,
+    xs: 11,
+    sm: 12,
+    md: 13,
+    lg: 15,
+    xl: 17,
     '2xl': 19,
     '3xl': 21,
     '4xl': 24,
@@ -123,8 +132,8 @@ export const defaultTheme = {
   shadowColor: '#000',
 
   shadow: {
-    'none': {},
-    'xs': {
+    none: {},
+    xs: {
       shadowOffset: {
         width: 0,
         height: 1,
@@ -134,7 +143,7 @@ export const defaultTheme = {
 
       elevation: 1,
     },
-    'sm': {
+    sm: {
       shadowOffset: {
         width: 0,
         height: 2,
@@ -144,7 +153,7 @@ export const defaultTheme = {
 
       elevation: 4,
     },
-    'md': {
+    md: {
       shadowOffset: {
         width: 0,
         height: 4,
@@ -154,7 +163,7 @@ export const defaultTheme = {
 
       elevation: 8,
     },
-    'lg': {
+    lg: {
       shadowOffset: {
         width: 0,
         height: 6,
@@ -164,7 +173,7 @@ export const defaultTheme = {
 
       elevation: 12,
     },
-    'xl': {
+    xl: {
       shadowOffset: {
         width: 0,
         height: 8,
@@ -187,23 +196,23 @@ export const defaultTheme = {
   },
 
   borderRadius: {
-    'none': 0,
-    'xs': 2,
-    'sm': 4,
-    'md': 6,
-    'lg': 8,
-    'xl': 12,
+    none: 0,
+    xs: 2,
+    sm: 4,
+    md: 6,
+    lg: 8,
+    xl: 12,
     '2xl': 16,
-    'circle': 1000000,
+    circle: 1000000,
   },
 
   spacing: {
-    'none': 0,
-    'xs': 4,
-    'sm': 6,
-    'md': 8,
-    'lg': 12,
-    'xl': 24,
+    none: 0,
+    xs: 4,
+    sm: 6,
+    md: 8,
+    lg: 12,
+    xl: 24,
     '2xl': 32,
     '3xl': 64,
     '-xs': -4,

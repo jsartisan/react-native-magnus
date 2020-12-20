@@ -1,5 +1,37 @@
-import { ThemeType } from './type';
-import { defaultTheme } from '../style';
+import { Dimensions } from 'react-native';
+import { defaultTheme, DEFAULT_BREAKPOINTS } from '../style/defaultTheme';
+import { ThemeType, BreakpointType, BreakpointsType } from './type';
+
+/**
+ * calculates current device breakpoint
+ *
+ * @param breakpoints
+ */
+export const calculateCurrentDeviceBreakpoint = (
+  breakpoints: BreakpointsType,
+  currentWidth: number = Dimensions.get('window').width
+): BreakpointType => {
+  const breakpointKeys = Object.keys(breakpoints) as Array<
+    keyof typeof breakpoints
+  >;
+  let currentBreakpoint = breakpointKeys[0];
+
+  breakpointKeys.forEach((breakpointKey: BreakpointType) => {
+    const breakpointValue = breakpoints[breakpointKey];
+
+    if (currentWidth > (breakpointValue || 0)) {
+      currentBreakpoint = breakpointKey;
+    } else {
+      return;
+    }
+  });
+
+  return currentBreakpoint;
+};
+
+const breakpoint: BreakpointType = calculateCurrentDeviceBreakpoint(
+  DEFAULT_BREAKPOINTS
+);
 
 /**
  * merge user theme with default theme
@@ -376,4 +408,84 @@ export const createPositionStyle = (props: any) => {
   });
 
   return computedStyle;
+};
+
+/**
+ * position="absolute"
+ * top={10}
+ * w={[100%, 50%]}
+ *  1005
+ *  50
+ * const DEFAULT_BREAKPOINTS = {
+  sm: 320,
+  md: 480,
+  lg: 768,
+  xl: 1024,
+};
+ *
+ * @param value
+ */
+export const createResponsiveStyle = (
+  value: string | number | BreakpointsType | Array<string | number>,
+  theme: ThemeType
+) => {
+  if (typeof value === 'undefined') {
+    return undefined;
+  }
+
+  if (typeof value === 'string' || typeof value === 'number') {
+    return value;
+  }
+
+  const currentBreakpointValue = theme.breakpoints[breakpoint];
+
+  // if prop is array like bg=["red500", "blue500"]
+  if (Array.isArray(value)) {
+    if (value.length === 1) {
+      return value[0];
+    }
+
+    let currentValue = value[0];
+    const breakpointKeys = Object.keys(theme.breakpoints) as Array<
+      keyof typeof theme.breakpoints
+    >;
+
+    if (currentBreakpointValue) {
+      value.forEach((propValue, index: number) => {
+        if (!theme.breakpoints) {
+          throw Error('asdas');
+        }
+
+        if (
+          currentBreakpointValue >= theme.breakpoints[breakpointKeys[index]]
+        ) {
+          currentValue = propValue;
+        } else {
+          return;
+        }
+      });
+    }
+
+    return currentValue;
+  }
+
+  // if prop is object like bg={{ sm: 'red500', lg: 'blue500'}}
+  if (typeof value === 'object' && value !== null) {
+    const valueKeys = Object.keys(value) as Array<keyof typeof value>;
+    let currentValue = value[valueKeys[0]];
+
+    if (currentBreakpointValue) {
+      valueKeys.forEach((breakpointKey: BreakpointType) => {
+        if (currentBreakpointValue >= theme.breakpoints[breakpointKey]) {
+          currentValue = value[breakpointKey];
+        } else {
+          return;
+        }
+      });
+    }
+
+    return currentValue;
+  }
+
+  throw Error('Could not compute');
 };

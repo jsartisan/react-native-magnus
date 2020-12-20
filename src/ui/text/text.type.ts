@@ -4,6 +4,8 @@ import {
   BorderPropsType,
   SpacingPropsType,
   RoundedPropsType,
+  ResponsiveType,
+  BaseTextAlignType,
 } from '../../theme';
 
 export interface TextProps
@@ -32,7 +34,7 @@ export interface TextProps
   textDecorColor?: string;
   fontWeight?: string;
   lineHeight?: number;
-  textAlign?: 'auto' | 'left' | 'right' | 'center' | 'justify';
+  textAlign?: ResponsiveType<BaseTextAlignType>;
   textTransform?: 'none' | 'uppercase' | 'lowercase' | 'capitalize';
   letterSpacing?: number;
   opacity?: number;

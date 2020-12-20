@@ -6,6 +6,7 @@ export interface ThemeType {
   shadowColor?: any;
   shadow?: any;
   name?: string;
+  breakpoints: BreakpointsType;
 }
 
 export interface BorderPropsType {
@@ -56,3 +57,28 @@ export interface ShadowPropsType {
   shadow?: string | number;
   shadowColor?: string;
 }
+
+export interface BreakpointsValueType<T> {
+  sm?: T;
+  md?: T;
+  lg?: T;
+  xl?: T;
+}
+
+export interface BreakpointsType {
+  sm: number;
+  md: number;
+  lg: number;
+  xl: number;
+}
+
+export type ResponsiveType<T> = T | T[] | BreakpointsValueType<T>;
+export type BreakpointType = 'sm' | 'md' | 'lg' | 'xl';
+
+/** base style */
+export type BaseTextAlignType =
+  | 'auto'
+  | 'left'
+  | 'right'
+  | 'center'
+  | 'justify';

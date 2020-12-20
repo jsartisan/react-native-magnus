@@ -6,6 +6,7 @@ import {
   createBorderWidthStyles,
   createBorderColorStyles,
   createBorderRadiusStyles,
+  createResponsiveStyle,
 } from '../../theme/theme.service';
 
 /**
@@ -37,7 +38,7 @@ export const getStyle = (theme: any, props: any) => {
     color: getThemeProperty(theme.colors, props.color),
     fontSize: getThemeProperty(theme.fontSize, props.fontSize),
     backgroundColor: getThemeProperty(theme.colors, props.bg),
-    textAlign: props.textAlign,
+    textAlign: createResponsiveStyle(props.textAlign, theme),
     textTransform: props.textTransform,
     overflow: props.overflow,
     opacity: props.opacity,

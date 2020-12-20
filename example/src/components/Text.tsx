@@ -1,10 +1,10 @@
-import React from "react";
-import { ScrollView } from "react-native";
-import { Div, Text } from "react-native-magnus";
+import React from 'react';
+import { ScrollView } from 'react-native';
+import { Div, Text } from 'react-native-magnus';
 
-import ExamplePage from "../utils/ExamplePage";
-import ExampleHeader from "../utils/ExampleHeader";
-import ExampleSection from "../utils/ExampleSection";
+import ExamplePage from '../utils/ExamplePage';
+import ExampleHeader from '../utils/ExampleHeader';
+import ExampleSection from '../utils/ExampleSection';
 
 const TextComponent: React.FC = () => {
   return (
@@ -12,6 +12,7 @@ const TextComponent: React.FC = () => {
       <ExampleHeader name="text" />
 
       <ScrollView>
+        <Text textAlign={['right', 'center']}>asdasdas</Text>
         <Div flexDir="row">
           <ExampleSection name="default">
             <Text color="gray800" fontSize="xs">
