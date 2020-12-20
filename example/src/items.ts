@@ -2,6 +2,7 @@ import { ComponentType } from "react";
 import AvatarComponent from "./components/Avatar";
 import BadgeComponent from "./components/Badge";
 import ButtonComponent from "./components/Button";
+import CarouselComponent from "./components/Carousel";
 import CheckboxComponent from "./components/Checkbox";
 import CollapseComponent from "./components/Collapse";
 import DivComponent from "./components/Div";
@@ -22,6 +23,7 @@ import TextComponent from "./components/Text";
 import ToggleComponent from "./components/Toggle";
 import TooltipComponent from "./components/Tooltip";
 import HomeExample1 from "./pages/HomeExample1";
+import IntroExample1 from "./pages/IntroExample1";
 import LoginExample1 from "./pages/LoginExample1";
 import LoginExample2 from "./pages/LoginExample2";
 
@@ -46,6 +48,11 @@ export const pages: ExampleComponentType[] = [
     onScreenName: "Home Example #1",
     navigationPath: "HomeExample1",
     component: HomeExample1,
+  },
+  {
+    onScreenName: "Intro Example #1",
+    navigationPath: "IntroExample1",
+    component: IntroExample1,
   },
 ];
 
@@ -151,5 +158,10 @@ export const components: ExampleComponentType[] = [
     navigationPath: "Select",
     onScreenName: "Select",
     component: SelectComponent,
+  },
+  {
+    navigationPath: "Carousel",
+    onScreenName: "Carousel",
+    component: CarouselComponent,
   },
 ];
