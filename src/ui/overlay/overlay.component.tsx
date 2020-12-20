@@ -4,6 +4,7 @@ import { useContext, useState, useEffect, useImperativeHandle } from 'react';
 
 import { getStyle } from './overlay.style';
 import { ThemeContext } from '../../theme';
+import { isFunction } from '../../utilities';
 import { OverlayProps, OverlayRef } from './overlay.type';
 
 const Overlay = React.forwardRef<OverlayRef, OverlayProps>((props, ref) => {
@@ -33,6 +34,7 @@ const Overlay = React.forwardRef<OverlayRef, OverlayProps>((props, ref) => {
     children,
     overlayColor,
     overlayOpacity,
+    onRequestClose,
     ...rest
   } = props;
   const { theme } = useContext(ThemeContext);
@@ -43,17 +45,21 @@ const Overlay = React.forwardRef<OverlayRef, OverlayProps>((props, ref) => {
     if ('isVisible' in props) {
       setVisible(props.isVisible || false);
     }
-  }, [props, visible]);
+  }, [props]);
 
   /**
    * exposing functions to parent
    */
   useImperativeHandle(ref, () => ({
     open() {
-      setVisible(true);
+      if (visible === false) {
+        setVisible(true);
+      }
     },
     close() {
-      setVisible(false);
+      if (visible === true) {
+        setVisible(false);
+      }
     },
   }));
 
@@ -62,7 +68,9 @@ const Overlay = React.forwardRef<OverlayRef, OverlayProps>((props, ref) => {
       animationType="fade"
       transparent
       visible={visible}
-      onRequestClose={() => {}}
+      onRequestClose={
+        isFunction(onRequestClose) ? onRequestClose : () => setVisible(false)
+      }
       {...rest}
     >
       <RNView style={computedStyle.modal}>

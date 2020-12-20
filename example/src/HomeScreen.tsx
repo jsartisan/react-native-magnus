@@ -1,22 +1,22 @@
-import React from "react";
-import { SafeAreaView, StatusBar, ScrollView } from "react-native";
-import { Div, Text, Button, Image, Badge, Header } from "react-native-magnus";
+import React from 'react';
+import { SafeAreaView, StatusBar, ScrollView } from 'react-native';
+import { Div, Text, Button, Image, Badge, Header } from 'react-native-magnus';
 
-import { useNavigation } from "@react-navigation/native";
-import { components, pages } from "./items";
+import { useNavigation } from '@react-navigation/native';
+import { components, pages } from './items';
 
 const HomeScreen = () => {
   const navigation = useNavigation();
 
   return (
     <>
-      <SafeAreaView style={{ flex: 0, backgroundColor: "white" }} />
+      <SafeAreaView style={{ flex: 0, backgroundColor: 'white' }} />
       <StatusBar barStyle="light-content" backgroundColor="black" />
       <SafeAreaView style={{ flex: 1 }}>
         <Div flex={1}>
           {/* header */}
           <Header
-            shadow="lg"
+            shadow="sm"
             suffix={
               <Badge bg="green500" zIndex={10} right={-5} top={0} h={12} w={12}>
                 <Button
@@ -30,7 +30,7 @@ const HomeScreen = () => {
                     w={40}
                     source={{
                       uri:
-                        "https://images.unsplash.com/photo-1561037404-61cd46aa615b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&q=80",
+                        'https://images.unsplash.com/photo-1561037404-61cd46aa615b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&q=80',
                     }}
                   />
                 </Button>
@@ -75,7 +75,7 @@ const HomeScreen = () => {
                   <Button
                     key={item.navigationPath}
                     w="48%"
-                    ml={index % 2 ? "lg" : "none"}
+                    ml={index % 2 ? 'lg' : 'none'}
                     py="lg"
                     mb="lg"
                     bg="white"

@@ -1,13 +1,13 @@
-import React from "react";
-import { ActivityIndicator, ScrollView } from "react-native";
-import { Button, Div, Overlay, Text } from "react-native-magnus";
+import React, { useRef } from 'react';
+import { ActivityIndicator, ScrollView } from 'react-native';
+import { Button, Div, Overlay, Text, OverlayRef } from 'react-native-magnus';
 
-import ExamplePage from "../utils/ExamplePage";
-import ExampleHeader from "../utils/ExampleHeader";
-import ExampleSection from "../utils/ExampleSection";
+import ExamplePage from '../utils/ExamplePage';
+import ExampleHeader from '../utils/ExampleHeader';
+import ExampleSection from '../utils/ExampleSection';
 
 const OverlayComponent: React.FC = () => {
-  const [overlayVisible, setOverlayVisible] = React.useState(false);
+  const overlayRef = useRef<OverlayRef>(null);
 
   return (
     <ExamplePage>
@@ -18,17 +18,17 @@ const OverlayComponent: React.FC = () => {
           <Button
             block
             onPress={() => {
-              setOverlayVisible(true);
+              overlayRef.current?.open();
 
               setTimeout(() => {
-                setOverlayVisible(false);
+                overlayRef.current?.close();
               }, 3000);
             }}
           >
             Show Overlay
           </Button>
 
-          <Overlay visible={overlayVisible} p="xl">
+          <Overlay ref={overlayRef} p="xl">
             <Div flexDir="row" justifyContent="center" alignItems="center">
               <ActivityIndicator size={30} color="black" />
               <Text fontSize="lg" ml="lg">
