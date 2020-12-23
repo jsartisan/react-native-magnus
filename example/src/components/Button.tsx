@@ -1,10 +1,10 @@
-import React from "react";
-import { ScrollView } from "react-native";
-import { Button, Div, Icon } from "react-native-magnus";
+import React from 'react';
+import { ScrollView } from 'react-native';
+import { Button, Div, Icon } from 'react-native-magnus';
 
-import ExamplePage from "../utils/ExamplePage";
-import ExampleHeader from "../utils/ExampleHeader";
-import ExampleSection from "../utils/ExampleSection";
+import ExamplePage from '../utils/ExamplePage';
+import ExampleHeader from '../utils/ExampleHeader';
+import ExampleSection from '../utils/ExampleSection';
 
 const ButtonComponent: React.FC = () => {
   return (
@@ -149,6 +149,7 @@ const ButtonComponent: React.FC = () => {
               px="2xl"
               mr="md"
               bg="black"
+              textTransform="uppercase"
               suffix={<Icon name="arrowright" ml="md" color="white" />}
             >
               Contact Us
@@ -156,6 +157,7 @@ const ButtonComponent: React.FC = () => {
             <Button
               px="2xl"
               rounded="circle"
+              textTransform="uppercase"
               prefix={<Icon name="caretright" mr="md" color="white" />}
             >
               Play now

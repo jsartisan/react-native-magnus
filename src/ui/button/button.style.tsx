@@ -47,6 +47,8 @@ export const getStyle = (theme: any, props: any) => {
     color: getThemeProperty(theme.colors, props.color),
     fontSize: getThemeProperty(theme.fontSize, props.fontSize),
     lineHeight: getThemeProperty(theme.fontSize, props.fontSize) * 1.2,
+    textTransform: props.textTransform,
+    letterSpacing: props.letterSpacing,
   };
 
   computedStyle.loadingContainer = {

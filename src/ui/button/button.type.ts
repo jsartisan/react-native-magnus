@@ -55,4 +55,6 @@ export interface ButtonProps
   ripple?: boolean;
   opacity?: number;
   zIndex?: number;
+  textTransform?: 'none' | 'uppercase' | 'lowercase' | 'capitalize';
+  letterSpacing?: number;
 }
