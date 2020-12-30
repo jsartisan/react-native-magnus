@@ -38,7 +38,7 @@ export interface IconProps
   bg?: string;
   name: string;
   color?: string;
-  position?: 'absolute' | 'relaitve';
+  position?: 'absolute' | 'relative';
   top?: string | number;
   left?: string | number;
   right?: string | number;
