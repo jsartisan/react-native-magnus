@@ -1,4 +1,5 @@
 import { StyleSheet, Dimensions } from 'react-native';
+import { ThemeType } from '../../theme';
 
 import {
   getThemeProperty,
@@ -16,7 +17,7 @@ const SCREEN_HEIGHT = Dimensions.get('window').height;
  * @param theme
  * @param props
  */
-export const getStyle = (theme: any, props: any) => {
+export const getStyle = (theme: ThemeType, props: any) => {
   const computedStyle: any = {};
 
   computedStyle.drawer = {

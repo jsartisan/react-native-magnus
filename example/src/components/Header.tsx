@@ -1,10 +1,10 @@
-import React from "react";
-import { ScrollView } from "react-native";
-import { Button, Header, Icon, Text } from "react-native-magnus";
+import React from 'react';
+import { ScrollView } from 'react-native';
+import { Button, Header, Icon } from 'react-native-magnus';
 
-import ExamplePage from "../utils/ExamplePage";
-import ExampleHeader from "../utils/ExampleHeader";
-import ExampleSection from "../utils/ExampleSection";
+import ExamplePage from '../utils/ExamplePage';
+import ExampleHeader from '../utils/ExampleHeader';
+import ExampleSection from '../utils/ExampleSection';
 
 const HeaderComponent: React.FC = () => {
   return (
@@ -17,7 +17,20 @@ const HeaderComponent: React.FC = () => {
         </ExampleSection>
 
         <ExampleSection name="center aligned" withoutSpacingOnContent>
-          <Header shadow="sm" alignment="center">
+          <Header alignment="center">My Title</Header>
+        </ExampleSection>
+
+        <ExampleSection
+          name="center aligned + text props"
+          withoutSpacingOnContent
+        >
+          <Header
+            alignment="center"
+            textTransform="uppercase"
+            fontSize="2xl"
+            fontWeight="bold"
+            fontStyle="italic"
+          >
             My Title
           </Header>
         </ExampleSection>
@@ -86,7 +99,7 @@ const HeaderComponent: React.FC = () => {
             color="white"
             bgImg={{
               uri:
-                "https://venngage-wordpress.s3.amazonaws.com/uploads/2018/09/Monochrome-Type-Simple-Background-Image.jpg",
+                'https://venngage-wordpress.s3.amazonaws.com/uploads/2018/09/Monochrome-Type-Simple-Background-Image.jpg',
             }}
             prefix={
               <Button bg="transparent" mr="lg">

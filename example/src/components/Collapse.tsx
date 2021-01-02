@@ -13,11 +13,7 @@ const CollapseComponent: React.FC = () => {
       <ScrollView>
         <ExampleSection name="default">
           <Collapse>
-            <Collapse.Header
-              prefix={<Icon name="wallet" px="xl" color="gray400" />}
-            >
-              Header 1
-            </Collapse.Header>
+            <Collapse.Header>Header 1</Collapse.Header>
             <Collapse.Body>
               <Text>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus
@@ -29,11 +25,7 @@ const CollapseComponent: React.FC = () => {
           </Collapse>
 
           <Collapse>
-            <Collapse.Header
-              prefix={<Icon name="wallet" px="xl" color="gray400" />}
-            >
-              Header 2
-            </Collapse.Header>
+            <Collapse.Header>Header 2</Collapse.Header>
             <Collapse.Body>
               <Text>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus
@@ -48,11 +40,7 @@ const CollapseComponent: React.FC = () => {
         <ExampleSection name="only 1 open at time">
           <Collapse.Group defaultActive={2}>
             <Collapse id={1}>
-              <Collapse.Header
-                prefix={<Icon name="wallet" px="xl" color="gray400" />}
-              >
-                Header 1
-              </Collapse.Header>
+              <Collapse.Header>Header 1</Collapse.Header>
               <Collapse.Body>
                 <Text>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus
@@ -64,11 +52,7 @@ const CollapseComponent: React.FC = () => {
             </Collapse>
 
             <Collapse id={2}>
-              <Collapse.Header
-                prefix={<Icon name="wallet" px="xl" color="gray400" />}
-              >
-                Header 2
-              </Collapse.Header>
+              <Collapse.Header>Header 2</Collapse.Header>
               <Collapse.Body>
                 <Text>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus

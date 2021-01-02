@@ -8,7 +8,6 @@ import CarouselItem from './item.carousel';
 
 const Carousel: CompoundedCarousel<CarouselProps> = ({
   children,
-  itemsPerPage = 1,
   renderIndicators,
   showIndicators = true,
   ...props
@@ -41,7 +40,7 @@ const Carousel: CompoundedCarousel<CarouselProps> = ({
     setTotalContentWidth(width);
     // initialize total pages
     const totalItems = items.length;
-    setTotalPages(Math.ceil(totalItems / itemsPerPage));
+    setTotalPages(totalItems);
   };
 
   const getPage = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
@@ -94,7 +93,7 @@ const Carousel: CompoundedCarousel<CarouselProps> = ({
         {...props}
         horizontal={true}
         contentContainerStyle={{
-          width: `${(100 / itemsPerPage) * items.length}%`,
+          width: `${100 * totalPages}%`,
           flex: 1,
         }}
         showsHorizontalScrollIndicator={false}

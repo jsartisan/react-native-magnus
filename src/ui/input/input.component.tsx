@@ -114,8 +114,8 @@ const Input = React.forwardRef<RNTextInput, InputProps>((props, ref) => {
         ref={ref}
         onFocus={onFocusInput}
         onBlur={onBlurInput}
-        style={computedStyle.input}
         {...rest}
+        style={computedStyle.input}
         placeholderTextColor={placeholderColor}
       />
       {!loading && suffix && (

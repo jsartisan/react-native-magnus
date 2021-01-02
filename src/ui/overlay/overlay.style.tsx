@@ -1,5 +1,6 @@
 import color from 'color';
 import { StyleSheet } from 'react-native';
+import { ThemeType } from '../../theme';
 
 import {
   getThemeProperty,
@@ -14,7 +15,7 @@ import {
  * @param theme
  * @param props
  */
-export const getStyle = (theme: any, props: any) => {
+export const getStyle = (theme: ThemeType, props: any) => {
   const computedStyle: any = {};
 
   computedStyle.modal = {

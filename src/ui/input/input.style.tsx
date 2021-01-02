@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { ThemeType } from '../../theme';
 
 import {
   getThemeProperty,
@@ -17,7 +18,7 @@ import {
  * @param theme
  * @param props
  */
-export const getStyle = (theme: any, props: any, state: any) => {
+export const getStyle = (theme: ThemeType, props: any, state: any) => {
   const computedStyle: any = {};
 
   computedStyle.container = {
@@ -56,9 +57,31 @@ export const getStyle = (theme: any, props: any, state: any) => {
   computedStyle.input = {
     flex: 1,
     padding: 0,
-    textAlignVertical: 'center',
+
+    fontWeight: props.fontWeight,
+    textDecorationLine: props.textDecorLine,
+    textDecorationStyle: props.textDecorStyle,
+    letterSpacing: props.letterSpacing,
+    fontStyle: props.fontStyle,
+    textAlignVertical: props.textAlignVertical,
+    lineHeight: props.lineHeight
+      ? props.lineHeight
+      : 1.5 * getThemeProperty(theme.fontSize, props.fontSize),
     color: getThemeProperty(theme.colors, props.color),
     fontSize: getThemeProperty(theme.fontSize, props.fontSize),
+    textAlign: props.textAlign,
+    textTransform: props.textTransform,
+    textDecorationColor: getThemeProperty(theme.colors, props.textDecorColor),
+    fontFamily: props.fontFamily,
+    textShadowColor: getThemeProperty(theme.colors, props.textShadowColor),
+    textShadowOffset: {
+      width: getThemeProperty(theme.shadow, props.textShadowOffset),
+      height: getThemeProperty(theme.shadow, props.textShadowOffset),
+    },
+    textShadowRadius: getThemeProperty(
+      theme.borderRadius,
+      props.textShadowRadius
+    ),
   };
 
   computedStyle.suffix = {

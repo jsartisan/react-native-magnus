@@ -10,6 +10,8 @@ import { getStyle } from './header.style';
 import { ThemeContext } from '../../theme';
 import { HeaderProps } from './header.type';
 import { Div } from '../div/div.component';
+import { getSpecificProps } from '../../utilities';
+import { textProps } from '../../types';
 
 const Header: React.FunctionComponent<HeaderProps> = (props) => {
   const {
@@ -71,36 +73,6 @@ const Header: React.FunctionComponent<HeaderProps> = (props) => {
     ...rest
   } = props;
 
-  const {
-    color,
-    fontSize,
-    textDecorLine,
-    textDecorStyle,
-    fontStyle,
-    textDecorColor,
-    fontWeight,
-    lineHeight,
-    textAlign,
-    textTransform,
-    letterSpacing,
-    textAlignVertical,
-  } = rest;
-
-  const titleProps = {
-    color,
-    fontSize,
-    textDecorLine,
-    textDecorStyle,
-    fontStyle,
-    textDecorColor,
-    fontWeight,
-    lineHeight,
-    textAlign,
-    textTransform,
-    letterSpacing,
-    textAlignVertical,
-  };
-
   const { theme } = useContext(ThemeContext);
   const computedStyle = getStyle(theme, props);
 
@@ -109,7 +81,14 @@ const Header: React.FunctionComponent<HeaderProps> = (props) => {
    */
   const renderChildren = () => {
     if (typeof children === 'string') {
-      return <Text {...titleProps}>{children}</Text>;
+      return (
+        <Text
+          {...getSpecificProps(props, ...textProps)}
+          style={computedStyle.text}
+        >
+          {children}
+        </Text>
+      );
     }
 
     return children;

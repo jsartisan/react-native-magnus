@@ -24,4 +24,5 @@ export interface AvatarGroupProps
     OpacityPropsType,
     ZIndexPropsType {
   offset?: string | number;
+  children: React.ReactElement[] | React.ReactElement;
 }

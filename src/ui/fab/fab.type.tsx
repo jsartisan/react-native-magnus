@@ -41,4 +41,5 @@ export interface FabProps
   animated?: boolean;
   onOpen?: () => void;
   useNativeDriver?: boolean;
+  children: React.ReactElement | React.ReactElement[];
 }

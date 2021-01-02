@@ -3,6 +3,7 @@ import * as React from 'react';
 import { Icon } from '../icon/icon.component';
 import { Button } from '../button/button.component';
 import { CollapseHeaderProps } from './collapse.type';
+import { Div } from '../div/div.component';
 
 const CollapseHeader: React.FunctionComponent<CollapseHeaderProps> = (
   props
@@ -25,6 +26,7 @@ CollapseHeader.defaultProps = {
   py: 'xl',
   px: 'none',
   justifyContent: 'flex-start',
+  prefix: <Div px="lg" />,
   suffix: (
     <Icon
       px="xl"
@@ -32,6 +34,7 @@ CollapseHeader.defaultProps = {
       fontFamily="Feather"
       position="absolute"
       right={0}
+      color="white"
     />
   ),
   activeSuffix: (
@@ -41,6 +44,7 @@ CollapseHeader.defaultProps = {
       fontFamily="Feather"
       position="absolute"
       right={0}
+      color="white"
     />
   ),
 };

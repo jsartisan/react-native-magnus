@@ -1,4 +1,5 @@
 import { StyleSheet, Platform } from 'react-native';
+import { ThemeType } from '../../theme';
 
 import { getThemeProperty } from '../../theme/theme.service';
 
@@ -8,7 +9,7 @@ import { getThemeProperty } from '../../theme/theme.service';
  * @param theme
  * @param props
  */
-export const getStyle = (theme: any, props: any) => {
+export const getStyle = (theme: ThemeType, props: any) => {
   const computedStyle: any = {};
 
   computedStyle.button = {

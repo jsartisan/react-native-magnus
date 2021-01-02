@@ -189,13 +189,34 @@ export interface TextPropsType {
   textDecorStyle?: 'solid' | 'double' | 'dotted' | 'dashed';
   fontStyle?: 'normal' | 'italic';
   textDecorColor?: string;
-  fontWeight?: string;
+  fontWeight?:
+    | 'normal'
+    | 'bold'
+    | '100'
+    | '200'
+    | '300'
+    | '400'
+    | '500'
+    | '600'
+    | '700'
+    | '800'
+    | '900';
   fontFamily?: string;
   lineHeight?: number;
   textAlign?: 'auto' | 'left' | 'right' | 'center' | 'justify';
   textTransform?: 'none' | 'uppercase' | 'lowercase' | 'capitalize';
   letterSpacing?: number;
   textAlignVertical?: 'auto' | 'top' | 'bottom' | 'center';
+  textDecorationLine?:
+    | 'none'
+    | 'underline'
+    | 'line-through'
+    | 'underline line-through';
+  textDecorationStyle?: 'solid' | 'double' | 'dotted' | 'dashed';
+  textDecorationColor?: string;
+  textShadowColor?: string;
+  textShadowOffset?: { width: number; height: number };
+  textShadowRadius?: number;
 }
 
 export const opacityProps = ['opacity'] as const;

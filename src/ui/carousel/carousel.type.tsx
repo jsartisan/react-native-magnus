@@ -19,7 +19,6 @@ export interface CarouselProps
     ShadowPropsType,
     SpacingPropsType,
     Pick<FlexPropsType, 'flex'> {
-  itemsPerPage?: number;
   showIndicators?: boolean;
   renderIndicators?: (props: CarouselIndicator) => JSX.Element;
 }

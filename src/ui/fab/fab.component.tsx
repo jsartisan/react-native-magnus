@@ -9,7 +9,7 @@ import color from 'color';
 
 import { getThemeProperty } from '../../theme/theme.service';
 import { getStyle } from './fab.style';
-import { ThemeContext } from '../../theme';
+import { ThemeContext, ThemeType } from '../../theme';
 import { Button } from '../button/button.component';
 import { Icon } from '../icon/icon.component';
 import { FabProps } from './fab.type';
@@ -21,7 +21,8 @@ interface FabState {
 class Fab extends React.Component<FabProps, FabState> {
   static defaultProps: Partial<FabProps> = {
     color: 'white',
-    fontSize: '2xl',
+    fontSize: '4xl',
+    p: 18,
     overlayColor: 'gray900',
     overlayOpacity: 0.5,
     position: 'absolute',
@@ -33,11 +34,9 @@ class Fab extends React.Component<FabProps, FabState> {
     icon: 'plus',
     activeIcon: 'close',
     rounded: 'circle',
-    h: 60,
-    w: 60,
     bg: 'blue500',
     useNativeDriver: false,
-    shadow: 'xl',
+    shadow: 'lg',
     shadowColor: 'gray900',
   };
 
@@ -295,27 +294,26 @@ class Fab extends React.Component<FabProps, FabState> {
     ];
     return (
       <Animated.View style={actionsStyles} pointerEvents="box-none">
-        {React.isValidElement(children) &&
-          React.Children.map(children, (child: React.ReactElement) => {
-            return React.cloneElement(child, {
-              mb: child.props.mb ? child.props.mb : 'xl',
-              onPress: (e: GestureResponderEvent) => {
-                // if fab is not active, don't allow pressing buttons
-                if (!active) return;
+        {React.Children.map(children, (child: React.ReactElement) => {
+          return React.cloneElement(child, {
+            mb: child.props.mb ? child.props.mb : 'xl',
+            onPress: (e: GestureResponderEvent) => {
+              // if fab is not active, don't allow pressing buttons
+              if (!active) return;
 
-                if (child.props.onPress) {
-                  child.props.onPress(e);
-                }
+              if (child.props.onPress) {
+                child.props.onPress(e);
+              }
 
-                this.reset();
-              },
-            });
-          })}
+              this.reset();
+            },
+          });
+        })}
       </Animated.View>
     );
   };
 
-  renderTappableBackground = (theme: any, computedStyle: any) => {
+  renderTappableBackground = (theme: ThemeType, computedStyle: any) => {
     const { overlayColor, overlayOpacity } = this.props;
 
     const calculatedOverlayColor = color(

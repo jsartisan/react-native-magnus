@@ -34,7 +34,7 @@ export const getIconColor = (
   disabled: any,
   activeColor: any,
   inactiveColor: any,
-  theme: any
+  theme: ThemeType
 ) => {
   switch (true) {
     case disabled:

@@ -2,13 +2,15 @@ import * as React from 'react';
 import { useContext } from 'react';
 import {
   View as RNView,
-  Text as RNText,
   TouchableWithoutFeedback as RNButton,
 } from 'react-native';
 
 import { getStyle } from './tag.style';
 import { ThemeContext } from '../../theme';
 import { TagProps } from './tag.type';
+import { Text } from '../text/text.component';
+import { textProps } from '../../types';
+import { getSpecificProps } from '../../utilities';
 
 const Tag: React.FunctionComponent<TagProps> = (props) => {
   const {
@@ -56,7 +58,7 @@ const Tag: React.FunctionComponent<TagProps> = (props) => {
     <RNButton onPress={onPress}>
       <RNView style={computedStyle.div} {...rest}>
         {prefix && <RNView style={computedStyle.prefix}>{prefix}</RNView>}
-        <RNText style={computedStyle.text}>{children}</RNText>
+        <Text {...getSpecificProps(props, ...textProps)}>{children}</Text>
         {suffix && <RNView style={computedStyle.suffix}>{suffix}</RNView>}
       </RNView>
     </RNButton>
