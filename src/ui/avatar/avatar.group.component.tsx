@@ -22,12 +22,11 @@ const AvatarGroup: React.FunctionComponent<AvatarGroupProps> = (
 
   return (
     <Div {...rest} ml={calculatedOffset + calculatedMarginLeft}>
-      {React.isValidElement(children) &&
-        React.Children.map(children, (child: React.ReactElement) => {
-          return React.cloneElement(child, {
-            ml: -1 * calculatedOffset,
-          });
-        })}
+      {React.Children.map(children, (child: React.ReactElement) => {
+        return React.cloneElement(child, {
+          ml: -1 * calculatedOffset,
+        });
+      })}
     </Div>
   );
 };
