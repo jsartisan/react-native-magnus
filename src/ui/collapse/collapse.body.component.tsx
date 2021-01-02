@@ -5,9 +5,7 @@ import { Div } from '../div/div.component';
 
 import { CollapseBodyProps } from './collapse.type';
 
-const CollapseBody: React.FunctionComponent<CollapseBodyProps> = (
-  props: CollapseBodyProps
-) => {
+const CollapseBody: React.FunctionComponent<CollapseBodyProps> = (props) => {
   const { expanded, children } = props;
   const startingHeight = 0;
 

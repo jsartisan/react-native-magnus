@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { useEffect, useState } from 'react';
-import { LayoutAnimation } from 'react-native';
 import { isFunction } from '../../utilities';
 
 import { Div } from '../div/div.component';

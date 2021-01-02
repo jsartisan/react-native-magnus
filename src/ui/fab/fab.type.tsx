@@ -1,48 +1,37 @@
 import { PressableProps as RNButtonProps } from 'react-native';
 import {
+  BackgroundPropsType,
+  ButtonPropsType,
+  DimensionPropsType,
+  DisabledPropsType,
+  FlexPropsType,
+  LoadingPropsType,
+  OverlayPropsType,
+  PositionPropsType,
+  TextPropsType,
   BorderPropsType,
   SpacingPropsType,
   RoundedPropsType,
   ShadowPropsType,
-} from '../../theme';
+} from '../../types';
 
 export interface FabProps
   extends RNButtonProps,
     BorderPropsType,
     SpacingPropsType,
     RoundedPropsType,
-    ShadowPropsType {
+    ShadowPropsType,
+    DimensionPropsType,
+    FlexPropsType,
+    LoadingPropsType,
+    PositionPropsType,
+    DisabledPropsType,
+    OverlayPropsType,
+    Pick<BackgroundPropsType, 'bg'>,
+    Pick<ButtonPropsType, 'block' | 'borderless' | 'rippleColor' | 'ripple'>,
+    Pick<TextPropsType, 'color' | 'fontSize'> {
   h?: number;
-  w?: number;
-  bg?: string;
-  position?: 'absolute' | 'relative' | 'fixed';
-  alignItems?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
-  flexDir?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
-  justifyContent?:
-    | 'flex-start'
-    | 'flex-end'
-    | 'center'
-    | 'space-between'
-    | 'space-around'
-    | 'space-evenly';
-  top?: number;
-  flex?: number;
-  left?: number;
-  right?: number;
-  bottom?: number;
-  color?: string;
-  loading?: boolean;
-  disabled?: boolean;
-  loaderColor?: string;
-  minW?: number | string;
-  minH?: number | string;
-  fontSize?: string;
-  loaderSize?: number | string;
-  block?: boolean;
-  borderless?: boolean;
-  rippleColor?: string;
   center?: boolean;
-  ripple?: boolean;
   icon: string | React.ReactNode;
   activeIcon: string | React.ReactNode;
   showBackground?: boolean;
@@ -50,9 +39,6 @@ export interface FabProps
   onClose?: () => void;
   onPressBackdrop?: () => void;
   animated?: boolean;
-  overlayColor?: string;
-  overlayOpacity?: number;
   onOpen?: () => void;
   useNativeDriver?: boolean;
-  children: React.ReactElement[] | React.ReactElement;
 }

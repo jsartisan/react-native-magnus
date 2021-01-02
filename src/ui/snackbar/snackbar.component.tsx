@@ -6,9 +6,10 @@ import { getStyle } from './snackbar.style';
 import { ThemeContext } from '../../theme';
 import { SnackbarRef, SnackbarProps } from './snackbar.type';
 
-let hideTimeout: number;
-
-const Snackbar = React.forwardRef<SnackbarRef, SnackbarProps>((props, ref) => {
+const Snackbar = React.forwardRef<
+  SnackbarRef,
+  React.PropsWithChildren<SnackbarProps>
+>((props, ref) => {
   const {
     m,
     mt,
@@ -53,6 +54,7 @@ const Snackbar = React.forwardRef<SnackbarRef, SnackbarProps>((props, ref) => {
     useNativeDriver,
     ...rest
   } = props;
+  let hideTimeout: number = 0;
   const { theme } = useContext(ThemeContext);
   const computedStyle = getStyle(theme, props);
   const [opacity] = useState(new Animated.Value(0.0));

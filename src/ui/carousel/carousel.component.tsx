@@ -48,7 +48,7 @@ const Carousel: CompoundedCarousel<CarouselProps> = ({
     const widthOffset = event.nativeEvent.contentOffset.x;
 
     const widthOfEachItem = totalContentWidth / totalPages;
-    const pageWidth = widthOfEachItem * itemsPerPage;
+    // const pageWidth = widthOfEachItem * itemsPerPage;
 
     for (let page = 1; page <= totalPages; page++) {
       if (widthOffset + 1 < widthOfEachItem * page) {
@@ -98,7 +98,7 @@ const Carousel: CompoundedCarousel<CarouselProps> = ({
           flex: 1,
         }}
         showsHorizontalScrollIndicator={false}
-        onContentSizeChange={(w, h) => init(w)}
+        onContentSizeChange={(w, _h) => init(w)}
         onScroll={(data) => {
           setTotalContentWidth(data.nativeEvent.contentSize.width);
           setSelectedPage(getPage(data));

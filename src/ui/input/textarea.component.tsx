@@ -24,9 +24,6 @@ const Textarea: React.FunctionComponent<TextareaProps> = (props) => {
     onBlur,
     onFocus,
     children,
-    borderColor,
-    borderWidth,
-    borderRadius,
     focusBorderColor,
     ...rest
   } = props;
@@ -73,7 +70,7 @@ const Textarea: React.FunctionComponent<TextareaProps> = (props) => {
 
 Textarea.defaultProps = {
   minH: 100,
-  p: { x: 12 },
+  p: 'lg',
   borderColor: 'gray500',
   borderWidth: 1,
 };

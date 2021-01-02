@@ -199,7 +199,12 @@ const Radio: IRadio<RadioProps> = (props) => {
 
   const renderChildren = () => {
     if (isFunction(children)) {
-      return children({ focussed, disabled, checked, loading });
+      return children({
+        focussed,
+        disabled: disabled ?? false,
+        checked,
+        loading,
+      });
     }
 
     return (

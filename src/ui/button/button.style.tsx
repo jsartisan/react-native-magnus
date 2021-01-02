@@ -42,12 +42,12 @@ export const getStyle = (theme: any, props: any) => {
     backgroundColor: getThemeProperty(theme.colors, props.bg),
   };
 
-  computedStyle.text = {
-    fontWeight: props.fontWeight,
-    color: getThemeProperty(theme.colors, props.color),
-    fontSize: getThemeProperty(theme.fontSize, props.fontSize),
-    lineHeight: getThemeProperty(theme.fontSize, props.fontSize) * 1.2,
-  };
+  // computedStyle.text = {
+  //   fontWeight: props.fontWeight,
+  //   color: getThemeProperty(theme.colors, props.color),
+  //   fontSize: getThemeProperty(theme.fontSize, props.fontSize),
+  //   lineHeight: getThemeProperty(theme.fontSize, props.fontSize) * 1.2,
+  // };
 
   computedStyle.loadingContainer = {
     alignItems: 'center',

@@ -1,21 +1,24 @@
 import {
+  BackgroundPropsType,
+  DimensionPropsType,
+  DisabledPropsType,
   BorderPropsType,
   SpacingPropsType,
   RoundedPropsType,
-} from '../../theme';
+} from '../../types';
 
 export interface ToggleProps
   extends SpacingPropsType,
     RoundedPropsType,
-    BorderPropsType {
-  h?: number;
-  w?: number;
+    BorderPropsType,
+    DisabledPropsType,
+    Pick<DimensionPropsType, 'w' | 'h'>,
+    Pick<BackgroundPropsType, 'bg'>,
+    DisabledPropsType {
   testID?: string;
   on?: boolean;
   onPress: () => void;
   activeBg?: string;
-  bg?: string;
-  disabled?: boolean;
   circleBg?: string;
   activeCircleBg?: string;
   duration?: number;

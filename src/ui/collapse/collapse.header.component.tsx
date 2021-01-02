@@ -5,7 +5,7 @@ import { Button } from '../button/button.component';
 import { CollapseHeaderProps } from './collapse.type';
 
 const CollapseHeader: React.FunctionComponent<CollapseHeaderProps> = (
-  props: CollapseHeaderProps
+  props
 ) => {
   const { suffix, activeSuffix, prefix, activePrefix, active } = props;
   return (

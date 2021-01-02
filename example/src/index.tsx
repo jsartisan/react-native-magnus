@@ -1,23 +1,19 @@
-import React from "react";
-import { createStackNavigator } from "@react-navigation/stack";
-import { NavigationContainer } from "@react-navigation/native";
+import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { ThemeProvider } from 'react-native-magnus';
 
-import { ThemeProvider, defaultTheme } from "react-native-magnus";
-
-import HomeScreen from "./HomeScreen";
-
-import { components, pages } from "./items";
+import HomeScreen from './HomeScreen';
+import { components, pages } from './items';
 
 const theme = {
-  ...defaultTheme,
   colors: {
-    ...defaultTheme.colors,
-    loginExample1Bg: "#F3CFDA",
-    brown100: "#865c6c",
-    twitter: "#1DA1F2",
-    facebook: "#3b5998",
-    google: "#4285F4",
-    dribbble: "#ea4c88",
+    loginExample1Bg: '#F3CFDA',
+    brown100: '#865c6c',
+    twitter: '#1DA1F2',
+    facebook: '#3b5998',
+    google: '#4285F4',
+    dribbble: '#ea4c88',
   },
 };
 

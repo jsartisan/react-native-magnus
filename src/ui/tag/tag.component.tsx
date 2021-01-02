@@ -10,7 +10,7 @@ import { getStyle } from './tag.style';
 import { ThemeContext } from '../../theme';
 import { TagProps } from './tag.type';
 
-const Tag: React.FunctionComponent<TagProps> = (props: TagProps) => {
+const Tag: React.FunctionComponent<TagProps> = (props) => {
   const {
     h,
     w,

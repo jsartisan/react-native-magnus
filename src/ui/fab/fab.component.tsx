@@ -295,21 +295,22 @@ class Fab extends React.Component<FabProps, FabState> {
     ];
     return (
       <Animated.View style={actionsStyles} pointerEvents="box-none">
-        {React.Children.map(children || [], (child: React.ReactElement) => {
-          return React.cloneElement(child, {
-            mb: child.props.mb ? child.props.mb : 'xl',
-            onPress: (e: GestureResponderEvent) => {
-              // if fab is not active, don't allow pressing buttons
-              if (!active) return;
+        {React.isValidElement(children) &&
+          React.Children.map(children, (child: React.ReactElement) => {
+            return React.cloneElement(child, {
+              mb: child.props.mb ? child.props.mb : 'xl',
+              onPress: (e: GestureResponderEvent) => {
+                // if fab is not active, don't allow pressing buttons
+                if (!active) return;
 
-              if (child.props.onPress) {
-                child.props.onPress(e);
-              }
+                if (child.props.onPress) {
+                  child.props.onPress(e);
+                }
 
-              this.reset();
-            },
-          });
-        })}
+                this.reset();
+              },
+            });
+          })}
       </Animated.View>
     );
   };

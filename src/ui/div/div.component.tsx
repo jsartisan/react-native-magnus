@@ -9,7 +9,7 @@ import { DivProps } from './div.type';
 import { getStyle } from './div.style';
 import { ThemeContext } from '../../theme';
 
-const Div: React.FunctionComponent<DivProps> = (props: DivProps) => {
+const Div: React.FunctionComponent<DivProps> = (props) => {
   const {
     bg,
     h,

@@ -11,7 +11,7 @@ import { ThemeContext } from '../../theme';
 import { HeaderProps } from './header.type';
 import { Div } from '../div/div.component';
 
-const Header: React.FunctionComponent<HeaderProps> = (props: HeaderProps) => {
+const Header: React.FunctionComponent<HeaderProps> = (props) => {
   const {
     bg,
     h,
@@ -141,7 +141,7 @@ const Header: React.FunctionComponent<HeaderProps> = (props: HeaderProps) => {
 };
 
 Header.defaultProps = {
-  // minH: 65,
+  minH: 70,
   p: 'lg',
   bg: 'white',
   rounded: 'none',

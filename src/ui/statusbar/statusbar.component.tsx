@@ -1,15 +1,17 @@
 import React, { useContext } from 'react';
-import { StatusBar as RNStatusBar } from 'react-native';
+import {
+  StatusBar as RNStatusBar,
+  StatusBarProps as RNStatusBarProps,
+} from 'react-native';
 import { ThemeContext } from '../../theme';
 
 import { getThemeProperty } from '../../theme/theme.service';
-import { StatusBarProps } from './statusbar.type';
 
 interface StatusBarComponent<T> extends React.FC<T> {
   currentHeight?: number;
 }
 
-const StatusBar: StatusBarComponent<StatusBarProps> = ({
+const StatusBar: StatusBarComponent<RNStatusBarProps> = ({
   backgroundColor,
   ...props
 }) => {

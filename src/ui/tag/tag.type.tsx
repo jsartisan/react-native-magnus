@@ -1,41 +1,22 @@
+import { ViewProps as RNViewProps } from 'react-native';
 import {
+  BackgroundPropsType,
+  DimensionPropsType,
+  PrefixSuffixPropsType,
+  TextPropsType,
   BorderPropsType,
   SpacingPropsType,
   RoundedPropsType,
-} from '../../theme';
-
-import { ViewProps as RNViewProps } from 'react-native';
+} from '../../types';
 
 export interface TagProps
   extends RNViewProps,
     BorderPropsType,
     SpacingPropsType,
-    RoundedPropsType {
-  m?: any;
-  p?: any;
-  h?: number;
-  color?: string;
-  w?: number | string;
-  bg?: string;
-  minH?: number | string;
-  minW?: number | string;
-  rounded?: string;
-  borderColor?: string;
-  borderWidth?: number;
-  fontSize?: string;
-  textDecorLine?:
-    | 'none'
-    | 'underline'
-    | 'line-through'
-    | 'underline line-through';
-  textDecorStyle?: 'solid' | 'double' | 'dotted' | 'dashed';
-  textDecorColor?: string;
-  fontWeight?: string;
-  textAlign?: 'auto' | 'left' | 'right' | 'center' | 'justify';
-  textTransform?: 'none' | 'uppercase' | 'lowercase' | 'capitalize';
-  letterSpacing?: number;
-  suffix?: React.ReactNode;
-  prefix?: React.ReactNode;
+    RoundedPropsType,
+    PrefixSuffixPropsType,
+    Pick<BackgroundPropsType, 'bg'>,
+    DimensionPropsType,
+    TextPropsType {
   onPress?: (...args: any[]) => void;
-  children?: React.ReactNode[] | React.ReactNode;
 }

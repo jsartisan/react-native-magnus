@@ -26,7 +26,10 @@ const STATES = {
 const EASING = Easing.bezier(0.4, 0, 0.2, 1);
 const SCREEN_INDENT = 8;
 
-const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
+const Tooltip = React.forwardRef<
+  TooltipRef,
+  React.PropsWithChildren<TooltipProps>
+>((props, ref) => {
   const container = useRef<View>(null);
   const [state, setState] = useStateCallback({
     visible: STATES.HIDDEN,

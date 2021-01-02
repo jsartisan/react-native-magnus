@@ -15,7 +15,6 @@ export interface CollapseProps extends DivProps {
   active?: boolean;
   defaultActive?: boolean;
   onChange?: (value: any) => void;
-  children: React.ReactNode[] | React.ReactNode;
 }
 
 export interface CollapseBodyProps extends DivProps {

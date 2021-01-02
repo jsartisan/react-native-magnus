@@ -6,7 +6,7 @@ import { getStyle } from './toggle.style';
 import { ToggleProps } from './toggle.type';
 import { ThemeContext, getThemeProperty } from '../../theme';
 
-function Toggle(props: ToggleProps): React.ReactElement {
+const Toggle: React.FC<ToggleProps> = (props) => {
   const {
     h,
     w,
@@ -128,7 +128,7 @@ function Toggle(props: ToggleProps): React.ReactElement {
       </Animated.View>
     </TouchableOpacity>
   );
-}
+};
 
 Toggle.defaultProps = {
   w: 55,

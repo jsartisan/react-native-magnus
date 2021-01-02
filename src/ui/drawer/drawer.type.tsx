@@ -1,17 +1,18 @@
 import { ViewProps as RNViewProps } from 'react-native';
 import { ModalProps as RNModalProps } from '../modal/modal.type';
 
-import { BorderPropsType, RoundedPropsType } from '../../theme';
+import { BorderPropsType, RoundedPropsType } from '../../types';
+import { BackgroundPropsType } from '../../types';
 export interface DrawerRef {
-  close: any;
-  open: any;
+  close: () => void;
+  open: () => void;
 }
 export interface DrawerProps
   extends RNModalProps,
     RNViewProps,
     BorderPropsType,
-    RoundedPropsType {
-  bg?: string;
+    RoundedPropsType,
+    Pick<BackgroundPropsType, 'bg'> {
   direction?: 'left' | 'right';
   drawerPercentage?: number;
   animationTime?: number;

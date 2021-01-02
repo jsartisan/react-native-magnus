@@ -6,7 +6,7 @@ import { BadgeProps } from './badge.type';
 import { getStyle } from './badge.style';
 import { ThemeContext } from '../../theme';
 
-const Badge: React.FunctionComponent<BadgeProps> = (props: BadgeProps) => {
+const Badge: React.FunctionComponent<BadgeProps> = (props) => {
   const {
     h,
     w,

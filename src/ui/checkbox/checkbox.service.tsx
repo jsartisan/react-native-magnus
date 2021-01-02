@@ -65,7 +65,7 @@ export const getIcon = (
     inactiveIcon,
   } = props;
 
-  const iconName = getIconName(checked, disabled);
+  const iconName = getIconName(checked, disabled ?? false);
   const iconColor = getIconColor(
     checked,
     disabled,

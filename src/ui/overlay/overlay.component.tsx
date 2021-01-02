@@ -6,7 +6,10 @@ import { getStyle } from './overlay.style';
 import { ThemeContext } from '../../theme';
 import { OverlayProps, OverlayRef } from './overlay.type';
 
-const Overlay = React.forwardRef<OverlayRef, OverlayProps>((props, ref) => {
+const Overlay: React.FC<OverlayProps> = React.forwardRef<
+  OverlayRef,
+  OverlayProps
+>((props, ref) => {
   const {
     m,
     mt,

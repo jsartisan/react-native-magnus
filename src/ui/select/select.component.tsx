@@ -313,7 +313,7 @@ Select.defaultProps = {
       <Text fontSize="lg">No results found for "{searchTerm}"</Text>
     </Div>
   ),
-  keyExtractor: (item, index) => `${index}`,
+  keyExtractor: (_, index) => `${index}`,
 };
 
 Select.Option = Option;

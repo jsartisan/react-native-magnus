@@ -1,10 +1,10 @@
-import React from "react";
-import { ScrollView } from "react-native";
-import { Button, Div, Icon } from "react-native-magnus";
+import React from 'react';
+import { ScrollView } from 'react-native';
+import { Button, Div, Icon } from 'react-native-magnus';
 
-import ExamplePage from "../utils/ExamplePage";
-import ExampleHeader from "../utils/ExampleHeader";
-import ExampleSection from "../utils/ExampleSection";
+import ExamplePage from '../utils/ExamplePage';
+import ExampleHeader from '../utils/ExampleHeader';
+import ExampleSection from '../utils/ExampleSection';
 
 const ButtonComponent: React.FC = () => {
   return (
@@ -14,6 +14,12 @@ const ButtonComponent: React.FC = () => {
       <ScrollView>
         <ExampleSection name="default">
           <Button>Button</Button>
+        </ExampleSection>
+
+        <ExampleSection name="text props">
+          <Button fontWeight="bold" fontSize="lg" textTransform="uppercase">
+            Button
+          </Button>
         </ExampleSection>
 
         <ExampleSection name="background">

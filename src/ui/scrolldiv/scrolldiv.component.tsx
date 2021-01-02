@@ -9,9 +9,7 @@ import { ScrollDivProps } from './scrolldiv.type';
 import { getStyle } from './scrolldiv.style';
 import { ThemeContext } from '../../theme';
 
-const ScrollDiv: React.FunctionComponent<ScrollDivProps> = (
-  props: ScrollDivProps
-) => {
+const ScrollDiv: React.FunctionComponent<ScrollDivProps> = (props) => {
   const {
     h,
     w,

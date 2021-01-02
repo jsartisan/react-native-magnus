@@ -57,6 +57,5 @@ export { SkeletonProps } from './skeleton/skeleton.type';
 export { Select } from './select/select.component';
 export { SelectRef, SelectProps } from './select/select.type';
 export { StatusBar } from './statusbar/statusbar.component';
-export { StatusBarProps } from './statusbar/statusbar.type';
 export { Carousel } from './carousel/carousel.component';
 export { CarouselProps } from './carousel/carousel.type';

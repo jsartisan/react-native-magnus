@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { useContext } from 'react';
 import {
-  Text as RNText,
   View as RNView,
   Animated as RNAnimated,
   Pressable as RNButton,
@@ -13,6 +12,10 @@ import { ThemeContext } from '../../theme';
 import { ButtonProps } from './button.type';
 import { getThemeProperty } from '../../theme/theme.service';
 import { getUnderlayColor, getRippleColor } from './button.service';
+
+import { Text } from '../text/text.component';
+import { textProps } from '../../types';
+import { getSpecificProps } from '../../utilities';
 
 const Button: React.FunctionComponent<ButtonProps> = (props) => {
   const {
@@ -80,7 +83,14 @@ const Button: React.FunctionComponent<ButtonProps> = (props) => {
    */
   const renderChildren = () => {
     if (typeof children === 'string') {
-      return <RNText style={computedStyle.text}>{children}</RNText>;
+      return (
+        <Text
+          {...getSpecificProps(props, ...textProps)}
+          style={computedStyle.text}
+        >
+          {children}
+        </Text>
+      );
     }
 
     return children;

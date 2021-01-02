@@ -6,11 +6,10 @@ import { ThemeContext } from './theme.context';
 
 export interface ThemeProviderProps {
   theme?: ThemeType;
-  children?: React.ReactNode;
 }
 
 export const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = (
-  props: ThemeProviderProps
+  props
 ) => {
   const { theme: themeProp, children } = props;
   const theme = useTheme(themeProp);
