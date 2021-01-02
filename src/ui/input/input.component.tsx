@@ -66,6 +66,7 @@ const Input = React.forwardRef<RNTextInput, InputProps>((props, ref) => {
     zIndex,
     opacity,
     placeholderTextColor,
+    selectionColor,
     ...rest
   } = props;
   const { theme } = useContext(ThemeContext);
@@ -114,6 +115,7 @@ const Input = React.forwardRef<RNTextInput, InputProps>((props, ref) => {
         ref={ref}
         onFocus={onFocusInput}
         onBlur={onBlurInput}
+        selectionColor={getThemeProperty(theme.colors, props.selectionColor)}
         {...rest}
         style={computedStyle.input}
         placeholderTextColor={placeholderColor}
