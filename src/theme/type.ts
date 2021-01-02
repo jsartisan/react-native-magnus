@@ -4,8 +4,8 @@ type ThemeProps<T> = {
 export interface ThemeType {
   colors?: ThemeProps<string>;
   fontSize?: ThemeProps<number>;
-  borderRadius?: ThemeProps<number>;
-  spacing?: ThemeProps<number>;
+  borderRadius?: { none: 0; circle: 1000000 } & ThemeProps<number>;
+  spacing?: { none: 0 } & ThemeProps<number>;
   shadowColor?: string;
   shadow?: {
     [name: string]: {

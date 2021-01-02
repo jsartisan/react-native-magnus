@@ -1,6 +1,6 @@
-import React from "react";
-import { Carousel, Div, Fab, Text } from "react-native-magnus";
-import ExamplePage from "../utils/ExamplePage";
+import React from 'react';
+import { Button, Carousel, Div, Fab, Icon, Text } from 'react-native-magnus';
+import ExamplePage from '../utils/ExamplePage';
 
 const IntroExample1: React.FC = () => {
   return (
@@ -24,7 +24,7 @@ const IntroExample1: React.FC = () => {
                     w={32}
                     h={6}
                     rounded="circle"
-                    bg={selectedPage === index + 1 ? "black" : "white"}
+                    bg={selectedPage === index + 1 ? 'black' : 'white'}
                     mx="xs"
                     key={index}
                   />
@@ -54,15 +54,18 @@ const IntroExample1: React.FC = () => {
         </Carousel.Item>
       </Carousel>
 
-      <Fab
-        // onPress={() => }
-        icon="right"
-        fontSize="2xl"
-        h={50}
-        w={50}
+      <Button
+        position="absolute"
+        rounded="circle"
+        fontSize="6xl"
         shadow="xl"
+        p="xl"
         shadowColor="red500"
-      />
+        bottom={25}
+        right={25}
+      >
+        <Icon name="right" color="white" fontSize="xl" />
+      </Button>
     </ExamplePage>
   );
 };
