@@ -42,7 +42,7 @@ export const getStyle = (theme: ThemeType, props: any) => {
   if (props.shadow) {
     computedStyle.button = {
       ...computedStyle.button,
-      ...theme.shadow[props.shadow],
+      ...(theme.shadow && theme.shadow[props.shadow]),
       shadowColor: getThemeProperty(theme.colors, props.shadowColor),
     };
   }

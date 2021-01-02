@@ -45,7 +45,7 @@ export const getStyle = (theme: ThemeType, props: any) => {
   if (props.shadow) {
     computedStyle.div = {
       ...computedStyle.div,
-      ...theme.shadow[props.shadow],
+      ...(theme.shadow && theme.shadow[props.shadow]),
       shadowColor: getThemeProperty(theme.colors, props.shadowColor),
     };
   }

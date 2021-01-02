@@ -7,16 +7,14 @@ export interface ThemeType {
   borderRadius?: { none: 0; circle: 1000000 } & ThemeProps<number>;
   spacing?: { none: 0 } & ThemeProps<number>;
   shadowColor?: string;
-  shadow?: {
-    [name: string]: {
-      shadowOffset?: {
-        width: number;
-        height: number;
-      };
-      shadowOpacity?: number;
-      shadowRadius?: number;
-      elevation?: number;
+  shadow?: ThemeProps<{
+    shadowOffset?: {
+      width: number;
+      height: number;
     };
-  };
+    shadowOpacity?: number;
+    shadowRadius?: number;
+    elevation?: number;
+  }>;
   name?: string;
 }

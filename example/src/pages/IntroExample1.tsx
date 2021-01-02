@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Carousel, Div, Fab, Icon, Text } from 'react-native-magnus';
+import { Button, Carousel, Div, Icon, Text } from 'react-native-magnus';
 import ExamplePage from '../utils/ExamplePage';
 
 const IntroExample1: React.FC = () => {
