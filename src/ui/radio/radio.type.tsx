@@ -52,12 +52,12 @@ export interface RadioProps
   children: ((states: RadioStates) => React.ReactNode) | React.ReactNode;
 }
 
-interface RadioStates {
+export interface RadioStates {
   focussed?: boolean;
   checked?: boolean;
   disabled?: boolean;
   loading?: boolean;
 }
 
-// Backwards compatability
+// Backwards compatibility
 export type IRadioProps = RadioProps;

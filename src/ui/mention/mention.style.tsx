@@ -9,6 +9,7 @@ import {
   createBorderRadiusStyles,
   createPositionStyle,
 } from '../../theme/theme.service';
+import { MentionProps } from './mention.type';
 
 /**
  * computed style
@@ -16,7 +17,7 @@ import {
  * @param theme
  * @param props
  */
-export const getStyle = (theme: ThemeType, props: any) => {
+export const getStyle = (theme: ThemeType, props: MentionProps) => {
   const computedStyle: any = {};
 
   computedStyle.list = {
@@ -56,6 +57,7 @@ export const getStyle = (theme: ThemeType, props: any) => {
   if (props.style) {
     computedStyle.container = {
       ...computedStyle.container,
+      // @ts-ignore
       ...props.style,
     };
   }

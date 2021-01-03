@@ -5,6 +5,7 @@ import {
   createSpacingStyles,
   createBorderRadiusStyles,
 } from '../../theme/theme.service';
+import { ToggleProps } from './toggle.type';
 
 /**
  * computed style
@@ -12,7 +13,7 @@ import {
  * @param theme
  * @param props
  */
-export const getStyle = (theme: ThemeType, props: any) => {
+export const getStyle = (theme: ThemeType, props: ToggleProps) => {
   const computedStyle: any = {};
 
   computedStyle.container = {
@@ -25,8 +26,11 @@ export const getStyle = (theme: ThemeType, props: any) => {
   };
 
   computedStyle.circle = {
+    // @ts-ignore
     height: props.h - 6,
+    // @ts-ignore
     width: props.h - 6,
+    // @ts-ignore
     borderRadius: props.h - 6,
   };
 
@@ -34,6 +38,7 @@ export const getStyle = (theme: ThemeType, props: any) => {
   if (props.style) {
     computedStyle.container = {
       ...computedStyle.container,
+      // @ts-ignore
       ...props.style,
     };
   }

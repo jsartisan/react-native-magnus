@@ -31,7 +31,7 @@ export interface AvatarProps
     ZIndexPropsType,
     OpacityPropsType,
     Pick<FlexPropsType, 'alignSelf'>,
-    Pick<TextPropsType, 'color' | 'fontSize'>,
+    Pick<TextPropsType, 'color' | 'fontSize' | 'fontWeight' | 'fontFamily'>,
     Pick<BackgroundPropsType, 'bg'> {
   size?: number;
   source?: RNImageSourcePropType;

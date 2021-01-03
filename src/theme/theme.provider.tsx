@@ -1,20 +1,21 @@
 import * as React from 'react';
 
 import { ThemeType } from './type';
-import { useTheme } from './theme.hook';
 import { ThemeContext } from './theme.context';
+import { mergeRecursively } from '../utilities';
+import { defaultTheme } from '../style';
 
 export interface ThemeProviderProps {
-  theme?: ThemeType;
+  theme?: Partial<ThemeType>;
 }
 
 export const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = (
   props
 ) => {
-  const { theme: themeProp, children } = props;
-  const theme = useTheme(themeProp);
+  const { theme: themeProp = {}, children } = props;
+  const theme = mergeRecursively(defaultTheme, themeProp);
 
   return (
-    <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>
+    <ThemeContext.Provider value={{ theme }}>{children}</ThemeContext.Provider>
   );
 };

@@ -11,6 +11,7 @@ import {
   createBorderColorStyles,
   createBorderRadiusStyles,
 } from '../../theme/theme.service';
+import { HeaderProps } from './header.type';
 
 /**
  * computed styles
@@ -18,7 +19,7 @@ import {
  * @param theme
  * @param props
  */
-export const getStyle = (theme: ThemeType, props: any) => {
+export const getStyle = (theme: ThemeType, props: HeaderProps) => {
   const computedStyle: any = {};
 
   computedStyle.container = {
@@ -55,6 +56,7 @@ export const getStyle = (theme: ThemeType, props: any) => {
   if (props.style) {
     computedStyle.container = {
       ...computedStyle.container,
+      // @ts-ignore
       ...props.style,
     };
   }

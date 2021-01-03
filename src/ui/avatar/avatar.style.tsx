@@ -10,6 +10,7 @@ import {
   createBorderRadiusStyles,
   createPositionStyle,
 } from '../../theme/theme.service';
+import { AvatarProps } from './avatar.type';
 
 /**
  * computed style
@@ -17,14 +18,13 @@ import {
  * @param theme
  * @param props
  */
-export const getStyle = (theme: ThemeType, props: any) => {
+export const getStyle = (theme: ThemeType, props: AvatarProps) => {
   const computedStyle: any = {};
 
   computedStyle.container = {
     backgroundColor: getThemeProperty(theme.colors, props.bg),
     alignItems: 'center',
     justifyContent: 'center',
-    flexDirection: props.flexDir,
     width: props.size,
     height: props.size,
     alignSelf: props.alignSelf,
@@ -71,6 +71,7 @@ export const getStyle = (theme: ThemeType, props: any) => {
   if (props.style) {
     computedStyle.container = {
       ...computedStyle.container,
+      // @ts-ignore
       ...props.style,
     };
   }

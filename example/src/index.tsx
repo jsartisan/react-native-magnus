@@ -1,14 +1,18 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
-import { ThemeProvider } from 'react-native-magnus';
+import { ThemeProvider, ThemeType } from 'react-native-magnus';
 import AppLoading from 'expo-app-loading';
 import { useFonts } from 'expo-font';
 
 import HomeScreen from './HomeScreen';
 import { components, pages } from './items';
 
-const theme = {
+const theme: Partial<ThemeType> = {
+  fontFamily: {
+    normal: 'OpenSans-Regular',
+    bold: 'OpenSans-Bold',
+  },
   colors: {
     loginExample1Bg: '#F3CFDA',
     brown100: '#865c6c',
@@ -22,7 +26,11 @@ const theme = {
 const Stack = createStackNavigator();
 const App = () => {
   let [fontsLoaded] = useFonts({
-    'HanaleiFill-Regular': require('../assets/fonts/HanaleiFill-Regular.ttf'),
+    'OpenSans-Bold': require('../assets/fonts/OpenSans-Bold.ttf'),
+    'OpenSans-ExtraBold': require('../assets/fonts/OpenSans-ExtraBold.ttf'),
+    'OpenSans-Light': require('../assets/fonts/OpenSans-Light.ttf'),
+    'OpenSans-Regular': require('../assets/fonts/OpenSans-Regular.ttf'),
+    'OpenSans-SemiBold': require('../assets/fonts/OpenSans-SemiBold.ttf'),
   });
 
   if (!fontsLoaded) {

@@ -10,6 +10,7 @@ import {
   createBorderColorStyles,
   createBorderWidthStyles,
 } from '../../theme/theme.service';
+import { ButtonProps } from './button.type';
 
 /**
  * computed style
@@ -17,7 +18,7 @@ import {
  * @param theme
  * @param props
  */
-export const getStyle = (theme: ThemeType, props: any) => {
+export const getStyle = (theme: ThemeType, props: ButtonProps) => {
   const computedStyle: any = {};
 
   computedStyle.button = {
@@ -94,6 +95,7 @@ export const getStyle = (theme: ThemeType, props: any) => {
   if (props.style) {
     computedStyle.container = {
       ...computedStyle.container,
+      // @ts-ignore
       ...props.style,
     };
   }

@@ -55,9 +55,19 @@ const TextComponent: React.FC = () => {
           <Text
             fontSize="4xl"
             textTransform="uppercase"
-            fontFamily="HanaleiFill-Regular"
+            fontFamily="OpenSans-Light"
           >
             Text size: 4xl
+          </Text>
+
+          <Text
+            mt="xl"
+            fontSize="4xl"
+            fontWeight="bold"
+            fontFamily="OpenSans-Light"
+          >
+            when fontweight is defined, fontfamily will be ignored (RN
+            limitation). use a separate fontfamily for bold. set it on theme.
           </Text>
         </ExampleSection>
       </ScrollView>

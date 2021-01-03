@@ -7,7 +7,10 @@ import {
   createBorderWidthStyles,
   createBorderColorStyles,
   createBorderRadiusStyles,
+  getThemeFontFamily,
+  getFontWeight,
 } from '../../theme/theme.service';
+import { TextProps } from './text.type';
 
 /**
  * computed style
@@ -15,7 +18,7 @@ import {
  * @param theme
  * @param props
  */
-export const getStyle = (theme: ThemeType, props: any) => {
+export const getStyle = (theme: ThemeType, props: TextProps) => {
   const computedStyle: any = {};
 
   computedStyle.text = {
@@ -30,7 +33,6 @@ export const getStyle = (theme: ThemeType, props: any) => {
     overflow: props.overflow,
     opacity: props.opacity,
 
-    fontWeight: props.fontWeight,
     textDecorationLine: props.textDecorLine,
     textDecorationStyle: props.textDecorStyle,
     letterSpacing: props.letterSpacing,
@@ -44,7 +46,6 @@ export const getStyle = (theme: ThemeType, props: any) => {
     textAlign: props.textAlign,
     textTransform: props.textTransform,
     textDecorationColor: getThemeProperty(theme.colors, props.textDecorColor),
-    fontFamily: props.fontFamily,
     textShadowColor: getThemeProperty(theme.colors, props.textShadowColor),
     textShadowOffset: {
       width: getThemeProperty(theme.shadow, props.textShadowOffset),
@@ -54,6 +55,16 @@ export const getStyle = (theme: ThemeType, props: any) => {
       theme.borderRadius,
       props.textShadowRadius
     ),
+
+    fontWeight: getFontWeight(
+      theme.fontFamily,
+      props.fontFamily,
+      props.fontWeight
+    ),
+
+    fontFamily:
+      props.fontFamily ??
+      getThemeFontFamily(theme.fontFamily, props.fontWeight, props.fontFamily),
 
     ...createBorderWidthStyles(props),
     ...createSpacingStyles(props, theme.spacing),
@@ -65,6 +76,7 @@ export const getStyle = (theme: ThemeType, props: any) => {
   if (props.style) {
     computedStyle.text = {
       ...computedStyle.text,
+      // @ts-ignore
       ...props.style,
     };
   }

@@ -8,6 +8,7 @@ import {
   createBorderColorStyles,
   createBorderWidthStyles,
 } from '../../theme/theme.service';
+import { TagProps } from './tag.type';
 
 /**
  * computed style
@@ -15,7 +16,7 @@ import {
  * @param theme
  * @param props
  */
-export const getStyle = (theme: ThemeType, props: any) => {
+export const getStyle = (theme: ThemeType, props: TagProps) => {
   const computedStyle: any = {};
 
   computedStyle.div = {
@@ -47,13 +48,6 @@ export const getStyle = (theme: ThemeType, props: any) => {
     };
   }
 
-  if (props.flexDir) {
-    computedStyle.div = {
-      ...computedStyle.div,
-      flexDirection: props.flexDir,
-    };
-  }
-
   if (props.w) {
     computedStyle.div = {
       ...computedStyle.div,
@@ -79,6 +73,7 @@ export const getStyle = (theme: ThemeType, props: any) => {
   if (props.style) {
     computedStyle.div = {
       ...computedStyle.div,
+      // @ts-ignore
       ...props.style,
     };
   }

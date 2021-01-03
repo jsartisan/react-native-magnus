@@ -1,11 +1,14 @@
 import * as React from 'react';
 import { useContext } from 'react';
-import { Text as RNText, View as RNView, Image as RNImage } from 'react-native';
+import { View as RNView, Image as RNImage } from 'react-native';
 
 import { getStyle } from './avatar.style';
 import { ThemeContext } from '../../theme';
 import { AvatarGroup } from './avatar.group.component';
 import { AvatarProps, CompoundedAvatar } from './avatar.type';
+import { Text } from '../text/text.component';
+import { getSpecificProps } from '../../utilities';
+import { textProps } from '../../types';
 
 const Avatar: CompoundedAvatar<AvatarProps> = (props) => {
   const {
@@ -67,7 +70,7 @@ const Avatar: CompoundedAvatar<AvatarProps> = (props) => {
     }
 
     if (typeof children === 'string') {
-      return <RNText style={computedStyle.text}>{children}</RNText>;
+      return <Text {...getSpecificProps(props, ...textProps)}>{children}</Text>;
     }
 
     return children;

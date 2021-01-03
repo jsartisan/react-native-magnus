@@ -1,10 +1,13 @@
 import * as React from 'react';
 import { useContext, useState, useEffect, useImperativeHandle } from 'react';
-import { Animated, SafeAreaView, View as RNView, Text } from 'react-native';
+import { Animated, SafeAreaView, View as RNView } from 'react-native';
 
 import { getStyle } from './snackbar.style';
 import { ThemeContext } from '../../theme';
 import { SnackbarRef, SnackbarProps } from './snackbar.type';
+import { Text } from '../text/text.component';
+import { getSpecificProps } from '../../utilities';
+import { textProps } from '../../types';
 
 const Snackbar = React.forwardRef<
   SnackbarRef,
@@ -143,7 +146,14 @@ const Snackbar = React.forwardRef<
    */
   const renderChildren = () => {
     if (typeof children === 'string') {
-      return <Text style={computedStyle.text}>{children}</Text>;
+      return (
+        <Text
+          {...getSpecificProps(props, ...textProps)}
+          style={computedStyle.text}
+        >
+          {children}
+        </Text>
+      );
     }
 
     return children;

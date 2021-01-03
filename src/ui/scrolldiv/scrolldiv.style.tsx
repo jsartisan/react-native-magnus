@@ -8,6 +8,7 @@ import {
   createBorderColorStyles,
   createBorderRadiusStyles,
 } from '../../theme/theme.service';
+import { ScrollDivProps } from './scrolldiv.type';
 
 /**
  * computed style
@@ -15,7 +16,7 @@ import {
  * @param theme
  * @param props
  */
-export const getStyle = (theme: ThemeType, props: any) => {
+export const getStyle = (theme: ThemeType, props: ScrollDivProps) => {
   const computedStyle: any = {};
 
   computedStyle.div = {
@@ -110,6 +111,7 @@ export const getStyle = (theme: ThemeType, props: any) => {
   if (props.style) {
     computedStyle.div = {
       ...computedStyle.div,
+      // @ts-ignore
       ...props.style,
     };
   }

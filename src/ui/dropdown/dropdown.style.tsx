@@ -8,6 +8,7 @@ import {
   createBorderColorStyles,
   createBorderRadiusStyles,
 } from '../../theme/theme.service';
+import { DropdownProps } from './dropdown.type';
 
 /**
  * computed style
@@ -15,7 +16,7 @@ import {
  * @param theme
  * @param props
  */
-export const getStyle = (theme: ThemeType, props: any) => {
+export const getStyle = (theme: ThemeType, props: DropdownProps) => {
   const computedStyle: any = {};
 
   computedStyle.wrapper = {
@@ -51,6 +52,7 @@ export const getStyle = (theme: ThemeType, props: any) => {
   if (props.style) {
     computedStyle.container = {
       ...computedStyle.container,
+      // @ts-ignore
       ...props.style,
     };
   }

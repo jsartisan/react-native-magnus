@@ -1,3 +1,5 @@
+import { TouchableOpacityProps as RNTouchableOpacityProps } from 'react-native';
+
 import {
   BackgroundPropsType,
   DimensionPropsType,
@@ -14,6 +16,7 @@ export interface ToggleProps
     DisabledPropsType,
     Pick<DimensionPropsType, 'w' | 'h'>,
     Pick<BackgroundPropsType, 'bg'>,
+    Pick<RNTouchableOpacityProps, 'style'>,
     DisabledPropsType {
   testID?: string;
   on?: boolean;

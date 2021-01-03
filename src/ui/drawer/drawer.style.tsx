@@ -7,6 +7,7 @@ import {
   createBorderWidthStyles,
   createBorderRadiusStyles,
 } from '../../theme/theme.service';
+import { DrawerProps } from './drawer.type';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SCREEN_HEIGHT = Dimensions.get('window').height;
@@ -17,7 +18,7 @@ const SCREEN_HEIGHT = Dimensions.get('window').height;
  * @param theme
  * @param props
  */
-export const getStyle = (theme: ThemeType, props: any) => {
+export const getStyle = (theme: ThemeType, props: DrawerProps) => {
   const computedStyle: any = {};
 
   computedStyle.drawer = {
@@ -27,6 +28,7 @@ export const getStyle = (theme: ThemeType, props: any) => {
   computedStyle.container = {
     position: 'absolute',
     height: SCREEN_HEIGHT,
+    // @ts-ignore
     width: SCREEN_WIDTH * (props.drawerPercentage / 100),
     zIndex: 0,
     margin: 0,

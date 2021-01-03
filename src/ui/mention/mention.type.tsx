@@ -1,5 +1,5 @@
 import { FlatListProps, ListRenderItemInfo } from 'react-native';
-import { LoadingPropsType } from '../../types';
+import { BackgroundPropsType, LoadingPropsType } from '../../types';
 
 import {
   BorderPropsType,
@@ -14,7 +14,8 @@ export interface MentionProps
     SpacingPropsType,
     ShadowPropsType,
     RoundedPropsType,
-    Pick<LoadingPropsType, 'loading'> {
+    Pick<LoadingPropsType, 'loading'>,
+    Pick<BackgroundPropsType, 'bg'> {
   trigger?: any;
   h?: number;
   triggerLocation: 'new-word-only' | 'anywhere';

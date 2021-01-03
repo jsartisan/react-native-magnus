@@ -1,5 +1,6 @@
 import { ThemeType } from './type';
 import { defaultTheme } from '../style';
+import { TextProps } from '../ui';
 
 /**
  * merge user theme with default theme
@@ -147,6 +148,47 @@ export const createDirectionalStyles = (
   }
 
   return computedStyle;
+};
+
+export const getFontWeight = (
+  themeFontFamily: ThemeType['fontFamily'],
+  fontFamily: TextProps['fontFamily'],
+  fontWeight: TextProps['fontWeight']
+) => {
+  if (!themeFontFamily) {
+    return;
+  }
+
+  if (fontFamily === '') return fontWeight;
+
+  if (typeof themeFontFamily[fontWeight ?? 'normal'] !== 'undefined') {
+    return 'normal';
+  }
+
+  return fontWeight;
+};
+
+/**
+ * extract the fontFamily from theme
+
+ * @param theme
+ * @param index
+ * @param fallbackValue
+ */
+export const getThemeFontFamily = (
+  theme: ThemeType['fontFamily'],
+  index: TextProps['fontWeight'] = 'normal',
+  fallbackValue: any = undefined
+) => {
+  if (!theme) {
+    return;
+  }
+
+  if (typeof theme[index] !== 'undefined') {
+    return theme[index];
+  }
+
+  return fallbackValue;
 };
 
 /**

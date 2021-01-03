@@ -1,3 +1,4 @@
+import { isValidElement } from 'react';
 import { StyleSheet } from 'react-native';
 import { ThemeType } from '../../theme';
 
@@ -10,7 +11,9 @@ import {
   createBorderRadiusStyles,
   createPositionStyle,
   createShadowStyles,
+  getThemeFontFamily,
 } from '../../theme/theme.service';
+import { InputProps } from './input.type';
 
 /**
  * computed style
@@ -18,7 +21,7 @@ import {
  * @param theme
  * @param props
  */
-export const getStyle = (theme: ThemeType, props: any, state: any) => {
+export const getStyle = (theme: ThemeType, props: InputProps, state: any) => {
   const computedStyle: any = {};
 
   computedStyle.container = {
@@ -58,7 +61,6 @@ export const getStyle = (theme: ThemeType, props: any, state: any) => {
     flex: 1,
     padding: 0,
 
-    fontWeight: props.fontWeight,
     textDecorationLine: props.textDecorLine,
     textDecorationStyle: props.textDecorStyle,
     letterSpacing: props.letterSpacing,
@@ -72,7 +74,6 @@ export const getStyle = (theme: ThemeType, props: any, state: any) => {
     textAlign: props.textAlign,
     textTransform: props.textTransform,
     textDecorationColor: getThemeProperty(theme.colors, props.textDecorColor),
-    fontFamily: props.fontFamily,
     textShadowColor: getThemeProperty(theme.colors, props.textShadowColor),
     textShadowOffset: {
       width: getThemeProperty(theme.shadow, props.textShadowOffset),
@@ -82,12 +83,26 @@ export const getStyle = (theme: ThemeType, props: any, state: any) => {
       theme.borderRadius,
       props.textShadowRadius
     ),
+
+    fontWeight:
+      theme.fontFamily &&
+      typeof theme.fontFamily[props.fontWeight ?? 'normal'] === 'undefined'
+        ? props.fontWeight
+        : 'normal',
+    fontFamily: getThemeFontFamily(
+      theme.fontFamily,
+      props.fontWeight,
+      props.fontFamily
+    ),
   };
 
   computedStyle.suffix = {
     flexDirection: 'row',
     justifyContent: 'center',
-    alignSelf: props.suffix && props.suffix.props.alignSelf,
+    alignSelf:
+      props.suffix &&
+      isValidElement(props.suffix) &&
+      props.suffix.props.alignSelf,
     marginLeft: 5,
   };
 
@@ -95,13 +110,17 @@ export const getStyle = (theme: ThemeType, props: any, state: any) => {
     flexDirection: 'row',
     justifyContent: 'center',
     marginRight: 5,
-    alignSelf: props.prefix && props.prefix.props.alignSelf,
+    alignSelf:
+      props.prefix &&
+      isValidElement(props.prefix) &&
+      props.prefix.props.alignSelf,
   };
 
   // merging style props to computed style
   if (props.style) {
     computedStyle.container = {
       ...computedStyle.container,
+      // @ts-ignore
       ...props.style,
     };
   }

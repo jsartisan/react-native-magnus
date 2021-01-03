@@ -6,6 +6,7 @@ import {
   createBorderColorStyles,
   createBorderRadiusStyles,
 } from '../../theme/theme.service';
+import { ModalProps } from './modal.type';
 
 /**
  * computed style
@@ -13,7 +14,7 @@ import {
  * @param theme
  * @param props
  */
-export const getStyle = (theme: ThemeType, props: any) => {
+export const getStyle = (theme: ThemeType, props: ModalProps) => {
   const computedStyle: any = {};
 
   computedStyle.modal = {
@@ -36,6 +37,7 @@ export const getStyle = (theme: ThemeType, props: any) => {
   if (props.style) {
     computedStyle.modal = {
       ...computedStyle.modal,
+      // @ts-ignore
       ...props.style,
     };
   }

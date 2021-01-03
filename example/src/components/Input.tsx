@@ -141,6 +141,7 @@ const InputComponent: React.FC = () => {
                   mr="md"
                   bg="transparent"
                   fontWeight="bold"
+                  color="black"
                   textTransform="uppercase"
                   onPress={() => selectCountryCodeRef.current?.open()}
                 >

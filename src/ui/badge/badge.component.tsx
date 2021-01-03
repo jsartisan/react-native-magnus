@@ -1,10 +1,13 @@
 import * as React from 'react';
 import { useContext } from 'react';
-import { View as RNView, Text as RNText } from 'react-native';
+import { View as RNView } from 'react-native';
 
 import { BadgeProps } from './badge.type';
 import { getStyle } from './badge.style';
 import { ThemeContext } from '../../theme';
+import { Text } from '../text/text.component';
+import { getSpecificProps } from '../../utilities';
+import { textProps } from '../../types';
 
 const Badge: React.FunctionComponent<BadgeProps> = (props) => {
   const {
@@ -64,7 +67,12 @@ const Badge: React.FunctionComponent<BadgeProps> = (props) => {
         {typeof children !== 'string' && children}
         <RNView style={computedStyle.div} {...rest}>
           {typeof children === 'string' && (
-            <RNText style={computedStyle.text}>{children}</RNText>
+            <Text
+              {...getSpecificProps(props, ...textProps)}
+              style={computedStyle.text}
+            >
+              {children}
+            </Text>
           )}
         </RNView>
       </RNView>
