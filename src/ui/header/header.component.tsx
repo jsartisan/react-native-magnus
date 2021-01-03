@@ -9,11 +9,32 @@ import { Text } from '../text/text.component';
 import { getStyle } from './header.style';
 import { ThemeContext } from '../../theme';
 import { HeaderProps } from './header.type';
-import { Div } from '../div/div.component';
 import { getSpecificProps } from '../../utilities';
 import { textProps } from '../../types';
+import { useDefaultProps } from '../../utilities/useDefaultProps';
+import { Div } from '../div/div.component';
 
-const Header: React.FunctionComponent<HeaderProps> = (props) => {
+const Header: React.FunctionComponent<HeaderProps> = (incomingProps) => {
+  const props = useDefaultProps('Header', incomingProps, {
+    minH: 70,
+    p: 'lg',
+    bg: 'white',
+    rounded: 'none',
+    shadow: 'sm',
+    shadowColor: 'gray900',
+    position: 'relative',
+    bgMode: 'cover',
+    pointerEvents: 'auto',
+    row: true,
+    borderStyle: 'solid',
+    alignItems: 'center',
+    alignment: 'left',
+    prefix: <Div px="sm" />,
+    fontWeight: 'bold',
+    fontSize: 'lg',
+    textTransform: 'uppercase',
+  });
+
   const {
     bg,
     h,
@@ -119,25 +140,25 @@ const Header: React.FunctionComponent<HeaderProps> = (props) => {
   );
 };
 
-Header.defaultProps = {
-  minH: 70,
-  p: 'lg',
-  bg: 'white',
-  rounded: 'none',
-  shadow: 'sm',
-  shadowColor: 'gray900',
-  position: 'relative',
-  bgMode: 'cover',
-  pointerEvents: 'auto',
-  row: true,
-  borderStyle: 'solid',
-  alignItems: 'center',
-  alignment: 'left',
-  prefix: <Div px="sm" />,
+// Header.defaultProps = {
+//   minH: 70,
+//   p: 'lg',
+//   bg: 'white',
+//   rounded: 'none',
+//   shadow: 'sm',
+//   shadowColor: 'gray900',
+//   position: 'relative',
+//   bgMode: 'cover',
+//   pointerEvents: 'auto',
+//   row: true,
+//   borderStyle: 'solid',
+//   alignItems: 'center',
+//   alignment: 'left',
+//   prefix: <Div px="sm" />,
 
-  fontWeight: 'bold',
-  fontSize: 'lg',
-  textTransform: 'uppercase',
-};
+//   fontWeight: 'bold',
+//   fontSize: 'lg',
+//   textTransform: 'uppercase',
+// };
 
 export { Header };

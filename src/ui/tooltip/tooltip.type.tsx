@@ -4,7 +4,6 @@ import {
   DimensionPropsType,
   TextPropsType,
   ZIndexPropsType,
-  BorderPropsType,
   SpacingPropsType,
   RoundedPropsType,
   ShadowPropsType,
@@ -18,7 +17,6 @@ export interface TooltipRef {
 
 export interface TooltipProps
   extends RNViewProps,
-    BorderPropsType,
     SpacingPropsType,
     ShadowPropsType,
     RoundedPropsType,

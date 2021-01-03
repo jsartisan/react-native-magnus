@@ -16,6 +16,7 @@ import {
   RoundedPropsType,
   ShadowPropsType,
 } from '../../types';
+import { DivProps } from '../div/div.type';
 import { CheckboxGroup } from './group.component';
 
 export type CompundedCheckbox<P> = React.FunctionComponent<P> & {
@@ -50,6 +51,13 @@ export interface CheckboxProps
   onChange?: (value: any) => void;
   value?: any;
   children?: ((states: CheckboxStates) => React.ReactNode) | React.ReactNode;
+}
+
+export interface CheckboxGroupProps extends DivProps {
+  onChange?: (value: any[]) => void;
+  value?: any[];
+  defaultValue?: any[];
+  children: React.ReactElement[] | React.ReactElement;
 }
 
 export interface CheckboxStates {

@@ -16,7 +16,7 @@ import {
 } from '../../types';
 
 export interface FabProps
-  extends RNButtonProps,
+  extends Omit<RNButtonProps, 'onPress'>,
     BorderPropsType,
     SpacingPropsType,
     RoundedPropsType,

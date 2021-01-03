@@ -8,8 +8,21 @@ import { ThemeContext } from '../../theme';
 import { Text } from '../text/text.component';
 import { getSpecificProps } from '../../utilities';
 import { textProps } from '../../types';
+import { useDefaultProps } from '../../utilities/useDefaultProps';
 
-const Badge: React.FunctionComponent<BadgeProps> = (props) => {
+const Badge: React.FunctionComponent<BadgeProps> = (incomingProps) => {
+  const props = useDefaultProps('Badge', incomingProps, {
+    bg: 'green700',
+    rounded: 'circle',
+    shadow: 0,
+    color: 'white',
+    top: 0,
+    right: 0,
+    shadowColor: 'gray900',
+    position: 'relative',
+    fontSize: 'sm',
+  });
+
   const {
     h,
     w,
@@ -80,16 +93,16 @@ const Badge: React.FunctionComponent<BadgeProps> = (props) => {
   );
 };
 
-Badge.defaultProps = {
-  bg: 'green700',
-  rounded: 'circle',
-  shadow: 0,
-  color: 'white',
-  top: 0,
-  right: 0,
-  shadowColor: 'gray900',
-  position: 'relative',
-  fontSize: 'sm',
-};
+// Badge.defaultProps = {
+//   bg: 'green700',
+//   rounded: 'circle',
+//   shadow: 0,
+//   color: 'white',
+//   top: 0,
+//   right: 0,
+//   shadowColor: 'gray900',
+//   position: 'relative',
+//   fontSize: 'sm',
+// };
 
 export { Badge };

@@ -4,8 +4,8 @@ import { ThemeContext, ThemeType } from '../theme';
 export const useDefaultProps = <T>(
   componentName: keyof NonNullable<ThemeType['components']>,
   props: T,
-  defaultProps: Partial<T>
-): Partial<T> => {
+  defaultProps: Partial<T> = {}
+): T => {
   const { theme } = useContext(ThemeContext);
 
   // const latestProps = useRef<T>({ ...defaultProps, ...props });
@@ -21,8 +21,8 @@ export const useDefaultProps = <T>(
   // return latestProps.current;
 
   return {
-    ...((theme.components && theme.components[componentName]) ?? {}),
     ...defaultProps,
+    ...((theme.components && theme.components[componentName]) ?? {}),
     ...props,
   };
 };

@@ -1,10 +1,23 @@
 import * as React from 'react';
 import { GestureResponderEvent as RNGestureResponderEvent } from 'react-native';
 
-import { OptionProps } from './dropdown.option.type';
+import { DropdownOptionProps } from './dropdown.option.type';
 import { Button } from '../button/button.component';
+import { useDefaultProps } from '../../utilities/useDefaultProps';
 
-const Option: React.FunctionComponent<OptionProps> = (props) => {
+const DropdownOption: React.FunctionComponent<DropdownOptionProps> = (
+  incomingProps
+) => {
+  const props = useDefaultProps('DropdownOption', incomingProps, {
+    onSelect: () => {},
+    rounded: 0,
+    bg: 'white',
+    p: 0,
+    color: 'black',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
+  });
+
   const { children, value, onPress: onPressProp, onSelect, ...rest } = props;
 
   /**
@@ -29,14 +42,14 @@ const Option: React.FunctionComponent<OptionProps> = (props) => {
   );
 };
 
-Option.defaultProps = {
-  onSelect: () => {},
-  rounded: 0,
-  bg: 'white',
-  p: 0,
-  color: 'black',
-  alignItems: 'flex-start',
-  justifyContent: 'flex-start',
-};
+// DropdownOption.defaultProps = {
+//   onSelect: () => {},
+//   rounded: 0,
+//   bg: 'white',
+//   p: 0,
+//   color: 'black',
+//   alignItems: 'flex-start',
+//   justifyContent: 'flex-start',
+// };
 
-export { Option };
+export { DropdownOption };

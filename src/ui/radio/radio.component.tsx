@@ -12,11 +12,38 @@ import { ThemeContext } from '../../theme';
 import { Icon } from '../icon/icon.component';
 import { getThemeProperty } from '../../theme/theme.service';
 import { getIconName, getIconColor } from './radio.service';
-import { RadioProps, IRadio } from './radio.type';
+import { RadioProps, CompoundedRadio } from './radio.type';
 import { RadioGroup } from './group.component';
 import { isFunction } from '../../utilities';
+import { useDefaultProps } from '../../utilities/useDefaultProps';
 
-const Radio: IRadio<RadioProps> = (props) => {
+const Radio: CompoundedRadio<RadioProps> = (incomingProps) => {
+  const props = useDefaultProps('Radio', incomingProps, {
+    defaultChecked: false,
+    activeColor: 'blue600',
+    inactiveColor: 'gray500',
+    highlightBg: 'gray300',
+    bg: 'transparent',
+    p: 'none',
+    color: 'white',
+    rounded: 'circle',
+    loading: false,
+    disabled: false,
+    loaderSize: '2xl',
+    loaderColor: 'blue600',
+    block: false,
+    position: 'relative',
+    shadowColor: 'gray800',
+    shadow: 0,
+    fontSize: '5xl',
+    borderless: true,
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignSelf: 'flex-start',
+    onPress: () => {},
+    flexDir: 'row',
+  });
+
   const {
     m,
     mt,
@@ -80,7 +107,7 @@ const Radio: IRadio<RadioProps> = (props) => {
   const { theme } = useContext(ThemeContext);
   const [checked, setChecked] = useState(props.checked || defaultChecked);
   const [focussed, setFocussed] = useState(false);
-  const computedStyle = getStyle(theme, props, { focussed });
+  const computedStyle = getStyle(theme, props as RadioProps, { focussed });
 
   useEffect(() => {
     if ('checked' in props) {
@@ -236,31 +263,31 @@ const Radio: IRadio<RadioProps> = (props) => {
   );
 };
 
-Radio.defaultProps = {
-  defaultChecked: false,
-  activeColor: 'blue600',
-  inactiveColor: 'gray500',
-  highlightBg: 'gray300',
-  bg: 'transparent',
-  p: 'none',
-  color: 'white',
-  rounded: 'circle',
-  loading: false,
-  disabled: false,
-  loaderSize: '2xl',
-  loaderColor: 'blue600',
-  block: false,
-  position: 'relative',
-  shadowColor: 'gray800',
-  shadow: 0,
-  fontSize: '5xl',
-  borderless: true,
-  alignItems: 'center',
-  justifyContent: 'center',
-  alignSelf: 'flex-start',
-  onPress: () => {},
-  flexDir: 'row',
-};
+// Radio.defaultProps = {
+//   defaultChecked: false,
+//   activeColor: 'blue600',
+//   inactiveColor: 'gray500',
+//   highlightBg: 'gray300',
+//   bg: 'transparent',
+//   p: 'none',
+//   color: 'white',
+//   rounded: 'circle',
+//   loading: false,
+//   disabled: false,
+//   loaderSize: '2xl',
+//   loaderColor: 'blue600',
+//   block: false,
+//   position: 'relative',
+//   shadowColor: 'gray800',
+//   shadow: 0,
+//   fontSize: '5xl',
+//   borderless: true,
+//   alignItems: 'center',
+//   justifyContent: 'center',
+//   alignSelf: 'flex-start',
+//   onPress: () => {},
+//   flexDir: 'row',
+// };
 
 // passing RadioGroup as part of Radio
 Radio.Group = RadioGroup;

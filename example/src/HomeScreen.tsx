@@ -1,6 +1,14 @@
 import React from 'react';
-import { SafeAreaView, StatusBar, ScrollView } from 'react-native';
-import { Div, Text, Button, Image, Badge, Header } from 'react-native-magnus';
+import { SafeAreaView, ScrollView } from 'react-native';
+import {
+  Div,
+  Text,
+  Button,
+  Image,
+  Badge,
+  Header,
+  StatusBar,
+} from 'react-native-magnus';
 
 import { useNavigation } from '@react-navigation/native';
 import { components, pages } from './items';
@@ -11,7 +19,7 @@ const HomeScreen = () => {
   return (
     <>
       <SafeAreaView style={{ flex: 0, backgroundColor: 'white' }} />
-      <StatusBar barStyle="light-content" backgroundColor="black" />
+      <StatusBar backgroundColor="white" barStyle="dark-content" />
       <SafeAreaView style={{ flex: 1 }}>
         <Div flex={1}>
           {/* header */}

@@ -8,11 +8,32 @@ import { SnackbarRef, SnackbarProps } from './snackbar.type';
 import { Text } from '../text/text.component';
 import { getSpecificProps } from '../../utilities';
 import { textProps } from '../../types';
+import { useDefaultProps } from '../../utilities/useDefaultProps';
 
 const Snackbar = React.forwardRef<
   SnackbarRef,
   React.PropsWithChildren<SnackbarProps>
->((props, ref) => {
+>((incomingProps, ref) => {
+  const props = useDefaultProps('Snackbar', incomingProps, {
+    bg: 'gray900',
+    color: 'white',
+    p: 'lg',
+    m: 'md',
+    rounded: 'md',
+    fontSize: 'md',
+    duration: 4000,
+    onDismiss: () => {},
+    shadow: 2,
+    shadowColor: 'gray500',
+    position: 'absolute',
+    bottom: 0,
+    flexDir: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center',
+    useNativeDriver: false,
+  });
+
   const {
     m,
     mt,
@@ -186,24 +207,24 @@ const Snackbar = React.forwardRef<
   );
 });
 
-Snackbar.defaultProps = {
-  bg: 'gray900',
-  color: 'white',
-  p: 'lg',
-  m: 'md',
-  rounded: 'md',
-  fontSize: 'md',
-  duration: 4000,
-  onDismiss: () => {},
-  shadow: 2,
-  shadowColor: 'gray500',
-  position: 'absolute',
-  bottom: 0,
-  flexDir: 'row',
-  justifyContent: 'center',
-  alignItems: 'center',
-  alignSelf: 'center',
-  useNativeDriver: false,
-};
+// Snackbar.defaultProps = {
+//   bg: 'gray900',
+//   color: 'white',
+//   p: 'lg',
+//   m: 'md',
+//   rounded: 'md',
+//   fontSize: 'md',
+//   duration: 4000,
+//   onDismiss: () => {},
+//   shadow: 2,
+//   shadowColor: 'gray500',
+//   position: 'absolute',
+//   bottom: 0,
+//   flexDir: 'row',
+//   justifyContent: 'center',
+//   alignItems: 'center',
+//   alignSelf: 'center',
+//   useNativeDriver: false,
+// };
 
 export { Snackbar };

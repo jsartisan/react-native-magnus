@@ -15,7 +15,7 @@ import {
   ShadowPropsType,
 } from '../../types';
 
-export interface OptionProps
+export interface SelectOptionProps
   extends RNButtonProps,
     BorderPropsType,
     SpacingPropsType,

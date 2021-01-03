@@ -5,8 +5,23 @@ import { useEffect, useRef, useState, useContext } from 'react';
 import { getStyle } from './toggle.style';
 import { ToggleProps } from './toggle.type';
 import { ThemeContext, getThemeProperty } from '../../theme';
+import { useDefaultProps } from '../../utilities/useDefaultProps';
 
-const Toggle: React.FC<ToggleProps> = (props) => {
+const Toggle: React.FC<ToggleProps> = (incomingProps) => {
+  const props = useDefaultProps('Toggle', incomingProps, {
+    w: 55,
+    h: 30,
+    onPress: (): void => {},
+    activeBg: 'green600',
+    bg: 'gray400',
+    on: false,
+    circleBg: 'white',
+    activeCircleBg: 'white',
+    duration: 300,
+    rounded: 'circle',
+    disabled: false,
+  });
+
   const {
     h,
     w,
@@ -130,18 +145,18 @@ const Toggle: React.FC<ToggleProps> = (props) => {
   );
 };
 
-Toggle.defaultProps = {
-  w: 55,
-  h: 30,
-  onPress: (): void => {},
-  activeBg: 'green600',
-  bg: 'gray400',
-  on: false,
-  circleBg: 'white',
-  activeCircleBg: 'white',
-  duration: 300,
-  rounded: 'circle',
-  disabled: false,
-};
+// Toggle.defaultProps = {
+//   w: 55,
+//   h: 30,
+//   onPress: (): void => {},
+//   activeBg: 'green600',
+//   bg: 'gray400',
+//   on: false,
+//   circleBg: 'white',
+//   activeCircleBg: 'white',
+//   duration: 300,
+//   rounded: 'circle',
+//   disabled: false,
+// };
 
 export { Toggle };

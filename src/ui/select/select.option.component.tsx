@@ -4,10 +4,24 @@ import { GestureResponderEvent as RNGestureResponderEvent } from 'react-native';
 import { Div } from '../div/div.component';
 import { Icon } from '../icon/icon.component';
 import { Text } from '../text/text.component';
-import { OptionProps } from './select.option.type';
+import { SelectOptionProps } from './select.option.type';
 import { Button } from '../button/button.component';
+import { useDefaultProps } from '../../utilities/useDefaultProps';
 
-const Option: React.FunctionComponent<OptionProps> = (props) => {
+const SelectOption: React.FunctionComponent<SelectOptionProps> = (
+  incomingProps
+) => {
+  const props = useDefaultProps('SelectOption', incomingProps, {
+    onSelect: () => {},
+    rounded: 0,
+    bg: 'white',
+    p: 0,
+    color: 'black',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
+    center: false,
+  });
+
   const {
     children,
     value,
@@ -72,15 +86,15 @@ const Option: React.FunctionComponent<OptionProps> = (props) => {
   );
 };
 
-Option.defaultProps = {
-  onSelect: () => {},
-  rounded: 0,
-  bg: 'white',
-  p: 0,
-  color: 'black',
-  alignItems: 'flex-start',
-  justifyContent: 'flex-start',
-  center: false,
-};
+// Option.defaultProps = {
+//   onSelect: () => {},
+//   rounded: 0,
+//   bg: 'white',
+//   p: 0,
+//   color: 'black',
+//   alignItems: 'flex-start',
+//   justifyContent: 'flex-start',
+//   center: false,
+// };
 
-export { Option };
+export { SelectOption };

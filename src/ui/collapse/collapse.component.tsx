@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { isFunction } from '../../utilities';
+import { useDefaultProps } from '../../utilities/useDefaultProps';
 
 import { Div } from '../div/div.component';
 import { CollapseBody } from './collapse.body.component';
@@ -8,7 +9,24 @@ import { CollapseHeader } from './collapse.header.component';
 import { CollapseProps, CompoundedCollapse } from './collapse.type';
 import { CollapseGroup } from './group.component';
 
-const Collapse: CompoundedCollapse<CollapseProps> = (props) => {
+const Collapse: CompoundedCollapse<CollapseProps> = (incomingProps) => {
+  const props = useDefaultProps('Collapse', incomingProps, {
+    bg: 'white',
+    flexDir: 'column',
+    flexWrap: 'nowrap',
+    rounded: 'md',
+    overflow: 'hidden',
+    shadow: 'none',
+    mt: 'md',
+    shadowColor: 'gray900',
+    position: 'relative',
+    bgMode: 'cover',
+    pointerEvents: 'auto',
+    row: false,
+    borderStyle: 'solid',
+    defaultActive: false,
+  });
+
   const { children, defaultActive, active, onChange, id, ...rest } = props;
   const [isActive, setIsActive] = useState(active || defaultActive);
   let header = null;
@@ -60,22 +78,22 @@ const Collapse: CompoundedCollapse<CollapseProps> = (props) => {
   );
 };
 
-Collapse.defaultProps = {
-  bg: 'white',
-  flexDir: 'column',
-  flexWrap: 'nowrap',
-  rounded: 'md',
-  overflow: 'hidden',
-  shadow: 'none',
-  mt: 'md',
-  shadowColor: 'gray900',
-  position: 'relative',
-  bgMode: 'cover',
-  pointerEvents: 'auto',
-  row: false,
-  borderStyle: 'solid',
-  defaultActive: false,
-};
+// Collapse.defaultProps = {
+//   bg: 'white',
+//   flexDir: 'column',
+//   flexWrap: 'nowrap',
+//   rounded: 'md',
+//   overflow: 'hidden',
+//   shadow: 'none',
+//   mt: 'md',
+//   shadowColor: 'gray900',
+//   position: 'relative',
+//   bgMode: 'cover',
+//   pointerEvents: 'auto',
+//   row: false,
+//   borderStyle: 'solid',
+//   defaultActive: false,
+// };
 
 Collapse.Body = CollapseBody;
 Collapse.Header = CollapseHeader;

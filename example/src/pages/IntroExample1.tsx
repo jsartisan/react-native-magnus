@@ -1,10 +1,18 @@
 import React from 'react';
-import { Button, Carousel, Div, Icon, Text } from 'react-native-magnus';
+import {
+  Button,
+  Carousel,
+  Div,
+  Icon,
+  StatusBar,
+  Text,
+} from 'react-native-magnus';
 import ExamplePage from '../utils/ExamplePage';
 
 const IntroExample1: React.FC = () => {
   return (
     <ExamplePage>
+      <StatusBar translucent backgroundColor="transparent" />
       <Carousel
         flex={1}
         renderIndicators={({ totalPages, selectedPage }) => (
@@ -34,23 +42,15 @@ const IntroExample1: React.FC = () => {
         )}
       >
         <Carousel.Item>
-          <Div flex={1} bg="pink200" px="2xl">
-            <Div flex={1} justifyContent="center">
-              <Text fontSize="5xl">Welcome to our app</Text>
-              <Text fontSize="xl">Welcome to our app</Text>
-            </Div>
-          </Div>
-        </Carousel.Item>
-        <Carousel.Item>
-          <Div flex={1} bg="green200">
-            <Text>2</Text>
-          </Div>
+          <Div flex={1} bg="pink200" />
         </Carousel.Item>
 
         <Carousel.Item>
-          <Div flex={1} bg="blue200">
-            <Text>3</Text>
-          </Div>
+          <Div flex={1} bg="green200" />
+        </Carousel.Item>
+
+        <Carousel.Item>
+          <Div flex={1} bg="blue200" />
         </Carousel.Item>
       </Carousel>
 

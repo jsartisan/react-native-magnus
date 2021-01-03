@@ -9,13 +9,13 @@ import {
   RoundedPropsType,
   ShadowPropsType,
 } from '../../types';
-import { Option } from './select.option.component';
+import { SelectOption } from './select.option.component';
 
 export interface CompoundedSelect
   extends React.ForwardRefExoticComponent<
     SelectProps & React.RefAttributes<SelectRef>
   > {
-  Option: typeof Option;
+  Option: typeof SelectOption;
 }
 
 export type SelectRef = {

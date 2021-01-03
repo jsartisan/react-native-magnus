@@ -9,8 +9,21 @@ import { AvatarProps, CompoundedAvatar } from './avatar.type';
 import { Text } from '../text/text.component';
 import { getSpecificProps } from '../../utilities';
 import { textProps } from '../../types';
+import { useDefaultProps } from '../../utilities/useDefaultProps';
 
-const Avatar: CompoundedAvatar<AvatarProps> = (props) => {
+const Avatar: CompoundedAvatar<AvatarProps> = (incomingProps) => {
+  const props = useDefaultProps('Avatar', incomingProps, {
+    bg: 'transparent',
+    size: 48,
+    color: 'gray500',
+    rounded: 'circle',
+    fontSize: 'md',
+    shadow: 'none',
+    shadowColor: 'gray500',
+    position: 'relative',
+    zIndex: 1,
+  });
+
   const {
     bg,
     m,
@@ -83,17 +96,17 @@ const Avatar: CompoundedAvatar<AvatarProps> = (props) => {
   );
 };
 
-Avatar.defaultProps = {
-  bg: 'transparent',
-  size: 48,
-  color: 'gray500',
-  rounded: 'circle',
-  fontSize: 'md',
-  shadow: 'none',
-  shadowColor: 'gray500',
-  position: 'relative',
-  zIndex: 1,
-};
+// Avatar.defaultProps = {
+//   bg: 'transparent',
+//   size: 48,
+//   color: 'gray500',
+//   rounded: 'circle',
+//   fontSize: 'md',
+//   shadow: 'none',
+//   shadowColor: 'gray500',
+//   position: 'relative',
+//   zIndex: 1,
+// };
 
 Avatar.Group = AvatarGroup;
 

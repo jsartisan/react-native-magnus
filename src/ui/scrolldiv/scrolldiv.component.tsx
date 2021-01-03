@@ -8,8 +8,20 @@ import {
 import { ScrollDivProps } from './scrolldiv.type';
 import { getStyle } from './scrolldiv.style';
 import { ThemeContext } from '../../theme';
+import { useDefaultProps } from '../../utilities/useDefaultProps';
 
-const ScrollDiv: React.FunctionComponent<ScrollDivProps> = (props) => {
+const ScrollDiv: React.FunctionComponent<ScrollDivProps> = (incomingProps) => {
+  const props = useDefaultProps('ScrollDiv', incomingProps, {
+    bg: 'transparent',
+    flexDir: 'column',
+    flexWrap: 'nowrap',
+    rounded: 'none',
+    shadow: 0,
+    shadowColor: 'gray900',
+    position: 'relative',
+    bgMode: 'cover',
+  });
+
   const {
     h,
     w,
@@ -77,15 +89,15 @@ const ScrollDiv: React.FunctionComponent<ScrollDivProps> = (props) => {
   );
 };
 
-ScrollDiv.defaultProps = {
-  bg: 'transparent',
-  flexDir: 'column',
-  flexWrap: 'nowrap',
-  rounded: 'none',
-  shadow: 0,
-  shadowColor: 'gray900',
-  position: 'relative',
-  bgMode: 'cover',
-};
+// ScrollDiv.defaultProps = {
+//   bg: 'transparent',
+//   flexDir: 'column',
+//   flexWrap: 'nowrap',
+//   rounded: 'none',
+//   shadow: 0,
+//   shadowColor: 'gray900',
+//   position: 'relative',
+//   bgMode: 'cover',
+// };
 
 export { ScrollDiv };

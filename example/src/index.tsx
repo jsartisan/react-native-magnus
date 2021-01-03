@@ -13,6 +13,21 @@ const theme: Partial<ThemeType> = {
     normal: 'OpenSans-Regular',
     bold: 'OpenSans-Bold',
   },
+
+  components: {
+    Button: {
+      fontSize: 'md',
+      textTransform: 'uppercase',
+      bg: 'gray600',
+    },
+    Input: {
+      bg: 'gray100',
+      color: 'black',
+      fontSize: 'md',
+      textTransform: 'uppercase',
+    },
+  },
+
   colors: {
     loginExample1Bg: '#F3CFDA',
     brown100: '#865c6c',

@@ -62,12 +62,14 @@ const TextComponent: React.FC = () => {
 
           <Text
             mt="xl"
-            fontSize="4xl"
+            fontSize="2xl"
             fontWeight="bold"
             fontFamily="OpenSans-Light"
           >
-            when fontweight is defined, fontfamily will be ignored (RN
-            limitation). use a separate fontfamily for bold. set it on theme.
+            when fontweight is other than 'normal', fontfamily will be ignored
+            (Android limitation). so we decided to this: when fontfamily is
+            defined, fontweight will be set to 'normal' (on all platforms). set
+            a default font for each fontweight on theme.
           </Text>
         </ExampleSection>
       </ScrollView>

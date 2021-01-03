@@ -1,5 +1,5 @@
-import React from "react";
-import { ScrollView } from "react-native";
+import React from 'react';
+import { ScrollView } from 'react-native';
 import {
   Button,
   Div,
@@ -7,15 +7,16 @@ import {
   Text,
   Tooltip,
   TooltipRef,
-} from "react-native-magnus";
+} from 'react-native-magnus';
 
-import ExamplePage from "../utils/ExamplePage";
-import ExampleHeader from "../utils/ExampleHeader";
-import ExampleSection from "../utils/ExampleSection";
+import ExamplePage from '../utils/ExamplePage';
+import ExampleHeader from '../utils/ExampleHeader';
+import ExampleSection from '../utils/ExampleSection';
 
 const TooltipComponent: React.FC = () => {
   const tooltipRef1 = React.useRef<TooltipRef>(null);
   const tooltipRef2 = React.useRef<TooltipRef>(null);
+  const tooltipRef3 = React.useRef<TooltipRef>(null);
 
   return (
     <ExamplePage>

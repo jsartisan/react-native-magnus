@@ -1,17 +1,18 @@
 import React from 'react';
 import { NativeScrollEvent, NativeSyntheticEvent } from 'react-native';
+import { useDefaultProps } from '../../utilities/useDefaultProps';
 import { Div } from '../div/div.component';
 import { ScrollDiv } from '../scrolldiv/scrolldiv.component';
 
 import { CarouselProps, CompoundedCarousel } from './carousel.type';
 import CarouselItem from './item.carousel';
 
-const Carousel: CompoundedCarousel<CarouselProps> = ({
-  children,
-  renderIndicators,
-  showIndicators = true,
-  ...props
-}) => {
+const Carousel: CompoundedCarousel<CarouselProps> = (incomingProps) => {
+  const props = useDefaultProps('Carousel', incomingProps, {
+    showIndicators: true,
+  });
+
+  const { children, renderIndicators, showIndicators } = props;
   const [selectedPage, setSelectedPage] = React.useState(1);
   const [totalPages, setTotalPages] = React.useState(1);
   const [totalContentWidth, setTotalContentWidth] = React.useState(0);

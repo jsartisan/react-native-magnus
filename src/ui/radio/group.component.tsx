@@ -1,17 +1,15 @@
 import * as React from 'react';
 import { useState } from 'react';
 
+import { RadioGroupProps } from './radio.type';
 import { Div } from '../div/div.component';
-import { DivProps } from '../div/div.type';
+import { useDefaultProps } from '../../utilities/useDefaultProps';
 
-interface ButtonProps extends DivProps {
-  onChange?: (value: any) => void;
-  value?: any;
-  defaultValue?: any;
-  children: React.ReactElement[] | React.ReactElement;
-}
+const RadioGroup: React.FunctionComponent<RadioGroupProps> = (
+  incomingProps
+) => {
+  const props = useDefaultProps('RadioGroup', incomingProps);
 
-const RadioGroup: React.FunctionComponent<ButtonProps> = (props) => {
   const [value, setValue] = useState(props.value || props.defaultValue || null);
   const {
     children,

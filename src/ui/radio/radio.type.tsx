@@ -17,9 +17,10 @@ import {
   RoundedPropsType,
   ShadowPropsType,
 } from '../../types';
+import { DivProps } from '../div/div.type';
 import { RadioGroup } from './group.component';
 
-export type IRadio<P> = React.FunctionComponent<P> & {
+export type CompoundedRadio<P> = React.FunctionComponent<P> & {
   Group: typeof RadioGroup;
 };
 
@@ -57,6 +58,13 @@ export interface RadioStates {
   checked?: boolean;
   disabled?: boolean;
   loading?: boolean;
+}
+
+export interface RadioGroupProps extends DivProps {
+  onChange?: (value: any) => void;
+  value?: any;
+  defaultValue?: any;
+  children: React.ReactElement[] | React.ReactElement;
 }
 
 // Backwards compatibility

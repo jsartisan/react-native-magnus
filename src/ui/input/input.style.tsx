@@ -12,6 +12,7 @@ import {
   createPositionStyle,
   createShadowStyles,
   getThemeFontFamily,
+  getFontWeight,
 } from '../../theme/theme.service';
 import { InputProps } from './input.type';
 
@@ -84,16 +85,15 @@ export const getStyle = (theme: ThemeType, props: InputProps, state: any) => {
       props.textShadowRadius
     ),
 
-    fontWeight:
-      theme.fontFamily &&
-      typeof theme.fontFamily[props.fontWeight ?? 'normal'] === 'undefined'
-        ? props.fontWeight
-        : 'normal',
-    fontFamily: getThemeFontFamily(
+    fontWeight: getFontWeight(
       theme.fontFamily,
-      props.fontWeight,
-      props.fontFamily
+      props.fontFamily,
+      props.fontWeight
     ),
+
+    fontFamily:
+      props.fontFamily ??
+      getThemeFontFamily(theme.fontFamily, props.fontWeight, props.fontFamily),
   };
 
   computedStyle.suffix = {

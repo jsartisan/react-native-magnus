@@ -11,6 +11,7 @@ import {
   RoundedPropsType,
   ShadowPropsType,
 } from '../../types';
+
 export interface AvatarGroupProps
   extends BorderPropsType,
     SpacingPropsType,

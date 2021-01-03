@@ -48,7 +48,7 @@ export const getStyle = (theme: ThemeType, props: TooltipProps, state: any) => {
     width: 0,
     height: 0,
     left: state.left + state.buttonWidth / 2 - 8,
-    top: state.invert ? state.menuHeight : 0,
+    top: state.invert ? state.menuHeight - 1 : 1,
     borderStyle: 'solid',
     borderLeftWidth: 8,
     borderRightWidth: 8,

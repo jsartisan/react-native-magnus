@@ -56,7 +56,7 @@ class Fab extends React.Component<FabProps, FabState> {
 
     this.mainBottomAnimation = new Animated.Value(props.bottom || 0);
     this.actionsBottomAnimation = new Animated.Value(
-      (props.h || 40) + (props.bottom || 40) - 10
+      (props.h || 40) + (props.bottom || 40) + 30
     );
     this.animation = new Animated.Value(0);
     this.actionsAnimation = new Animated.Value(0);
@@ -116,7 +116,7 @@ class Fab extends React.Component<FabProps, FabState> {
         useNativeDriver,
       }).start();
       Animated.spring(this.actionsBottomAnimation, {
-        toValue: (h || 40) + (bottom || 40) - 10,
+        toValue: (h || 40) + (bottom || 40),
         useNativeDriver,
       }).start();
     }
@@ -150,7 +150,7 @@ class Fab extends React.Component<FabProps, FabState> {
           useNativeDriver,
         }).start();
         Animated.spring(this.actionsBottomAnimation, {
-          toValue: (h || 40) + (bottom || 40),
+          toValue: (h || 40) + (bottom || 40) + 20,
           useNativeDriver,
         }).start();
 
@@ -296,7 +296,7 @@ class Fab extends React.Component<FabProps, FabState> {
       <Animated.View style={actionsStyles} pointerEvents="box-none">
         {React.Children.map(children, (child: React.ReactElement) => {
           return React.cloneElement(child, {
-            mb: child.props.mb ? child.props.mb : 'xl',
+            mb: child.props.mb ? child.props.mb : 'lg',
             onPress: (e: GestureResponderEvent) => {
               // if fab is not active, don't allow pressing buttons
               if (!active) return;

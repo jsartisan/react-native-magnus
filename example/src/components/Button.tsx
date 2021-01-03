@@ -30,7 +30,7 @@ const ButtonComponent: React.FC = () => {
             <Button
               fontSize="lg"
               textTransform="uppercase"
-              fontFamily="HanaleiFill-Regular"
+              fontFamily="OpenSans-Light"
             >
               Button
             </Button>

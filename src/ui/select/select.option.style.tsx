@@ -6,7 +6,7 @@ import {
   createSpacingStyles,
   createBorderRadiusStyles,
 } from '../../theme/theme.service';
-import { OptionProps } from './select.option.type';
+import { SelectOptionProps } from './select.option.type';
 
 /**
  * computed style
@@ -14,7 +14,7 @@ import { OptionProps } from './select.option.type';
  * @param theme
  * @param props
  */
-export const getStyle = (theme: ThemeType, props: OptionProps) => {
+export const getStyle = (theme: ThemeType, props: SelectOptionProps) => {
   const computedStyle: any = {};
 
   computedStyle.button = {

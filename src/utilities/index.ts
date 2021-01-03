@@ -78,18 +78,3 @@ export const removeSpecificProps = <T>(obj: T, ...keys: string[]): T =>
     delete a[c];
     return a;
   }, obj);
-
-export const mergeRecursively = <T>(target: T, source: Partial<T>): T => {
-  // Iterate through `source` properties and if an `Object` set property to merge of `target` and `source` properties
-  for (const key of Object.keys(source)) {
-    // @ts-ignore
-    if (source[key] instanceof Object) {
-      // @ts-ignore
-      Object.assign(source[key], mergeRecursively(target[key], source[key]));
-    }
-  }
-
-  // Join `target` and modified `source`
-  Object.assign(target ?? {}, source);
-  return target;
-};
