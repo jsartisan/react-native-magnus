@@ -1,6 +1,6 @@
-import React from "react";
-import { useNavigation } from "@react-navigation/native";
-import { FlatList } from "react-native";
+import React from 'react';
+import { useNavigation } from '@react-navigation/native';
+import { FlatList } from 'react-native';
 import {
   Badge,
   Button,
@@ -13,39 +13,39 @@ import {
   Input,
   Portal,
   Text,
-} from "react-native-magnus";
-import ExamplePage from "../utils/ExamplePage";
+} from 'react-native-magnus';
+import ExamplePage from '../utils/ExamplePage';
 
 const friends = [
   {
     id: 1,
     image:
-      "https://images.unsplash.com/photo-1502673530728-f79b4cab31b1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+      'https://images.unsplash.com/photo-1502673530728-f79b4cab31b1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
   },
   {
     id: 2,
     image:
-      "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1927&q=80",
+      'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1927&q=80',
   },
   {
     id: 3,
     image:
-      "https://images.unsplash.com/photo-1516640997890-5e4c83df8419?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+      'https://images.unsplash.com/photo-1516640997890-5e4c83df8419?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
   },
   {
     id: 4,
     image:
-      "https://images.unsplash.com/photo-1516467508483-a7212febe31a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1952&q=80",
+      'https://images.unsplash.com/photo-1516467508483-a7212febe31a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1952&q=80',
   },
   {
     id: 5,
     image:
-      "https://images.unsplash.com/photo-1453365607868-7deed8cc7d26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+      'https://images.unsplash.com/photo-1453365607868-7deed8cc7d26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
   },
   {
     id: 6,
     image:
-      "https://images.unsplash.com/photo-1501820488136-72669149e0d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+      'https://images.unsplash.com/photo-1501820488136-72669149e0d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
   },
 ];
 
@@ -60,42 +60,38 @@ const HomeExample1: React.FC = () => {
           <Div bg="white" shadow="lg">
             <Header
               shadow="none"
-              px="xl"
               prefix={
-                <Button
-                  bg="white"
-                  ml="-md"
-                  mr="lg"
-                  onPress={() => navigation.goBack()}
-                >
+                <Button bg="white" mr="lg" onPress={() => navigation.goBack()}>
                   <Icon name="arrow-left" fontFamily="Feather" fontSize="2xl" />
                 </Button>
               }
               suffix={
-                <Badge
-                  bg="green500"
-                  zIndex={10}
-                  right={-5}
-                  top={0}
-                  h={12}
-                  w={12}
-                >
-                  <Button
-                    bg="gray200"
-                    p="none"
-                    rounded="circle"
-                    onPress={() => {}}
+                <Div mr="lg">
+                  <Badge
+                    bg="green500"
+                    zIndex={10}
+                    right={-5}
+                    top={0}
+                    h={12}
+                    w={12}
                   >
-                    <Image
-                      h={40}
-                      w={40}
-                      source={{
-                        uri:
-                          "https://images.unsplash.com/photo-1561037404-61cd46aa615b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&q=80",
-                      }}
-                    />
-                  </Button>
-                </Badge>
+                    <Button
+                      bg="gray200"
+                      p="none"
+                      rounded="circle"
+                      onPress={() => {}}
+                    >
+                      <Image
+                        h={40}
+                        w={40}
+                        source={{
+                          uri:
+                            'https://images.unsplash.com/photo-1561037404-61cd46aa615b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&q=80',
+                        }}
+                      />
+                    </Button>
+                  </Badge>
+                </Div>
               }
             >
               <Div>

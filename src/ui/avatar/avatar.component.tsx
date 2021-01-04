@@ -18,6 +18,7 @@ const Avatar: CompoundedAvatar<AvatarProps> = (incomingProps) => {
     color: 'gray500',
     rounded: 'circle',
     fontSize: 'md',
+    fontWeight: 'bold',
     shadow: 'none',
     shadowColor: 'gray500',
     position: 'relative',
