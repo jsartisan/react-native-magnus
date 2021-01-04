@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import {
   Button,
@@ -10,6 +11,8 @@ import {
 import ExamplePage from '../utils/ExamplePage';
 
 const IntroExample1: React.FC = () => {
+  const navigation = useNavigation();
+
   return (
     <ExamplePage>
       <StatusBar translucent backgroundColor="transparent" />
@@ -65,6 +68,22 @@ const IntroExample1: React.FC = () => {
         right={25}
       >
         <Icon name="right" color="white" fontSize="xl" />
+      </Button>
+
+      <Button
+        position="absolute"
+        top={40}
+        left={20}
+        bg="gray100"
+        mt="md"
+        onPress={() => navigation.goBack()}
+      >
+        <Icon
+          name="arrow-left"
+          color="blue500"
+          fontFamily="Feather"
+          fontSize="2xl"
+        />
       </Button>
     </ExamplePage>
   );

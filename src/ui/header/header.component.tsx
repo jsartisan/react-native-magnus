@@ -1,10 +1,5 @@
 import * as React from 'react';
 import { useContext } from 'react';
-import {
-  View as RNView,
-  ImageBackground as RNImageBackground,
-} from 'react-native';
-
 import { Text } from '../text/text.component';
 import { getStyle } from './header.style';
 import { ThemeContext } from '../../theme';
@@ -20,12 +15,12 @@ const Header: React.FunctionComponent<HeaderProps> = (incomingProps) => {
     p: 'lg',
     bg: 'white',
     rounded: 'none',
+    flexDir: 'row',
     shadow: 'sm',
     shadowColor: 'gray900',
     position: 'relative',
     bgMode: 'cover',
     pointerEvents: 'auto',
-    row: true,
     borderStyle: 'solid',
     alignItems: 'center',
     alignment: 'left',
@@ -35,64 +30,7 @@ const Header: React.FunctionComponent<HeaderProps> = (incomingProps) => {
     textTransform: 'uppercase',
   });
 
-  const {
-    bg,
-    h,
-    w,
-    m,
-    mt,
-    mr,
-    mb,
-    ml,
-    ms,
-    p,
-    pr,
-    pt,
-    pb,
-    pl,
-    minH,
-    minW,
-    maxW,
-    maxH,
-    position,
-    style,
-    flexDir,
-    row,
-    rounded,
-    roundedTop,
-    roundedRight,
-    roundedBottom,
-    roundedLeft,
-    children,
-    bgImg,
-    bgMode,
-    alignItems,
-    justifyContent,
-    borderColor,
-    borderBottomColor,
-    borderLeftColor,
-    borderTopColor,
-    borderRightColor,
-    borderWidth,
-    borderLeftWidth,
-    borderRightWidth,
-    borderBottomWidth,
-    borderTopWidth,
-    borderEndWidth,
-    flexWrap,
-    shadow,
-    shadowColor,
-    opacity,
-    overflow,
-    top,
-    left,
-    right,
-    bottom,
-    zIndex,
-    prefix,
-    suffix,
-    ...rest
-  } = props;
+  const { children, prefix, suffix, ...rest } = props;
 
   const { theme } = useContext(ThemeContext);
   const computedStyle = getStyle(theme, props);
@@ -115,28 +53,12 @@ const Header: React.FunctionComponent<HeaderProps> = (incomingProps) => {
     return children;
   };
 
-  if (bgImg) {
-    return (
-      <RNImageBackground
-        source={bgImg}
-        style={computedStyle.container}
-        resizeMode={props.bgMode}
-        imageStyle={computedStyle.image}
-        {...rest}
-      >
-        <RNView style={computedStyle.prefix}>{prefix}</RNView>
-        <RNView style={computedStyle.center}>{renderChildren()}</RNView>
-        <RNView style={computedStyle.suffix}>{suffix}</RNView>
-      </RNImageBackground>
-    );
-  }
-
   return (
-    <RNView style={computedStyle.container} {...rest}>
-      <RNView style={computedStyle.prefix}>{prefix}</RNView>
-      <RNView style={computedStyle.center}>{renderChildren()}</RNView>
-      <RNView style={computedStyle.suffix}>{suffix}</RNView>
-    </RNView>
+    <Div {...rest}>
+      <Div style={computedStyle.prefix}>{prefix}</Div>
+      <Div style={computedStyle.center}>{renderChildren()}</Div>
+      <Div style={computedStyle.suffix}>{suffix}</Div>
+    </Div>
   );
 };
 

@@ -21,6 +21,7 @@ const Badge: React.FunctionComponent<BadgeProps> = (incomingProps) => {
     shadowColor: 'gray900',
     position: 'relative',
     fontSize: 'sm',
+    fontWeight: 'bold',
   });
 
   const {
@@ -78,6 +79,7 @@ const Badge: React.FunctionComponent<BadgeProps> = (incomingProps) => {
     <RNView style={computedStyle.container}>
       <RNView style={{ alignSelf: 'flex-start' }}>
         {typeof children !== 'string' && children}
+
         <RNView style={computedStyle.div} {...rest}>
           {typeof children === 'string' && (
             <Text

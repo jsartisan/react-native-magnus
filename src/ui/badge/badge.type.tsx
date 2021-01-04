@@ -24,7 +24,7 @@ export interface BadgeProps
     OpacityPropsType,
     ZIndexPropsType,
     Pick<FlexPropsType, 'justifyContent' | 'alignItems' | 'alignSelf'>,
-    Pick<TextPropsType, 'color' | 'fontSize'>,
+    Pick<TextPropsType, 'color' | 'fontSize' | 'fontWeight' | 'fontFamily'>,
     Pick<BackgroundPropsType, 'bg'> {
   count?: string | number;
 }

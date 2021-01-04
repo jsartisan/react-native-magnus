@@ -1,34 +1,9 @@
-import { ViewProps as RNViewProps } from 'react-native';
-import {
-  BackgroundPropsType,
-  DimensionPropsType,
-  FlexPropsType,
-  OpacityPropsType,
-  OverflowPropsType,
-  PositionPropsType,
-  PrefixSuffixPropsType,
-  TextPropsType,
-  ZIndexPropsType,
-  BorderPropsType,
-  SpacingPropsType,
-  RoundedPropsType,
-  ShadowPropsType,
-} from '../../types';
+import { PrefixSuffixPropsType, TextPropsType } from '../../types';
+import { DivProps } from '../div/div.type';
 
 export interface HeaderProps
-  extends RNViewProps,
-    BorderPropsType,
-    SpacingPropsType,
-    RoundedPropsType,
-    ShadowPropsType,
-    DimensionPropsType,
-    BackgroundPropsType,
-    FlexPropsType,
-    PositionPropsType,
-    OpacityPropsType,
+  extends DivProps,
     PrefixSuffixPropsType,
-    ZIndexPropsType,
-    OverflowPropsType,
     TextPropsType {
   alignment?: 'center' | 'left';
 }

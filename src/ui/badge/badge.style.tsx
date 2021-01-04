@@ -51,8 +51,6 @@ export const getStyle = (
   };
 
   computedStyle.text = {
-    color: props.color,
-    fontSize: getThemeProperty(theme.fontSize, props.fontSize),
     paddingHorizontal: 10,
   };
 
