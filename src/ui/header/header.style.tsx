@@ -1,16 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { ThemeType } from '../../theme';
 
-import {
-  getThemeProperty,
-  createFlexStyles,
-  createShadowStyles,
-  createPositionStyle,
-  createSpacingStyles,
-  createBorderWidthStyles,
-  createBorderColorStyles,
-  createBorderRadiusStyles,
-} from '../../theme/theme.service';
 import { HeaderProps } from './header.type';
 
 /**
@@ -19,7 +9,7 @@ import { HeaderProps } from './header.type';
  * @param theme
  * @param props
  */
-export const getStyle = (theme: ThemeType, props: HeaderProps) => {
+export const getStyle = (_theme: ThemeType, props: HeaderProps) => {
   const computedStyle: any = {};
 
   // merging style props to computed style

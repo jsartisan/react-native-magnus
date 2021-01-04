@@ -16,7 +16,6 @@ import ExampleSection from '../utils/ExampleSection';
 const TooltipComponent: React.FC = () => {
   const tooltipRef1 = React.useRef<TooltipRef>(null);
   const tooltipRef2 = React.useRef<TooltipRef>(null);
-  const tooltipRef3 = React.useRef<TooltipRef>(null);
 
   return (
     <ExamplePage>
