@@ -1,12 +1,11 @@
-import { useContext } from 'react';
-import { ThemeContext, ThemeType } from '../theme';
+import { ThemeType, useTheme } from '../theme';
 
 export const useDefaultProps = <T>(
   componentName: keyof NonNullable<ThemeType['components']>,
   props: T,
   defaultProps: Partial<T> = {}
 ): T => {
-  const { theme } = useContext(ThemeContext);
+  const theme = useTheme();
 
   // const latestProps = useRef<T>({ ...defaultProps, ...props });
   // useEffect(() => {

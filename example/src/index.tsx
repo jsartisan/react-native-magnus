@@ -15,15 +15,16 @@ const theme: Partial<ThemeType> = {
   },
 
   components: {
+    Text: {
+      fontSize: 'lg',
+    },
     Button: {
-      fontSize: 'md',
-      textTransform: 'uppercase',
+      fontSize: 'lg',
+      textTransform: 'capitalize',
       bg: 'gray600',
     },
     Input: {
-      bg: 'gray100',
-      color: 'black',
-      fontSize: 'md',
+      fontSize: 'lg',
       textTransform: 'uppercase',
     },
   },
