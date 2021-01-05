@@ -13,18 +13,16 @@ Magnus provides consistent spacing for margins and padding so that you can build
 | sm   | 6     |
 | md   | 8     |
 | lg   | 12    |
-| xl   | 16    |
-| 2xl  | 24    |
-| 3xl  | 32    |
-| 4xl  | 64    |
+| xl   | 24    |
+| 2xl  | 32    |
+| 3xl  | 64    |
 | -xs  | -4    |
 | -sm  | -6    |
 | -md  | -8    |
 | -lg  | -12   |
-| -xl  | -16   |
-| -2xl | -24   |
-| -3xl | -32   |
-| -4xl | -64   |
+| -xl  | -24   |
+| -2xl | -32   |
+| -3xl | -64   |
 
 <a href="https://snack.expo.io/@pawankumar2901/magnus---spacing" target="_blank">See it on Snack</a>
 
