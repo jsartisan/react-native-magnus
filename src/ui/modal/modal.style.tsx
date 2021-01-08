@@ -1,10 +1,12 @@
 import { StyleSheet } from 'react-native';
+import { ThemeType } from '../../theme';
 import {
   createSpacingStyles,
   createBorderWidthStyles,
   createBorderColorStyles,
   createBorderRadiusStyles,
 } from '../../theme/theme.service';
+import { ModalProps } from './modal.type';
 
 /**
  * computed style
@@ -12,7 +14,7 @@ import {
  * @param theme
  * @param props
  */
-export const getStyle = (theme: any, props: any) => {
+export const getStyle = (theme: ThemeType, props: ModalProps) => {
   const computedStyle: any = {};
 
   computedStyle.modal = {
@@ -35,6 +37,7 @@ export const getStyle = (theme: any, props: any) => {
   if (props.style) {
     computedStyle.modal = {
       ...computedStyle.modal,
+      // @ts-ignore
       ...props.style,
     };
   }

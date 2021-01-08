@@ -12,7 +12,10 @@ import {
   BorderPropsType,
   SpacingPropsType,
   RoundedPropsType,
-} from '../../theme';
+  BackgroundPropsType,
+  DimensionPropsType,
+  FlexPropsType,
+} from '../../types';
 
 export type ModalRef = {
   open: () => void;
@@ -23,9 +26,10 @@ type OrNull<T> = null | T;
 export interface ModalProps
   extends BorderPropsType,
     SpacingPropsType,
-    RoundedPropsType {
-  bg?: string;
-  h?: number | string;
+    RoundedPropsType,
+    Pick<BackgroundPropsType, 'bg'>,
+    Pick<DimensionPropsType, 'h'>,
+    Pick<FlexPropsType, 'justifyContent'> {
   children: React.ReactElement[] | React.ReactElement;
   animationIn?: Animation | CustomAnimation;
   animationInTiming?: number;
@@ -57,13 +61,6 @@ export interface ModalProps
   scrollOffsetMax?: number;
   scrollHorizontal?: boolean;
   supportedOrientations?: Orientation[];
-  justifyContent?:
-    | 'flex-start'
-    | 'flex-end'
-    | 'center'
-    | 'space-between'
-    | 'space-around'
-    | 'space-evenly';
 
   onSwipeStart?: () => void;
   onSwipeMove?: (percentageShown: number) => void;

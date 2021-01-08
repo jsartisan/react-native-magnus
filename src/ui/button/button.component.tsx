@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { useContext } from 'react';
 import {
-  Text as RNText,
   View as RNView,
   Animated as RNAnimated,
   Pressable as RNButton,
@@ -14,7 +13,37 @@ import { ButtonProps } from './button.type';
 import { getThemeProperty } from '../../theme/theme.service';
 import { getUnderlayColor, getRippleColor } from './button.service';
 
-const Button: React.FunctionComponent<ButtonProps> = (props) => {
+import { Text } from '../text/text.component';
+import { textProps } from '../../types';
+import { getSpecificProps } from '../../utilities';
+
+import { useDefaultProps } from '../../utilities/useDefaultProps';
+
+const Button: React.FunctionComponent<ButtonProps> = (incomingProps) => {
+  const props = useDefaultProps('Button', incomingProps, {
+    bg: 'blue600',
+    p: 'lg',
+    color: 'white',
+    rounded: 'sm',
+    loading: false,
+    disabled: false,
+    loaderSize: '2xl',
+    loaderColor: 'white',
+    block: false,
+    position: 'relative',
+    shadowColor: 'gray800',
+    shadow: 0,
+    fontSize: 'lg',
+    rippleColor: 'white',
+    ripple: true,
+    borderless: false,
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignSelf: 'flex-start',
+    onPress: () => {},
+    flexDir: 'row',
+  });
+
   const {
     m,
     mt,
@@ -80,7 +109,14 @@ const Button: React.FunctionComponent<ButtonProps> = (props) => {
    */
   const renderChildren = () => {
     if (typeof children === 'string') {
-      return <RNText style={computedStyle.text}>{children}</RNText>;
+      return (
+        <Text
+          {...getSpecificProps(props, ...textProps)}
+          style={computedStyle.text}
+        >
+          {children}
+        </Text>
+      );
     }
 
     return children;
@@ -123,28 +159,28 @@ const Button: React.FunctionComponent<ButtonProps> = (props) => {
   );
 };
 
-Button.defaultProps = {
-  bg: 'blue600',
-  p: 'lg',
-  color: 'white',
-  rounded: 'sm',
-  loading: false,
-  disabled: false,
-  loaderSize: '2xl',
-  loaderColor: 'white',
-  block: false,
-  position: 'relative',
-  shadowColor: 'gray800',
-  shadow: 0,
-  fontSize: 'lg',
-  rippleColor: 'white',
-  ripple: true,
-  borderless: false,
-  alignItems: 'center',
-  justifyContent: 'center',
-  alignSelf: 'flex-start',
-  onPress: () => {},
-  flexDir: 'row',
-};
+// Button.defaultProps = {
+//   bg: 'blue600',
+//   p: 'lg',
+//   color: 'white',
+//   rounded: 'sm',
+//   loading: false,
+//   disabled: false,
+//   loaderSize: '2xl',
+//   loaderColor: 'white',
+//   block: false,
+//   position: 'relative',
+//   shadowColor: 'gray800',
+//   shadow: 0,
+//   fontSize: 'lg',
+//   rippleColor: 'white',
+//   ripple: true,
+//   borderless: false,
+//   alignItems: 'center',
+//   justifyContent: 'center',
+//   alignSelf: 'flex-start',
+//   onPress: () => {},
+//   flexDir: 'row',
+// };
 
 export { Button };

@@ -1,11 +1,17 @@
 import { ViewProps as RNViewProps } from 'react-native';
-
 import {
+  BackgroundPropsType,
+  DimensionPropsType,
+  FlexPropsType,
+  OpacityPropsType,
+  PositionPropsType,
+  TextPropsType,
+  ZIndexPropsType,
   BorderPropsType,
   SpacingPropsType,
   RoundedPropsType,
   ShadowPropsType,
-} from '../../theme';
+} from '../../types';
 
 export type iconFontFamilyType =
   | 'AntDesign'
@@ -28,30 +34,14 @@ export interface IconProps
     BorderPropsType,
     SpacingPropsType,
     RoundedPropsType,
-    ShadowPropsType {
-  h?: number;
-  w?: number;
-  minW?: number | string;
-  minH?: number | string;
-  maxH?: number | string;
-  maxW?: number | string;
-  bg?: string;
+    ShadowPropsType,
+    DimensionPropsType,
+    PositionPropsType,
+    ZIndexPropsType,
+    OpacityPropsType,
+    Pick<BackgroundPropsType, 'bg'>,
+    Pick<TextPropsType, 'color' | 'fontSize'>,
+    Pick<FlexPropsType, 'alignSelf'> {
   name: string;
-  color?: string;
-  position?: 'absolute' | 'relative';
-  top?: string | number;
-  left?: string | number;
-  right?: string | number;
-  bottom?: string | number;
   fontFamily?: iconFontFamilyType;
-  fontSize?: string | number;
-  zIndex?: number;
-  opacity?: number;
-  alignSelf?:
-    | 'auto'
-    | 'flex-start'
-    | 'flex-end'
-    | 'center'
-    | 'stretch'
-    | 'baseline';
 }

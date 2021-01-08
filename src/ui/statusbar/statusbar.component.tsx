@@ -1,18 +1,23 @@
 import React, { useContext } from 'react';
-import { StatusBar as RNStatusBar } from 'react-native';
+import {
+  StatusBar as RNStatusBar,
+  StatusBarProps as RNStatusBarProps,
+} from 'react-native';
 import { ThemeContext } from '../../theme';
 
 import { getThemeProperty } from '../../theme/theme.service';
-import { StatusBarProps } from './statusbar.type';
+import { useDefaultProps } from '../../utilities/useDefaultProps';
 
 interface StatusBarComponent<T> extends React.FC<T> {
   currentHeight?: number;
 }
 
-const StatusBar: StatusBarComponent<StatusBarProps> = ({
-  backgroundColor,
-  ...props
-}) => {
+const StatusBar: StatusBarComponent<RNStatusBarProps> = (incomingProps) => {
+  const props = useDefaultProps('Statusbar', incomingProps, {
+    animated: true,
+  });
+
+  const { backgroundColor } = props;
   const { theme } = useContext(ThemeContext);
   const themedBackgroundColor = getThemeProperty(theme.colors, backgroundColor);
 
@@ -30,8 +35,8 @@ const StatusBar: StatusBarComponent<StatusBarProps> = ({
 
 StatusBar.currentHeight = RNStatusBar.currentHeight;
 
-StatusBar.defaultProps = {
-  animated: true,
-};
+// StatusBar.defaultProps = {
+//   animated: true,
+// };
 
 export { StatusBar };

@@ -1,35 +1,32 @@
 import { TextInputProps as RNTextInputProps } from 'react-native';
-
 import {
+  BackgroundPropsType,
+  DimensionPropsType,
+  FlexPropsType,
+  InputPropsType,
+  LoadingPropsType,
+  OpacityPropsType,
+  PrefixSuffixPropsType,
+  TextPropsType,
+  ZIndexPropsType,
   BorderPropsType,
   SpacingPropsType,
   RoundedPropsType,
   ShadowPropsType,
-} from '../../theme';
+} from '../../types';
 
 export interface InputProps
   extends RNTextInputProps,
     BorderPropsType,
     SpacingPropsType,
     ShadowPropsType,
-    RoundedPropsType {
-  h?: number;
-  w?: number;
-  minH?: number | string;
-  minW?: number | string;
-  maxH?: number | string;
-  maxW?: number | string;
-  bg?: string;
-  fontSize?: string;
-  lineHeight?: number;
-  color?: string;
-  loading?: boolean;
-  loaderSize?: number | string;
-  loaderColor?: string;
-  flex?: number;
-  focusBorderColor?: string;
-  suffix?: React.ReactNode;
-  prefix?: React.ReactNode;
-  zIndex?: number;
-  opacity?: number;
-}
+    RoundedPropsType,
+    DimensionPropsType,
+    LoadingPropsType,
+    PrefixSuffixPropsType,
+    ZIndexPropsType,
+    OpacityPropsType,
+    Pick<FlexPropsType, 'flex'>,
+    Pick<BackgroundPropsType, 'bg'>,
+    Omit<TextPropsType, 'textAlign'>,
+    InputPropsType {}

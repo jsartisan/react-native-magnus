@@ -1,10 +1,10 @@
-import React from "react";
-import { ScrollView } from "react-native";
-import { Avatar, Div, Icon } from "react-native-magnus";
+import React from 'react';
+import { ScrollView } from 'react-native';
+import { Avatar, Div, Icon } from 'react-native-magnus';
 
-import ExamplePage from "../utils/ExamplePage";
-import ExampleHeader from "../utils/ExampleHeader";
-import ExampleSection from "../utils/ExampleSection";
+import ExamplePage from '../utils/ExamplePage';
+import ExampleHeader from '../utils/ExampleHeader';
+import ExampleSection from '../utils/ExampleSection';
 
 const AvatarComponent: React.FC = () => {
   return (
@@ -38,7 +38,7 @@ const AvatarComponent: React.FC = () => {
               shadow={1}
               source={{
                 uri:
-                  "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1024px-React-icon.svg.png",
+                  'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1024px-React-icon.svg.png',
               }}
             />
           </Div>

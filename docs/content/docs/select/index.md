@@ -30,7 +30,7 @@ const selectRef = React.createRef()
   {selectValue.length ? selectValue.toString() : 'Select'}
 </Button>
 
-<Select.Container
+<Select
   onSelect={onSelectOption}
   ref={selectRef}
   value={selectValue}
@@ -74,7 +74,7 @@ const selectRef = React.createRef()
   {selectValue.length ? selectValue.toString() : 'Select'}
 </Button>
 
-<Select.Container
+<Select
   onSelect={onSelectOption}
   ref={selectRef}
   multiple

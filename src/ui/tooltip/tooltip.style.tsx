@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { ThemeType } from '../../theme';
 
 import {
   getThemeProperty,
@@ -9,6 +10,7 @@ import {
   createBorderColorStyles,
   createBorderRadiusStyles,
 } from '../../theme/theme.service';
+import { TooltipProps } from './tooltip.type';
 
 /**
  * computed style
@@ -16,15 +18,11 @@ import {
  * @param theme
  * @param props
  */
-export const getStyle = (theme: any, props: any, state: any) => {
+export const getStyle = (theme: ThemeType, props: TooltipProps, state: any) => {
   const computedStyle: any = {};
 
   computedStyle.container = {
     alignSelf: 'center',
-    flexDirection: props.flexDir,
-    flexWrap: props.flexWrap,
-    alignItems: props.alignItems,
-    justifyContent: props.justifyContent,
     height: props.h,
     width: props.w,
     minWidth: props.minW,
@@ -50,7 +48,7 @@ export const getStyle = (theme: any, props: any, state: any) => {
     width: 0,
     height: 0,
     left: state.left + state.buttonWidth / 2 - 8,
-    top: state.invert ? state.menuHeight : 0,
+    top: state.invert ? state.menuHeight - 1 : 1,
     borderStyle: 'solid',
     borderLeftWidth: 8,
     borderRightWidth: 8,
@@ -82,6 +80,7 @@ export const getStyle = (theme: any, props: any, state: any) => {
   if (props.style) {
     computedStyle.container = {
       ...computedStyle.container,
+      // @ts-ignore
       ...props.style,
     };
   }

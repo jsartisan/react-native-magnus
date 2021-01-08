@@ -12,8 +12,35 @@ import { isFunction } from '../../utilities';
 import { getIcon } from './checkbox.service';
 import { CheckboxGroup } from './group.component';
 import { CompundedCheckbox, CheckboxProps } from './checkbox.type';
+import { useDefaultProps } from '../../utilities/useDefaultProps';
 
-const Checkbox: CompundedCheckbox<CheckboxProps> = (props) => {
+const Checkbox: CompundedCheckbox<CheckboxProps> = (incomingProps) => {
+  const props = useDefaultProps('Checkbox', incomingProps, {
+    defaultChecked: false,
+    activeColor: 'blue600',
+    inactiveColor: 'gray500',
+    highlightBg: 'gray300',
+    bg: 'transparent',
+    p: 'none',
+    color: 'white',
+    rounded: 'md',
+    loading: false,
+    disabled: false,
+    loaderSize: '2xl',
+    loaderColor: 'blue600',
+    block: false,
+    position: 'relative',
+    shadowColor: 'gray800',
+    shadow: 0,
+    fontSize: '5xl',
+    borderless: true,
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignSelf: 'flex-start',
+    onPress: () => {},
+    flexDir: 'row',
+  });
+
   const {
     m,
     mt,
@@ -132,7 +159,12 @@ const Checkbox: CompundedCheckbox<CheckboxProps> = (props) => {
 
   const renderChildren = () => {
     if (isFunction(children)) {
-      return children({ focussed, disabled, checked, loading });
+      return children({
+        focussed,
+        disabled: disabled ?? false,
+        checked,
+        loading,
+      });
     }
 
     return (
@@ -163,31 +195,31 @@ const Checkbox: CompundedCheckbox<CheckboxProps> = (props) => {
   );
 };
 
-Checkbox.defaultProps = {
-  defaultChecked: false,
-  activeColor: 'blue600',
-  inactiveColor: 'gray500',
-  highlightBg: 'gray300',
-  bg: 'transparent',
-  p: 'none',
-  color: 'white',
-  rounded: 'md',
-  loading: false,
-  disabled: false,
-  loaderSize: '2xl',
-  loaderColor: 'blue600',
-  block: false,
-  position: 'relative',
-  shadowColor: 'gray800',
-  shadow: 0,
-  fontSize: '5xl',
-  borderless: true,
-  alignItems: 'center',
-  justifyContent: 'center',
-  alignSelf: 'flex-start',
-  onPress: () => {},
-  flexDir: 'row',
-};
+// Checkbox.defaultProps = {
+//   defaultChecked: false,
+//   activeColor: 'blue600',
+//   inactiveColor: 'gray500',
+//   highlightBg: 'gray300',
+//   bg: 'transparent',
+//   p: 'none',
+//   color: 'white',
+//   rounded: 'md',
+//   loading: false,
+//   disabled: false,
+//   loaderSize: '2xl',
+//   loaderColor: 'blue600',
+//   block: false,
+//   position: 'relative',
+//   shadowColor: 'gray800',
+//   shadow: 0,
+//   fontSize: '5xl',
+//   borderless: true,
+//   alignItems: 'center',
+//   justifyContent: 'center',
+//   alignSelf: 'flex-start',
+//   onPress: () => {},
+//   flexDir: 'row',
+// };
 
 Checkbox.Group = CheckboxGroup;
 

@@ -5,8 +5,22 @@ import { useContext, useState, useEffect, useImperativeHandle } from 'react';
 import { getStyle } from './overlay.style';
 import { ThemeContext } from '../../theme';
 import { OverlayProps, OverlayRef } from './overlay.type';
+import { useDefaultProps } from '../../utilities/useDefaultProps';
 
-const Overlay = React.forwardRef<OverlayRef, OverlayProps>((props, ref) => {
+const Overlay: React.FC<OverlayProps> = React.forwardRef<
+  OverlayRef,
+  OverlayProps
+>((incomingProps, ref) => {
+  const props = useDefaultProps('Overlay', incomingProps, {
+    bg: 'white',
+    w: '80%',
+    p: 'lg',
+    rounded: 'md',
+    isVisible: false,
+    overlayOpacity: 0.6,
+    overlayColor: 'gray900',
+  });
+
   const {
     m,
     mt,
@@ -72,14 +86,14 @@ const Overlay = React.forwardRef<OverlayRef, OverlayProps>((props, ref) => {
   );
 });
 
-Overlay.defaultProps = {
-  bg: 'white',
-  w: '80%',
-  p: 'lg',
-  rounded: 'md',
-  isVisible: false,
-  overlayOpacity: 0.6,
-  overlayColor: 'gray900',
-};
+// Overlay.defaultProps = {
+//   bg: 'white',
+//   w: '80%',
+//   p: 'lg',
+//   rounded: 'md',
+//   isVisible: false,
+//   overlayOpacity: 0.6,
+//   overlayColor: 'gray900',
+// };
 
 export { Overlay };

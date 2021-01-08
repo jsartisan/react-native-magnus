@@ -1,7 +1,6 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
-import { Carousel, Div, Text } from 'react-native-magnus';
-import { DivProps } from 'src/ui/div/div.type';
+import { Carousel, Div, DivProps, Text } from 'react-native-magnus';
 
 import ExampleHeader from '../utils/ExampleHeader';
 import ExamplePage from '../utils/ExamplePage';
@@ -57,118 +56,8 @@ const CarouselComponent: React.FC = () => {
           </Card>
         </ExampleSection>
 
-        <ExampleSection name="2 items by page">
-          <Carousel itemsPerPage={2}>
-            <Carousel.Item>
-              <Div p="xl">
-                <Text textTransform="uppercase" fontWeight="bold">
-                  Title 1
-                </Text>
-                <Text>This is a content card</Text>
-              </Div>
-            </Carousel.Item>
-            <Carousel.Item>
-              <Div p="xl">
-                <Text textTransform="uppercase" fontWeight="bold">
-                  Title 2
-                </Text>
-                <Text>This is a content card</Text>
-              </Div>
-            </Carousel.Item>
-            <Carousel.Item>
-              <Div p="xl">
-                <Text textTransform="uppercase" fontWeight="bold">
-                  Title 3
-                </Text>
-                <Text>This is a content card</Text>
-              </Div>
-            </Carousel.Item>
-            <Carousel.Item>
-              <Div p="xl">
-                <Text textTransform="uppercase" fontWeight="bold">
-                  Title 4
-                </Text>
-                <Text>This is a content card</Text>
-              </Div>
-            </Carousel.Item>
-          </Carousel>
-        </ExampleSection>
-
-        <ExampleSection name="2 items by page but has odd items number">
-          <Carousel itemsPerPage={2}>
-            <Carousel.Item>
-              <Div p="xl">
-                <Text textTransform="uppercase" fontWeight="bold">
-                  Title 1
-                </Text>
-                <Text>This is a content card</Text>
-              </Div>
-            </Carousel.Item>
-            <Carousel.Item>
-              <Div p="xl">
-                <Text textTransform="uppercase" fontWeight="bold">
-                  Title 2
-                </Text>
-                <Text>This is a content card</Text>
-              </Div>
-            </Carousel.Item>
-            <Carousel.Item>
-              <Div p="xl">
-                <Text textTransform="uppercase" fontWeight="bold">
-                  Title 3
-                </Text>
-                <Text>This is a content card</Text>
-              </Div>
-            </Carousel.Item>
-          </Carousel>
-
-          <Carousel itemsPerPage={2}>
-            <Carousel.Item>
-              <Div p="xl">
-                <Text textTransform="uppercase" fontWeight="bold">
-                  Title 1
-                </Text>
-                <Text>This is a content card</Text>
-              </Div>
-            </Carousel.Item>
-            <Carousel.Item>
-              <Div p="xl">
-                <Text textTransform="uppercase" fontWeight="bold">
-                  Title 2
-                </Text>
-                <Text>This is a content card</Text>
-              </Div>
-            </Carousel.Item>
-            <Carousel.Item>
-              <Div p="xl">
-                <Text textTransform="uppercase" fontWeight="bold">
-                  Title 3
-                </Text>
-                <Text>This is a content card</Text>
-              </Div>
-            </Carousel.Item>
-            <Carousel.Item>
-              <Div p="xl">
-                <Text textTransform="uppercase" fontWeight="bold">
-                  Title 4
-                </Text>
-                <Text>This is a content card</Text>
-              </Div>
-            </Carousel.Item>
-            <Carousel.Item>
-              <Div p="xl">
-                <Text textTransform="uppercase" fontWeight="bold">
-                  Title 5
-                </Text>
-                <Text>This is a content card</Text>
-              </Div>
-            </Carousel.Item>
-          </Carousel>
-        </ExampleSection>
-
         <ExampleSection name="custom indicators">
           <Carousel
-            itemsPerPage={2}
             renderIndicators={({ totalPages, selectedPage }) => (
               <Div flex={1} alignItems="center">
                 <Text fontSize="xl">

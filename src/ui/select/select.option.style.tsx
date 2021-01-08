@@ -1,10 +1,12 @@
 import { StyleSheet } from 'react-native';
+import { ThemeType } from '../../theme';
 
 import {
   getThemeProperty,
   createSpacingStyles,
   createBorderRadiusStyles,
 } from '../../theme/theme.service';
+import { SelectOptionProps } from './select.option.type';
 
 /**
  * computed style
@@ -12,7 +14,7 @@ import {
  * @param theme
  * @param props
  */
-export const getStyle = (theme: any, props: any) => {
+export const getStyle = (theme: ThemeType, props: SelectOptionProps) => {
   const computedStyle: any = {};
 
   computedStyle.button = {
@@ -41,7 +43,7 @@ export const getStyle = (theme: any, props: any) => {
   if (props.shadow) {
     computedStyle.button = {
       ...computedStyle.button,
-      ...theme.shadow[props.shadow],
+      ...(theme.shadow && theme.shadow[props.shadow]),
       shadowColor: getThemeProperty(theme.colors, props.shadowColor),
     };
   }
@@ -127,6 +129,7 @@ export const getStyle = (theme: any, props: any) => {
   if (props.style) {
     computedStyle.container = {
       ...computedStyle.container,
+      // @ts-ignore
       ...props.style,
     };
   }

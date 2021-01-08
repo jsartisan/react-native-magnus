@@ -1,14 +1,26 @@
 import * as React from 'react';
 import { PressableProps as RNButtonProps } from 'react-native';
 import {
+  BackgroundPropsType,
+  ButtonPropsType,
+  DimensionPropsType,
+  DisabledPropsType,
+  FlexPropsType,
+  LoadingPropsType,
+  OpacityPropsType,
+  PositionPropsType,
+  PrefixSuffixPropsType,
+  TextPropsType,
+  ZIndexPropsType,
   BorderPropsType,
   SpacingPropsType,
   RoundedPropsType,
   ShadowPropsType,
-} from '../../theme';
+} from '../../types';
+import { DivProps } from '../div/div.type';
 import { RadioGroup } from './group.component';
 
-export type IRadio<P> = React.FunctionComponent<P> & {
+export type CompoundedRadio<P> = React.FunctionComponent<P> & {
   Group: typeof RadioGroup;
 };
 
@@ -17,51 +29,19 @@ export interface RadioProps
     BorderPropsType,
     SpacingPropsType,
     ShadowPropsType,
-    RoundedPropsType {
-  h?: number | string;
-  w?: number | string;
-  bg?: string;
+    RoundedPropsType,
+    PositionPropsType,
+    DimensionPropsType,
+    FlexPropsType,
+    LoadingPropsType,
+    DisabledPropsType,
+    PrefixSuffixPropsType,
+    OpacityPropsType,
+    ZIndexPropsType,
+    Omit<ButtonPropsType, 'underlayColor'>,
+    Pick<BackgroundPropsType, 'bg'>,
+    Pick<TextPropsType, 'fontWeight' | 'color' | 'fontSize'> {
   highlightBg?: string;
-  position?: 'absolute' | 'relative';
-  alignItems?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
-  alignSelf?:
-    | 'auto'
-    | 'flex-start'
-    | 'flex-end'
-    | 'center'
-    | 'stretch'
-    | 'baseline';
-  flexDir?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
-  fontWeight?: string;
-  justifyContent?:
-    | 'flex-start'
-    | 'flex-end'
-    | 'center'
-    | 'space-between'
-    | 'space-around'
-    | 'space-evenly';
-  top?: number;
-  flex?: number;
-  left?: number;
-  right?: number;
-  bottom?: number;
-  color?: string;
-  loading?: boolean;
-  disabled?: boolean;
-  loaderColor?: string;
-  underlayColor?: string;
-  minW?: number | string;
-  minH?: number | string;
-  fontSize?: string | number;
-  loaderSize?: number | string;
-  suffix?: React.ReactNode;
-  prefix?: React.ReactNode;
-  block?: boolean;
-  borderless?: boolean;
-  rippleColor?: string;
-  ripple?: boolean;
-  opacity?: number;
-  zIndex?: number;
   activeColor?: string;
   inactiveColor?: string;
   defaultChecked?: boolean;
@@ -73,12 +53,19 @@ export interface RadioProps
   children: ((states: RadioStates) => React.ReactNode) | React.ReactNode;
 }
 
-interface RadioStates {
+export interface RadioStates {
   focussed?: boolean;
   checked?: boolean;
   disabled?: boolean;
   loading?: boolean;
 }
 
-// Backwards compatability
+export interface RadioGroupProps extends DivProps {
+  onChange?: (value: any) => void;
+  value?: any;
+  defaultValue?: any;
+  children: React.ReactElement[] | React.ReactElement;
+}
+
+// Backwards compatibility
 export type IRadioProps = RadioProps;

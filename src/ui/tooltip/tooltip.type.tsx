@@ -1,53 +1,35 @@
 import { ViewProps as RNViewProps } from 'react-native';
-
 import {
-  BorderPropsType,
+  BackgroundPropsType,
+  DimensionPropsType,
+  TextPropsType,
+  ZIndexPropsType,
   SpacingPropsType,
   RoundedPropsType,
   ShadowPropsType,
-} from '../../theme';
+  OpacityPropsType,
+} from '../../types';
 
 export interface TooltipRef {
-  hide: any;
-  show: any;
+  hide: () => void;
+  show: () => void;
 }
 
 export interface TooltipProps
   extends RNViewProps,
-    BorderPropsType,
     SpacingPropsType,
     ShadowPropsType,
-    RoundedPropsType {
-  bg?: string;
-  h?: number;
-  w?: number;
-  minW?: number | string;
-  minH?: number | string;
-  maxW?: number | string;
-  maxH?: number | string;
+    RoundedPropsType,
+    TextPropsType,
+    DimensionPropsType,
+    OpacityPropsType,
+    ZIndexPropsType,
+    Pick<BackgroundPropsType, 'bg'> {
   animationDuration?: number;
-  color?: string;
-  opacity?: number;
-  zIndex?: number;
   text: string | React.ReactNode;
-  fontSize?: string;
-  textDecorLine?:
-    | 'none'
-    | 'underline'
-    | 'line-through'
-    | 'underline line-through';
-  textDecorStyle?: 'solid' | 'double' | 'dotted' | 'dashed';
-  fontStyle?: 'normal' | 'italic';
-  textDecorColor?: string;
-  fontWeight?: string;
-  lineHeight?: number;
-  textAlign?: 'auto' | 'left' | 'right' | 'center' | 'justify';
-  textTransform?: 'none' | 'uppercase' | 'lowercase' | 'capitalize';
-  letterSpacing?: number;
   useNativeDriver?: boolean;
-  children?: React.ReactNode[] | React.ReactNode;
 }
 
-export interface TriangelProps extends RNViewProps {
+export interface TriangleProps extends RNViewProps {
   invert: boolean;
 }

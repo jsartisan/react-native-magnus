@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { ThemeType } from '../../theme';
 
 import {
   getThemeProperty,
@@ -9,6 +10,7 @@ import {
   createBorderRadiusStyles,
   createPositionStyle,
 } from '../../theme/theme.service';
+import { BadgeProps } from './badge.type';
 
 /**
  * computed style
@@ -16,7 +18,10 @@ import {
  * @param theme
  * @param props
  */
-export const getStyle = (theme: any, props: any) => {
+export const getStyle = (
+  theme: ThemeType,
+  props: React.PropsWithChildren<BadgeProps>
+) => {
   const computedStyle: any = {};
 
   computedStyle.container = {
@@ -46,8 +51,6 @@ export const getStyle = (theme: any, props: any) => {
   };
 
   computedStyle.text = {
-    color: props.color,
-    fontSize: getThemeProperty(theme.fontSize, props.fontSize),
     paddingHorizontal: 10,
   };
 
@@ -55,6 +58,7 @@ export const getStyle = (theme: any, props: any) => {
   if (props.style) {
     computedStyle.div = {
       ...computedStyle.div,
+      // @ts-ignore
       ...props.style,
     };
   }

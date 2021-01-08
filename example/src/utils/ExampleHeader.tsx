@@ -7,7 +7,6 @@ const ExampleHeader: React.FC<{ name: string }> = ({ name }) => {
 
   return (
     <Header
-      shadow="lg"
       prefix={
         <Button
           rounded="circle"

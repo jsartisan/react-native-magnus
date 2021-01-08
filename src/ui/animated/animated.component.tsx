@@ -10,10 +10,24 @@ import { AnimatedProps } from './animated.type';
 import { ThemeContext } from '../../theme';
 import { getStyle } from './animated.style';
 import { registerAnimations } from './animated.service';
+import { useDefaultProps } from '../../utilities/useDefaultProps';
 
 registerAnimations();
 
-const Animated: React.FunctionComponent<AnimatedProps> = (props) => {
+const Animated: React.FunctionComponent<AnimatedProps> = (incomingProps) => {
+  const props = useDefaultProps('Animated', incomingProps, {
+    bg: 'transparent',
+    flexWrap: 'nowrap',
+    rounded: 'none',
+    shadow: 'none',
+    shadowColor: 'gray900',
+    position: 'relative',
+    bgMode: 'cover',
+    animation: 'fromTop',
+    duration: 150,
+    delay: 0,
+  });
+
   const {
     h,
     w,
@@ -100,17 +114,17 @@ const Animated: React.FunctionComponent<AnimatedProps> = (props) => {
   );
 };
 
-Animated.defaultProps = {
-  bg: 'transparent',
-  flexWrap: 'nowrap',
-  rounded: 'none',
-  shadow: 'none',
-  shadowColor: 'gray900',
-  position: 'relative',
-  bgMode: 'cover',
-  animation: 'fromTop',
-  duration: 150,
-  delay: 0,
-};
+// Animated.defaultProps = {
+//   bg: 'transparent',
+//   flexWrap: 'nowrap',
+//   rounded: 'none',
+//   shadow: 'none',
+//   shadowColor: 'gray900',
+//   position: 'relative',
+//   bgMode: 'cover',
+//   animation: 'fromTop',
+//   duration: 150,
+//   delay: 0,
+// };
 
 export { Animated };

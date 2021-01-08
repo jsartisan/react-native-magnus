@@ -1,10 +1,10 @@
-import React from "react";
-import { ScrollView } from "react-native";
-import { Div, Image, Text } from "react-native-magnus";
+import React from 'react';
+import { ScrollView } from 'react-native';
+import { Div, Text } from 'react-native-magnus';
 
-import ExamplePage from "../utils/ExamplePage";
-import ExampleHeader from "../utils/ExampleHeader";
-import ExampleSection from "../utils/ExampleSection";
+import ExamplePage from '../utils/ExamplePage';
+import ExampleHeader from '../utils/ExampleHeader';
+import ExampleSection from '../utils/ExampleSection';
 
 const DivComponent: React.FC = () => {
   return (
@@ -157,12 +157,12 @@ const DivComponent: React.FC = () => {
             h={150}
             bgImg={{
               uri:
-                "https://venngage-wordpress.s3.amazonaws.com/uploads/2018/09/Monochrome-Type-Simple-Background-Image.jpg",
+                'https://venngage-wordpress.s3.amazonaws.com/uploads/2018/09/Monochrome-Type-Simple-Background-Image.jpg',
             }}
           />
         </ExampleSection>
 
-        <ExampleSection name="image">
+        {/* <ExampleSection name="image">
           <Image
             mt="sm"
             rounded="md"
@@ -172,7 +172,7 @@ const DivComponent: React.FC = () => {
                 "https://venngage-wordpress.s3.amazonaws.com/uploads/2018/09/Colorful-Circle-Simple-Background-Image-1.jpg",
             }}
           />
-        </ExampleSection>
+        </ExampleSection> */}
       </ScrollView>
     </ExamplePage>
   );
