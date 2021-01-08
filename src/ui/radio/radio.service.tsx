@@ -1,3 +1,4 @@
+import { ThemeType } from '../../theme';
 import { getThemeProperty } from '../../theme/theme.service';
 
 /**
@@ -25,7 +26,7 @@ export const getIconColor = (
   disabled: any,
   activeColor: any,
   inactiveColor: any,
-  theme: any
+  theme: ThemeType
 ) => {
   switch (true) {
     case disabled:

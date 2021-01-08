@@ -1,14 +1,39 @@
 import * as React from 'react';
 import { useContext, useState, useEffect, useImperativeHandle } from 'react';
-import { Animated, SafeAreaView, View as RNView, Text } from 'react-native';
+import { Animated, SafeAreaView, View as RNView } from 'react-native';
 
 import { getStyle } from './snackbar.style';
 import { ThemeContext } from '../../theme';
 import { SnackbarRef, SnackbarProps } from './snackbar.type';
+import { Text } from '../text/text.component';
+import { getSpecificProps } from '../../utilities';
+import { textProps } from '../../types';
+import { useDefaultProps } from '../../utilities/useDefaultProps';
 
-let hideTimeout: number;
+const Snackbar = React.forwardRef<
+  SnackbarRef,
+  React.PropsWithChildren<SnackbarProps>
+>((incomingProps, ref) => {
+  const props = useDefaultProps('Snackbar', incomingProps, {
+    bg: 'gray900',
+    color: 'white',
+    p: 'lg',
+    m: 'md',
+    rounded: 'md',
+    fontSize: 'md',
+    duration: 4000,
+    onDismiss: () => {},
+    shadow: 2,
+    shadowColor: 'gray500',
+    position: 'absolute',
+    bottom: 0,
+    flexDir: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center',
+    useNativeDriver: false,
+  });
 
-const Snackbar = React.forwardRef<SnackbarRef, SnackbarProps>((props, ref) => {
   const {
     m,
     mt,
@@ -53,6 +78,7 @@ const Snackbar = React.forwardRef<SnackbarRef, SnackbarProps>((props, ref) => {
     useNativeDriver,
     ...rest
   } = props;
+  let hideTimeout: number = 0;
   const { theme } = useContext(ThemeContext);
   const computedStyle = getStyle(theme, props);
   const [opacity] = useState(new Animated.Value(0.0));
@@ -141,7 +167,14 @@ const Snackbar = React.forwardRef<SnackbarRef, SnackbarProps>((props, ref) => {
    */
   const renderChildren = () => {
     if (typeof children === 'string') {
-      return <Text style={computedStyle.text}>{children}</Text>;
+      return (
+        <Text
+          {...getSpecificProps(props, ...textProps)}
+          style={computedStyle.text}
+        >
+          {children}
+        </Text>
+      );
     }
 
     return children;
@@ -174,24 +207,24 @@ const Snackbar = React.forwardRef<SnackbarRef, SnackbarProps>((props, ref) => {
   );
 });
 
-Snackbar.defaultProps = {
-  bg: 'gray900',
-  color: 'white',
-  p: 'lg',
-  m: 'md',
-  rounded: 'md',
-  fontSize: 'md',
-  duration: 4000,
-  onDismiss: () => {},
-  shadow: 2,
-  shadowColor: 'gray500',
-  position: 'absolute',
-  bottom: 0,
-  flexDir: 'row',
-  justifyContent: 'center',
-  alignItems: 'center',
-  alignSelf: 'center',
-  useNativeDriver: false,
-};
+// Snackbar.defaultProps = {
+//   bg: 'gray900',
+//   color: 'white',
+//   p: 'lg',
+//   m: 'md',
+//   rounded: 'md',
+//   fontSize: 'md',
+//   duration: 4000,
+//   onDismiss: () => {},
+//   shadow: 2,
+//   shadowColor: 'gray500',
+//   position: 'absolute',
+//   bottom: 0,
+//   flexDir: 'row',
+//   justifyContent: 'center',
+//   alignItems: 'center',
+//   alignSelf: 'center',
+//   useNativeDriver: false,
+// };
 
 export { Snackbar };

@@ -1,21 +1,21 @@
+import { ViewProps as RNViewProps } from 'react-native';
 import {
-  ViewProps as RNViewProps,
-  ImageSourcePropType as RNImageSourcePropType,
-} from 'react-native';
-
-import {
+  BackgroundPropsType,
+  DimensionPropsType,
+  FlexPropsType,
+  PositionPropsType,
   BorderPropsType,
   SpacingPropsType,
   RoundedPropsType,
   ShadowPropsType,
-} from '../../theme';
-import { Option } from './select.option.component';
+} from '../../types';
+import { SelectOption } from './select.option.component';
 
 export interface CompoundedSelect
   extends React.ForwardRefExoticComponent<
     SelectProps & React.RefAttributes<SelectRef>
   > {
-  Option: typeof Option;
+  Option: typeof SelectOption;
 }
 
 export type SelectRef = {
@@ -28,33 +28,16 @@ export interface SelectProps
     BorderPropsType,
     SpacingPropsType,
     RoundedPropsType,
-    ShadowPropsType {
-  h?: number | string;
+    ShadowPropsType,
+    BackgroundPropsType,
+    FlexPropsType,
+    PositionPropsType,
+    DimensionPropsType {
   title?: string | React.ReactNode;
   message?: string | React.ReactNode;
-  w?: number | string;
-  bg?: string;
-  minH?: number | string;
-  minW?: number | string;
-  bgImg?: RNImageSourcePropType;
+
   showScrollIndicator?: boolean;
-  bgMode?: 'contain' | 'cover' | 'stretch';
-  flex?: number;
-  justifyContent?:
-    | 'flex-start'
-    | 'flex-end'
-    | 'center'
-    | 'space-between'
-    | 'space-around'
-    | 'space-evenly';
-  alignItems?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
-  flexDir?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
-  flexWrap?: 'wrap' | 'nowrap' | 'wrap-reverse';
-  position?: 'absolute' | 'relative';
-  top?: number;
-  right?: number;
-  bottom?: number;
-  left?: number;
+
   multiple?: boolean;
   value: any;
   footer?: React.ReactElement[] | React.ReactElement;

@@ -1,9 +1,10 @@
+import { FlexPropsType } from '../../types';
 import {
   BorderPropsType,
   RoundedPropsType,
   ShadowPropsType,
   SpacingPropsType,
-} from '../../theme';
+} from '../../types';
 
 import CarouselItem from './item.carousel';
 
@@ -16,9 +17,8 @@ export interface CarouselProps
   extends BorderPropsType,
     RoundedPropsType,
     ShadowPropsType,
-    SpacingPropsType {
-  flex?: number;
-  itemsPerPage?: number;
+    SpacingPropsType,
+    Pick<FlexPropsType, 'flex'> {
   showIndicators?: boolean;
   renderIndicators?: (props: CarouselIndicator) => JSX.Element;
 }

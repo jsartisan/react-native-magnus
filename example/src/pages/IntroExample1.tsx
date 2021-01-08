@@ -1,10 +1,14 @@
-import React from "react";
-import { Carousel, Div, Fab, Text } from "react-native-magnus";
-import ExamplePage from "../utils/ExamplePage";
+import { useNavigation } from '@react-navigation/native';
+import React from 'react';
+import { Button, Carousel, Div, Icon, StatusBar } from 'react-native-magnus';
+import ExamplePage from '../utils/ExamplePage';
 
 const IntroExample1: React.FC = () => {
+  const navigation = useNavigation();
+
   return (
     <ExamplePage>
+      <StatusBar translucent backgroundColor="transparent" />
       <Carousel
         flex={1}
         renderIndicators={({ totalPages, selectedPage }) => (
@@ -24,7 +28,7 @@ const IntroExample1: React.FC = () => {
                     w={32}
                     h={6}
                     rounded="circle"
-                    bg={selectedPage === index + 1 ? "black" : "white"}
+                    bg={selectedPage === index + 1 ? 'black' : 'white'}
                     mx="xs"
                     key={index}
                   />
@@ -34,35 +38,46 @@ const IntroExample1: React.FC = () => {
         )}
       >
         <Carousel.Item>
-          <Div flex={1} bg="pink200" px="2xl">
-            <Div flex={1} justifyContent="center">
-              <Text fontSize="5xl">Welcome to our app</Text>
-              <Text fontSize="xl">Welcome to our app</Text>
-            </Div>
-          </Div>
-        </Carousel.Item>
-        <Carousel.Item>
-          <Div flex={1} bg="green200">
-            <Text>2</Text>
-          </Div>
+          <Div flex={1} bg="pink200" />
         </Carousel.Item>
 
         <Carousel.Item>
-          <Div flex={1} bg="blue200">
-            <Text>3</Text>
-          </Div>
+          <Div flex={1} bg="green200" />
+        </Carousel.Item>
+
+        <Carousel.Item>
+          <Div flex={1} bg="blue200" />
         </Carousel.Item>
       </Carousel>
 
-      <Fab
-        // onPress={() => }
-        icon="right"
-        fontSize="2xl"
-        h={50}
-        w={50}
+      <Button
+        position="absolute"
+        rounded="circle"
+        fontSize="6xl"
         shadow="xl"
+        p="xl"
         shadowColor="red500"
-      />
+        bottom={25}
+        right={25}
+      >
+        <Icon name="right" color="white" fontSize="xl" />
+      </Button>
+
+      <Button
+        position="absolute"
+        top={40}
+        left={20}
+        bg="gray100"
+        mt="md"
+        onPress={() => navigation.goBack()}
+      >
+        <Icon
+          name="arrow-left"
+          color="blue500"
+          fontFamily="Feather"
+          fontSize="2xl"
+        />
+      </Button>
     </ExamplePage>
   );
 };

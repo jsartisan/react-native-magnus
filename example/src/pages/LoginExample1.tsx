@@ -1,31 +1,19 @@
-import React from "react";
-import { StatusBar } from "react-native";
-import { useNavigation } from "@react-navigation/native";
-import {
-  Div,
-  Text,
-  Button,
-  Icon,
-  Image,
-  ThemeContext,
-} from "react-native-magnus";
-import ExamplePage from "../utils/ExamplePage";
+import React from 'react';
+import { useNavigation } from '@react-navigation/native';
+import { Div, Text, Button, Icon, Image, StatusBar } from 'react-native-magnus';
+import ExamplePage from '../utils/ExamplePage';
 
 const logoUrl =
-  "https://snack-code-uploads.s3-us-west-1.amazonaws.com/~asset/b679564184bacafa9ab962c3de08ea4c";
+  'https://snack-code-uploads.s3-us-west-1.amazonaws.com/~asset/b679564184bacafa9ab962c3de08ea4c';
 const coverArtUrl =
-  "https://snack-code-uploads.s3-us-west-1.amazonaws.com/~asset/48291e77266322ccd84e4838c8fc72ad";
+  'https://snack-code-uploads.s3-us-west-1.amazonaws.com/~asset/48291e77266322ccd84e4838c8fc72ad';
 
 const LoginExample1: React.FC = () => {
-  const themeContext = React.useContext(ThemeContext);
   const navigation = useNavigation();
 
   return (
     <ExamplePage>
-      <StatusBar
-        barStyle="dark-content"
-        backgroundColor={themeContext.theme.colors.loginExample1Bg}
-      />
+      <StatusBar barStyle="dark-content" backgroundColor="loginExample1Bg" />
       <Div flex={1}>
         <Div px="xl" pt="2xl" flex={1} bg="loginExample1Bg">
           <Div row>

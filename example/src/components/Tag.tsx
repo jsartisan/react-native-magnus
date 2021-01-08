@@ -1,9 +1,9 @@
-import React from "react";
-import { ScrollView } from "react-native";
-import { Div, Icon, Tag } from "react-native-magnus";
-import ExampleHeader from "../utils/ExampleHeader";
-import ExamplePage from "../utils/ExamplePage";
-import ExampleSection from "../utils/ExampleSection";
+import React from 'react';
+import { ScrollView } from 'react-native';
+import { Div, Icon, Tag } from 'react-native-magnus';
+import ExampleHeader from '../utils/ExampleHeader';
+import ExamplePage from '../utils/ExamplePage';
+import ExampleSection from '../utils/ExampleSection';
 
 const TagComponent: React.FC = () => {
   return (
@@ -17,10 +17,7 @@ const TagComponent: React.FC = () => {
 
         <ExampleSection name="with suffix/prefix">
           <Div flexDir="row">
-            <Tag
-              ml="sm"
-              suffix={<Icon name="close" color="gray700" fontSize="md" />}
-            >
+            <Tag suffix={<Icon name="close" color="gray700" fontSize="md" />}>
               Close
             </Tag>
             <Tag
@@ -34,7 +31,13 @@ const TagComponent: React.FC = () => {
 
         <ExampleSection name="customizations">
           <Div flexDir="row">
-            <Tag ml="sm" bg="yellow300" borderColor="yellow700" borderWidth={1}>
+            <Tag
+              bg="yellow300"
+              borderColor="yellow700"
+              borderWidth={1}
+              fontWeight="bold"
+              textTransform="uppercase"
+            >
               Custom Tag 1
             </Tag>
             <Tag ml="sm" bg="blue500" borderColor="blue700" borderWidth={1}>

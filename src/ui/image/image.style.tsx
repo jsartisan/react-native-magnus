@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { ThemeType } from '../../theme';
 
 import {
   getThemeProperty,
@@ -9,6 +10,7 @@ import {
   createBorderColorStyles,
   createBorderWidthStyles,
 } from '../../theme/theme.service';
+import { ImageProps } from './image.type';
 
 /**
  * computed style
@@ -16,7 +18,7 @@ import {
  * @param theme
  * @param props
  */
-export const getStyle = (theme: any, props: any) => {
+export const getStyle = (theme: ThemeType, props: ImageProps) => {
   const computedStyle: any = {};
 
   computedStyle.image = {
@@ -43,6 +45,7 @@ export const getStyle = (theme: any, props: any) => {
   if (props.style) {
     computedStyle.image = {
       ...computedStyle.image,
+      // @ts-ignore
       ...props.style,
     };
   }

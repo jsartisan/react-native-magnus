@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { ThemeType } from '../../theme';
 
 import {
   getThemeProperty,
@@ -6,7 +7,10 @@ import {
   createBorderWidthStyles,
   createBorderColorStyles,
   createBorderRadiusStyles,
+  getThemeFontFamily,
+  getFontWeight,
 } from '../../theme/theme.service';
+import { TextProps } from './text.type';
 
 /**
  * computed style
@@ -14,7 +18,7 @@ import {
  * @param theme
  * @param props
  */
-export const getStyle = (theme: any, props: any) => {
+export const getStyle = (theme: ThemeType, props: TextProps) => {
   const computedStyle: any = {};
 
   computedStyle.text = {
@@ -25,7 +29,10 @@ export const getStyle = (theme: any, props: any) => {
     maxHeight: props.maxH,
     maxWidth: props.maxW,
     flex: props.flex,
-    fontWeight: props.fontWeight,
+    backgroundColor: getThemeProperty(theme.colors, props.bg),
+    overflow: props.overflow,
+    opacity: props.opacity,
+
     textDecorationLine: props.textDecorLine,
     textDecorationStyle: props.textDecorStyle,
     letterSpacing: props.letterSpacing,
@@ -36,12 +43,29 @@ export const getStyle = (theme: any, props: any) => {
       : 1.5 * getThemeProperty(theme.fontSize, props.fontSize),
     color: getThemeProperty(theme.colors, props.color),
     fontSize: getThemeProperty(theme.fontSize, props.fontSize),
-    backgroundColor: getThemeProperty(theme.colors, props.bg),
     textAlign: props.textAlign,
     textTransform: props.textTransform,
-    overflow: props.overflow,
-    opacity: props.opacity,
     textDecorationColor: getThemeProperty(theme.colors, props.textDecorColor),
+    textShadowColor: getThemeProperty(theme.colors, props.textShadowColor),
+    textShadowOffset: {
+      width: getThemeProperty(theme.shadow, props.textShadowOffset),
+      height: getThemeProperty(theme.shadow, props.textShadowOffset),
+    },
+    textShadowRadius: getThemeProperty(
+      theme.borderRadius,
+      props.textShadowRadius
+    ),
+
+    fontWeight: getFontWeight(
+      theme.fontFamily,
+      props.fontFamily,
+      props.fontWeight
+    ),
+
+    fontFamily:
+      props.fontFamily ??
+      getThemeFontFamily(theme.fontFamily, props.fontWeight, props.fontFamily),
+
     ...createBorderWidthStyles(props),
     ...createSpacingStyles(props, theme.spacing),
     ...createBorderColorStyles(props, theme.colors),
@@ -52,6 +76,7 @@ export const getStyle = (theme: any, props: any) => {
   if (props.style) {
     computedStyle.text = {
       ...computedStyle.text,
+      // @ts-ignore
       ...props.style,
     };
   }

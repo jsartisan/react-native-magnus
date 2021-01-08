@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { ThemeType } from '../../theme';
 
 import {
   getThemeProperty,
@@ -9,6 +10,7 @@ import {
   createBorderColorStyles,
   createBorderRadiusStyles,
 } from '../../theme/theme.service';
+import { DivProps } from './div.type';
 
 /**
  * computed style
@@ -16,7 +18,7 @@ import {
  * @param theme
  * @param props
  */
-export const getStyle = (theme: any, props: any) => {
+export const getStyle = (theme: ThemeType, props: DivProps) => {
   const computedStyle: any = {};
 
   computedStyle.div = {
@@ -53,6 +55,7 @@ export const getStyle = (theme: any, props: any) => {
   if (props.style) {
     computedStyle.div = {
       ...computedStyle.div,
+      // @ts-ignore
       ...props.style,
     };
   }

@@ -1,16 +1,15 @@
 import * as React from 'react';
 import { useState } from 'react';
+import { useDefaultProps } from '../../utilities/useDefaultProps';
 
 import { Div } from '../div/div.component';
-import { DivProps } from '../div/div.type';
+import { CollapseGroupProps } from './collapse.type';
 
-interface ButtonProps extends DivProps {
-  onChange?: (value: any) => void;
-  defaultActive?: string | number;
-  children: React.ReactElement[] | React.ReactElement;
-}
+const CollapseGroup: React.FunctionComponent<CollapseGroupProps> = (
+  incomingProps
+) => {
+  const props = useDefaultProps('CollapseGroup', incomingProps);
 
-const CollapseGroup: React.FunctionComponent<ButtonProps> = (props) => {
   const [activeId, setActiveId] = useState(props.defaultActive || null);
   const { children, onChange: onChangeProp, ...rest } = props;
 

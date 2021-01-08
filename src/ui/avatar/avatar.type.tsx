@@ -9,7 +9,13 @@ import {
   SpacingPropsType,
   RoundedPropsType,
   ShadowPropsType,
-} from '../../theme';
+  BackgroundPropsType,
+  FlexPropsType,
+  OpacityPropsType,
+  PositionPropsType,
+  TextPropsType,
+  ZIndexPropsType,
+} from '../../types';
 
 export type CompoundedAvatar<P> = React.FunctionComponent<P> & {
   Group: typeof AvatarGroup;
@@ -20,24 +26,13 @@ export interface AvatarProps
     BorderPropsType,
     SpacingPropsType,
     RoundedPropsType,
-    ShadowPropsType {
+    ShadowPropsType,
+    PositionPropsType,
+    ZIndexPropsType,
+    OpacityPropsType,
+    Pick<FlexPropsType, 'alignSelf'>,
+    Pick<TextPropsType, 'color' | 'fontSize' | 'fontWeight' | 'fontFamily'>,
+    Pick<BackgroundPropsType, 'bg'> {
   size?: number;
-  color?: string;
-  bg?: string;
   source?: RNImageSourcePropType;
-  fontSize?: string;
-  position?: 'absolute' | 'relative';
-  top?: number;
-  right?: number;
-  bottom?: number;
-  left?: number;
-  alignSelf?:
-    | 'auto'
-    | 'flex-start'
-    | 'flex-end'
-    | 'center'
-    | 'stretch'
-    | 'baseline';
-  zIndex?: number;
-  opacity?: number;
 }

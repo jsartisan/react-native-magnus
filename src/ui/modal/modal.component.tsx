@@ -7,8 +7,16 @@ import { getStyle } from './modal.style';
 import { ThemeContext } from '../../theme';
 import { Div } from '../div/div.component';
 import { ModalProps, ModalRef } from './modal.type';
+import { useDefaultProps } from '../../utilities/useDefaultProps';
 
-const Modal = React.forwardRef<ModalRef, ModalProps>((props, ref) => {
+const Modal = React.forwardRef<ModalRef, ModalProps>((incomingProps, ref) => {
+  const props = useDefaultProps('Modal', incomingProps, {
+    bg: 'white',
+    h: '100%',
+    isVisible: false,
+    justifyContent: 'flex-end',
+  });
+
   const {
     bg,
     h,
@@ -46,7 +54,7 @@ const Modal = React.forwardRef<ModalRef, ModalProps>((props, ref) => {
   } = props;
   const [visible, setVisible] = useState(isVisible);
   const { theme } = useContext(ThemeContext);
-  const computedStyle = getStyle(theme, props);
+  const computedStyle = getStyle(theme, props as ModalProps);
 
   useEffect(() => {
     if ('isVisible' in props) {
@@ -75,11 +83,11 @@ const Modal = React.forwardRef<ModalRef, ModalProps>((props, ref) => {
   );
 });
 
-Modal.defaultProps = {
-  bg: 'white',
-  h: '100%',
-  isVisible: false,
-  justifyContent: 'flex-end',
-};
+// Modal.defaultProps = {
+//   bg: 'white',
+//   h: '100%',
+//   isVisible: false,
+//   justifyContent: 'flex-end',
+// };
 
 export { Modal };

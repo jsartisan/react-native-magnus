@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { ThemeType } from '../../theme';
 
 import {
   getThemeProperty,
@@ -9,6 +10,7 @@ import {
   createBorderColorStyles,
   createBorderWidthStyles,
 } from '../../theme/theme.service';
+import { ButtonProps } from './button.type';
 
 /**
  * computed style
@@ -16,7 +18,7 @@ import {
  * @param theme
  * @param props
  */
-export const getStyle = (theme: any, props: any) => {
+export const getStyle = (theme: ThemeType, props: ButtonProps) => {
   const computedStyle: any = {};
 
   computedStyle.button = {
@@ -42,12 +44,12 @@ export const getStyle = (theme: any, props: any) => {
     backgroundColor: getThemeProperty(theme.colors, props.bg),
   };
 
-  computedStyle.text = {
-    fontWeight: props.fontWeight,
-    color: getThemeProperty(theme.colors, props.color),
-    fontSize: getThemeProperty(theme.fontSize, props.fontSize),
-    lineHeight: getThemeProperty(theme.fontSize, props.fontSize) * 1.2,
-  };
+  // computedStyle.text = {
+  //   fontWeight: props.fontWeight,
+  //   color: getThemeProperty(theme.colors, props.color),
+  //   fontSize: getThemeProperty(theme.fontSize, props.fontSize),
+  //   lineHeight: getThemeProperty(theme.fontSize, props.fontSize) * 1.2,
+  // };
 
   computedStyle.loadingContainer = {
     alignItems: 'center',
@@ -93,6 +95,7 @@ export const getStyle = (theme: any, props: any) => {
   if (props.style) {
     computedStyle.container = {
       ...computedStyle.container,
+      // @ts-ignore
       ...props.style,
     };
   }

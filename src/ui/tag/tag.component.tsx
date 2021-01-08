@@ -2,15 +2,32 @@ import * as React from 'react';
 import { useContext } from 'react';
 import {
   View as RNView,
-  Text as RNText,
   TouchableWithoutFeedback as RNButton,
 } from 'react-native';
 
 import { getStyle } from './tag.style';
 import { ThemeContext } from '../../theme';
 import { TagProps } from './tag.type';
+import { Text } from '../text/text.component';
+import { textProps } from '../../types';
+import { getSpecificProps } from '../../utilities';
+import { useDefaultProps } from '../../utilities/useDefaultProps';
 
-const Tag: React.FunctionComponent<TagProps> = (props: TagProps) => {
+const Tag: React.FunctionComponent<TagProps> = (incomingProps) => {
+  const props = useDefaultProps('Tag', incomingProps, {
+    px: 'lg',
+    py: 'sm',
+    bg: 'gray400',
+    color: 'black',
+    fontSize: 'lg',
+    textAlign: 'auto',
+    textTransform: 'none',
+    rounded: 'md',
+    borderWidth: 0,
+    borderColor: 'transparent',
+    onPress: () => {},
+  });
+
   const {
     h,
     w,
@@ -56,25 +73,25 @@ const Tag: React.FunctionComponent<TagProps> = (props: TagProps) => {
     <RNButton onPress={onPress}>
       <RNView style={computedStyle.div} {...rest}>
         {prefix && <RNView style={computedStyle.prefix}>{prefix}</RNView>}
-        <RNText style={computedStyle.text}>{children}</RNText>
+        <Text {...getSpecificProps(props, ...textProps)}>{children}</Text>
         {suffix && <RNView style={computedStyle.suffix}>{suffix}</RNView>}
       </RNView>
     </RNButton>
   );
 };
 
-Tag.defaultProps = {
-  px: 'lg',
-  py: 'sm',
-  bg: 'gray400',
-  color: 'black',
-  fontSize: 'lg',
-  textAlign: 'auto',
-  textTransform: 'none',
-  rounded: 'md',
-  borderWidth: 0,
-  borderColor: 'transparent',
-  onPress: () => {},
-};
+// Tag.defaultProps = {
+//   px: 'lg',
+//   py: 'sm',
+//   bg: 'gray400',
+//   color: 'black',
+//   fontSize: 'lg',
+//   textAlign: 'auto',
+//   textTransform: 'none',
+//   rounded: 'md',
+//   borderWidth: 0,
+//   borderColor: 'transparent',
+//   onPress: () => {},
+// };
 
 export { Tag };

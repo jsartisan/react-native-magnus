@@ -46,7 +46,29 @@ const InputComponent: React.FC = () => {
         </ExampleSection>
 
         <ExampleSection name="center aligned">
-          <Input placeholder="Email" mt="md" textAlign="center" />
+          <Input
+            placeholder="Email"
+            mt="md"
+            textAlign="center"
+            selectionColor="gray200"
+          />
+        </ExampleSection>
+
+        <ExampleSection name="text props">
+          <Input
+            placeholder="Email"
+            mt="md"
+            fontFamily="OpenSans-Light"
+            fontSize="4xl"
+            textTransform="uppercase"
+          />
+          <Input
+            placeholder="Email"
+            mt="md"
+            fontWeight="bold"
+            fontSize="4xl"
+            textTransform="uppercase"
+          />
         </ExampleSection>
 
         <ExampleSection name="center aligned + prefix + suffix">
@@ -125,13 +147,14 @@ const InputComponent: React.FC = () => {
                 <Button
                   mr="md"
                   bg="transparent"
+                  fontWeight="bold"
+                  color="black"
+                  textTransform="uppercase"
                   onPress={() => selectCountryCodeRef.current?.open()}
                 >
-                  <Text fontWeight="bold" textTransform="uppercase">
-                    {selectedCountryCode
-                      ? `+${selectedCountryCode.code}`
-                      : 'Choose'}
-                  </Text>
+                  {selectedCountryCode
+                    ? `+${selectedCountryCode.code}`
+                    : 'Choose'}
                 </Button>
               </Div>
             }

@@ -10,8 +10,16 @@ import {
 import { getStyle } from './input.style';
 import { TextareaProps } from './textarea.type';
 import { ThemeContext } from '../../theme';
+import { useDefaultProps } from '../../utilities/useDefaultProps';
 
-const Textarea: React.FunctionComponent<TextareaProps> = (props) => {
+const Textarea: React.FunctionComponent<TextareaProps> = (incomingProps) => {
+  const props = useDefaultProps('Textarea', incomingProps, {
+    minH: 100,
+    p: 'lg',
+    borderColor: 'gray500',
+    borderWidth: 1,
+  });
+
   const {
     h,
     w,
@@ -24,9 +32,6 @@ const Textarea: React.FunctionComponent<TextareaProps> = (props) => {
     onBlur,
     onFocus,
     children,
-    borderColor,
-    borderWidth,
-    borderRadius,
     focusBorderColor,
     ...rest
   } = props;
@@ -71,11 +76,11 @@ const Textarea: React.FunctionComponent<TextareaProps> = (props) => {
   );
 };
 
-Textarea.defaultProps = {
-  minH: 100,
-  p: { x: 12 },
-  borderColor: 'gray500',
-  borderWidth: 1,
-};
+// Textarea.defaultProps = {
+//   minH: 100,
+//   p: 'lg',
+//   borderColor: 'gray500',
+//   borderWidth: 1,
+// };
 
 export { Textarea };

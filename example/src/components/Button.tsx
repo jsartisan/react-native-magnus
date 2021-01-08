@@ -1,10 +1,10 @@
-import React from "react";
-import { ScrollView } from "react-native";
-import { Button, Div, Icon } from "react-native-magnus";
+import React from 'react';
+import { ScrollView } from 'react-native';
+import { Button, Div, Icon } from 'react-native-magnus';
 
-import ExamplePage from "../utils/ExamplePage";
-import ExampleHeader from "../utils/ExampleHeader";
-import ExampleSection from "../utils/ExampleSection";
+import ExamplePage from '../utils/ExamplePage';
+import ExampleHeader from '../utils/ExampleHeader';
+import ExampleSection from '../utils/ExampleSection';
 
 const ButtonComponent: React.FC = () => {
   return (
@@ -16,6 +16,26 @@ const ButtonComponent: React.FC = () => {
           <Button>Button</Button>
         </ExampleSection>
 
+        <ExampleSection name="text props">
+          <Div flexDir="row">
+            <Button
+              fontWeight="bold"
+              mr="sm"
+              fontSize="lg"
+              textTransform="uppercase"
+            >
+              Button
+            </Button>
+
+            <Button
+              fontSize="lg"
+              textTransform="uppercase"
+              fontFamily="OpenSans-Light"
+            >
+              Button
+            </Button>
+          </Div>
+        </ExampleSection>
         <ExampleSection name="background">
           <Div flexDir="row">
             <Button mr="sm">Default</Button>
@@ -33,7 +53,6 @@ const ButtonComponent: React.FC = () => {
             </Button>
           </Div>
         </ExampleSection>
-
         <ExampleSection name="border">
           <Div flexDir="row">
             <Button
@@ -78,7 +97,6 @@ const ButtonComponent: React.FC = () => {
             </Button>
           </Div>
         </ExampleSection>
-
         <ExampleSection name="border radius">
           <Div flexDir="row" flexWrap="wrap">
             <Button rounded="sm" mr="sm">
@@ -97,12 +115,11 @@ const ButtonComponent: React.FC = () => {
               2x Extra Large
             </Button>
 
-            <Button rounded="circle" mr="sm">
-              <Icon name="heart" color="white" />
+            <Button rounded="circle" mr="sm" mt="sm">
+              <Icon name="heart" color="white" fontSize="3xl" />
             </Button>
           </Div>
         </ExampleSection>
-
         <ExampleSection name="icon buttons">
           <Div flexDir="row" flexWrap="wrap" mt="sm">
             <Button bg="white" rounded="circle" mr="sm" p="xl">
@@ -142,7 +159,6 @@ const ButtonComponent: React.FC = () => {
             </Button>
           </Div>
         </ExampleSection>
-
         <ExampleSection name="button with icons">
           <Div flexDir="row">
             <Button
@@ -162,7 +178,6 @@ const ButtonComponent: React.FC = () => {
             </Button>
           </Div>
         </ExampleSection>
-
         <ExampleSection name="full width button">
           <Div mt="sm">
             <Button block>Full width button</Button>
@@ -182,7 +197,6 @@ const ButtonComponent: React.FC = () => {
             </Button>
           </Div>
         </ExampleSection>
-
         <ExampleSection name="states">
           <Button mt="sm" block loading>
             Loading

@@ -8,8 +8,23 @@ import {
 import { DivProps } from './div.type';
 import { getStyle } from './div.style';
 import { ThemeContext } from '../../theme';
+import { useDefaultProps } from '../../utilities/useDefaultProps';
 
-const Div: React.FunctionComponent<DivProps> = (props: DivProps) => {
+const Div: React.FunctionComponent<DivProps> = (incomingProps) => {
+  const props = useDefaultProps('Div', incomingProps, {
+    bg: 'transparent',
+    flexDir: 'column',
+    flexWrap: 'nowrap',
+    rounded: 'none',
+    shadow: 'none',
+    shadowColor: 'gray900',
+    position: 'relative',
+    bgMode: 'cover',
+    pointerEvents: 'auto',
+    row: false,
+    borderStyle: 'solid',
+  });
+
   const {
     bg,
     h,
@@ -92,18 +107,18 @@ const Div: React.FunctionComponent<DivProps> = (props: DivProps) => {
   );
 };
 
-Div.defaultProps = {
-  bg: 'transparent',
-  flexDir: 'column',
-  flexWrap: 'nowrap',
-  rounded: 'none',
-  shadow: 'none',
-  shadowColor: 'gray900',
-  position: 'relative',
-  bgMode: 'cover',
-  pointerEvents: 'auto',
-  row: false,
-  borderStyle: 'solid',
-};
+// Div.defaultProps = {
+//   bg: 'transparent',
+//   flexDir: 'column',
+//   flexWrap: 'nowrap',
+//   rounded: 'none',
+//   shadow: 'none',
+//   shadowColor: 'gray900',
+//   position: 'relative',
+//   bgMode: 'cover',
+//   pointerEvents: 'auto',
+//   row: false,
+//   borderStyle: 'solid',
+// };
 
 export { Div };

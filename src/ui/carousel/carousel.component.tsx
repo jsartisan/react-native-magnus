@@ -1,18 +1,18 @@
 import React from 'react';
 import { NativeScrollEvent, NativeSyntheticEvent } from 'react-native';
+import { useDefaultProps } from '../../utilities/useDefaultProps';
 import { Div } from '../div/div.component';
 import { ScrollDiv } from '../scrolldiv/scrolldiv.component';
 
 import { CarouselProps, CompoundedCarousel } from './carousel.type';
 import CarouselItem from './item.carousel';
 
-const Carousel: CompoundedCarousel<CarouselProps> = ({
-  children,
-  itemsPerPage = 1,
-  renderIndicators,
-  showIndicators = true,
-  ...props
-}) => {
+const Carousel: CompoundedCarousel<CarouselProps> = (incomingProps) => {
+  const props = useDefaultProps('Carousel', incomingProps, {
+    showIndicators: true,
+  });
+
+  const { children, renderIndicators, showIndicators } = props;
   const [selectedPage, setSelectedPage] = React.useState(1);
   const [totalPages, setTotalPages] = React.useState(1);
   const [totalContentWidth, setTotalContentWidth] = React.useState(0);
@@ -41,14 +41,14 @@ const Carousel: CompoundedCarousel<CarouselProps> = ({
     setTotalContentWidth(width);
     // initialize total pages
     const totalItems = items.length;
-    setTotalPages(Math.ceil(totalItems / itemsPerPage));
+    setTotalPages(totalItems);
   };
 
   const getPage = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
     const widthOffset = event.nativeEvent.contentOffset.x;
 
     const widthOfEachItem = totalContentWidth / totalPages;
-    const pageWidth = widthOfEachItem * itemsPerPage;
+    // const pageWidth = widthOfEachItem * itemsPerPage;
 
     for (let page = 1; page <= totalPages; page++) {
       if (widthOffset + 1 < widthOfEachItem * page) {
@@ -94,11 +94,11 @@ const Carousel: CompoundedCarousel<CarouselProps> = ({
         {...props}
         horizontal={true}
         contentContainerStyle={{
-          width: `${(100 / itemsPerPage) * items.length}%`,
+          width: `${100 * totalPages}%`,
           flex: 1,
         }}
         showsHorizontalScrollIndicator={false}
-        onContentSizeChange={(w, h) => init(w)}
+        onContentSizeChange={(w, _h) => init(w)}
         onScroll={(data) => {
           setTotalContentWidth(data.nativeEvent.contentSize.width);
           setSelectedPage(getPage(data));

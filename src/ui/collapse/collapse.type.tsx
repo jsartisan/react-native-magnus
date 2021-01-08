@@ -15,11 +15,16 @@ export interface CollapseProps extends DivProps {
   active?: boolean;
   defaultActive?: boolean;
   onChange?: (value: any) => void;
-  children: React.ReactNode[] | React.ReactNode;
 }
 
 export interface CollapseBodyProps extends DivProps {
   expanded?: boolean;
+}
+
+export interface CollapseGroupProps extends DivProps {
+  onChange?: (value: any) => void;
+  defaultActive?: string | number;
+  children: React.ReactElement[] | React.ReactElement;
 }
 
 export interface CollapseHeaderProps extends ButtonProps {

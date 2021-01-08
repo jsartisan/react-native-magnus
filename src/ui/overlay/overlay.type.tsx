@@ -1,34 +1,28 @@
 import { ModalProps as RNModalProps } from 'react-native';
-
-import { SpacingPropsType, RoundedPropsType } from '../../theme';
+import {
+  BackgroundPropsType,
+  DimensionPropsType,
+  FlexPropsType,
+  OverlayPropsType,
+  SpacingPropsType,
+  RoundedPropsType,
+} from '../../types';
 
 export interface OverlayRef {
-  close: any;
-  open: any;
+  close: () => void;
+  open: () => void;
 }
 
 export interface OverlayProps
   extends RNModalProps,
     SpacingPropsType,
-    RoundedPropsType {
-  bg?: string;
-  w?: string | number;
-  h?: number | string;
-  flex?: number;
-  minH?: number | string;
-  minW?: number | string;
-  justifyContent?:
-    | 'flex-start'
-    | 'flex-end'
-    | 'center'
-    | 'space-between'
-    | 'space-around'
-    | 'space-evenly';
-  alignItems?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
-  flexDir?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
-  flexWrap?: 'wrap' | 'nowrap' | 'wrap-reverse';
-  children: React.ReactElement[] | React.ReactElement;
+    RoundedPropsType,
+    OverlayPropsType,
+    Pick<DimensionPropsType, 'w' | 'h' | 'minH' | 'minW'>,
+    Pick<
+      FlexPropsType,
+      'flex' | 'justifyContent' | 'alignItems' | 'flexDir' | 'flexWrap'
+    >,
+    Pick<BackgroundPropsType, 'bg'> {
   isVisible?: boolean;
-  overlayColor?: string;
-  overlayOpacity?: number;
 }
