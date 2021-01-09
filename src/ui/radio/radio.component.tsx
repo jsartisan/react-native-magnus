@@ -25,6 +25,7 @@ const Radio: CompoundedRadio<RadioProps> = (incomingProps) => {
     highlightBg: 'gray300',
     bg: 'transparent',
     p: 'none',
+    checked: false,
     color: 'white',
     rounded: 'circle',
     loading: false,

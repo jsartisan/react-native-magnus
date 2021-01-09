@@ -7,7 +7,7 @@ export function withDefaultProps<T>(
   componentName: keyof NonNullable<ThemeType['components']>
 ) {
   return function wrapWithStyledComponent(defaultProps: Partial<T>) {
-    class ReturnedComponent extends React.PureComponent {
+    return class extends React.PureComponent {
       static contextType = ThemeContext;
       context!: React.ContextType<typeof ThemeContext>;
 
@@ -25,8 +25,6 @@ export function withDefaultProps<T>(
         // @ts-ignore
         return <WrappedComponent {...mergedProps} />;
       }
-    }
-
-    return ReturnedComponent;
+    };
   };
 }

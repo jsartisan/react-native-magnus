@@ -8,7 +8,7 @@ import { useDefaultProps } from '../../utilities/useDefaultProps';
 const RadioGroup: React.FunctionComponent<RadioGroupProps> = (
   incomingProps
 ) => {
-  const props = useDefaultProps('RadioGroup', incomingProps);
+  const props = useDefaultProps('RadioGroup', incomingProps, {});
 
   const [value, setValue] = useState(props.value || props.defaultValue || null);
   const {

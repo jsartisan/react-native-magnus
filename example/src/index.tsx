@@ -27,6 +27,9 @@ const theme: Partial<ThemeType> = {
       fontSize: 'lg',
       textTransform: 'uppercase',
     },
+    Fab: {
+      bg: 'red500',
+    },
   },
 
   colors: {
