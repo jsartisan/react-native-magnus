@@ -13,140 +13,161 @@ import { getStyle } from './input.style';
 import { InputProps } from './input.type';
 import { ThemeContext } from '../../theme';
 import { getThemeProperty } from '../../theme/theme.service';
+import { useDefaultProps } from '../../utilities/useDefaultProps';
 
-const Input = React.forwardRef<RNTextInput, InputProps>((props, ref) => {
-  const {
-    h,
-    w,
-    m,
-    mt,
-    mr,
-    mb,
-    ml,
-    ms,
-    p,
-    pr,
-    pt,
-    pb,
-    pl,
-    bg,
-    minH,
-    minW,
-    color: colorProp,
-    suffix,
-    prefix,
-    style,
-    onBlur,
-    loading,
-    onFocus,
-    rounded,
-    roundedTop,
-    roundedRight,
-    roundedBottom,
-    roundedLeft,
-    children,
-    loaderSize,
-    fontSize,
-    borderColor,
-    borderBottomColor,
-    borderLeftColor,
-    borderTopColor,
-    borderRightColor,
-    borderWidth,
-    borderLeftWidth,
-    borderRightWidth,
-    borderBottomWidth,
-    borderTopWidth,
-    borderEndWidth,
-    loaderColor,
-    focusBorderColor,
-    shadow,
-    flex,
-    shadowColor,
-    zIndex,
-    opacity,
-    placeholderTextColor,
-    ...rest
-  } = props;
-  const { theme } = useContext(ThemeContext);
-  const [isFocussed, setIsFocussed] = useState(false);
-  const computedStyle = getStyle(theme, props, { isFocussed });
-  const placeholderColor = placeholderTextColor
-    ? color(getThemeProperty(theme.colors, placeholderTextColor))
-        .alpha(0.4)
-        .rgb()
-        .string()
-    : color(getThemeProperty(theme.colors, colorProp))
-        .alpha(0.4)
-        .rgb()
-        .string();
+const Input = React.forwardRef<RNTextInput, InputProps>(
+  (incomingProps, ref) => {
+    const props = useDefaultProps('Input', incomingProps, {
+      px: 'xl',
+      py: 'lg',
+      fontSize: 'lg',
+      borderWidth: 0,
+      bg: 'white',
+      borderColor: 'gray400',
+      rounded: 'md',
+      loading: false,
+      color: 'gray800',
+      shadow: 0,
+      shadowColor: 'gray500',
+      loaderSize: '3xl',
+      loaderColor: 'blue700',
+    });
 
-  /**
-   * on focus input
-   *
-   * @param e
-   */
-  const onFocusInput = (e: NativeSyntheticEvent<TextInputFocusEventData>) => {
-    setIsFocussed(true);
+    const {
+      h,
+      w,
+      m,
+      mt,
+      mr,
+      mb,
+      ml,
+      ms,
+      p,
+      pr,
+      pt,
+      pb,
+      pl,
+      bg,
+      minH,
+      minW,
+      color: colorProp,
+      suffix,
+      prefix,
+      style,
+      onBlur,
+      loading,
+      onFocus,
+      rounded,
+      roundedTop,
+      roundedRight,
+      roundedBottom,
+      roundedLeft,
+      children,
+      loaderSize,
+      fontSize,
+      borderColor,
+      borderBottomColor,
+      borderLeftColor,
+      borderTopColor,
+      borderRightColor,
+      borderWidth,
+      borderLeftWidth,
+      borderRightWidth,
+      borderBottomWidth,
+      borderTopWidth,
+      borderEndWidth,
+      loaderColor,
+      focusBorderColor,
+      shadow,
+      flex,
+      shadowColor,
+      zIndex,
+      opacity,
+      placeholderTextColor,
+      selectionColor,
+      ...rest
+    } = props;
+    const { theme } = useContext(ThemeContext);
+    const [isFocussed, setIsFocussed] = useState(false);
+    const computedStyle = getStyle(theme, props, { isFocussed });
+    const placeholderColor = placeholderTextColor
+      ? color(getThemeProperty(theme.colors, placeholderTextColor))
+          .alpha(0.4)
+          .rgb()
+          .string()
+      : color(getThemeProperty(theme.colors, colorProp))
+          .alpha(0.4)
+          .rgb()
+          .string();
 
-    if (onFocus) {
-      onFocus(e);
-    }
-  };
+    /**
+     * on focus input
+     *
+     * @param e
+     */
+    const onFocusInput = (e: NativeSyntheticEvent<TextInputFocusEventData>) => {
+      setIsFocussed(true);
 
-  /**
-   * on blur input
-   *
-   * @param e
-   */
-  const onBlurInput = (e: NativeSyntheticEvent<TextInputFocusEventData>) => {
-    setIsFocussed(false);
+      if (onFocus) {
+        onFocus(e);
+      }
+    };
 
-    if (onBlur) {
-      onBlur(e);
-    }
-  };
+    /**
+     * on blur input
+     *
+     * @param e
+     */
+    const onBlurInput = (e: NativeSyntheticEvent<TextInputFocusEventData>) => {
+      setIsFocussed(false);
 
-  return (
-    <RNView style={computedStyle.container}>
-      {prefix && <RNView style={computedStyle.prefix}>{prefix}</RNView>}
-      <RNTextInput
-        ref={ref}
-        onFocus={onFocusInput}
-        onBlur={onBlurInput}
-        style={computedStyle.input}
-        {...rest}
-        placeholderTextColor={placeholderColor}
-      />
-      {!loading && suffix && (
-        <RNView style={computedStyle.suffix}>{suffix}</RNView>
-      )}
-      {loading && (
-        <RNView style={computedStyle.suffix}>
-          <RNActivityIndicator
-            size={getThemeProperty(theme.fontSize, loaderSize)}
-            color={getThemeProperty(theme.colors, loaderColor)}
-          />
-        </RNView>
-      )}
-    </RNView>
-  );
-});
+      if (onBlur) {
+        onBlur(e);
+      }
+    };
 
-Input.defaultProps = {
-  px: 'xl',
-  py: 'lg',
-  fontSize: 'lg',
-  borderWidth: 0,
-  bg: 'white',
-  borderColor: 'gray400',
-  rounded: 'md',
-  loading: false,
-  color: 'gray800',
-  shadow: 0,
-  shadowColor: 'gray500',
-  loaderSize: '3xl',
-  loaderColor: 'blue700',
-};
+    return (
+      <RNView style={computedStyle.container}>
+        {prefix && <RNView style={computedStyle.prefix}>{prefix}</RNView>}
+        <RNTextInput
+          ref={ref}
+          onFocus={onFocusInput}
+          onBlur={onBlurInput}
+          selectionColor={getThemeProperty(theme.colors, props.selectionColor)}
+          {...rest}
+          style={computedStyle.input}
+          placeholderTextColor={placeholderColor}
+        />
+        {!loading && suffix && (
+          <RNView style={computedStyle.suffix}>{suffix}</RNView>
+        )}
+        {loading && (
+          <RNView style={computedStyle.suffix}>
+            <RNActivityIndicator
+              size={getThemeProperty(theme.fontSize, loaderSize)}
+              color={getThemeProperty(theme.colors, loaderColor)}
+            />
+          </RNView>
+        )}
+      </RNView>
+    );
+  }
+);
+
+// Input.defaultProps = {
+//   px: 'xl',
+//   py: 'lg',
+//   fontSize: 'lg',
+//   borderWidth: 0,
+//   bg: 'white',
+//   borderColor: 'gray400',
+//   rounded: 'md',
+//   loading: false,
+//   color: 'gray800',
+//   shadow: 0,
+//   shadowColor: 'gray500',
+//   loaderSize: '3xl',
+//   loaderColor: 'blue700',
+// };
 
 export { Input };

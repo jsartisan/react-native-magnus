@@ -1,17 +1,15 @@
 import * as React from 'react';
 import { useState } from 'react';
+import { useDefaultProps } from '../../utilities/useDefaultProps';
 
 import { Div } from '../div/div.component';
-import { DivProps } from '../div/div.type';
+import { CheckboxGroupProps } from './checkbox.type';
 
-interface ButtonProps extends DivProps {
-  onChange?: (value: any[]) => void;
-  value?: any[];
-  defaultValue?: any[];
-  children: React.ReactElement[] | React.ReactElement;
-}
+const CheckboxGroup: React.FunctionComponent<CheckboxGroupProps> = (
+  incomingProps
+) => {
+  const props = useDefaultProps('CheckboxGroup', incomingProps, {});
 
-const CheckboxGroup: React.FunctionComponent<ButtonProps> = (props) => {
   const [value, setValue] = useState(props.value || props.defaultValue || []);
   const {
     children,

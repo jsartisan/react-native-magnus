@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { ThemeType } from '../../theme';
 
 import {
   getThemeProperty,
@@ -7,6 +8,7 @@ import {
   createBorderColorStyles,
   createBorderRadiusStyles,
 } from '../../theme/theme.service';
+import { ScrollDivProps } from './scrolldiv.type';
 
 /**
  * computed style
@@ -14,7 +16,7 @@ import {
  * @param theme
  * @param props
  */
-export const getStyle = (theme: any, props: any) => {
+export const getStyle = (theme: ThemeType, props: ScrollDivProps) => {
   const computedStyle: any = {};
 
   computedStyle.div = {
@@ -44,7 +46,7 @@ export const getStyle = (theme: any, props: any) => {
   if (props.shadow) {
     computedStyle.div = {
       ...computedStyle.div,
-      ...theme.shadow[props.shadow],
+      ...(theme.shadow && theme.shadow[props.shadow]),
       shadowColor: getThemeProperty(theme.colors, props.shadowColor),
     };
   }
@@ -109,6 +111,7 @@ export const getStyle = (theme: any, props: any) => {
   if (props.style) {
     computedStyle.div = {
       ...computedStyle.div,
+      // @ts-ignore
       ...props.style,
     };
   }

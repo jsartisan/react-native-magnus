@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { ThemeType } from '../../theme';
 
 import {
   getThemeProperty,
@@ -8,6 +9,7 @@ import {
   createBorderWidthStyles,
 } from '../../theme/theme.service';
 import { WINDOW_HEIGHT } from '../../utilities';
+import { SelectProps } from './select.type';
 
 /**
  * computed style
@@ -15,7 +17,7 @@ import { WINDOW_HEIGHT } from '../../utilities';
  * @param theme
  * @param props
  */
-export const getStyle = (theme: any, props: any) => {
+export const getStyle = (theme: ThemeType, props: SelectProps) => {
   const computedStyle: any = {};
 
   computedStyle.wrapper = {
@@ -48,6 +50,7 @@ export const getStyle = (theme: any, props: any) => {
   if (props.style) {
     computedStyle.container = {
       ...computedStyle.container,
+      // @ts-ignore
       ...props.style,
     };
   }

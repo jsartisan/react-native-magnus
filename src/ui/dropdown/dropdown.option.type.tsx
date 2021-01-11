@@ -1,6 +1,6 @@
 import { ButtonProps } from '../button/button.type';
 
-export interface OptionProps extends ButtonProps {
+export interface DropdownOptionProps extends ButtonProps {
   value: any;
   onSelect?: (value: any) => void;
 }

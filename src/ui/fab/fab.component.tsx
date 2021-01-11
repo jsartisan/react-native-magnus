@@ -9,38 +9,41 @@ import color from 'color';
 
 import { getThemeProperty } from '../../theme/theme.service';
 import { getStyle } from './fab.style';
-import { ThemeContext } from '../../theme';
+import { ThemeContext, ThemeType } from '../../theme';
 import { Button } from '../button/button.component';
 import { Icon } from '../icon/icon.component';
 import { FabProps } from './fab.type';
+import { withDefaultProps } from '../../utilities/withDefaultProps';
 
 interface FabState {
   active: boolean;
 }
 
-class Fab extends React.Component<FabProps, FabState> {
-  static defaultProps: Partial<FabProps> = {
-    color: 'white',
-    fontSize: '2xl',
-    overlayColor: 'gray900',
-    overlayOpacity: 0.5,
-    position: 'absolute',
-    openOnMount: false,
-    showBackground: true,
-    animated: true,
-    bottom: 30,
-    right: 30,
-    icon: 'plus',
-    activeIcon: 'close',
-    rounded: 'circle',
-    h: 60,
-    w: 60,
-    bg: 'blue500',
-    useNativeDriver: false,
-    shadow: 'xl',
-    shadowColor: 'gray900',
-  };
+const defaultProps = {
+  color: 'white',
+  fontSize: '4xl',
+  p: 18,
+  overlayColor: 'gray900',
+  overlayOpacity: 0.5,
+  position: 'absolute',
+  openOnMount: false,
+  showBackground: true,
+  animated: true,
+  bottom: 30,
+  right: 30,
+  icon: 'plus',
+  activeIcon: 'close',
+  rounded: 'circle',
+  bg: 'blue500',
+  useNativeDriver: false,
+  shadow: 'lg',
+  shadowColor: 'gray900',
+} as const;
 
+class FabBase extends React.Component<
+  FabProps & typeof defaultProps,
+  FabState
+> {
   animation: any;
   fadeAnimation: any;
   visibleAnimation: any;
@@ -48,7 +51,7 @@ class Fab extends React.Component<FabProps, FabState> {
   mainBottomAnimation: any;
   actionsBottomAnimation: any;
 
-  constructor(props: FabProps) {
+  constructor(props: FabProps & typeof defaultProps) {
     super(props);
 
     this.state = {
@@ -57,7 +60,7 @@ class Fab extends React.Component<FabProps, FabState> {
 
     this.mainBottomAnimation = new Animated.Value(props.bottom || 0);
     this.actionsBottomAnimation = new Animated.Value(
-      (props.h || 40) + (props.bottom || 40) - 10
+      (props.h || 40) + (props.bottom || 40) + 30
     );
     this.animation = new Animated.Value(0);
     this.actionsAnimation = new Animated.Value(0);
@@ -117,7 +120,7 @@ class Fab extends React.Component<FabProps, FabState> {
         useNativeDriver,
       }).start();
       Animated.spring(this.actionsBottomAnimation, {
-        toValue: (h || 40) + (bottom || 40) - 10,
+        toValue: (h || 40) + (bottom || 40),
         useNativeDriver,
       }).start();
     }
@@ -151,7 +154,7 @@ class Fab extends React.Component<FabProps, FabState> {
           useNativeDriver,
         }).start();
         Animated.spring(this.actionsBottomAnimation, {
-          toValue: (h || 40) + (bottom || 40),
+          toValue: (h || 40) + (bottom || 40) + 20,
           useNativeDriver,
         }).start();
 
@@ -295,9 +298,9 @@ class Fab extends React.Component<FabProps, FabState> {
     ];
     return (
       <Animated.View style={actionsStyles} pointerEvents="box-none">
-        {React.Children.map(children || [], (child: React.ReactElement) => {
+        {React.Children.map(children, (child: React.ReactElement) => {
           return React.cloneElement(child, {
-            mb: child.props.mb ? child.props.mb : 'xl',
+            mb: child.props.mb ? child.props.mb : 'lg',
             onPress: (e: GestureResponderEvent) => {
               // if fab is not active, don't allow pressing buttons
               if (!active) return;
@@ -314,7 +317,7 @@ class Fab extends React.Component<FabProps, FabState> {
     );
   };
 
-  renderTappableBackground = (theme: any, computedStyle: any) => {
+  renderTappableBackground = (theme: ThemeType, computedStyle: any) => {
     const { overlayColor, overlayOpacity } = this.props;
 
     const calculatedOverlayColor = color(
@@ -363,5 +366,7 @@ class Fab extends React.Component<FabProps, FabState> {
     );
   }
 }
+
+const Fab = withDefaultProps<FabProps>(FabBase, 'Fab')(defaultProps);
 
 export { Fab };

@@ -4,8 +4,17 @@ import { useContext } from 'react';
 import { Div } from '../div/div.component';
 import { AvatarGroupProps } from './avatar.group.type';
 import { ThemeContext, getThemeProperty } from '../../theme';
+import { useDefaultProps } from '../../utilities/useDefaultProps';
 
-const AvatarGroup: React.FunctionComponent<AvatarGroupProps> = (props) => {
+const AvatarGroup: React.FunctionComponent<AvatarGroupProps> = (
+  incomingProps
+) => {
+  const props = useDefaultProps('AvatarGroup', incomingProps, {
+    row: true,
+    ml: 'none',
+    offset: 'lg',
+  });
+
   const { children, ml, offset, ...rest } = props;
   const { theme } = useContext(ThemeContext);
   const calculatedOffset = getThemeProperty(theme.spacing, offset);
@@ -22,10 +31,10 @@ const AvatarGroup: React.FunctionComponent<AvatarGroupProps> = (props) => {
   );
 };
 
-AvatarGroup.defaultProps = {
-  row: true,
-  ml: 'none',
-  offset: 'lg',
-};
+// AvatarGroup.defaultProps = {
+//   row: true,
+//   ml: 'none',
+//   offset: 'lg',
+// };
 
 export { AvatarGroup };

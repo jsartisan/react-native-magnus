@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { ThemeType } from '../../theme';
 
 import {
   getThemeProperty,
@@ -9,6 +10,7 @@ import {
   createBorderColorStyles,
   createBorderWidthStyles,
 } from '../../theme/theme.service';
+import { RadioProps, RadioStates } from './radio.type';
 
 /**
  * computed style
@@ -16,7 +18,11 @@ import {
  * @param theme
  * @param props
  */
-export const getStyle = (theme: any, props: any, extraProps: any) => {
+export const getStyle = (
+  theme: ThemeType,
+  props: RadioProps,
+  extraProps: RadioStates
+) => {
   const computedStyle: any = {};
 
   computedStyle.button = {
@@ -111,6 +117,7 @@ export const getStyle = (theme: any, props: any, extraProps: any) => {
   if (props.style) {
     computedStyle.container = {
       ...computedStyle.container,
+      // @ts-ignore
       ...props.style,
     };
   }

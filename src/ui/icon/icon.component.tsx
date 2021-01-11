@@ -7,8 +7,15 @@ import { getIconSet } from './icon.service';
 import { ThemeContext } from '../../theme';
 import { IconProps } from './icon.type';
 import { getThemeProperty } from '../../theme/theme.service';
+import { useDefaultProps } from '../../utilities/useDefaultProps';
 
-const Icon: React.FunctionComponent<IconProps> = (props) => {
+const Icon: React.FunctionComponent<IconProps> = (incomingProps) => {
+  const props = useDefaultProps('Icon', incomingProps, {
+    color: 'gray500',
+    fontSize: 'md',
+    fontFamily: 'AntDesign',
+  });
+
   const {
     m,
     mt,
@@ -77,10 +84,10 @@ const Icon: React.FunctionComponent<IconProps> = (props) => {
   );
 };
 
-Icon.defaultProps = {
-  color: 'gray500',
-  fontSize: 'md',
-  fontFamily: 'AntDesign',
-};
+// Icon.defaultProps = {
+//   color: 'gray500',
+//   fontSize: 'md',
+//   fontFamily: 'AntDesign',
+// };
 
 export { Icon };

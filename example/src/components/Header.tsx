@@ -1,6 +1,6 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
-import { Button, Header, Icon, Text } from 'react-native-magnus';
+import { Button, Header, Icon } from 'react-native-magnus';
 
 import ExamplePage from '../utils/ExamplePage';
 import ExampleHeader from '../utils/ExampleHeader';
@@ -17,7 +17,20 @@ const HeaderComponent: React.FC = () => {
         </ExampleSection>
 
         <ExampleSection name="center aligned" withoutSpacingOnContent>
-          <Header shadow="sm" alignment="center">
+          <Header alignment="center">My Title</Header>
+        </ExampleSection>
+
+        <ExampleSection
+          name="center aligned + text props"
+          withoutSpacingOnContent
+        >
+          <Header
+            alignment="center"
+            textTransform="uppercase"
+            fontSize="2xl"
+            fontWeight="bold"
+            fontStyle="italic"
+          >
             My Title
           </Header>
         </ExampleSection>

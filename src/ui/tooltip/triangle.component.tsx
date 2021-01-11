@@ -1,9 +1,9 @@
 import * as React from 'react';
 
 import { View as RNView, StyleSheet } from 'react-native';
-import { TriangelProps } from './tooltip.type';
+import { TriangleProps } from './tooltip.type';
 
-const Triangle: React.FunctionComponent<TriangelProps> = (props) => {
+const Triangle: React.FunctionComponent<TriangleProps> = (props) => {
   const { style, invert } = props;
   let computedStyle = style;
 

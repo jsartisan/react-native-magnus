@@ -5,8 +5,17 @@ import { Text as RNText } from 'react-native';
 import { TextProps } from './text.type';
 import { getStyle } from './text.style';
 import { ThemeContext } from '../../theme';
+import { useDefaultProps } from '../../utilities/useDefaultProps';
 
-const Text: React.FunctionComponent<TextProps> = (props) => {
+const Text: React.FunctionComponent<TextProps> = (incomingProps) => {
+  const props = useDefaultProps('Text', incomingProps, {
+    color: 'gray900',
+    textAlign: 'auto',
+    textTransform: 'none',
+    fontSize: 'md',
+    overflow: 'hidden',
+  });
+
   const {
     w,
     h,
@@ -54,12 +63,12 @@ const Text: React.FunctionComponent<TextProps> = (props) => {
   );
 };
 
-Text.defaultProps = {
-  color: 'gray900',
-  textAlign: 'auto',
-  textTransform: 'none',
-  fontSize: 'md',
-  overflow: 'hidden',
-};
+// Text.defaultProps = {
+//   color: 'gray900',
+//   textAlign: 'auto',
+//   textTransform: 'none',
+//   fontSize: 'md',
+//   overflow: 'hidden',
+// };
 
 export { Text };

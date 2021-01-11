@@ -5,8 +5,11 @@ import { Image as RNImage } from 'react-native';
 import { getStyle } from './image.style';
 import { ImageProps } from './image.type';
 import { ThemeContext } from '../../theme';
+import { useDefaultProps } from '../../utilities/useDefaultProps';
 
-const Image: React.FunctionComponent<ImageProps> = (props) => {
+const Image: React.FunctionComponent<ImageProps> = (incomingProps) => {
+  const props = useDefaultProps('Image', incomingProps, {});
+
   const {
     h,
     w,
@@ -66,6 +69,6 @@ const Image: React.FunctionComponent<ImageProps> = (props) => {
   );
 };
 
-Image.defaultProps = {};
+// Image.defaultProps = {};
 
 export { Image };

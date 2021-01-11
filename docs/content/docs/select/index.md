@@ -1,7 +1,7 @@
 ---
 title: Select
-date: "2019-08-13"
-description: ""
+date: '2019-08-13'
+description: ''
 ---
 
 <img src="/images/docs/select/1.gif" class="mobile"  style="height: 600px; width: auto;" />
@@ -30,7 +30,7 @@ const selectRef = React.createRef()
   {selectValue.length ? selectValue.toString() : 'Select'}
 </Button>
 
-<Select.Container
+<Select
   onSelect={onSelectOption}
   ref={selectRef}
   value={selectValue}
@@ -74,7 +74,7 @@ const selectRef = React.createRef()
   {selectValue.length ? selectValue.toString() : 'Select'}
 </Button>
 
-<Select.Container
+<Select
   onSelect={onSelectOption}
   ref={selectRef}
   multiple

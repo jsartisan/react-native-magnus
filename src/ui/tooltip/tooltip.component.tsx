@@ -16,6 +16,7 @@ import { Text } from '../text/text.component';
 import { Triangle } from './triangle.component';
 import { TooltipProps, TooltipRef } from './tooltip.type';
 import { useStateCallback, WINDOW_HEIGHT } from '../../utilities';
+import { useDefaultProps } from '../../utilities/useDefaultProps';
 
 const STATES = {
   HIDDEN: 'HIDDEN',
@@ -26,7 +27,23 @@ const STATES = {
 const EASING = Easing.bezier(0.4, 0, 0.2, 1);
 const SCREEN_INDENT = 8;
 
-const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
+const Tooltip = React.forwardRef<
+  TooltipRef,
+  React.PropsWithChildren<TooltipProps>
+>((incomingProps, ref) => {
+  const props = useDefaultProps('Tooltip', incomingProps, {
+    animationDuration: 300,
+    bg: 'gray900',
+    color: 'white',
+    p: 'md',
+    rounded: 'xl',
+    mx: 'lg',
+    minW: 50,
+    zIndex: 1,
+    fontSize: 'md',
+    useNativeDriver: false,
+  });
+
   const container = useRef<View>(null);
   const [state, setState] = useStateCallback({
     visible: STATES.HIDDEN,
@@ -199,18 +216,18 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
   );
 });
 
-Tooltip.defaultProps = {
-  animationDuration: 300,
-  bg: 'gray900',
-  color: 'white',
-  p: 'md',
-  rounded: 'xl',
-  mx: 'lg',
-  minW: 50,
-  zIndex: 1,
-  fontSize: 'md',
-  useNativeDriver: false,
-};
+// Tooltip.defaultProps = {
+//   animationDuration: 300,
+//   bg: 'gray900',
+//   color: 'white',
+//   p: 'md',
+//   rounded: 'xl',
+//   mx: 'lg',
+//   minW: 50,
+//   zIndex: 1,
+//   fontSize: 'md',
+//   useNativeDriver: false,
+// };
 
 const styles = StyleSheet.create({
   shadowMenuContainer: {

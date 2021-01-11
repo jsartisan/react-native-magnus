@@ -4,7 +4,7 @@ import {
   SpacingPropsType,
   RoundedPropsType,
   ShadowPropsType,
-} from '../../theme';
+} from '../../types';
 
 export interface AnimatedProps
   extends DivProps,

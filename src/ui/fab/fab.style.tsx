@@ -1,6 +1,8 @@
 import { StyleSheet, Platform } from 'react-native';
+import { ThemeType } from '../../theme';
 
 import { getThemeProperty } from '../../theme/theme.service';
+import { FabProps } from './fab.type';
 
 /**
  * computed style
@@ -8,7 +10,7 @@ import { getThemeProperty } from '../../theme/theme.service';
  * @param theme
  * @param props
  */
-export const getStyle = (theme: any, props: any) => {
+export const getStyle = (theme: ThemeType, props: FabProps) => {
   const computedStyle: any = {};
 
   computedStyle.button = {
@@ -30,7 +32,7 @@ export const getStyle = (theme: any, props: any) => {
   if (props.shadow) {
     computedStyle.button = {
       ...computedStyle.button,
-      ...theme.shadow[props.shadow],
+      ...(theme.shadow && theme.shadow[props.shadow]),
       shadowColor: getThemeProperty(theme.colors, props.shadowColor),
     };
   }

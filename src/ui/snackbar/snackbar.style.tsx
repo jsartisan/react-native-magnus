@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { ThemeType } from '../../theme';
 
 import {
   getThemeProperty,
@@ -8,6 +9,7 @@ import {
   createBorderWidthStyles,
   createBorderRadiusStyles,
 } from '../../theme/theme.service';
+import { SnackbarProps } from './snackbar.type';
 
 /**
  * computed style
@@ -15,7 +17,7 @@ import {
  * @param theme
  * @param props
  */
-export const getStyle = (theme: any, props: any) => {
+export const getStyle = (theme: ThemeType, props: SnackbarProps) => {
   const computedStyle: any = {};
 
   computedStyle.wrapper = {
@@ -28,8 +30,6 @@ export const getStyle = (theme: any, props: any) => {
 
   computedStyle.text = {
     flex: 1,
-    fontSize: getThemeProperty(theme.fontSize, props.fontSize),
-    color: getThemeProperty(theme.colors, props.color),
   };
 
   computedStyle.prefix = {
