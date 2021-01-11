@@ -8,7 +8,7 @@ import { CollapseGroupProps } from './collapse.type';
 const CollapseGroup: React.FunctionComponent<CollapseGroupProps> = (
   incomingProps
 ) => {
-  const props = useDefaultProps('CollapseGroup', incomingProps);
+  const props = useDefaultProps('CollapseGroup', incomingProps, {});
 
   const [activeId, setActiveId] = useState(props.defaultActive || null);
   const { children, onChange: onChangeProp, ...rest } = props;

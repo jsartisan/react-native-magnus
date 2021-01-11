@@ -8,7 +8,7 @@ import { ThemeContext } from '../../theme';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 
 const Image: React.FunctionComponent<ImageProps> = (incomingProps) => {
-  const props = useDefaultProps('Image', incomingProps);
+  const props = useDefaultProps('Image', incomingProps, {});
 
   const {
     h,

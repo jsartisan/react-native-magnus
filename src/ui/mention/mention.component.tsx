@@ -5,24 +5,25 @@ import { View, FlatList, ActivityIndicator } from 'react-native';
 import { MentionProps } from './mention.type';
 import { getStyle } from './mention.style';
 import { ThemeContext } from '../../theme';
+import { withDefaultProps } from '../../utilities/withDefaultProps';
 
-class Mention extends React.Component<MentionProps> {
-  static defaultProps = {
-    bg: 'white',
-    rounded: 'md',
-    borderColor: 'gray200',
-    borderWidth: 1,
-    horizontal: false,
-    loading: false,
-    shadow: 1,
-    shadowColor: 'gray900',
-    keyboardShouldPersistTaps: 'always',
-    trigger: '@',
-    position: 'absolute',
-    bottom: '100%',
-    onHide: () => {},
-  };
+const defaultProps = {
+  bg: 'white',
+  rounded: 'md',
+  borderColor: 'gray200',
+  borderWidth: 1,
+  horizontal: false,
+  loading: false,
+  shadow: 1,
+  shadowColor: 'gray900',
+  keyboardShouldPersistTaps: 'always',
+  trigger: '@',
+  position: 'absolute',
+  bottom: '100%',
+  onHide: () => {},
+} as const;
 
+class MentionBase extends React.Component<MentionProps & typeof defaultProps> {
   previousChar = ' ';
 
   isTrackingStarted = false;
@@ -182,5 +183,7 @@ class Mention extends React.Component<MentionProps> {
     );
   }
 }
+
+const Mention = withDefaultProps(MentionBase, 'Mention')(defaultProps);
 
 export { Mention };

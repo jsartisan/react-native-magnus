@@ -13,33 +13,37 @@ import { ThemeContext, ThemeType } from '../../theme';
 import { Button } from '../button/button.component';
 import { Icon } from '../icon/icon.component';
 import { FabProps } from './fab.type';
+import { withDefaultProps } from '../../utilities/withDefaultProps';
 
 interface FabState {
   active: boolean;
 }
 
-class Fab extends React.Component<FabProps, FabState> {
-  static defaultProps: Partial<FabProps> = {
-    color: 'white',
-    fontSize: '4xl',
-    p: 18,
-    overlayColor: 'gray900',
-    overlayOpacity: 0.5,
-    position: 'absolute',
-    openOnMount: false,
-    showBackground: true,
-    animated: true,
-    bottom: 30,
-    right: 30,
-    icon: 'plus',
-    activeIcon: 'close',
-    rounded: 'circle',
-    bg: 'blue500',
-    useNativeDriver: false,
-    shadow: 'lg',
-    shadowColor: 'gray900',
-  };
+const defaultProps = {
+  color: 'white',
+  fontSize: '4xl',
+  p: 18,
+  overlayColor: 'gray900',
+  overlayOpacity: 0.5,
+  position: 'absolute',
+  openOnMount: false,
+  showBackground: true,
+  animated: true,
+  bottom: 30,
+  right: 30,
+  icon: 'plus',
+  activeIcon: 'close',
+  rounded: 'circle',
+  bg: 'blue500',
+  useNativeDriver: false,
+  shadow: 'lg',
+  shadowColor: 'gray900',
+} as const;
 
+class FabBase extends React.Component<
+  FabProps & typeof defaultProps,
+  FabState
+> {
   animation: any;
   fadeAnimation: any;
   visibleAnimation: any;
@@ -47,7 +51,7 @@ class Fab extends React.Component<FabProps, FabState> {
   mainBottomAnimation: any;
   actionsBottomAnimation: any;
 
-  constructor(props: FabProps) {
+  constructor(props: FabProps & typeof defaultProps) {
     super(props);
 
     this.state = {
@@ -362,5 +366,7 @@ class Fab extends React.Component<FabProps, FabState> {
     );
   }
 }
+
+const Fab = withDefaultProps<FabProps>(FabBase, 'Fab')(defaultProps);
 
 export { Fab };

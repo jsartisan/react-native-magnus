@@ -8,7 +8,7 @@ import { CheckboxGroupProps } from './checkbox.type';
 const CheckboxGroup: React.FunctionComponent<CheckboxGroupProps> = (
   incomingProps
 ) => {
-  const props = useDefaultProps('CheckboxGroup', incomingProps);
+  const props = useDefaultProps('CheckboxGroup', incomingProps, {});
 
   const [value, setValue] = useState(props.value || props.defaultValue || []);
   const {
