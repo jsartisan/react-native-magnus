@@ -25,4 +25,5 @@ export interface OverlayProps
     >,
     Pick<BackgroundPropsType, 'bg'> {
   isVisible?: boolean;
+  children: React.ReactElement[] | React.ReactElement;
 }
