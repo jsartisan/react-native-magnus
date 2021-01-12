@@ -35,7 +35,10 @@ const HeaderComponent: React.FC = () => {
           </Header>
         </ExampleSection>
 
-        <ExampleSection name="center aligned + prefix" withoutSpacingOnContent>
+        <ExampleSection
+          name="center aligned + prefix/suffix"
+          withoutSpacingOnContent
+        >
           <Header
             p="lg"
             borderBottomWidth={1}
@@ -44,6 +47,11 @@ const HeaderComponent: React.FC = () => {
             prefix={
               <Button bg="white">
                 <Icon name="arrow-left" fontFamily="Feather" fontSize="2xl" />
+              </Button>
+            }
+            suffix={
+              <Button bg="white">
+                <Icon name="arrow-right" fontFamily="Feather" fontSize="2xl" />
               </Button>
             }
           >

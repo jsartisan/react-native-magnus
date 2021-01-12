@@ -24,7 +24,6 @@ const Header: React.FunctionComponent<HeaderProps> = (incomingProps) => {
     borderStyle: 'solid',
     alignItems: 'center',
     alignment: 'left',
-    prefix: <Div px="sm" />,
     fontWeight: 'bold',
     fontSize: 'lg',
     textTransform: 'uppercase',
@@ -53,9 +52,14 @@ const Header: React.FunctionComponent<HeaderProps> = (incomingProps) => {
     return children;
   };
 
+  const getPrefix = () => {
+    if (props.alignment === 'center') return prefix;
+    return prefix ?? <Div px="sm" />;
+  };
+
   return (
     <Div {...rest}>
-      <Div style={computedStyle.prefix}>{prefix}</Div>
+      <Div style={computedStyle.prefix}>{getPrefix()}</Div>
       <Div style={computedStyle.center}>{renderChildren()}</Div>
       <Div style={computedStyle.suffix}>{suffix}</Div>
     </Div>
