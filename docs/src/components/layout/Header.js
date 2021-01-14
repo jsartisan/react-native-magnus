@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 
 import Logo from '../common/Logo';
 import Search from '../common/Search';
-import packageJSON from '../../../package.json';
+import packageJSON from '../../../../package.json';
 
 export default function Header({
   location,
