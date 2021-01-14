@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 
 import Logo from '../common/Logo';
 import Search from '../common/Search';
-import package from '../../../package.json';
+import packageJSON from '../../../package.json';
 
 export default function Header({
   location,
@@ -25,7 +25,7 @@ export default function Header({
         <div className="flex items-center relative">
           <Logo hasText />
           <div className="text-gray-700 text-xs bg-gray-200 px-1 ml-3 md:ml-3 rounded-sm">
-            v{package.version}
+            v{packageJSON.version}
           </div>
         </div>
         <Search />
