@@ -21,7 +21,9 @@ export const getStyle = (_theme: ThemeType, props: HeaderProps) => {
     };
   }
 
-  computedStyle.center = {};
+  computedStyle.center = {
+    flex: 1,
+  };
 
   if (props.suffix) {
     computedStyle.suffix = {
@@ -52,13 +54,11 @@ export const getStyle = (_theme: ThemeType, props: HeaderProps) => {
     if (props.suffix || props.prefix) {
       computedStyle.center = {
         ...computedStyle.center,
-        ...StyleSheet.absoluteFillObject,
       };
     }
   } else {
     computedStyle.suffix = {
       ...computedStyle.suffix,
-      flex: 1,
       justifyContent: 'flex-end',
     };
   }
