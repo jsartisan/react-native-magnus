@@ -12,7 +12,6 @@ import { CollapseGroup } from './group.component';
 const Collapse: CompoundedCollapse<CollapseProps> = (incomingProps) => {
   const props = useDefaultProps('Collapse', incomingProps, {
     bg: 'white',
-    active: false,
     flexDir: 'column',
     flexWrap: 'nowrap',
     rounded: 'md',
@@ -35,7 +34,7 @@ const Collapse: CompoundedCollapse<CollapseProps> = (incomingProps) => {
 
   useEffect(() => {
     if ('active' in props) {
-      setIsActive(props.active);
+      setIsActive(props.active ?? false);
     }
   }, [props]);
 
