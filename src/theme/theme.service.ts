@@ -45,7 +45,9 @@ export function computeTheme(customTheme: ThemeType | undefined): ThemeType {
 }
 
 /**
- * m="10"
+ * create spacing styles from object of style props passed to magnus component
+ *
+ * m="10", mt="xl"
  *
  * @param value
  * @param theme
@@ -85,81 +87,24 @@ export const createSpacingStyles = (props: any, theme: any) => {
 };
 
 /**
- * create directional style for properties like
- * top, left, right, bottom, horizontal, vertical
+ * get font weight font
  *
- * @param key
- * @param value
+ * @param
+ * @param fontFamily
+ * @param fontWeight
  */
-export const createDirectionalStyles = (
-  key: string,
-  value: any,
-  type: string = 'string'
-) => {
-  if (
-    typeof (value.x || value.y || value.b || value.t || value.l || value.r) ===
-    'undefined'
-  ) {
-    return createStyle(`${key}`, value, type);
-  }
-
-  let computedStyle = {};
-
-  if (typeof value.x !== 'undefined') {
-    computedStyle = {
-      ...computedStyle,
-      ...createStyle(`${key}Horizontal`, value.x, type),
-    };
-  }
-
-  if (typeof value.y !== 'undefined') {
-    computedStyle = {
-      ...computedStyle,
-      ...createStyle(`${key}Vertical`, value.y, type),
-    };
-  }
-
-  if (typeof value.t !== 'undefined') {
-    computedStyle = {
-      ...computedStyle,
-      ...createStyle(`${key}Top`, value.t, type),
-    };
-  }
-
-  if (typeof value.r !== 'undefined') {
-    computedStyle = {
-      ...computedStyle,
-      ...createStyle(`${key}Right`, value.r, type),
-    };
-  }
-
-  if (typeof value.b !== 'undefined') {
-    computedStyle = {
-      ...computedStyle,
-      ...createStyle(`${key}Bottom`, value.b, type),
-    };
-  }
-
-  if (typeof value.l !== 'undefined') {
-    computedStyle = {
-      ...computedStyle,
-      ...createStyle(`${key}Left`, value.l, type),
-    };
-  }
-
-  return computedStyle;
-};
-
 export const getFontWeight = (
   themeFontFamily: ThemeType['fontFamily'],
   fontFamily: TextProps['fontFamily'],
   fontWeight: TextProps['fontWeight']
 ) => {
   if (!themeFontFamily) {
-    return;
+    return fontWeight;
   }
 
-  if (fontFamily === '') return fontWeight;
+  if (fontFamily === '') {
+    return fontWeight;
+  }
 
   if (typeof themeFontFamily[fontWeight ?? 'normal'] !== 'undefined') {
     return 'normal';
@@ -193,7 +138,8 @@ export const getThemeFontFamily = (
 
 /**
  * extract the theme property from theme
-
+ * if thereis no theme property in the value, return the value
+ *
  * @param theme
  * @param value
  */
@@ -347,43 +293,6 @@ export const createShadowStyles = (props: any, theme: any) => {
     computedStyle = {
       ...theme.shadow[props.shadow],
       shadowColor: getThemeProperty(theme.colors, props.shadowColor),
-    };
-  }
-
-  return computedStyle;
-};
-
-/**
- * create style object
- *
- * @param key
- * @param value
- */
-export const createStyle = (key: string, value: any, type: string) => {
-  return {
-    [key]: type === 'number' ? Number(value) : value,
-  };
-};
-
-/**
- *
- * @param props
- * @param computedStyle
- * @param styleProperty
- * @param atomicProperty
- * @param type
- */
-export const addPropToComputedStyle = (
-  props: any,
-  computedStyle: any,
-  styleProperty: string,
-  atomicProperty: string,
-  type: string
-) => {
-  if (props[atomicProperty]) {
-    computedStyle = {
-      ...computedStyle,
-      ...createStyle(styleProperty, props[atomicProperty], type),
     };
   }
 
