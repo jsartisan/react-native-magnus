@@ -155,10 +155,6 @@ export const getFontWeight = (
   fontFamily: TextProps['fontFamily'],
   fontWeight: TextProps['fontWeight']
 ) => {
-  console.log(`themeFontFamily: ${JSON.stringify(themeFontFamily)}`);
-  console.log(`fontFamily: ${fontFamily}`);
-  console.log(`fontWeight: ${fontWeight}`);
-
   if (fontFamily === '' || !fontWeight) {
     return fontWeight;
   }
