@@ -15,11 +15,21 @@ const SelectOption: React.FunctionComponent<SelectOptionProps> = (
     onSelect: () => {},
     rounded: 0,
     bg: 'white',
-    p: 0,
+    px: 'xl',
+    py: 'lg',
     color: 'black',
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
     center: false,
+    prefix: (
+      <Icon
+        name="ios-checkmark-circle"
+        fontFamily="Ionicons"
+        fontSize="2xl"
+        color="green600"
+        mr="md"
+      />
+    ),
   });
 
   const {
@@ -54,19 +64,11 @@ const SelectOption: React.FunctionComponent<SelectOptionProps> = (
    * render suffix
    */
   const renderPrefix = () => {
-    if (prefix && isSelected) {
-      if (typeof prefix === 'string') {
-        return <Icon name={prefix} fontSize="xl" color="green600" mr="md" />;
-      }
-
+    if (isSelected) {
       return prefix;
     }
 
-    if (isSelected) {
-      return <Icon name="check" fontSize="xl" color="green600" mr="md" />;
-    }
-
-    return false;
+    return null;
   };
 
   const renderChildren = () => {
@@ -76,9 +78,10 @@ const SelectOption: React.FunctionComponent<SelectOptionProps> = (
 
     return children;
   };
+
   return (
     <Button {...rest} onPress={onPress} block alignItems="center">
-      <Div w="8%">{renderPrefix()}</Div>
+      {prefix && <Div minW="8%">{renderPrefix()}</Div>}
       <Div flex={1} bg="transparent">
         {renderChildren()}
       </Div>

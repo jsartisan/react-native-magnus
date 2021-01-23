@@ -106,7 +106,7 @@ const Radio: CompoundedRadio<RadioProps> = (incomingProps) => {
     ...rest
   } = props;
   const { theme } = useContext(ThemeContext);
-  const [checked, setChecked] = useState(props.checked || defaultChecked);
+  const [checked, setChecked] = useState(props.checked ?? defaultChecked);
   const [focussed, setFocussed] = useState(false);
   const computedStyle = getStyle(theme, props as RadioProps, { focussed });
 
@@ -184,9 +184,11 @@ const Radio: CompoundedRadio<RadioProps> = (incomingProps) => {
       if (activeIcon && typeof activeIcon === 'string') {
         return (
           <Icon
+            // @ts-ignore
             name={activeIcon}
             color={iconColor}
-            style={{ zIndex: 2, position: 'relative' }}
+            zIndex={2}
+            position="relative"
             fontFamily="AntDesign"
             fontSize={fontSize}
           />
@@ -200,9 +202,11 @@ const Radio: CompoundedRadio<RadioProps> = (incomingProps) => {
       if (inactiveIcon && typeof inactiveIcon === 'string') {
         return (
           <Icon
+            // @ts-ignore
             name={inactiveIcon}
             color={iconColor}
-            style={{ zIndex: 2, position: 'relative' }}
+            zIndex={2}
+            position="relative"
             fontFamily="AntDesign"
             fontSize={fontSize}
           />
@@ -218,7 +222,8 @@ const Radio: CompoundedRadio<RadioProps> = (incomingProps) => {
       <Icon
         name={iconName}
         color={iconColor}
-        style={{ zIndex: 2, position: 'relative' }}
+        zIndex={2}
+        position="relative"
         fontFamily="MaterialIcons"
         fontSize={fontSize}
       />
@@ -253,7 +258,7 @@ const Radio: CompoundedRadio<RadioProps> = (incomingProps) => {
   return (
     <RNButton
       {...rest}
-      disabled={disabled || loading}
+      disabled={disabled ?? loading}
       style={computedStyle.button}
       onPress={disabled ? undefined : onPress}
       onPressIn={disabled ? undefined : onPressIn}

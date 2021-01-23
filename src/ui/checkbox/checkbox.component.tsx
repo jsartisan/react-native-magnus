@@ -104,14 +104,14 @@ const Checkbox: CompundedCheckbox<CheckboxProps> = (incomingProps) => {
   } = props;
   const { theme } = useContext(ThemeContext);
   const [checked, setChecked] = useState(
-    ('checked' in props ? checkedProp : props.defaultChecked) || false
+    ('checked' in props ? checkedProp : defaultChecked) ?? false
   );
   const [focussed, setFocussed] = useState(false);
   const computedStyle = getStyle(theme, props, { focussed });
 
   useEffect(() => {
     if ('checked' in props) {
-      setChecked(props.checked || false);
+      setChecked(props.checked ?? false);
     }
   }, [props]);
 

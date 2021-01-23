@@ -10,7 +10,7 @@ const CollapseGroup: React.FunctionComponent<CollapseGroupProps> = (
 ) => {
   const props = useDefaultProps('CollapseGroup', incomingProps, {});
 
-  const [activeId, setActiveId] = useState(props.defaultActive || null);
+  const [activeId, setActiveId] = useState(props.defaultActive ?? null);
   const { children, onChange: onChangeProp, ...rest } = props;
 
   /**

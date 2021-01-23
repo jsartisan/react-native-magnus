@@ -14,6 +14,7 @@ const Text: React.FunctionComponent<TextProps> = (incomingProps) => {
     textTransform: 'none',
     fontSize: 'md',
     overflow: 'hidden',
+    textAlignVertical: 'center',
   });
 
   const {

@@ -64,7 +64,7 @@ const Tooltip = React.forwardRef<
     marginAnimation,
   } = state;
   let { top } = state;
-  const windowHeight = WINDOW_HEIGHT - (StatusBar.currentHeight || 0);
+  const windowHeight = WINDOW_HEIGHT - (StatusBar.currentHeight ?? 0);
   let invert = false;
   if (top + menuHeight + buttonHeight + SCREEN_INDENT > windowHeight) {
     top = top - menuHeight - SCREEN_INDENT;

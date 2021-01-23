@@ -21,21 +21,21 @@ export const getStyle = (_theme: ThemeType, props: HeaderProps) => {
     };
   }
 
-  computedStyle.center = {
-    flex: 1,
-  };
+  computedStyle.center = {};
 
   if (props.suffix) {
     computedStyle.suffix = {
       zIndex: 1,
       flexDirection: 'row',
+      alignItems: 'center',
     };
   }
 
   if (props.prefix) {
     computedStyle.prefix = {
-      flexDirection: 'row',
       zIndex: 1,
+      flexDirection: 'row',
+      alignItems: 'center',
     };
   }
 
@@ -44,6 +44,7 @@ export const getStyle = (_theme: ThemeType, props: HeaderProps) => {
       ...computedStyle.center,
       justifyContent: 'center',
       alignItems: 'center',
+      flex: 1,
     };
 
     computedStyle.container = {
@@ -54,12 +55,18 @@ export const getStyle = (_theme: ThemeType, props: HeaderProps) => {
     if (props.suffix || props.prefix) {
       computedStyle.center = {
         ...computedStyle.center,
+        ...StyleSheet.absoluteFillObject,
+      };
+
+      computedStyle.suffix = {
+        ...computedStyle.suffix,
+        flex: 1,
+        justifyContent: 'flex-end',
       };
     }
   } else {
-    computedStyle.suffix = {
-      ...computedStyle.suffix,
-      justifyContent: 'flex-end',
+    computedStyle.center = {
+      flex: 1,
     };
   }
 

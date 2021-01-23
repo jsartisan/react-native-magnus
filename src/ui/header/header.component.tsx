@@ -1,8 +1,7 @@
 import * as React from 'react';
-import { useContext } from 'react';
 import { Text } from '../text/text.component';
 import { getStyle } from './header.style';
-import { ThemeContext } from '../../theme';
+import { useTheme } from '../../theme';
 import { HeaderProps } from './header.type';
 import { getSpecificProps } from '../../utilities';
 import { textProps } from '../../types';
@@ -31,7 +30,7 @@ const Header: React.FunctionComponent<HeaderProps> = (incomingProps) => {
 
   const { children, prefix, suffix, ...rest } = props;
 
-  const { theme } = useContext(ThemeContext);
+  const theme = useTheme();
   const computedStyle = getStyle(theme, props);
 
   /**
@@ -65,26 +64,5 @@ const Header: React.FunctionComponent<HeaderProps> = (incomingProps) => {
     </Div>
   );
 };
-
-// Header.defaultProps = {
-//   minH: 70,
-//   p: 'lg',
-//   bg: 'white',
-//   rounded: 'none',
-//   shadow: 'sm',
-//   shadowColor: 'gray900',
-//   position: 'relative',
-//   bgMode: 'cover',
-//   pointerEvents: 'auto',
-//   row: true,
-//   borderStyle: 'solid',
-//   alignItems: 'center',
-//   alignment: 'left',
-//   prefix: <Div px="sm" />,
-
-//   fontWeight: 'bold',
-//   fontSize: 'lg',
-//   textTransform: 'uppercase',
-// };
 
 export { Header };

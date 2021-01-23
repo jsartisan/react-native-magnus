@@ -68,11 +68,14 @@ export const useStateCallback = (initialState: any) => {
 
   return [state, setStateCallback];
 };
-
-export const getSpecificProps = (obj: any, ...keys: string[]) =>
+export const getSpecificProps = <T extends object>(obj: T, ...keys: string[]) =>
+  //@ts-ignore
   keys.reduce((a, c) => ({ ...a, [c]: obj[c] }), {});
 
-export const removeSpecificProps = <T>(obj: T, ...keys: string[]): T =>
+export const removeSpecificProps = <T extends object>(
+  obj: T,
+  ...keys: string[]
+): T =>
   keys.reduce((a, c) => {
     //@ts-ignore
     delete a[c];

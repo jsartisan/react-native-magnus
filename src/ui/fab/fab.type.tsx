@@ -32,8 +32,8 @@ export interface FabProps
     Pick<TextPropsType, 'color' | 'fontSize'> {
   h?: number;
   center?: boolean;
-  icon: string | React.ReactNode;
-  activeIcon: string | React.ReactNode;
+  icon?: string | React.ReactNode;
+  activeIcon?: string | React.ReactNode;
   showBackground?: boolean;
   openOnMount?: boolean;
   onClose?: () => void;

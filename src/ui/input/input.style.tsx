@@ -67,9 +67,7 @@ export const getStyle = (theme: ThemeType, props: InputProps, state: any) => {
     letterSpacing: props.letterSpacing,
     fontStyle: props.fontStyle,
     textAlignVertical: props.textAlignVertical,
-    lineHeight: props.lineHeight
-      ? props.lineHeight
-      : 1.5 * getThemeProperty(theme.fontSize, props.fontSize),
+    lineHeight: props.lineHeight,
     color: getThemeProperty(theme.colors, props.color),
     fontSize: getThemeProperty(theme.fontSize, props.fontSize),
     textAlign: props.textAlign,
@@ -93,7 +91,7 @@ export const getStyle = (theme: ThemeType, props: InputProps, state: any) => {
 
     fontFamily:
       props.fontFamily ??
-      getThemeFontFamily(theme.fontFamily, props.fontWeight, props.fontFamily),
+      getThemeFontFamily(theme.fontFamily, props.fontWeight),
   };
 
   computedStyle.suffix = {

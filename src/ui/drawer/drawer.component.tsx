@@ -43,7 +43,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
 
     useEffect(() => {
       if ('isVisible' in props) {
-        setVisible(props.isVisible || false);
+        setVisible(props.isVisible ?? false);
       }
     }, [props, visible]);
 

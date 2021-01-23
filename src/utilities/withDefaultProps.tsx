@@ -1,30 +1,33 @@
 import React from 'react';
-import deepmerge from 'deepmerge';
 import { ThemeContext, ThemeType } from '../theme';
+import { DefaultProps } from '../types';
 
-export function withDefaultProps<T>(
-  WrappedComponent: unknown,
-  componentName: keyof NonNullable<ThemeType['components']>
+export function withDefaultProps<
+  Props extends object,
+  Defaults extends DefaultProps<Props> = {}
+>(
+  WrappedComponent: React.ComponentClass<Props & Defaults>,
+  componentName: keyof NonNullable<ThemeType['components']>,
+  defaultProps: Defaults
 ) {
-  return function wrapWithStyledComponent(defaultProps: Partial<T>) {
-    return class extends React.PureComponent {
-      static contextType = ThemeContext;
-      context!: React.ContextType<typeof ThemeContext>;
+  return class extends React.PureComponent<Props> {
+    static contextType = ThemeContext;
+    context!: React.ContextType<typeof ThemeContext>;
 
-      render() {
-        const theme = this.context.theme;
-        // @ts-ignore
-        const propsFromTheme: Partial<T> =
-          (theme.components && theme.components[componentName]) ?? {};
+    render() {
+      const theme = this.context.theme;
 
-        // @ts-ignore
-        const mergedProps: T & Required<typeof defaultProps> = deepmerge(
-          deepmerge(defaultProps, propsFromTheme),
-          this.props
-        );
-        // @ts-ignore
-        return <WrappedComponent {...mergedProps} />;
-      }
-    };
+      // @ts-ignore
+      const propsFromTheme: Partial<Props> =
+        (theme.components && theme.components[componentName]) ?? {};
+
+      const mergedProps = {
+        ...defaultProps,
+        ...propsFromTheme,
+        ...this.props,
+      };
+
+      return <WrappedComponent {...mergedProps} />;
+    }
   };
 }
