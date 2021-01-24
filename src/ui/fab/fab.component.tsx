@@ -14,34 +14,14 @@ import { Button } from '../button/button.component';
 import { Icon } from '../icon/icon.component';
 import { FabProps } from './fab.type';
 import { withDefaultProps } from '../../utilities/withDefaultProps';
+import { DefaultProps } from '../../types';
 
 interface FabState {
   active: boolean;
 }
 
-const defaultProps = {
-  color: 'white',
-  fontSize: '4xl',
-  p: 18,
-  overlayColor: 'gray900',
-  overlayOpacity: 0.5,
-  position: 'absolute',
-  openOnMount: false,
-  showBackground: true,
-  animated: true,
-  bottom: 30,
-  right: 30,
-  icon: 'plus',
-  activeIcon: 'close',
-  rounded: 'circle',
-  bg: 'blue500',
-  useNativeDriver: false,
-  shadow: 'lg',
-  shadowColor: 'gray900',
-} as const;
-
 class FabBase extends React.Component<
-  FabProps & typeof defaultProps,
+  FabProps & DefaultProps<FabProps>,
   FabState
 > {
   animation: any;
@@ -51,16 +31,16 @@ class FabBase extends React.Component<
   mainBottomAnimation: any;
   actionsBottomAnimation: any;
 
-  constructor(props: FabProps & typeof defaultProps) {
+  constructor(props: FabProps & DefaultProps<FabProps>) {
     super(props);
 
     this.state = {
       active: false,
     };
 
-    this.mainBottomAnimation = new Animated.Value(props.bottom || 0);
+    this.mainBottomAnimation = new Animated.Value(props.bottom ?? 0);
     this.actionsBottomAnimation = new Animated.Value(
-      (props.h || 40) + (props.bottom || 40) + 30
+      (props.h ?? 40) + (props.bottom ?? 40) + 30
     );
     this.animation = new Animated.Value(0);
     this.actionsAnimation = new Animated.Value(0);
@@ -120,7 +100,7 @@ class FabBase extends React.Component<
         useNativeDriver,
       }).start();
       Animated.spring(this.actionsBottomAnimation, {
-        toValue: (h || 40) + (bottom || 40),
+        toValue: (h ?? 40) + (bottom ?? 40),
         useNativeDriver,
       }).start();
     }
@@ -154,7 +134,7 @@ class FabBase extends React.Component<
           useNativeDriver,
         }).start();
         Animated.spring(this.actionsBottomAnimation, {
-          toValue: (h || 40) + (bottom || 40) + 20,
+          toValue: (h ?? 40) + (bottom ?? 40) + 20,
           useNativeDriver,
         }).start();
 
@@ -323,7 +303,7 @@ class FabBase extends React.Component<
     const calculatedOverlayColor = color(
       getThemeProperty(theme.colors, overlayColor)
     )
-      .alpha(overlayOpacity || 1)
+      .alpha(overlayOpacity ?? 1)
       .rgb()
       .string();
 
@@ -367,6 +347,25 @@ class FabBase extends React.Component<
   }
 }
 
-const Fab = withDefaultProps<FabProps>(FabBase, 'Fab')(defaultProps);
+const Fab = withDefaultProps<FabProps>(FabBase, 'Fab', {
+  color: 'white',
+  fontSize: '4xl',
+  p: 18,
+  overlayColor: 'gray900',
+  overlayOpacity: 0.5,
+  position: 'absolute',
+  openOnMount: false,
+  showBackground: true,
+  animated: true,
+  bottom: 30,
+  right: 30,
+  icon: 'plus',
+  activeIcon: 'close',
+  rounded: 'circle',
+  bg: 'blue500',
+  useNativeDriver: false,
+  shadow: 'lg',
+  shadowColor: 'gray900',
+});
 
 export { Fab };

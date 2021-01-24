@@ -1,5 +1,5 @@
-import { FlexPropsType } from '../../types';
 import {
+  FlexPropsType,
   BorderPropsType,
   RoundedPropsType,
   ShadowPropsType,

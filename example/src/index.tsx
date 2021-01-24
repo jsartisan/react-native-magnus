@@ -10,8 +10,8 @@ import { components, pages } from './items';
 
 const theme: Partial<ThemeType> = {
   fontFamily: {
-    normal: 'OpenSans-Regular',
-    bold: 'OpenSans-Bold',
+    normal: 'PlayfairDisplay-Regular',
+    bold: 'PlayfairDisplay-Bold',
   },
 
   components: {
@@ -24,8 +24,7 @@ const theme: Partial<ThemeType> = {
       bg: 'gray600',
     },
     Input: {
-      fontSize: 'lg',
-      textTransform: 'uppercase',
+      fontSize: 'xl',
     },
     Fab: {
       bg: 'red500',
@@ -45,11 +44,9 @@ const theme: Partial<ThemeType> = {
 const Stack = createStackNavigator();
 const App = () => {
   let [fontsLoaded] = useFonts({
-    'OpenSans-Bold': require('../assets/fonts/OpenSans-Bold.ttf'),
-    'OpenSans-ExtraBold': require('../assets/fonts/OpenSans-ExtraBold.ttf'),
-    'OpenSans-Light': require('../assets/fonts/OpenSans-Light.ttf'),
-    'OpenSans-Regular': require('../assets/fonts/OpenSans-Regular.ttf'),
-    'OpenSans-SemiBold': require('../assets/fonts/OpenSans-SemiBold.ttf'),
+    'PlayfairDisplay-Bold': require('../assets/fonts/PlayfairDisplay-Bold.ttf'),
+    'PlayfairDisplay-Regular': require('../assets/fonts/PlayfairDisplay-Regular.ttf'),
+    'Inconsolata-Regular': require('../assets/fonts/Inconsolata-Regular.ttf'),
   });
 
   if (!fontsLoaded) {

@@ -26,6 +26,7 @@ const Dropdown = React.forwardRef<DropdownRef, DropdownProps>(
       flexWrap: 'nowrap',
       backdropTransitionOutTiming: 0,
       overflow: 'hidden',
+      py: 'xl',
     });
 
     const {
@@ -66,15 +67,16 @@ const Dropdown = React.forwardRef<DropdownRef, DropdownProps>(
       isVisible,
       onBackdropPress,
       swipeDirection,
+      onSwipeComplete,
       ...rest
     } = props;
     const { theme } = useContext(ThemeContext);
     const computedStyle = getStyle(theme, props as DropdownProps);
-    const [visible, setVisible] = useState(props.isVisible || false);
+    const [visible, setVisible] = useState(props.isVisible ?? false);
 
     useEffect(() => {
       if ('isVisible' in props) {
-        setVisible(props.isVisible || false);
+        setVisible(props.isVisible ?? false);
       }
     }, [props, visible]);
 
@@ -127,7 +129,10 @@ const Dropdown = React.forwardRef<DropdownRef, DropdownProps>(
     return (
       <Modal
         isVisible={visible}
-        onSwipeComplete={() => setVisible(false)}
+        onSwipeComplete={(params) => {
+          setVisible(false);
+          onSwipeComplete && onSwipeComplete(params);
+        }}
         backdropColor={getThemeProperty(theme.colors, backdropColor)}
         onBackdropPress={
           'onBackdropPress' in props ? onBackdropPress : () => setVisible(false)

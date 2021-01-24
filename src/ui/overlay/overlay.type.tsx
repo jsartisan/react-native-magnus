@@ -23,7 +23,4 @@ export interface OverlayProps
       FlexPropsType,
       'flex' | 'justifyContent' | 'alignItems' | 'flexDir' | 'flexWrap'
     >,
-    Pick<BackgroundPropsType, 'bg'> {
-  isVisible?: boolean;
-  children: React.ReactElement[] | React.ReactElement;
-}
+    Pick<BackgroundPropsType, 'bg'> {}

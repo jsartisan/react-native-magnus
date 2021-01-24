@@ -18,6 +18,8 @@ const Textarea: React.FunctionComponent<TextareaProps> = (incomingProps) => {
     p: 'lg',
     borderColor: 'gray500',
     borderWidth: 1,
+    multiline: true,
+    textAlignVertical: 'top',
   });
 
   const {
@@ -65,8 +67,6 @@ const Textarea: React.FunctionComponent<TextareaProps> = (incomingProps) => {
   return (
     <RNView style={computedStyle.container}>
       <RNTextInput
-        multiline
-        textAlignVertical="top"
         onFocus={(e) => onFocusInput(e)}
         onBlur={(e) => onBlurInput(e)}
         style={computedStyle.input}

@@ -1,5 +1,5 @@
-import React from "react";
-import { ScrollView } from "react-native";
+import React from 'react';
+import { ScrollView } from 'react-native';
 import {
   Button,
   Div,
@@ -7,11 +7,11 @@ import {
   DropdownRef,
   Icon,
   Text,
-} from "react-native-magnus";
+} from 'react-native-magnus';
 
-import ExamplePage from "../utils/ExamplePage";
-import ExampleHeader from "../utils/ExampleHeader";
-import ExampleSection from "../utils/ExampleSection";
+import ExamplePage from '../utils/ExamplePage';
+import ExampleHeader from '../utils/ExampleHeader';
+import ExampleSection from '../utils/ExampleSection';
 
 const DropdownComponent: React.FC = () => {
   const dropdownRef1 = React.useRef<DropdownRef>(null);
@@ -69,7 +69,7 @@ const DropdownComponent: React.FC = () => {
               value={3}
               block
               color="red500"
-              underlayColor="gray100"
+              underlayColor="red200"
               py="lg"
               mt="xl"
               px="xl"
@@ -90,10 +90,13 @@ const DropdownComponent: React.FC = () => {
 
           <Dropdown
             ref={dropdownRef2}
+            showSwipeIndicator={false}
+            roundedTop="xl"
             title={
               <Div row mx="xl" mb="md" alignItems="center" p="md" pb="lg">
                 <Button
-                  bg="transparent"
+                  py="md"
+                  bg="gray100"
                   color="gray500"
                   position="absolute"
                   fontSize="lg"
@@ -106,23 +109,18 @@ const DropdownComponent: React.FC = () => {
                   color="gray900"
                   textAlign="center"
                   flex={1}
-                  fontSize="xl"
+                  fontSize="lg"
                   fontWeight="bold"
+                  textTransform="uppercase"
                 >
                   Add Item
                 </Text>
               </Div>
             }
-            py="xl"
-            showSwipeIndicator={false}
-            roundedTop="xl"
           >
             <Dropdown.Option
               value={1}
-              py="lg"
-              px="2xl"
-              alignItems="center"
-              block
+              underlayColor="red100"
               prefix={
                 <Icon name="picture" mr="lg" color="red500" fontSize="3xl" />
               }
@@ -131,10 +129,7 @@ const DropdownComponent: React.FC = () => {
             </Dropdown.Option>
             <Dropdown.Option
               value={2}
-              py="lg"
-              px="2xl"
-              alignItems="center"
-              block
+              underlayColor="blue100"
               prefix={
                 <Icon name="camerao" mr="lg" color="blue500" fontSize="3xl" />
               }
@@ -143,10 +138,7 @@ const DropdownComponent: React.FC = () => {
             </Dropdown.Option>
             <Dropdown.Option
               value={3}
-              py="lg"
-              px="2xl"
-              alignItems="center"
-              block
+              underlayColor="green100"
               prefix={
                 <Icon
                   name="filetext1"
@@ -160,8 +152,7 @@ const DropdownComponent: React.FC = () => {
             </Dropdown.Option>
             <Dropdown.Option
               value={4}
-              py="lg"
-              px="2xl"
+              underlayColor="pink100"
               alignItems="center"
               block
               prefix={

@@ -44,13 +44,6 @@ export const getStyle = (theme: ThemeType, props: ButtonProps) => {
     backgroundColor: getThemeProperty(theme.colors, props.bg),
   };
 
-  // computedStyle.text = {
-  //   fontWeight: props.fontWeight,
-  //   color: getThemeProperty(theme.colors, props.color),
-  //   fontSize: getThemeProperty(theme.fontSize, props.fontSize),
-  //   lineHeight: getThemeProperty(theme.fontSize, props.fontSize) * 1.2,
-  // };
-
   computedStyle.loadingContainer = {
     alignItems: 'center',
     justifyContent: 'center',

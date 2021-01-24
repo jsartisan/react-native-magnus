@@ -98,42 +98,41 @@ export const getFontWeight = (
   fontFamily: TextProps['fontFamily'],
   fontWeight: TextProps['fontWeight']
 ) => {
-  if (!themeFontFamily) {
+  if (fontFamily === '' || !fontWeight) {
     return fontWeight;
   }
 
-  if (fontFamily === '') {
+  if (themeFontFamily) {
+    if (typeof themeFontFamily[fontWeight] !== 'undefined') {
+      return 'normal';
+    }
+  }
+
+  if (!fontFamily) {
     return fontWeight;
   }
 
-  if (typeof themeFontFamily[fontWeight ?? 'normal'] !== 'undefined') {
-    return 'normal';
-  }
-
-  return fontWeight;
+  return 'normal';
 };
 
 /**
  * extract the fontFamily from theme
 
- * @param theme
+ * @param themeFontFamily
  * @param index
  * @param fallbackValue
  */
 export const getThemeFontFamily = (
-  theme: ThemeType['fontFamily'],
-  index: TextProps['fontWeight'] = 'normal',
-  fallbackValue: any = undefined
-) => {
-  if (!theme) {
-    return;
+  themeFontFamily: ThemeType['fontFamily'],
+  index: TextProps['fontWeight'] = 'normal'
+): string | undefined => {
+  if (themeFontFamily) {
+    if (typeof themeFontFamily[index] !== 'undefined') {
+      return themeFontFamily[index];
+    }
   }
 
-  if (typeof theme[index] !== 'undefined') {
-    return theme[index];
-  }
-
-  return fallbackValue;
+  return undefined;
 };
 
 /**

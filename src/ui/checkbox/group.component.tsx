@@ -10,7 +10,7 @@ const CheckboxGroup: React.FunctionComponent<CheckboxGroupProps> = (
 ) => {
   const props = useDefaultProps('CheckboxGroup', incomingProps, {});
 
-  const [value, setValue] = useState(props.value || props.defaultValue || []);
+  const [value, setValue] = useState(props.value ?? props.defaultValue ?? []);
   const {
     children,
     onChange: onChangeProp,

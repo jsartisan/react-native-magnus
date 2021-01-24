@@ -1,5 +1,9 @@
 import { ImageSourcePropType as RNImageSourcePropType } from 'react-native';
 
+export type DefaultProps<Props extends object> = {
+  [K in keyof Props]?: Props[K];
+};
+
 export const borderProps = [
   'borderColor',
   'borderTopColor',

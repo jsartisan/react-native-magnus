@@ -10,7 +10,7 @@ const RadioGroup: React.FunctionComponent<RadioGroupProps> = (
 ) => {
   const props = useDefaultProps('RadioGroup', incomingProps, {});
 
-  const [value, setValue] = useState(props.value || props.defaultValue || null);
+  const [value, setValue] = useState(props.value ?? props.defaultValue ?? null);
   const {
     children,
     onChange: onChangeProp,

@@ -1,27 +1,26 @@
-import React from 'react';
-import deepmerge from 'deepmerge';
 import { ThemeType, useTheme } from '../theme';
+import { DefaultProps } from '../types';
 
-export const useDefaultProps = <T, DT = Partial<T>>(
-  componentName: keyof NonNullable<ThemeType['components']>,
-  props: T,
-  defaultProps: DT
+export const useDefaultProps = <Props extends object>(
+  componentName: keyof NonNullable<ThemeType['components']> | null,
+  props: Props,
+  defaultProps: DefaultProps<Props>
 ) => {
   const theme = useTheme();
 
-  const finalProps = React.useMemo(() => {
+  let propsFromTheme: Partial<Props> = {};
+
+  if (componentName !== null) {
     // @ts-ignore
-    const propsFromTheme: Partial<T> =
+    propsFromTheme =
       (theme.components && theme.components[componentName]) ?? {};
+  }
 
-    // @ts-ignore
-    const mergedProps: T & Required<typeof defaultProps> = deepmerge(
-      deepmerge(defaultProps, propsFromTheme),
-      props
-    );
+  const mergedProps = {
+    ...defaultProps,
+    ...propsFromTheme,
+    ...props,
+  };
 
-    return mergedProps;
-  }, [componentName, defaultProps, props, theme.components]);
-
-  return finalProps;
+  return mergedProps as Props & Required<typeof defaultProps>;
 };

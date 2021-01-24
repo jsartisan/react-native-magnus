@@ -58,17 +58,11 @@ const InputComponent: React.FC = () => {
           <Input
             placeholder="Email"
             mt="md"
-            fontFamily="OpenSans-Light"
+            fontFamily="Inconsolata-Regular"
             fontSize="4xl"
-            textTransform="uppercase"
           />
-          <Input
-            placeholder="Email"
-            mt="md"
-            fontWeight="bold"
-            fontSize="4xl"
-            textTransform="uppercase"
-          />
+
+          <Input placeholder="Email" mt="md" fontWeight="bold" fontSize="4xl" />
         </ExampleSection>
 
         <ExampleSection name="center aligned + prefix + suffix">
@@ -142,13 +136,17 @@ const InputComponent: React.FC = () => {
           />
 
           <Input
+            mt="md"
+            placeholder="Phone number"
             prefix={
               <Div mr="md" borderRightWidth={1} borderRightColor="gray400">
                 <Button
-                  mr="md"
+                  mr="lg"
                   bg="transparent"
                   fontWeight="bold"
                   color="black"
+                  p="none"
+                  fontSize="sm"
                   textTransform="uppercase"
                   onPress={() => selectCountryCodeRef.current?.open()}
                 >
@@ -158,8 +156,6 @@ const InputComponent: React.FC = () => {
                 </Button>
               </Div>
             }
-            placeholder="Phone number"
-            mt="md"
           />
         </ExampleSection>
       </ScrollView>

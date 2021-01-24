@@ -59,7 +59,7 @@ const SelectComponent: React.FC = () => {
             roundedTop="xl"
             data={[1, 2, 3, 4, 5, 6]}
             renderItem={(item, index) => (
-              <Select.Option value={item} py="md" px="xl">
+              <Select.Option value={item}>
                 <Text>Option {index + 1}</Text>
               </Select.Option>
             )}
@@ -91,7 +91,7 @@ const SelectComponent: React.FC = () => {
             roundedTop="xl"
             data={[1, 2, 3, 4, 5, 6]}
             renderItem={(item, index) => (
-              <Select.Option value={item} py="md" px="xl">
+              <Select.Option value={item}>
                 <Text>Option {index + 1}</Text>
               </Select.Option>
             )}
@@ -131,19 +131,18 @@ const SelectComponent: React.FC = () => {
               <Input
                 rounded="none"
                 placeholder="Search"
-                bg="red500"
-                color="white"
-                placeholderTextColor="white"
+                bg="red200"
+                color="black"
                 mb="lg"
                 suffix={
-                  <Button bg="red800" onPress={() => clearText()}>
-                    Clear
+                  <Button mr="-lg" bg="red500" onPress={() => clearText()}>
+                    Clear search
                   </Button>
                 }
               />
             )}
             renderItem={(item: number) => (
-              <Select.Option value={item} py="md" px="xl">
+              <Select.Option value={item}>
                 <Text>{item}</Text>
               </Select.Option>
             )}
@@ -176,7 +175,6 @@ const SelectComponent: React.FC = () => {
                 key={index}
                 value={item}
                 py="lg"
-                px="xl"
                 borderBottomWidth={1}
                 borderBottomColor="gray300"
               >
@@ -224,7 +222,6 @@ const SelectComponent: React.FC = () => {
                 key={index}
                 value={item}
                 py="lg"
-                px="xl"
                 borderBottomWidth={1}
                 borderBottomColor="gray300"
               >

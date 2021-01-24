@@ -29,8 +29,6 @@ const Select = React.forwardRef<SelectRef, SelectProps>(
       rounded: 'none',
       flexDir: 'column',
       isVisible: false,
-      // mb: 'xl',
-      // @ts-ignore
       renderNoResultsView: (searchTerm) => (
         <Div flex={1} px="2xl" py="xl">
           <Text fontSize="lg">No results found for "{searchTerm}"</Text>
@@ -103,14 +101,16 @@ const Select = React.forwardRef<SelectRef, SelectProps>(
     }, [searchableProps, searchTerm, data]);
 
     useEffect(() => {
-      if (visible) {
-        clearSearchInput();
-      }
-
       if ('isVisible' in props) {
         setVisible(props.isVisible || visible);
       }
     }, [props, visible]);
+
+    useEffect(() => {
+      if (visible) {
+        clearSearchInput();
+      }
+    }, [visible]);
 
     /**
      * exposing functions to parent
@@ -217,29 +217,28 @@ const Select = React.forwardRef<SelectRef, SelectProps>(
 
       return (
         <Input
+          mx="xl"
+          mt="-md"
+          fontSize="lg"
+          placeholder="Search items"
+          bg="gray200"
           prefix={
             <Icon mr="lg" name="search1" color="gray700" fontSize="3xl" />
           }
           suffix={
             searchTerm ? (
               <Button
-                p="sm"
+                mx="-md"
+                p="md"
                 alignSelf="center"
                 rounded="circle"
-                bg="gray700"
+                bg="gray400"
                 onPress={clearSearchInput}
               >
-                <Icon name="close" color="white" fontSize="xs" />
+                <Icon name="close" fontSize="xs" color="gray900" />
               </Button>
             ) : null
           }
-          mx="xl"
-          mt="-md"
-          mb="lg"
-          fontSize="md"
-          borderWidth={0}
-          placeholder="Search items"
-          bg="gray200"
           {...mandatoryProps}
         />
       );
@@ -267,8 +266,10 @@ const Select = React.forwardRef<SelectRef, SelectProps>(
       }
 
       return (
-        <Button block bg="green600" mx="xl" mt="lg" mb="xl" {...mandatoryProps}>
-          Submit
+        <Button block rounded="none" bg="green600" {...mandatoryProps}>
+          <Text fontSize="xl" py="xs" color="white">
+            Submit
+          </Text>
         </Button>
       );
     };

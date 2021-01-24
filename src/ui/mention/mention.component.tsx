@@ -6,24 +6,11 @@ import { MentionProps } from './mention.type';
 import { getStyle } from './mention.style';
 import { ThemeContext } from '../../theme';
 import { withDefaultProps } from '../../utilities/withDefaultProps';
+import { DefaultProps } from '../../types';
 
-const defaultProps = {
-  bg: 'white',
-  rounded: 'md',
-  borderColor: 'gray200',
-  borderWidth: 1,
-  horizontal: false,
-  loading: false,
-  shadow: 1,
-  shadowColor: 'gray900',
-  keyboardShouldPersistTaps: 'always',
-  trigger: '@',
-  position: 'absolute',
-  bottom: '100%',
-  onHide: () => {},
-} as const;
-
-class MentionBase extends React.Component<MentionProps & typeof defaultProps> {
+class MentionBase extends React.Component<
+  MentionProps & DefaultProps<MentionProps>
+> {
   previousChar = ' ';
 
   isTrackingStarted = false;
@@ -151,7 +138,7 @@ class MentionBase extends React.Component<MentionProps & typeof defaultProps> {
           return (
             <View style={{ flex: 1 }}>
               <>
-                {(data || []).length > 0 &&
+                {(data ?? []).length > 0 &&
                   isTrackingStarted &&
                   loading === false && (
                     <FlatList
@@ -184,6 +171,20 @@ class MentionBase extends React.Component<MentionProps & typeof defaultProps> {
   }
 }
 
-const Mention = withDefaultProps(MentionBase, 'Mention')(defaultProps);
+const Mention = withDefaultProps(MentionBase, 'Mention', {
+  bg: 'white',
+  rounded: 'md',
+  borderColor: 'gray200',
+  borderWidth: 1,
+  horizontal: false,
+  loading: false,
+  shadow: 1,
+  shadowColor: 'gray900',
+  keyboardShouldPersistTaps: 'always',
+  trigger: '@',
+  position: 'absolute',
+  bottom: 0,
+  onHide: () => {},
+});
 
 export { Mention };
