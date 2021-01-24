@@ -128,7 +128,7 @@ const Button: React.FunctionComponent<ButtonProps> = (incomingProps) => {
       onPress={disabled || loading ? undefined : onPress}
       style={({ pressed }) => [
         computedStyle.button,
-        pressed && { backgroundColor: underlayColor },
+        pressed && !disabled && !loading && { backgroundColor: underlayColor },
       ]}
       android_ripple={
         !ripple

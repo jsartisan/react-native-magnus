@@ -28,7 +28,7 @@ const Collapse: CompoundedCollapse<CollapseProps> = (incomingProps) => {
   });
 
   const { children, defaultActive, active, onChange, id, ...rest } = props;
-  const [isActive, setIsActive] = useState(active || defaultActive);
+  const [isActive, setIsActive] = useState(active ?? defaultActive);
   let header = null;
   let body = null;
 
@@ -63,7 +63,7 @@ const Collapse: CompoundedCollapse<CollapseProps> = (incomingProps) => {
   }
 
   header = React.cloneElement(header, {
-    isActive,
+    active: isActive,
 
     onPress: () => {
       changeState(!isActive);

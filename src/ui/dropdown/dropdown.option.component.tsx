@@ -12,9 +12,11 @@ const DropdownOption: React.FunctionComponent<DropdownOptionProps> = (
     onSelect: () => {},
     rounded: 0,
     bg: 'white',
-    p: 0,
+    py: 'lg',
+    px: '2xl',
+    block: true,
     color: 'black',
-    alignItems: 'flex-start',
+    alignItems: 'center',
     justifyContent: 'flex-start',
   });
 

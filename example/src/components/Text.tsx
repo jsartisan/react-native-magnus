@@ -46,7 +46,7 @@ const TextComponent: React.FC = () => {
         </ExampleSection>
 
         <ExampleSection name="uppercase + colored">
-          <Text color="red500" fontSize="lg" textTransform="uppercase">
+          <Text color="blue500" fontSize="lg" textTransform="uppercase">
             Text size: lg
           </Text>
         </ExampleSection>
@@ -55,7 +55,7 @@ const TextComponent: React.FC = () => {
           <Text
             fontSize="4xl"
             textTransform="uppercase"
-            fontFamily="OpenSans-Light"
+            fontFamily="Inconsolata-Regular"
           >
             Text size: 4xl
           </Text>
@@ -64,7 +64,7 @@ const TextComponent: React.FC = () => {
             mt="xl"
             fontSize="2xl"
             fontWeight="bold"
-            fontFamily="OpenSans-Light"
+            fontFamily="Inconsolata-Regular"
           >
             when fontweight is other than 'normal', fontfamily will be ignored
             (Android limitation). so we decided to this: when fontfamily is

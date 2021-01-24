@@ -76,7 +76,7 @@ const Modal = React.forwardRef<ModalRef, ModalProps>((incomingProps, ref) => {
 
   return (
     <RNModal isVisible={visible} {...rest} style={computedStyle.modal}>
-      <Div bg={bg} h={h || '100%'} style={computedStyle.container}>
+      <Div bg={bg} h={h ?? '100%'} style={computedStyle.container}>
         <SafeAreaView style={computedStyle.safeView}>{children}</SafeAreaView>
       </Div>
     </RNModal>

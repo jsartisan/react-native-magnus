@@ -1,7 +1,8 @@
 import { FlatListProps, ListRenderItemInfo } from 'react-native';
-import { BackgroundPropsType, LoadingPropsType } from '../../types';
-
 import {
+  BackgroundPropsType,
+  LoadingPropsType,
+  PositionPropsType,
   BorderPropsType,
   SpacingPropsType,
   RoundedPropsType,
@@ -14,6 +15,7 @@ export interface MentionProps
     SpacingPropsType,
     ShadowPropsType,
     RoundedPropsType,
+    PositionPropsType,
     Pick<LoadingPropsType, 'loading'>,
     Pick<BackgroundPropsType, 'bg'> {
   trigger?: any;

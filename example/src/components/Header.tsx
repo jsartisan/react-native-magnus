@@ -1,6 +1,6 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
-import { Button, Header, Icon } from 'react-native-magnus';
+import { Button, Header, Icon, Avatar } from 'react-native-magnus';
 
 import ExamplePage from '../utils/ExamplePage';
 import ExampleHeader from '../utils/ExampleHeader';
@@ -16,16 +16,8 @@ const HeaderComponent: React.FC = () => {
           <Header>My Title</Header>
         </ExampleSection>
 
-        <ExampleSection name="center aligned" withoutSpacingOnContent>
-          <Header alignment="center">My Title</Header>
-        </ExampleSection>
-
-        <ExampleSection
-          name="center aligned + text props"
-          withoutSpacingOnContent
-        >
+        <ExampleSection name="text props" withoutSpacingOnContent>
           <Header
-            alignment="center"
             textTransform="uppercase"
             fontSize="2xl"
             fontWeight="bold"
@@ -35,20 +27,32 @@ const HeaderComponent: React.FC = () => {
           </Header>
         </ExampleSection>
 
-        <ExampleSection
-          name="center aligned + prefix/suffix"
-          withoutSpacingOnContent
-        >
+        <ExampleSection name="prefix + suffix" withoutSpacingOnContent>
           <Header
-            p="lg"
-            borderBottomWidth={1}
-            borderBottomColor="gray200"
-            alignment="center"
             prefix={
-              <Button bg="white">
+              <Button bg="white" mr="lg">
                 <Icon name="arrow-left" fontFamily="Feather" fontSize="2xl" />
               </Button>
             }
+            suffix={
+              <Button bg="white">
+                <Icon name="more-vertical" fontFamily="Feather" />
+              </Button>
+            }
+          >
+            My Title
+          </Header>
+        </ExampleSection>
+
+        <ExampleSection name="center aligned" withoutSpacingOnContent>
+          <Header alignment="center">My Title</Header>
+        </ExampleSection>
+
+        <ExampleSection name="center aligned + suffix" withoutSpacingOnContent>
+          <Header
+            borderBottomWidth={1}
+            borderBottomColor="gray200"
+            alignment="center"
             suffix={
               <Button bg="white">
                 <Icon name="arrow-right" fontFamily="Feather" fontSize="2xl" />
@@ -59,18 +63,33 @@ const HeaderComponent: React.FC = () => {
           </Header>
         </ExampleSection>
 
-        <ExampleSection name="prefix + suffix" withoutSpacingOnContent>
+        <ExampleSection
+          name="center aligned + prefix/suffix"
+          withoutSpacingOnContent
+        >
           <Header
-            alignment="left"
+            borderBottomWidth={1}
+            borderBottomColor="gray200"
+            alignment="center"
             prefix={
-              <Button bg="white" mr="lg">
+              <Button bg="white">
                 <Icon name="arrow-left" fontFamily="Feather" fontSize="2xl" />
               </Button>
             }
             suffix={
-              <Button bg="white">
-                <Icon name="more-vertical" fontFamily="Feather" />
-              </Button>
+              <>
+                <Avatar size={36} bg="blue500" color="white" mr="sm">
+                  AB
+                </Avatar>
+
+                <Button bg="white">
+                  <Icon
+                    name="arrow-right"
+                    fontFamily="Feather"
+                    fontSize="2xl"
+                  />
+                </Button>
+              </>
             }
           >
             My Title

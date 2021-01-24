@@ -1,5 +1,5 @@
-import React from "react";
-import { Div, Text } from "react-native-magnus";
+import React from 'react';
+import { Div, Text } from 'react-native-magnus';
 
 const ExampleSection: React.FC<{
   name: string;
@@ -19,7 +19,7 @@ const ExampleSection: React.FC<{
         {name}
       </Text>
 
-      <Div mx={withoutSpacingOnContent ? "none" : "xl"}>{children}</Div>
+      <Div mx={withoutSpacingOnContent ? 'none' : 'xl'}>{children}</Div>
     </Div>
   );
 };

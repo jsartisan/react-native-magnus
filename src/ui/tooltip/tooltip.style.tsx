@@ -67,9 +67,7 @@ export const getStyle = (theme: ThemeType, props: TooltipProps, state: any) => {
     letterSpacing: props.letterSpacing,
     fontStyle: props.fontStyle,
     textAlignVertical: props.textAlignVertical,
-    lineHeight: props.lineHeight
-      ? props.lineHeight
-      : 1.5 * getThemeProperty(theme.fontSize, props.fontSize),
+    lineHeight: props.lineHeight,
     textAlign: props.textAlign,
     textTransform: props.textTransform,
     fontSize: getThemeProperty(theme.fontSize, props.fontSize),
