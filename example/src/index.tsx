@@ -9,11 +9,6 @@ import HomeScreen from './HomeScreen';
 import { components, pages } from './items';
 
 const theme: Partial<ThemeType> = {
-  fontFamily: {
-    normal: 'PlayfairDisplay-Regular',
-    bold: 'PlayfairDisplay-Bold',
-  },
-
   components: {
     Text: {
       fontSize: 'lg',
