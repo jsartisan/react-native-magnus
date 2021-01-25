@@ -22,6 +22,7 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "esnext",
-    "types": ["react-native"]
-  }
+    "types": ["react-native", "jest"]
+  },
+  "exclude": ["./**/*.spec.ts", "./**/*.spec.tsx"]
 }
