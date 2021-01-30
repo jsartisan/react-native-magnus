@@ -6,7 +6,7 @@ import { Div } from './div.component';
 import { DivProps } from './div.type';
 import { Text } from '../text/text.component';
 
-describe('@div: component checks', () => {
+describe('Div component', () => {
   const TestDiv: React.FC<DivProps> = (props) => (
     <ThemeProvider>
       <Div {...props} />
