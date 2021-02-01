@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import {
   View as RNView,
   NativeSyntheticEvent,
@@ -9,7 +9,7 @@ import {
 
 import { getStyle } from './input.style';
 import { TextareaProps } from './textarea.type';
-import { ThemeContext } from '../../theme';
+import { useTheme } from '../../theme';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 
 const Textarea: React.FunctionComponent<TextareaProps> = (incomingProps) => {
@@ -37,7 +37,7 @@ const Textarea: React.FunctionComponent<TextareaProps> = (incomingProps) => {
     focusBorderColor,
     ...rest
   } = props;
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useTheme();
   const [isFocussed, setIsFocussed] = useState(false);
   const computedStyle = getStyle(theme, props, { isFocussed });
 

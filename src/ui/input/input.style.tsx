@@ -13,6 +13,7 @@ import {
   createShadowStyles,
   getThemeFontFamily,
   getFontWeight,
+  getThemeColor,
 } from '../../theme/theme.service';
 import { InputProps } from './input.type';
 
@@ -36,7 +37,7 @@ export const getStyle = (theme: ThemeType, props: InputProps, state: any) => {
     width: props.w,
     height: props.h,
     opacity: props.opacity,
-    backgroundColor: getThemeProperty(theme.colors, props.bg),
+    backgroundColor: getThemeColor(theme.colors, props.bg),
     ...createFlexStyles(props),
     ...createBorderWidthStyles(props),
     ...createShadowStyles(props, theme),
@@ -49,7 +50,7 @@ export const getStyle = (theme: ThemeType, props: InputProps, state: any) => {
   if (state.isFocussed) {
     computedStyle.container = {
       ...computedStyle.container,
-      borderColor: getThemeProperty(
+      borderColor: getThemeColor(
         theme.colors,
         props.focusBorderColor
           ? props.focusBorderColor
@@ -68,12 +69,12 @@ export const getStyle = (theme: ThemeType, props: InputProps, state: any) => {
     fontStyle: props.fontStyle,
     textAlignVertical: props.textAlignVertical,
     lineHeight: props.lineHeight,
-    color: getThemeProperty(theme.colors, props.color),
+    color: getThemeColor(theme.colors, props.color),
     fontSize: getThemeProperty(theme.fontSize, props.fontSize),
     textAlign: props.textAlign,
     textTransform: props.textTransform,
-    textDecorationColor: getThemeProperty(theme.colors, props.textDecorColor),
-    textShadowColor: getThemeProperty(theme.colors, props.textShadowColor),
+    textDecorationColor: getThemeColor(theme.colors, props.textDecorColor),
+    textShadowColor: getThemeColor(theme.colors, props.textShadowColor),
     textShadowOffset: {
       width: getThemeProperty(theme.shadow, props.textShadowOffset),
       height: getThemeProperty(theme.shadow, props.textShadowOffset),

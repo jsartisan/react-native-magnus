@@ -30,12 +30,12 @@ const HeaderComponent: React.FC = () => {
         <ExampleSection name="prefix + suffix" withoutSpacingOnContent>
           <Header
             prefix={
-              <Button bg="white" mr="lg">
+              <Button bg="card" mr="lg">
                 <Icon name="arrow-left" fontFamily="Feather" fontSize="2xl" />
               </Button>
             }
             suffix={
-              <Button bg="white">
+              <Button bg="card">
                 <Icon name="more-vertical" fontFamily="Feather" />
               </Button>
             }
@@ -50,11 +50,9 @@ const HeaderComponent: React.FC = () => {
 
         <ExampleSection name="center aligned + suffix" withoutSpacingOnContent>
           <Header
-            borderBottomWidth={1}
-            borderBottomColor="gray200"
             alignment="center"
             suffix={
-              <Button bg="white">
+              <Button bg="card">
                 <Icon name="arrow-right" fontFamily="Feather" fontSize="2xl" />
               </Button>
             }
@@ -68,11 +66,9 @@ const HeaderComponent: React.FC = () => {
           withoutSpacingOnContent
         >
           <Header
-            borderBottomWidth={1}
-            borderBottomColor="gray200"
             alignment="center"
             prefix={
-              <Button bg="white">
+              <Button bg="card">
                 <Icon name="arrow-left" fontFamily="Feather" fontSize="2xl" />
               </Button>
             }
@@ -82,7 +78,7 @@ const HeaderComponent: React.FC = () => {
                   AB
                 </Avatar>
 
-                <Button bg="white">
+                <Button bg="card">
                   <Icon
                     name="arrow-right"
                     fontFamily="Feather"

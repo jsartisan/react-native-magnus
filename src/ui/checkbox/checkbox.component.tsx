@@ -1,18 +1,18 @@
 import * as React from 'react';
-import { useContext, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import {
   View as RNView,
   Pressable as RNButton,
   GestureResponderEvent as RNGestureResponderEvent,
 } from 'react-native';
 
-import { ThemeContext } from '../../theme';
 import { getStyle } from './checkbox.style';
 import { isFunction } from '../../utilities';
 import { getIcon } from './checkbox.service';
 import { CheckboxGroup } from './group.component';
 import { CompundedCheckbox, CheckboxProps } from './checkbox.type';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
+import { useTheme } from '../../theme';
 
 const Checkbox: CompundedCheckbox<CheckboxProps> = (incomingProps) => {
   const props = useDefaultProps('Checkbox', incomingProps, {
@@ -102,7 +102,7 @@ const Checkbox: CompundedCheckbox<CheckboxProps> = (incomingProps) => {
     onPress: onPressProp,
     ...rest
   } = props;
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useTheme();
   const [checked, setChecked] = useState(
     ('checked' in props ? checkedProp : defaultChecked) ?? false
   );

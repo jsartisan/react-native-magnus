@@ -2,11 +2,11 @@ import { StyleSheet } from 'react-native';
 import { ThemeType } from '../../theme';
 
 import {
-  getThemeProperty,
   createSpacingStyles,
   createBorderRadiusStyles,
   createBorderColorStyles,
   createBorderWidthStyles,
+  getThemeColor,
 } from '../../theme/theme.service';
 import { WINDOW_HEIGHT } from '../../utilities';
 import { SelectProps } from './select.type';
@@ -21,7 +21,7 @@ export const getStyle = (theme: ThemeType, props: SelectProps) => {
   const computedStyle: any = {};
 
   computedStyle.wrapper = {
-    backgroundColor: getThemeProperty(theme.colors, props.bg),
+    backgroundColor: getThemeColor(theme.colors, props.bg),
     ...createBorderWidthStyles(props),
     ...createBorderColorStyles(props, theme.colors),
     ...createBorderRadiusStyles(props, theme.borderRadius),

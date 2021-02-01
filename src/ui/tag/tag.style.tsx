@@ -2,11 +2,11 @@ import { StyleSheet } from 'react-native';
 import { ThemeType } from '../../theme';
 
 import {
-  getThemeProperty,
   createSpacingStyles,
   createBorderRadiusStyles,
   createBorderColorStyles,
   createBorderWidthStyles,
+  getThemeColor,
 } from '../../theme/theme.service';
 import { TagProps } from './tag.type';
 
@@ -20,13 +20,13 @@ export const getStyle = (theme: ThemeType, props: TagProps) => {
   const computedStyle: any = {};
 
   computedStyle.div = {
-    borderColor: getThemeProperty(theme.colors, props.borderColor),
+    borderColor: getThemeColor(theme.colors, props.borderColor),
     borderWidth: props.borderWidth,
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
     alignSelf: 'flex-start',
-    backgroundColor: getThemeProperty(theme.colors, props.bg),
+    backgroundColor: getThemeColor(theme.colors, props.bg),
     ...createBorderWidthStyles(props),
     ...createSpacingStyles(props, theme.spacing),
     ...createBorderColorStyles(props, theme.colors),

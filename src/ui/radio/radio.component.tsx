@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useContext, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import {
   View as RNView,
   ActivityIndicator,
@@ -8,9 +8,9 @@ import {
 } from 'react-native';
 
 import { getStyle } from './radio.style';
-import { ThemeContext } from '../../theme';
+import { useTheme } from '../../theme';
 import { Icon } from '../icon/icon.component';
-import { getThemeProperty } from '../../theme/theme.service';
+import { getThemeProperty, getThemeColor } from '../../theme/theme.service';
 import { getIconName, getIconColor } from './radio.service';
 import { RadioProps, CompoundedRadio } from './radio.type';
 import { RadioGroup } from './group.component';
@@ -105,7 +105,7 @@ const Radio: CompoundedRadio<RadioProps> = (incomingProps) => {
     onPress: onPressProp,
     ...rest
   } = props;
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useTheme();
   const [checked, setChecked] = useState(props.checked ?? defaultChecked);
   const [focussed, setFocussed] = useState(false);
   const computedStyle = getStyle(theme, props as RadioProps, { focussed });
@@ -174,7 +174,7 @@ const Radio: CompoundedRadio<RadioProps> = (incomingProps) => {
       return (
         <ActivityIndicator
           size={getThemeProperty(theme.fontSize, fontSize)}
-          color={getThemeProperty(theme.colors, loaderColor)}
+          color={getThemeColor(theme.colors, loaderColor)}
           style={{ zIndex: 2, position: 'relative' }}
         />
       );

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { useContext } from 'react';
 import {
   ImageBackground as RNImageBackground,
   View as RNView,
@@ -7,7 +6,7 @@ import {
 import * as Animatable from 'react-native-animatable';
 
 import { AnimatedProps } from './animated.type';
-import { ThemeContext } from '../../theme';
+import { useTheme } from '../../theme';
 import { getStyle } from './animated.style';
 import { registerAnimations } from './animated.service';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
@@ -75,7 +74,7 @@ const Animated: React.FunctionComponent<AnimatedProps> = (incomingProps) => {
     ...rest
   } = props;
 
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useTheme();
   const computedStyle = getStyle(theme, props);
 
   if (bgImg) {

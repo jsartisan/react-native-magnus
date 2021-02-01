@@ -30,9 +30,10 @@ const countryCodes: CountryCodeType[] = [
 
 const InputComponent: React.FC = () => {
   const selectCountryCodeRef = React.useRef<SelectRef>(null);
-  const [selectedCountryCode, setSelectedCountryCode] = React.useState<
-    CountryCodeType
-  >();
+  const [
+    selectedCountryCode,
+    setSelectedCountryCode,
+  ] = React.useState<CountryCodeType>();
   const onSelectCountryCodeOption = (value: CountryCodeType) =>
     setSelectedCountryCode(value);
 
@@ -63,16 +64,6 @@ const InputComponent: React.FC = () => {
           />
 
           <Input placeholder="Email" mt="md" fontWeight="bold" fontSize="4xl" />
-        </ExampleSection>
-
-        <ExampleSection name="text props">
-          <Input
-            placeholder="Email"
-            mt="md"
-            fontFamily="HanaleiFill-Regular"
-            fontSize="4xl"
-            textTransform="lowercase"
-          />
         </ExampleSection>
 
         <ExampleSection name="center aligned + prefix + suffix">
@@ -154,7 +145,7 @@ const InputComponent: React.FC = () => {
                   mr="lg"
                   bg="transparent"
                   fontWeight="bold"
-                  color="black"
+                  color="textDark"
                   p="none"
                   fontSize="sm"
                   textTransform="uppercase"

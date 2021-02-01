@@ -9,6 +9,7 @@ import {
   createBorderRadiusStyles,
   getThemeFontFamily,
   getFontWeight,
+  getThemeColor,
 } from '../../theme/theme.service';
 import { TextProps } from './text.type';
 
@@ -29,7 +30,7 @@ export const getStyle = (theme: ThemeType, props: TextProps) => {
     maxHeight: props.maxH,
     maxWidth: props.maxW,
     flex: props.flex,
-    backgroundColor: getThemeProperty(theme.colors, props.bg),
+    backgroundColor: getThemeColor(theme.colors, props.bg),
     overflow: props.overflow,
     opacity: props.opacity,
 
@@ -39,12 +40,12 @@ export const getStyle = (theme: ThemeType, props: TextProps) => {
     fontStyle: props.fontStyle,
     textAlignVertical: props.textAlignVertical,
     lineHeight: props.lineHeight,
-    color: getThemeProperty(theme.colors, props.color),
+    color: getThemeColor(theme.colors, props.color),
     fontSize: getThemeProperty(theme.fontSize, props.fontSize),
     textAlign: props.textAlign,
     textTransform: props.textTransform,
-    textDecorationColor: getThemeProperty(theme.colors, props.textDecorColor),
-    textShadowColor: getThemeProperty(theme.colors, props.textShadowColor),
+    textDecorationColor: getThemeColor(theme.colors, props.textDecorColor),
+    textShadowColor: getThemeColor(theme.colors, props.textShadowColor),
     textShadowOffset: {
       width: getThemeProperty(theme.shadow, props.textShadowOffset),
       height: getThemeProperty(theme.shadow, props.textShadowOffset),

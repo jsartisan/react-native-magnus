@@ -1,10 +1,9 @@
 import * as React from 'react';
-import { useContext } from 'react';
 import { View as RNView } from 'react-native';
 
 import { BadgeProps } from './badge.type';
 import { getStyle } from './badge.style';
-import { ThemeContext } from '../../theme';
+import { useTheme } from '../../theme';
 import { Text } from '../text/text.component';
 import { getSpecificProps } from '../../utilities';
 import { textProps } from '../../types';
@@ -72,7 +71,7 @@ const Badge: React.FunctionComponent<BadgeProps> = (incomingProps) => {
     opacity,
     ...rest
   } = props;
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useTheme();
   const computedStyle = getStyle(theme, props);
 
   return (

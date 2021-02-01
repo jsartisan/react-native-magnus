@@ -1,19 +1,20 @@
 import * as React from 'react';
 import Modal from 'react-native-modal';
 import { SafeAreaView, Platform, View } from 'react-native';
-import { useContext, useState, useImperativeHandle, useEffect } from 'react';
+import { useState, useImperativeHandle, useEffect } from 'react';
 
 import { Div } from '../div/div.component';
 import { getStyle } from './dropdown.style';
 import { Text } from '../text/text.component';
 import { DropdownOption } from './dropdown.option.component';
-import { ThemeContext, getThemeProperty } from '../../theme';
+import { useTheme } from '../../theme';
 import {
   DropdownProps,
   DropdownRef,
   CompoundedDropdown,
 } from './dropdown.type';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
+import { getThemeColor } from '../../theme/theme.service';
 
 const Dropdown = React.forwardRef<DropdownRef, DropdownProps>(
   (incomingProps, ref) => {
@@ -70,7 +71,7 @@ const Dropdown = React.forwardRef<DropdownRef, DropdownProps>(
       onSwipeComplete,
       ...rest
     } = props;
-    const { theme } = useContext(ThemeContext);
+    const { theme } = useTheme();
     const computedStyle = getStyle(theme, props as DropdownProps);
     const [visible, setVisible] = useState(props.isVisible ?? false);
 
@@ -133,7 +134,7 @@ const Dropdown = React.forwardRef<DropdownRef, DropdownProps>(
           setVisible(false);
           onSwipeComplete && onSwipeComplete(params);
         }}
-        backdropColor={getThemeProperty(theme.colors, backdropColor)}
+        backdropColor={getThemeColor(theme.colors, backdropColor)}
         onBackdropPress={
           'onBackdropPress' in props ? onBackdropPress : () => setVisible(false)
         }

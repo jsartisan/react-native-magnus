@@ -30,7 +30,7 @@ const OverlayComponent: React.FC = () => {
 
           <Overlay ref={overlayRef} p="xl">
             <Div flexDir="row" justifyContent="center" alignItems="center">
-              <ActivityIndicator size={30} color="black" />
+              <ActivityIndicator size={30} color="red" />
               <Text fontSize="lg" ml="lg">
                 Loading...
               </Text>

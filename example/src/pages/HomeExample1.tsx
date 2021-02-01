@@ -57,11 +57,11 @@ const HomeExample1: React.FC = () => {
       <Host>
         <Div flex={1}>
           {/* header */}
-          <Div bg="white" shadow="lg">
+          <Div bg="card" shadow="lg">
             <Header
               shadow="none"
               prefix={
-                <Button bg="white" mr="lg" onPress={() => navigation.goBack()}>
+                <Button bg="card" mr="lg" onPress={() => navigation.goBack()}>
                   <Icon name="arrow-left" fontFamily="Feather" fontSize="2xl" />
                 </Button>
               }
@@ -95,10 +95,10 @@ const HomeExample1: React.FC = () => {
               }
             >
               <Div>
-                <Text fontWeight="bold" fontSize="2xl">
+                <Text fontWeight="bold" fontSize="2xl" color="textDark">
                   Explore
                 </Text>
-                <Text color="gray700">My friends</Text>
+                <Text color="gray500">My friends</Text>
               </Div>
             </Header>
 
@@ -107,7 +107,7 @@ const HomeExample1: React.FC = () => {
               suffix={
                 <Icon
                   name="search"
-                  color="gray700"
+                  color="gray500"
                   fontSize="xl"
                   fontFamily="FontAwesome"
                 />
@@ -119,7 +119,8 @@ const HomeExample1: React.FC = () => {
               fontSize="lg"
               borderWidth={0}
               placeholder="Search your doge homies"
-              bg="gray100"
+              bg="screenBg"
+              color="textDark"
             />
           </Div>
 
@@ -148,7 +149,7 @@ const HomeExample1: React.FC = () => {
         <Portal>
           <Fab>
             <Button p="none" bg="transparent" justifyContent="flex-end">
-              <Div rounded="sm" bg="white" p="sm">
+              <Div rounded="sm" bg="card" p="sm">
                 <Text fontSize="md">Cheer</Text>
               </Div>
               <Icon
@@ -158,7 +159,7 @@ const HomeExample1: React.FC = () => {
                 w={50}
                 rounded="circle"
                 ml="md"
-                bg="white"
+                bg="card"
               />
             </Button>
             <Button
@@ -167,7 +168,7 @@ const HomeExample1: React.FC = () => {
               justifyContent="flex-end"
               disabled
             >
-              <Div rounded="sm" bg="white" p="sm">
+              <Div rounded="sm" bg="card" p="sm">
                 <Text fontSize="md">Boost</Text>
               </Div>
               <Icon
@@ -177,7 +178,7 @@ const HomeExample1: React.FC = () => {
                 w={50}
                 rounded="circle"
                 ml="md"
-                bg="white"
+                bg="card"
               />
             </Button>
           </Fab>

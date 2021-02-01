@@ -1,9 +1,9 @@
-import React from "react";
-import { StatusBar } from "react-native";
-import { useNavigation } from "@react-navigation/native";
-import { Button, Div, Image, Input, Text, Icon } from "react-native-magnus";
+import React from 'react';
+import { StatusBar } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { Button, Div, Image, Input, Text, Icon } from 'react-native-magnus';
 
-import ExamplePage from "../utils/ExamplePage";
+import ExamplePage from '../utils/ExamplePage';
 
 const LOGO_URL = `https://freepngimg.com/thumb/logo/69823-instagram-icons-symbol-youtube-computer-logo-thumb.png`;
 
@@ -30,26 +30,26 @@ const LoginExample2: React.FC = () => {
             h={40}
             source={{ uri: LOGO_URL }}
           />
-          <Text textAlign="center" fontSize="4xl" fontWeight="bold" mt="sm">
+          <Text
+            textAlign="center"
+            fontSize="4xl"
+            fontWeight="bold"
+            mt="sm"
+            color="gray900"
+          >
             Instagram
           </Text>
           <Div mt="md" pt="2xl">
-            <Text fontSize="md" mb="sm">
+            <Text fontSize="md" mb="sm" color="gray900">
               Email / Username
             </Text>
-            <Input px="lg" rounded="sm" bg="gray200" borderWidth={0} />
+            <Input px="lg" bg="gray200" color="gray900" />
           </Div>
           <Div mt="xl">
-            <Text fontSize="md" mb="sm">
+            <Text fontSize="md" mb="sm" color="gray900">
               Password
             </Text>
-            <Input
-              px="lg"
-              bg="gray200"
-              secureTextEntry
-              rounded="sm"
-              borderWidth={0}
-            />
+            <Input px="lg" bg="gray200" color="gray900" secureTextEntry />
           </Div>
           <Div justifyContent="flex-end" flexDir="row">
             <Button
@@ -72,7 +72,9 @@ const LoginExample2: React.FC = () => {
             flexDir="row"
             mt="2xl"
           >
-            <Text fontSize="md">Do you have an account?</Text>
+            <Text fontSize="md" color="gray900">
+              Do you have an account?
+            </Text>
             <Button
               bg="transparent"
               fontSize="md"

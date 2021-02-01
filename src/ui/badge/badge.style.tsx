@@ -2,13 +2,13 @@ import { StyleSheet } from 'react-native';
 import { ThemeType } from '../../theme';
 
 import {
-  getThemeProperty,
   createShadowStyles,
   createSpacingStyles,
   createBorderWidthStyles,
   createBorderColorStyles,
   createBorderRadiusStyles,
   createPositionStyle,
+  getThemeColor,
 } from '../../theme/theme.service';
 import { BadgeProps } from './badge.type';
 
@@ -39,7 +39,7 @@ export const getStyle = (
     alignSelf: 'flex-start',
     opacity: props.opacity,
     minHeight: typeof props.children === 'string' ? 30 : 10,
-    backgroundColor: getThemeProperty(theme.colors, props.bg),
+    backgroundColor: getThemeColor(theme.colors, props.bg),
     minWidth: typeof props.children === 'string' ? 30 : 10,
     ...createPositionStyle(props),
     ...createBorderWidthStyles(props),

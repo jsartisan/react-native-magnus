@@ -2,13 +2,13 @@ import { StyleSheet } from 'react-native';
 import { ThemeType } from '../../theme';
 
 import {
-  getThemeProperty,
   createShadowStyles,
   createSpacingStyles,
   createPositionStyle,
   createBorderRadiusStyles,
   createBorderColorStyles,
   createBorderWidthStyles,
+  getThemeColor,
 } from '../../theme/theme.service';
 import { ImageProps } from './image.type';
 
@@ -38,7 +38,7 @@ export const getStyle = (theme: ThemeType, props: ImageProps) => {
     ...createSpacingStyles(props, theme.spacing),
     ...createBorderColorStyles(props, theme.colors),
     ...createBorderRadiusStyles(props, theme.borderRadius),
-    backgroundColor: getThemeProperty(theme.colors, props.bg),
+    backgroundColor: getThemeColor(theme.colors, props.bg),
   };
 
   // merging style props to computed style

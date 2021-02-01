@@ -2,11 +2,11 @@ import { StyleSheet } from 'react-native';
 import { ThemeType } from '../../theme';
 
 import {
-  getThemeProperty,
   createSpacingStyles,
   createBorderWidthStyles,
   createBorderColorStyles,
   createBorderRadiusStyles,
+  getThemeColor,
 } from '../../theme/theme.service';
 import { ScrollDivProps } from './scrolldiv.type';
 
@@ -25,7 +25,7 @@ export const getStyle = (theme: ThemeType, props: ScrollDivProps) => {
     alignItems: props.alignItems,
     justifyContent: props.justifyContent,
     position: props.position,
-    backgroundColor: getThemeProperty(theme.colors, props.bg),
+    backgroundColor: getThemeColor(theme.colors, props.bg),
     ...createBorderWidthStyles(props),
     ...createSpacingStyles(props, theme.spacing),
     ...createBorderColorStyles(props, theme.colors),
@@ -47,7 +47,7 @@ export const getStyle = (theme: ThemeType, props: ScrollDivProps) => {
     computedStyle.div = {
       ...computedStyle.div,
       ...(theme.shadow && theme.shadow[props.shadow]),
-      shadowColor: getThemeProperty(theme.colors, props.shadowColor),
+      shadowColor: getThemeColor(theme.colors, props.shadowColor),
     };
   }
 

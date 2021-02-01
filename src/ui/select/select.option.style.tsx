@@ -5,6 +5,7 @@ import {
   getThemeProperty,
   createSpacingStyles,
   createBorderRadiusStyles,
+  getThemeColor,
 } from '../../theme/theme.service';
 import { SelectOptionProps } from './select.option.type';
 
@@ -23,12 +24,12 @@ export const getStyle = (theme: ThemeType, props: SelectOptionProps) => {
     flexDirection: 'row',
     alignSelf: 'flex-start',
     position: props.position,
-    backgroundColor: getThemeProperty(theme.colors, props.bg),
+    backgroundColor: getThemeColor(theme.colors, props.bg),
     ...createSpacingStyles(props, theme.spacing),
   };
 
   computedStyle.text = {
-    color: getThemeProperty(theme.colors, props.color),
+    color: getThemeColor(theme.colors, props.color),
     textAlign: 'right',
     fontSize: getThemeProperty(theme.fontSize, props.fontSize),
   };
@@ -44,7 +45,7 @@ export const getStyle = (theme: ThemeType, props: SelectOptionProps) => {
     computedStyle.button = {
       ...computedStyle.button,
       ...(theme.shadow && theme.shadow[props.shadow]),
-      shadowColor: getThemeProperty(theme.colors, props.shadowColor),
+      shadowColor: getThemeColor(theme.colors, props.shadowColor),
     };
   }
 
@@ -100,7 +101,7 @@ export const getStyle = (theme: ThemeType, props: SelectOptionProps) => {
   if (props.borderColor) {
     computedStyle.button = {
       ...computedStyle.button,
-      borderColor: getThemeProperty(theme.colors, props.borderColor),
+      borderColor: getThemeColor(theme.colors, props.borderColor),
     };
   }
 

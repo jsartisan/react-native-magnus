@@ -8,6 +8,7 @@ import {
   createBorderColorStyles,
   createBorderWidthStyles,
   createBorderRadiusStyles,
+  getThemeColor,
 } from '../../theme/theme.service';
 import { IconProps } from './icon.type';
 
@@ -36,9 +37,9 @@ export const getStyle = (theme: ThemeType, props: IconProps) => {
     alignItems: 'center',
     justifyContent: 'center',
     opacity: props.opacity,
-    color: getThemeProperty(theme.colors, props.color),
+    color: getThemeColor(theme.colors, props.color),
     fontSize: getThemeProperty(theme.fontSize, props.fontSize),
-    backgroundColor: getThemeProperty(theme.colors, props.bg),
+    backgroundColor: getThemeColor(theme.colors, props.bg),
     ...createBorderWidthStyles(props),
     ...createSpacingStyles(props, theme.spacing),
     ...createBorderColorStyles(props, theme.colors),

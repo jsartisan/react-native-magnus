@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useRef, useImperativeHandle, useContext } from 'react';
+import { useRef, useImperativeHandle } from 'react';
 import {
   View,
   Modal,
@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 
 import { getStyle } from './tooltip.style';
-import { ThemeContext } from '../../theme';
+import { useTheme } from '../../theme';
 import { Text } from '../text/text.component';
 import { Triangle } from './triangle.component';
 import { TooltipProps, TooltipRef } from './tooltip.type';
@@ -91,7 +91,7 @@ const Tooltip = React.forwardRef<
   } = props;
   const animationStarted = visible === STATES.ANIMATING;
   const modalVisible = visible === STATES.SHOWN || animationStarted;
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useTheme();
   const computedStyle = getStyle(theme, props, {
     ...state,
     invert,

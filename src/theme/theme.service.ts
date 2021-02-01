@@ -1,48 +1,6 @@
 import { ThemeType } from './type';
-import { defaultTheme } from '../style';
 import { TextProps } from '../ui';
-
-/**
- * merge user theme with default theme
- *
- * @param customTheme
- *
- * @return computedTheme computed theme variables object
- */
-export function computeTheme(customTheme: ThemeType | undefined): ThemeType {
-  const computedTheme = { ...defaultTheme };
-
-  if (!customTheme) {
-    return computedTheme;
-  }
-
-  if (customTheme.colors) {
-    computedTheme.colors = {
-      ...defaultTheme.colors,
-      ...customTheme.colors,
-    };
-  }
-
-  if (customTheme.fontSize) {
-    computedTheme.fontSize = {
-      ...defaultTheme.fontSize,
-      ...customTheme.fontSize,
-    };
-  }
-
-  if (customTheme.borderRadius) {
-    computedTheme.borderRadius = {
-      ...defaultTheme.borderRadius,
-      ...customTheme.borderRadius,
-    };
-  }
-
-  if (customTheme.name) {
-    computedTheme.name = customTheme.name;
-  }
-
-  return computedTheme;
-}
+import { isValidColor } from '../utilities';
 
 /**
  * create spacing styles from object of style props passed to magnus component
@@ -52,7 +10,10 @@ export function computeTheme(customTheme: ThemeType | undefined): ThemeType {
  * @param value
  * @param theme
  */
-export const createSpacingStyles = (props: any, theme: any) => {
+export const createSpacingStyles = (
+  props: any,
+  theme: ThemeType['spacing']
+) => {
   let propKeys: any;
 
   propKeys = {
@@ -119,16 +80,15 @@ export const getFontWeight = (
  * extract the fontFamily from theme
 
  * @param themeFontFamily
- * @param index
- * @param fallbackValue
+ * @param fontWeight
  */
 export const getThemeFontFamily = (
   themeFontFamily: ThemeType['fontFamily'],
-  index: TextProps['fontWeight'] = 'normal'
+  fontWeight: TextProps['fontWeight'] = 'normal'
 ): string | undefined => {
   if (themeFontFamily) {
-    if (typeof themeFontFamily[index] !== 'undefined') {
-      return themeFontFamily[index];
+    if (typeof themeFontFamily[fontWeight] !== 'undefined') {
+      return themeFontFamily[fontWeight];
     }
   }
 
@@ -139,14 +99,47 @@ export const getThemeFontFamily = (
  * extract the theme property from theme
  * if thereis no theme property in the value, return the value
  *
+ * @param themeColors
+ * @param value
+ */
+export const getThemeColor = (
+  themeColors: ThemeType['colors'],
+  value: string | undefined
+): string => {
+  if (themeColors && value) {
+    if (typeof themeColors[value] !== 'undefined') {
+      if (isValidColor(themeColors[value] as string)) {
+        return themeColors[value] as string;
+      }
+
+      return getThemeColor(themeColors, themeColors[value] as string);
+    }
+  }
+
+  return value as string;
+};
+
+/**
+ * extract the theme property from theme
+ * if thereis no theme property in the value, return the value
+ *
  * @param theme
  * @param value
  */
-export const getThemeProperty = (theme: any, value: any) => {
-  if (typeof theme[value] !== 'undefined') {
-    return theme[value];
+export const getThemeProperty = (
+  theme:
+    | ThemeType['borderRadius']
+    | ThemeType['fontSize']
+    | ThemeType['shadow']
+    | ThemeType['spacing']
+    | undefined,
+  value: any
+) => {
+  if (theme) {
+    if (typeof theme[value] !== 'undefined') {
+      return theme[value];
+    }
   }
-
   return value;
 };
 
@@ -156,7 +149,10 @@ export const getThemeProperty = (theme: any, value: any) => {
  * @param value
  * @param theme
  */
-export const createBorderRadiusStyles = (props: any, theme: any) => {
+export const createBorderRadiusStyles = (
+  props: any,
+  theme: ThemeType['borderRadius']
+) => {
   let propKeys: any;
 
   propKeys = {
@@ -250,7 +246,10 @@ export const createBorderWidthStyles = (props: any) => {
  *
  * @param value
  */
-export const createBorderColorStyles = (props: any, theme: any) => {
+export const createBorderColorStyles = (
+  props: any,
+  theme: ThemeType['colors']
+) => {
   let propKeys: any;
 
   propKeys = {
@@ -269,10 +268,10 @@ export const createBorderColorStyles = (props: any, theme: any) => {
     if (propKey in props) {
       if (styleProperty instanceof Array) {
         styleProperty.forEach((property) => {
-          computedStyle[property] = getThemeProperty(theme, props[propKey]);
+          computedStyle[property] = getThemeColor(theme, props[propKey]);
         });
       } else {
-        computedStyle[styleProperty] = getThemeProperty(theme, props[propKey]);
+        computedStyle[styleProperty] = getThemeColor(theme, props[propKey]);
       }
     }
   });
@@ -285,13 +284,13 @@ export const createBorderColorStyles = (props: any, theme: any) => {
  *
  * @param props
  */
-export const createShadowStyles = (props: any, theme: any) => {
+export const createShadowStyles = (props: any, theme: ThemeType) => {
   let computedStyle: any = {};
 
   if (props.shadow) {
     computedStyle = {
-      ...theme.shadow[props.shadow],
-      shadowColor: getThemeProperty(theme.colors, props.shadowColor),
+      ...(theme.shadow && theme.shadow[props.shadow]),
+      shadowColor: getThemeColor(theme.colors, props.shadowColor),
     };
   }
 

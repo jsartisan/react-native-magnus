@@ -1,9 +1,8 @@
 import * as React from 'react';
-import { useContext } from 'react';
 import { View as RNView, Image as RNImage } from 'react-native';
 
 import { getStyle } from './avatar.style';
-import { ThemeContext } from '../../theme';
+import { useTheme } from '../../theme';
 import { AvatarGroup } from './avatar.group.component';
 import { AvatarProps, CompoundedAvatar } from './avatar.type';
 import { Text } from '../text/text.component';
@@ -72,7 +71,7 @@ const Avatar: CompoundedAvatar<AvatarProps> = (incomingProps) => {
     source,
     ...rest
   } = props;
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useTheme();
   const computedStyle = getStyle(theme, props);
 
   /**

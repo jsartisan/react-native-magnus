@@ -2,11 +2,11 @@ import { StyleSheet } from 'react-native';
 import { ThemeType } from '../../theme';
 
 import {
-  getThemeProperty,
   createSpacingStyles,
   createBorderWidthStyles,
   createBorderColorStyles,
   createBorderRadiusStyles,
+  getThemeColor,
 } from '../../theme/theme.service';
 import { DropdownProps } from './dropdown.type';
 
@@ -26,7 +26,7 @@ export const getStyle = (theme: ThemeType, props: DropdownProps) => {
     minWidth: props.minW,
     alignSelf: 'center',
     overflow: props.overflow,
-    backgroundColor: getThemeProperty(theme.colors, props.bg),
+    backgroundColor: getThemeColor(theme.colors, props.bg),
     ...createBorderWidthStyles(props),
     ...createBorderColorStyles(props, theme.colors),
     ...createBorderRadiusStyles(props, theme.borderRadius),
