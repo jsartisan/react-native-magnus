@@ -66,16 +66,6 @@ const InputComponent: React.FC = () => {
           <Input placeholder="Email" mt="md" fontWeight="bold" fontSize="4xl" />
         </ExampleSection>
 
-        <ExampleSection name="text props">
-          <Input
-            placeholder="Email"
-            mt="md"
-            fontFamily="HanaleiFill-Regular"
-            fontSize="4xl"
-            textTransform="lowercase"
-          />
-        </ExampleSection>
-
         <ExampleSection name="center aligned + prefix + suffix">
           <Input
             placeholder="Email"
