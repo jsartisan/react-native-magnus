@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { useContext, useState, useEffect, useImperativeHandle } from 'react';
+import { useState, useEffect, useImperativeHandle } from 'react';
 import { Animated, SafeAreaView, View as RNView } from 'react-native';
 
 import { getStyle } from './snackbar.style';
-import { ThemeContext } from '../../theme';
+import { useTheme } from '../../theme';
 import { SnackbarRef, SnackbarProps } from './snackbar.type';
 import { Text } from '../text/text.component';
 import { getSpecificProps } from '../../utilities';
@@ -79,7 +79,7 @@ const Snackbar = React.forwardRef<
     ...rest
   } = props;
   let hideTimeout: number = 0;
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useTheme();
   const computedStyle = getStyle(theme, props);
   const [opacity] = useState(new Animated.Value(0.0));
   const [hidden, setHidden] = useState(true);

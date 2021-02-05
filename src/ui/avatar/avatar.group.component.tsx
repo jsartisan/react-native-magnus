@@ -1,9 +1,8 @@
 import * as React from 'react';
 
-import { useContext } from 'react';
 import { Div } from '../div/div.component';
 import { AvatarGroupProps } from './avatar.group.type';
-import { ThemeContext, getThemeProperty } from '../../theme';
+import { getThemeProperty, useTheme } from '../../theme';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 
 const AvatarGroup: React.FunctionComponent<AvatarGroupProps> = (
@@ -16,7 +15,7 @@ const AvatarGroup: React.FunctionComponent<AvatarGroupProps> = (
   });
 
   const { children, ml, offset, ...rest } = props;
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useTheme();
   const calculatedOffset = getThemeProperty(theme.spacing, offset);
   const calculatedMarginLeft = getThemeProperty(theme.spacing, ml);
 

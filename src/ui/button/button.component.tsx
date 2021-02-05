@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { useContext } from 'react';
 import {
   View as RNView,
   Animated as RNAnimated,
@@ -8,9 +7,9 @@ import {
 } from 'react-native';
 
 import { getStyle } from './button.style';
-import { ThemeContext } from '../../theme';
+import { useTheme } from '../../theme';
 import { ButtonProps } from './button.type';
-import { getThemeProperty } from '../../theme/theme.service';
+import { getThemeProperty, getThemeColor } from '../../theme/theme.service';
 import { getUnderlayColor, getRippleColor } from './button.service';
 
 import { Text } from '../text/text.component';
@@ -99,7 +98,7 @@ const Button: React.FunctionComponent<ButtonProps> = (incomingProps) => {
     ...rest
   } = props;
 
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useTheme();
   const computedStyle = getStyle(theme, props);
   const underlayColor = getUnderlayColor(theme, props);
   const calculatedRippleColor = getRippleColor(theme, props);
@@ -144,7 +143,7 @@ const Button: React.FunctionComponent<ButtonProps> = (incomingProps) => {
           <RNView style={computedStyle.loadingContainer}>
             <RNActivityIndicator
               size={getThemeProperty(theme.fontSize, loaderSize)}
-              color={getThemeProperty(theme.colors, loaderColor)}
+              color={getThemeColor(theme.colors, loaderColor)}
             />
           </RNView>
         </RNView>

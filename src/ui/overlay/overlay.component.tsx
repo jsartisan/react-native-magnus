@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { View as RNView, Modal as RNModal } from 'react-native';
-import { useContext, useState, useEffect, useImperativeHandle } from 'react';
+import { useState, useEffect, useImperativeHandle } from 'react';
 
 import { getStyle } from './overlay.style';
-import { ThemeContext } from '../../theme';
+import { useTheme } from '../../theme';
 import { isFunction } from '../../utilities';
 import { OverlayProps, OverlayRef } from './overlay.type';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
@@ -52,7 +52,7 @@ const Overlay = React.forwardRef<
     onRequestClose,
     ...rest
   } = props;
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useTheme();
   const computedStyle = getStyle(theme, props);
   const [visible, setVisible] = useState(isVisible ?? false);
 

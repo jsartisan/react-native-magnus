@@ -15,6 +15,7 @@ import {
   SpacingPropsType,
   RoundedPropsType,
   ShadowPropsType,
+  VariantPropsType,
 } from '../../types';
 
 export interface ButtonProps
@@ -33,4 +34,5 @@ export interface ButtonProps
     OpacityPropsType,
     ZIndexPropsType,
     ButtonPropsType,
-    Pick<BackgroundPropsType, 'bg'> {}
+    Pick<BackgroundPropsType, 'bg'>,
+    VariantPropsType {}

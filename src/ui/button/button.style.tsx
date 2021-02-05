@@ -9,6 +9,7 @@ import {
   createBorderRadiusStyles,
   createBorderColorStyles,
   createBorderWidthStyles,
+  getThemeColor,
 } from '../../theme/theme.service';
 import { ButtonProps } from './button.type';
 
@@ -41,7 +42,7 @@ export const getStyle = (theme: ThemeType, props: ButtonProps) => {
     ...createSpacingStyles(props, theme.spacing),
     ...createBorderColorStyles(props, theme.colors),
     ...createBorderRadiusStyles(props, theme.borderRadius),
-    backgroundColor: getThemeProperty(theme.colors, props.bg),
+    backgroundColor: getThemeColor(theme.colors, props.bg),
   };
 
   computedStyle.loadingContainer = {

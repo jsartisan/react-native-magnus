@@ -4,7 +4,7 @@ import { ActivityIndicator } from 'react-native';
 import { ThemeType } from '../..//theme';
 import { Icon } from '../icon/icon.component';
 import { CheckboxProps } from './checkbox.type';
-import { getThemeProperty } from '../../theme/theme.service';
+import { getThemeProperty, getThemeColor } from '../../theme/theme.service';
 
 /**
  * get icon name based on state
@@ -38,11 +38,11 @@ export const getIconColor = (
 ) => {
   switch (true) {
     case disabled:
-      return getThemeProperty(theme.colors, inactiveColor);
+      return getThemeColor(theme.colors, inactiveColor);
     case checked:
-      return getThemeProperty(theme.colors, activeColor);
+      return getThemeColor(theme.colors, activeColor);
     default:
-      return getThemeProperty(theme.colors, inactiveColor);
+      return getThemeColor(theme.colors, inactiveColor);
   }
 };
 
@@ -78,7 +78,7 @@ export const getIcon = (
     return (
       <ActivityIndicator
         size={getThemeProperty(theme.fontSize, fontSize)}
-        color={getThemeProperty(theme.colors, loaderColor)}
+        color={getThemeColor(theme.colors, loaderColor)}
         style={{ zIndex: 2, position: 'relative' }}
       />
     );

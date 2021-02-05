@@ -9,6 +9,7 @@ import {
   createBorderRadiusStyles,
   createBorderColorStyles,
   createBorderWidthStyles,
+  getThemeColor,
 } from '../../theme/theme.service';
 import { CheckboxProps, CheckboxStates } from './checkbox.type';
 
@@ -45,12 +46,12 @@ export const getStyle = (
     ...createSpacingStyles(props, theme.spacing),
     ...createBorderColorStyles(props, theme.colors),
     ...createBorderRadiusStyles(props, theme.borderRadius),
-    backgroundColor: getThemeProperty(theme.colors, props.bg),
+    backgroundColor: getThemeColor(theme.colors, props.bg),
   };
 
   computedStyle.text = {
     fontWeight: props.fontWeight,
-    color: getThemeProperty(theme.colors, props.color),
+    color: getThemeColor(theme.colors, props.color),
     fontSize: getThemeProperty(theme.fontSize, props.fontSize),
     lineHeight: getThemeProperty(theme.fontSize, props.fontSize) * 1.2,
   };
@@ -90,7 +91,7 @@ export const getStyle = (
 
   computedStyle.highlightContainer = {
     backgroundColor: extraProps.focussed
-      ? getThemeProperty(theme.colors, props.highlightBg)
+      ? getThemeColor(theme.colors, props.highlightBg)
       : 'transparent',
     height: getThemeProperty(theme.fontSize, props.fontSize) + 5,
     width: getThemeProperty(theme.fontSize, props.fontSize) + 5,

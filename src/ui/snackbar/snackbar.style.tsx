@@ -2,12 +2,12 @@ import { StyleSheet } from 'react-native';
 import { ThemeType } from '../../theme';
 
 import {
-  getThemeProperty,
   createShadowStyles,
   createSpacingStyles,
   createBorderColorStyles,
   createBorderWidthStyles,
   createBorderRadiusStyles,
+  getThemeColor,
 } from '../../theme/theme.service';
 import { SnackbarProps } from './snackbar.type';
 
@@ -57,7 +57,7 @@ export const getStyle = (theme: ThemeType, props: SnackbarProps) => {
     ...createSpacingStyles(props, theme.spacing),
     ...createBorderColorStyles(props, theme.colors),
     ...createBorderRadiusStyles(props, theme.borderRadius),
-    backgroundColor: getThemeProperty(theme.colors, props.bg),
+    backgroundColor: getThemeColor(theme.colors, props.bg),
   };
 
   return StyleSheet.create(computedStyle);

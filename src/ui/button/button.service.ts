@@ -1,6 +1,6 @@
 import color from 'color';
 
-import { getThemeProperty } from '../../theme/theme.service';
+import { getThemeColor } from '../../theme/theme.service';
 import { ButtonProps } from './button.type';
 import { ThemeType } from '../../theme/type';
 
@@ -11,14 +11,11 @@ import { ThemeType } from '../../theme/type';
  * @param props
  */
 export const getUnderlayColor = (theme: ThemeType, props: ButtonProps) => {
-  return getThemeProperty(
+  return getThemeColor(
     theme.colors,
     props.underlayColor
       ? props.underlayColor
-      : color(getThemeProperty(theme.colors, props.bg))
-          .darken(0.1)
-          .rgb()
-          .string()
+      : color(getThemeColor(theme.colors, props.bg)).darken(0.1).rgb().string()
   );
 };
 
@@ -29,7 +26,7 @@ export const getUnderlayColor = (theme: ThemeType, props: ButtonProps) => {
  * @param props
  */
 export const getRippleColor = (theme: ThemeType, props: ButtonProps) => {
-  return color(getThemeProperty(theme.colors, props.rippleColor))
+  return color(getThemeColor(theme.colors, props.rippleColor))
     .alpha(props.disabled ? 0 : 0.2)
     .rgb()
     .string();

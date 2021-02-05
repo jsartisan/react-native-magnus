@@ -150,7 +150,7 @@ const CarouselComponent: React.FC = () => {
 };
 
 const Card: React.FC<DivProps> = (props) => {
-  return <Div bg="white" shadow="sm" {...props} />;
+  return <Div bg="card" shadow="sm" {...props} />;
 };
 
 export default CarouselComponent;

@@ -2,12 +2,12 @@ import { StyleSheet } from 'react-native';
 import { ThemeType } from '../../theme';
 
 import {
-  getThemeProperty,
   createSpacingStyles,
   createBorderWidthStyles,
   createBorderColorStyles,
   createBorderRadiusStyles,
   createPositionStyle,
+  getThemeColor,
 } from '../../theme/theme.service';
 import { MentionProps } from './mention.type';
 
@@ -23,7 +23,7 @@ export const getStyle = (theme: ThemeType, props: MentionProps) => {
   computedStyle.list = {
     flex: 1,
     zIndex: 99,
-    backgroundColor: getThemeProperty(theme.colors, props.bg),
+    backgroundColor: getThemeColor(theme.colors, props.bg),
     ...createPositionStyle(props),
     ...createSpacingStyles(props, theme.spacing),
     ...createBorderWidthStyles(props),
@@ -38,7 +38,7 @@ export const getStyle = (theme: ThemeType, props: MentionProps) => {
     alignItems: 'center',
     justifyContent: 'center',
     ...createSpacingStyles(props, theme.spacing),
-    backgroundColor: getThemeProperty(theme.colors, props.bg),
+    backgroundColor: getThemeColor(theme.colors, props.bg),
     ...createBorderWidthStyles(props),
     ...createBorderColorStyles(props, theme.colors),
     ...createBorderRadiusStyles(props, theme.borderRadius),
@@ -49,7 +49,7 @@ export const getStyle = (theme: ThemeType, props: MentionProps) => {
     computedStyle.list = {
       ...computedStyle.list,
       ...(theme.shadow && theme.shadow[props.shadow]),
-      shadowColor: getThemeProperty(theme.colors, props.shadowColor),
+      shadowColor: getThemeColor(theme.colors, props.shadowColor),
     };
   }
 

@@ -1,26 +1,38 @@
+import React from 'react';
 import { ThemeType, useTheme } from '../theme';
-import { DefaultProps } from '../types';
+import { DefaultProps, VariantPropsType } from '../types';
 
 export const useDefaultProps = <Props extends object>(
   componentName: keyof NonNullable<ThemeType['components']> | null,
-  props: Props,
+  props: Props & VariantPropsType,
   defaultProps: DefaultProps<Props>
 ) => {
-  const theme = useTheme();
+  const { theme } = useTheme();
 
-  let propsFromTheme: Partial<Props> = {};
+  const finalProps = React.useMemo(() => {
+    if (!componentName) {
+      return {
+        ...defaultProps,
+        ...props,
+      };
+    }
 
-  if (componentName !== null) {
-    // @ts-ignore
-    propsFromTheme =
-      (theme.components && theme.components[componentName]) ?? {};
-  }
+    let propsFromTheme = {
+      ...(theme.components?.[componentName] ?? {}),
+      ...(props.variant &&
+        (theme.components?.[componentName]?.variants?.[props.variant] ?? {})),
+    };
 
-  const mergedProps = {
-    ...defaultProps,
-    ...propsFromTheme,
-    ...props,
-  };
+    delete propsFromTheme.variants;
 
-  return mergedProps as Props & Required<typeof defaultProps>;
+    const mergedProps = {
+      ...defaultProps,
+      ...propsFromTheme,
+      ...props,
+    };
+
+    return mergedProps;
+  }, [componentName, defaultProps, props, theme.components]);
+
+  return finalProps as Props & Required<typeof defaultProps>;
 };

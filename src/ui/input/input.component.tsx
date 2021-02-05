@@ -1,6 +1,6 @@
 import * as React from 'react';
 import color from 'color';
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import {
   View as RNView,
   NativeSyntheticEvent,
@@ -11,8 +11,8 @@ import {
 
 import { getStyle } from './input.style';
 import { InputProps } from './input.type';
-import { ThemeContext } from '../../theme';
-import { getThemeProperty } from '../../theme/theme.service';
+import { useTheme } from '../../theme';
+import { getThemeProperty, getThemeColor } from '../../theme/theme.service';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 
 const Input = React.forwardRef<RNTextInput, InputProps>(
@@ -87,18 +87,17 @@ const Input = React.forwardRef<RNTextInput, InputProps>(
       selectionColor,
       ...rest
     } = props;
-    const { theme } = useContext(ThemeContext);
+    const { theme } = useTheme();
     const [isFocussed, setIsFocussed] = useState(false);
     const computedStyle = getStyle(theme, props, { isFocussed });
     const placeholderColor = placeholderTextColor
-      ? color(getThemeProperty(theme.colors, placeholderTextColor))
-          .alpha(0.4)
-          .rgb()
-          .string()
-      : color(getThemeProperty(theme.colors, colorProp))
-          .alpha(0.4)
-          .rgb()
-          .string();
+      ? typeof placeholderTextColor === 'string'
+        ? color(getThemeColor(theme.colors, placeholderTextColor))
+            .alpha(0.4)
+            .rgb()
+            .string()
+        : placeholderTextColor
+      : color(getThemeColor(theme.colors, colorProp)).alpha(0.4).rgb().string();
 
     /**
      * on focus input
@@ -133,7 +132,11 @@ const Input = React.forwardRef<RNTextInput, InputProps>(
           ref={ref}
           onFocus={onFocusInput}
           onBlur={onBlurInput}
-          selectionColor={getThemeProperty(theme.colors, props.selectionColor)}
+          selectionColor={
+            typeof props.selectionColor === 'string'
+              ? getThemeColor(theme.colors, props.selectionColor)
+              : props.selectionColor
+          }
           {...rest}
           style={computedStyle.input}
           placeholderTextColor={placeholderColor}
@@ -145,7 +148,7 @@ const Input = React.forwardRef<RNTextInput, InputProps>(
           <RNView style={computedStyle.suffix}>
             <RNActivityIndicator
               size={getThemeProperty(theme.fontSize, loaderSize)}
-              color={getThemeProperty(theme.colors, loaderColor)}
+              color={getThemeColor(theme.colors, loaderColor)}
             />
           </RNView>
         )}

@@ -11,7 +11,7 @@ const FabComponent: React.FC = () => {
 
       <Fab>
         <Button p="none" bg="transparent">
-          <Div rounded="sm" bg="white" p="sm">
+          <Div rounded="sm" bg="card" p="sm">
             <Text fontSize="md">Cheer</Text>
           </Div>
           <Icon
@@ -20,13 +20,13 @@ const FabComponent: React.FC = () => {
             rounded="circle"
             ml="md"
             p="lg"
-            bg="white"
+            bg="card"
             fontSize="3xl"
           />
         </Button>
 
         <Button p="none" bg="transparent">
-          <Div rounded="sm" bg="white" p="sm">
+          <Div rounded="sm" bg="card" p="sm">
             <Text fontSize="md">Boost</Text>
           </Div>
           <Icon
@@ -35,7 +35,7 @@ const FabComponent: React.FC = () => {
             rounded="circle"
             ml="md"
             p="lg"
-            bg="white"
+            bg="card"
             fontSize="3xl"
           />
         </Button>

@@ -14,7 +14,6 @@ const DivComponent: React.FC = () => {
       <ScrollView>
         <ExampleSection name="background color">
           <Div flexDir="row">
-            {/* <Div h={40} w={40} mr="sm" bg="brand500" /> */}
             <Div h={40} w={40} mr="sm" bg="green500" />
             <Div h={40} w={40} mr="sm" bg="teal500" />
             <Div h={40} w={40} mr="sm" bg="yellow500" />
@@ -29,7 +28,7 @@ const DivComponent: React.FC = () => {
             <Div
               h={40}
               w={40}
-              bg="white"
+              bg="card"
               mr="md"
               rounded="sm"
               shadow="none"
@@ -41,7 +40,7 @@ const DivComponent: React.FC = () => {
             <Div
               h={40}
               w={40}
-              bg="white"
+              bg="card"
               mr="md"
               rounded="sm"
               shadow="xs"
@@ -53,7 +52,7 @@ const DivComponent: React.FC = () => {
             <Div
               h={40}
               w={40}
-              bg="white"
+              bg="card"
               mr="md"
               rounded="sm"
               shadow="sm"
@@ -65,7 +64,7 @@ const DivComponent: React.FC = () => {
             <Div
               h={40}
               w={40}
-              bg="white"
+              bg="card"
               mr="md"
               rounded="sm"
               shadow="md"
@@ -77,7 +76,7 @@ const DivComponent: React.FC = () => {
             <Div
               h={40}
               w={40}
-              bg="white"
+              bg="card"
               mr="md"
               rounded="sm"
               shadow="lg"
@@ -89,7 +88,7 @@ const DivComponent: React.FC = () => {
             <Div
               h={40}
               w={40}
-              bg="white"
+              bg="card"
               mr="md"
               rounded="sm"
               shadow="xl"
@@ -101,7 +100,7 @@ const DivComponent: React.FC = () => {
             <Div
               h={40}
               w={40}
-              bg="white"
+              bg="card"
               mr="md"
               rounded="sm"
               shadow="2xl"

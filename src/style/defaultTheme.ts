@@ -196,7 +196,7 @@ export const defaultTheme: ThemeType = {
     lg: 8,
     xl: 12,
     '2xl': 16,
-    circle: 1000000,
+    circle: 99999,
   },
 
   spacing: {

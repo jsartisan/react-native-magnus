@@ -46,13 +46,13 @@ const AvatarComponent: React.FC = () => {
 
         <ExampleSection name="group">
           <Avatar.Group>
-            <Avatar bg="red500" color="white">
+            <Avatar bg="red500" color="textLight">
               A
             </Avatar>
-            <Avatar bg="blue500" color="white">
+            <Avatar bg="blue500" color="textLight">
               B
             </Avatar>
-            <Avatar bg="yellow500" color="white">
+            <Avatar bg="yellow500" color="textLight">
               C
             </Avatar>
           </Avatar.Group>

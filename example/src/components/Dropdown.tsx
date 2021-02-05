@@ -37,14 +37,13 @@ const DropdownComponent: React.FC = () => {
           >
             <Dropdown.Option
               value={1}
-              block
-              bg="gray100"
+              underlayColor="blue200"
               color="blue600"
               fontSize="xl"
               py="lg"
               px="xl"
               borderBottomWidth={1}
-              borderBottomColor="gray200"
+              borderBottomColor="textLight"
               justifyContent="center"
               roundedTop="lg"
             >
@@ -52,10 +51,9 @@ const DropdownComponent: React.FC = () => {
             </Dropdown.Option>
             <Dropdown.Option
               value={2}
-              block
+              underlayColor="blue200"
               borderBottomWidth={1}
-              borderBottomColor="gray200"
-              bg="gray100"
+              borderBottomColor="textLight"
               fontSize="xl"
               color="blue600"
               py="lg"
@@ -67,7 +65,6 @@ const DropdownComponent: React.FC = () => {
             </Dropdown.Option>
             <Dropdown.Option
               value={3}
-              block
               color="red500"
               underlayColor="red200"
               py="lg"
@@ -92,11 +89,12 @@ const DropdownComponent: React.FC = () => {
             ref={dropdownRef2}
             showSwipeIndicator={false}
             roundedTop="xl"
+            bg="card"
             title={
               <Div row mx="xl" mb="md" alignItems="center" p="md" pb="lg">
                 <Button
                   py="md"
-                  bg="gray100"
+                  bg="card"
                   color="gray500"
                   position="absolute"
                   fontSize="lg"
@@ -106,7 +104,7 @@ const DropdownComponent: React.FC = () => {
                   Cancel
                 </Button>
                 <Text
-                  color="gray900"
+                  color="textDark"
                   textAlign="center"
                   flex={1}
                   fontSize="lg"
@@ -120,7 +118,6 @@ const DropdownComponent: React.FC = () => {
           >
             <Dropdown.Option
               value={1}
-              underlayColor="red100"
               prefix={
                 <Icon name="picture" mr="lg" color="red500" fontSize="3xl" />
               }
@@ -129,7 +126,6 @@ const DropdownComponent: React.FC = () => {
             </Dropdown.Option>
             <Dropdown.Option
               value={2}
-              underlayColor="blue100"
               prefix={
                 <Icon name="camerao" mr="lg" color="blue500" fontSize="3xl" />
               }
@@ -138,7 +134,6 @@ const DropdownComponent: React.FC = () => {
             </Dropdown.Option>
             <Dropdown.Option
               value={3}
-              underlayColor="green100"
               prefix={
                 <Icon
                   name="filetext1"
@@ -152,7 +147,6 @@ const DropdownComponent: React.FC = () => {
             </Dropdown.Option>
             <Dropdown.Option
               value={4}
-              underlayColor="pink100"
               alignItems="center"
               block
               prefix={

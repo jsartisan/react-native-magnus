@@ -1,10 +1,9 @@
 import * as React from 'react';
-import { useContext } from 'react';
 import { Text as RNText } from 'react-native';
 
 import { TextProps } from './text.type';
 import { getStyle } from './text.style';
-import { ThemeContext } from '../../theme';
+import { useTheme } from '../../theme';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 
 const Text: React.FunctionComponent<TextProps> = (incomingProps) => {
@@ -54,7 +53,7 @@ const Text: React.FunctionComponent<TextProps> = (incomingProps) => {
     style,
     ...rest
   } = props;
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useTheme();
   const computedStyle = getStyle(theme, props);
 
   return (

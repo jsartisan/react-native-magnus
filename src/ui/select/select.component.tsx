@@ -1,17 +1,11 @@
 import * as React from 'react';
 import RNModal from 'react-native-modal';
 import { SafeAreaView, FlatList } from 'react-native';
-import {
-  useContext,
-  useState,
-  useImperativeHandle,
-  useEffect,
-  useMemo,
-} from 'react';
+import { useState, useImperativeHandle, useEffect, useMemo } from 'react';
 
 import { getStyle } from './select.style';
 import { Div } from '../div/div.component';
-import { ThemeContext } from '../../theme';
+import { useTheme } from '../../theme';
 import { Text } from '../text/text.component';
 import { Input } from '../input/input.component';
 import { Icon } from '../icon/icon.component';
@@ -52,7 +46,7 @@ const Select = React.forwardRef<SelectRef, SelectProps>(
       searchableProps,
       onSelect: onSelectProp,
     } = props;
-    const { theme } = useContext(ThemeContext);
+    const { theme } = useTheme();
     const [visible, setVisible] = useState(props.isVisible || false);
     const [selectedValue, setSelectedValue] = useState(value);
     const [searchTerm, setSearchTerm] = useState<string>('');

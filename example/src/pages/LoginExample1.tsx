@@ -57,7 +57,7 @@ const LoginExample1: React.FC = () => {
             Art by Irina Valeeva
           </Text>
         </Div>
-        <Div p="lg">
+        <Div p="lg" bg="white">
           <Button
             py="lg"
             rounded="sm"

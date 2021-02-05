@@ -1,10 +1,10 @@
 import * as React from 'react';
 import RNModal from 'react-native-modal';
 import { SafeAreaView } from 'react-native';
-import { useContext, useState, useEffect, useImperativeHandle } from 'react';
+import { useState, useEffect, useImperativeHandle } from 'react';
 
 import { getStyle } from './modal.style';
-import { ThemeContext } from '../../theme';
+import { useTheme } from '../../theme';
 import { Div } from '../div/div.component';
 import { ModalProps, ModalRef } from './modal.type';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
@@ -53,7 +53,7 @@ const Modal = React.forwardRef<ModalRef, ModalProps>((incomingProps, ref) => {
     ...rest
   } = props;
   const [visible, setVisible] = useState(isVisible);
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useTheme();
   const computedStyle = getStyle(theme, props as ModalProps);
 
   useEffect(() => {

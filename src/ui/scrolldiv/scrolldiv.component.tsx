@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { useContext } from 'react';
 import {
   ScrollView as RNScrollView,
   ImageBackground as RNImageBackground,
@@ -7,7 +6,7 @@ import {
 
 import { ScrollDivProps } from './scrolldiv.type';
 import { getStyle } from './scrolldiv.style';
-import { ThemeContext } from '../../theme';
+import { useTheme } from '../../theme';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 
 const ScrollDiv: React.FunctionComponent<ScrollDivProps> = (incomingProps) => {
@@ -65,7 +64,7 @@ const ScrollDiv: React.FunctionComponent<ScrollDivProps> = (incomingProps) => {
     shadowColor,
     ...rest
   } = props;
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useTheme();
   const computedStyle = getStyle(theme, props);
 
   if (bgImg) {
