@@ -10,6 +10,7 @@ import {
   SpacingPropsType,
   RoundedPropsType,
   ShadowPropsType,
+  VariantPropsType,
 } from '../../types';
 
 export interface ImageProps
@@ -23,4 +24,5 @@ export interface ImageProps
     OpacityPropsType,
     ZIndexPropsType,
     Pick<BackgroundPropsType, 'bg'>,
-    Pick<FlexPropsType, 'flex' | 'alignSelf'> {}
+    Pick<FlexPropsType, 'flex' | 'alignSelf'>,
+    VariantPropsType {}

@@ -16,6 +16,7 @@ import {
   SpacingPropsType,
   RoundedPropsType,
   ShadowPropsType,
+  VariantPropsType,
 } from '../../types';
 import { DivProps } from '../div/div.type';
 import { RadioGroup } from './group.component';
@@ -40,7 +41,8 @@ export interface RadioProps
     ZIndexPropsType,
     Omit<ButtonPropsType, 'underlayColor'>,
     Pick<BackgroundPropsType, 'bg'>,
-    Pick<TextPropsType, 'fontWeight' | 'color' | 'fontSize'> {
+    Pick<TextPropsType, 'fontWeight' | 'color' | 'fontSize'>,
+    VariantPropsType {
   highlightBg?: string;
   activeColor?: string;
   inactiveColor?: string;

@@ -6,6 +6,7 @@ import {
   OverlayPropsType,
   SpacingPropsType,
   RoundedPropsType,
+  VariantPropsType,
 } from '../../types';
 
 export interface OverlayRef {
@@ -23,4 +24,5 @@ export interface OverlayProps
       FlexPropsType,
       'flex' | 'justifyContent' | 'alignItems' | 'flexDir' | 'flexWrap'
     >,
-    Pick<BackgroundPropsType, 'bg'> {}
+    Pick<BackgroundPropsType, 'bg'>,
+    VariantPropsType {}

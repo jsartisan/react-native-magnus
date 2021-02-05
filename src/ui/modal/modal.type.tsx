@@ -15,6 +15,7 @@ import {
   BackgroundPropsType,
   DimensionPropsType,
   FlexPropsType,
+  VariantPropsType,
 } from '../../types';
 
 export type ModalRef = {
@@ -29,7 +30,8 @@ export interface ModalProps
     RoundedPropsType,
     Pick<BackgroundPropsType, 'bg'>,
     Pick<DimensionPropsType, 'h'>,
-    Pick<FlexPropsType, 'justifyContent'> {
+    Pick<FlexPropsType, 'justifyContent'>,
+    VariantPropsType {
   children: React.ReactElement[] | React.ReactElement;
   animationIn?: Animation | CustomAnimation;
   animationInTiming?: number;

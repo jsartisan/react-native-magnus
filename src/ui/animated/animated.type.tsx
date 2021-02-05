@@ -4,6 +4,7 @@ import {
   SpacingPropsType,
   RoundedPropsType,
   ShadowPropsType,
+  VariantPropsType,
 } from '../../types';
 
 export interface AnimatedProps
@@ -11,7 +12,8 @@ export interface AnimatedProps
     BorderPropsType,
     SpacingPropsType,
     RoundedPropsType,
-    ShadowPropsType {
+    ShadowPropsType,
+    VariantPropsType {
   animation?: 'fromRight' | 'fromLeft' | 'fromTop' | 'fromBottom' | 'fade';
   duration?: number;
   delay?: number;

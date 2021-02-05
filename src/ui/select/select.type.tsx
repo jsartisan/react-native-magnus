@@ -8,6 +8,7 @@ import {
   SpacingPropsType,
   RoundedPropsType,
   ShadowPropsType,
+  VariantPropsType,
 } from '../../types';
 import { SelectOption } from './select.option.component';
 
@@ -32,7 +33,8 @@ export interface SelectProps
     BackgroundPropsType,
     FlexPropsType,
     PositionPropsType,
-    DimensionPropsType {
+    DimensionPropsType,
+    VariantPropsType {
   title?: string | React.ReactNode;
   message?: string | React.ReactNode;
 

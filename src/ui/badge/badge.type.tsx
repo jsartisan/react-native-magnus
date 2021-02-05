@@ -11,6 +11,7 @@ import {
   RoundedPropsType,
   ShadowPropsType,
   BackgroundPropsType,
+  VariantPropsType,
 } from '../../types';
 
 export interface BadgeProps
@@ -25,6 +26,7 @@ export interface BadgeProps
     ZIndexPropsType,
     Pick<FlexPropsType, 'justifyContent' | 'alignItems' | 'alignSelf'>,
     Pick<TextPropsType, 'color' | 'fontSize' | 'fontWeight' | 'fontFamily'>,
-    Pick<BackgroundPropsType, 'bg'> {
+    Pick<BackgroundPropsType, 'bg'>,
+    VariantPropsType {
   count?: string | number;
 }

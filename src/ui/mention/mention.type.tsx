@@ -7,6 +7,7 @@ import {
   SpacingPropsType,
   RoundedPropsType,
   ShadowPropsType,
+  VariantPropsType,
 } from '../../types';
 
 export interface MentionProps
@@ -17,7 +18,8 @@ export interface MentionProps
     RoundedPropsType,
     PositionPropsType,
     Pick<LoadingPropsType, 'loading'>,
-    Pick<BackgroundPropsType, 'bg'> {
+    Pick<BackgroundPropsType, 'bg'>,
+    VariantPropsType {
   trigger?: any;
   h?: number;
   triggerLocation: 'new-word-only' | 'anywhere';

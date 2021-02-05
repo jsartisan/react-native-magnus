@@ -11,6 +11,7 @@ import {
   SpacingPropsType,
   RoundedPropsType,
   ShadowPropsType,
+  VariantPropsType,
 } from '../../types';
 
 export interface SnackbarRef {
@@ -29,7 +30,8 @@ export interface SnackbarProps
     OpacityPropsType,
     FlexPropsType,
     Pick<BackgroundPropsType, 'bg'>,
-    Pick<TextPropsType, 'color' | 'fontSize' | 'fontWeight'> {
+    Pick<TextPropsType, 'color' | 'fontSize' | 'fontWeight'>,
+    VariantPropsType {
   duration?: number;
   onDismiss?: () => void;
   style?: StyleProp<ViewStyle>;
