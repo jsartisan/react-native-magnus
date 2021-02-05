@@ -1,6 +1,12 @@
 import * as React from 'react';
 import { useState, useRef, useEffect } from 'react';
 import { Dimensions } from 'react-native';
+import {
+  validateHTMLColorRgb,
+  validateHTMLColorSpecialName,
+  validateHTMLColorHex,
+  validateHTMLColorHsl,
+} from 'validate-color';
 
 const WINDOW = Dimensions.get('window');
 
@@ -68,6 +74,16 @@ export const useStateCallback = (initialState: any) => {
 
   return [state, setStateCallback];
 };
+
+export const isValidColor = (color: string): boolean => {
+  return (
+    validateHTMLColorRgb(color) ||
+    validateHTMLColorSpecialName(color) ||
+    validateHTMLColorHex(color) ||
+    validateHTMLColorHsl(color)
+  );
+};
+
 export const getSpecificProps = <T extends object>(obj: T, ...keys: string[]) =>
   //@ts-ignore
   keys.reduce((a, c) => ({ ...a, [c]: obj[c] }), {});

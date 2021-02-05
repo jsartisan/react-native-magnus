@@ -9,6 +9,7 @@ import {
   createBorderColorStyles,
   createBorderRadiusStyles,
   createPositionStyle,
+  getThemeColor,
 } from '../../theme/theme.service';
 import { AvatarProps } from './avatar.type';
 
@@ -22,7 +23,7 @@ export const getStyle = (theme: ThemeType, props: AvatarProps) => {
   const computedStyle: any = {};
 
   computedStyle.container = {
-    backgroundColor: getThemeProperty(theme.colors, props.bg),
+    backgroundColor: getThemeColor(theme.colors, props.bg),
     alignItems: 'center',
     justifyContent: 'center',
     width: props.size,
@@ -39,7 +40,7 @@ export const getStyle = (theme: ThemeType, props: AvatarProps) => {
   };
 
   computedStyle.row = {
-    backgroundColor: getThemeProperty(theme.colors, props.bg),
+    backgroundColor: getThemeColor(theme.colors, props.bg),
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
@@ -55,7 +56,7 @@ export const getStyle = (theme: ThemeType, props: AvatarProps) => {
   };
 
   computedStyle.text = {
-    color: getThemeProperty(theme.colors, props.color),
+    color: getThemeColor(theme.colors, props.color),
     fontSize: getThemeProperty(theme.fontSize, props.fontSize),
     textAlignVertical: 'center',
     textAlign: 'center',

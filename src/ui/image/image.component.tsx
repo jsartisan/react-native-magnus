@@ -1,10 +1,9 @@
 import * as React from 'react';
-import { useContext } from 'react';
 import { Image as RNImage } from 'react-native';
 
 import { getStyle } from './image.style';
 import { ImageProps } from './image.type';
-import { ThemeContext } from '../../theme';
+import { useTheme } from '../../theme';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 
 const Image: React.FunctionComponent<ImageProps> = (incomingProps) => {
@@ -59,7 +58,7 @@ const Image: React.FunctionComponent<ImageProps> = (incomingProps) => {
     alignSelf,
     ...rest
   } = props;
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useTheme();
   const computedStyle = getStyle(theme, props);
 
   return (

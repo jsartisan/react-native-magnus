@@ -8,7 +8,7 @@ const ExampleSection: React.FC<{
   return (
     <Div my="md">
       <Text
-        color="gray600"
+        color="gray500"
         textTransform="uppercase"
         fontSize="lg"
         fontWeight="bold"

@@ -1,12 +1,11 @@
 import * as React from 'react';
-import { useContext } from 'react';
 import { View as RNView } from 'react-native';
 
 import { getStyle } from './icon.style';
 import { getIconSet } from './icon.service';
-import { ThemeContext } from '../../theme';
+import { useTheme } from '../../theme';
 import { IconProps } from './icon.type';
-import { getThemeProperty } from '../../theme/theme.service';
+import { getThemeProperty, getThemeColor } from '../../theme/theme.service';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 
 const Icon: React.FunctionComponent<IconProps> = (incomingProps) => {
@@ -67,7 +66,7 @@ const Icon: React.FunctionComponent<IconProps> = (incomingProps) => {
     style,
     ...rest
   } = props;
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useTheme();
   const computedStyle = getStyle(theme, props);
 
   const Icon = getIconSet(fontFamily);
@@ -75,7 +74,7 @@ const Icon: React.FunctionComponent<IconProps> = (incomingProps) => {
   return (
     <RNView style={computedStyle.container} {...rest}>
       <Icon
-        color={getThemeProperty(theme.colors, color)}
+        color={getThemeColor(theme.colors, color)}
         size={getThemeProperty(theme.fontSize, fontSize)}
         name={name}
         style={computedStyle.icon}

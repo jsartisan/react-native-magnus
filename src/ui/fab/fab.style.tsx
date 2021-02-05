@@ -1,7 +1,7 @@
 import { StyleSheet, Platform } from 'react-native';
 import { ThemeType } from '../../theme';
 
-import { getThemeProperty } from '../../theme/theme.service';
+import { getThemeColor } from '../../theme/theme.service';
 import { FabProps } from './fab.type';
 
 /**
@@ -33,7 +33,7 @@ export const getStyle = (theme: ThemeType, props: FabProps) => {
     computedStyle.button = {
       ...computedStyle.button,
       ...(theme.shadow && theme.shadow[props.shadow]),
-      shadowColor: getThemeProperty(theme.colors, props.shadowColor),
+      shadowColor: getThemeColor(theme.colors, props.shadowColor),
     };
   }
 

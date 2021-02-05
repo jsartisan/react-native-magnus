@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 import { View, FlatList, ActivityIndicator } from 'react-native';
 
@@ -146,9 +146,7 @@ class MentionBase extends React.Component<
                       showsVerticalScrollIndicator
                       style={computedStyle.list}
                       {...rest}
-                      renderItem={(rowData) => {
-                        return renderItem(rowData);
-                      }}
+                      renderItem={(rowData) => renderItem(rowData)}
                     />
                   )}
                 {loading && (

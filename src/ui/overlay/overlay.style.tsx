@@ -3,10 +3,10 @@ import { StyleSheet } from 'react-native';
 import { ThemeType } from '../../theme';
 
 import {
-  getThemeProperty,
   createFlexStyles,
   createSpacingStyles,
   createBorderRadiusStyles,
+  getThemeColor,
 } from '../../theme/theme.service';
 import { OverlayProps } from './overlay.type';
 
@@ -20,7 +20,7 @@ export const getStyle = (theme: ThemeType, props: OverlayProps) => {
   const computedStyle: any = {};
 
   computedStyle.modal = {
-    backgroundColor: color(getThemeProperty(theme.colors, props.overlayColor))
+    backgroundColor: color(getThemeColor(theme.colors, props.overlayColor))
       .alpha(props.overlayOpacity ?? 50)
       .rgb()
       .string(),
@@ -30,7 +30,7 @@ export const getStyle = (theme: ThemeType, props: OverlayProps) => {
   };
 
   computedStyle.container = {
-    backgroundColor: getThemeProperty(theme.colors, props.bg),
+    backgroundColor: getThemeColor(theme.colors, props.bg),
     ...createFlexStyles(props),
     ...createSpacingStyles(props, theme.spacing),
     ...createBorderRadiusStyles(props, theme.borderRadius),

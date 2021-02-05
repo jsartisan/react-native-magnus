@@ -40,51 +40,48 @@ import { DropdownOptionProps } from '../ui/dropdown/dropdown.option.type';
 import { CheckboxGroupProps } from '../ui/checkbox/checkbox.type';
 import { RadioGroupProps } from '../ui/radio/radio.type';
 import { SelectOptionProps } from '../ui/select/select.option.type';
-
-type ThemeProps<T> = {
-  [name: string]: T;
-};
+import { ThemeProps, VariantType } from '../types';
 
 export interface ThemeType {
   components?: {
-    Animated?: Partial<AnimatedProps>;
-    Avatar?: Partial<AvatarProps>;
-    AvatarGroup?: Partial<AvatarGroupProps>;
-    Badge?: Partial<BadgeProps>;
-    Button?: Partial<ButtonProps>;
-    Carousel?: Partial<CarouselProps>;
-    Checkbox?: Partial<CheckboxProps>;
-    CheckboxGroup?: Partial<CheckboxGroupProps>;
-    Collapse?: Partial<CollapseProps>;
-    CollapseHeader?: Partial<CollapseHeaderProps>;
-    CollapseBody?: Partial<CollapseBodyProps>;
-    CollapseGroup?: Partial<CollapseGroupProps>;
-    Div?: Partial<DivProps>;
-    Drawer?: Partial<DrawerProps>;
-    Dropdown?: Partial<DropdownProps>;
-    DropdownOption?: Partial<DropdownOptionProps>;
-    Fab?: Partial<FabProps>;
-    Header?: Partial<HeaderProps>;
-    Icon?: Partial<IconProps>;
-    Image?: Partial<ImageProps>;
-    Input?: Partial<InputProps>;
-    Mention?: Partial<MentionProps>;
-    Modal?: Partial<ModalProps>;
-    Overlay?: Partial<OverlayProps>;
-    Radio?: Partial<RadioProps>;
-    RadioGroup?: Partial<RadioGroupProps>;
-    ScrollDiv?: Partial<ScrollDivProps>;
-    Select?: Partial<SelectProps>;
-    SelectOption?: Partial<SelectOptionProps>;
-    Skeleton?: Partial<SkeletonProps>;
-    SkeletonCircle?: Partial<SkeletonProps>;
-    Snackbar?: Partial<SnackbarProps>;
-    Statusbar?: Partial<StatusBarProps>;
-    Tag?: Partial<TagProps>;
-    Text?: Partial<TextProps>;
-    Toggle?: Partial<ToggleProps>;
-    Tooltip?: Partial<TooltipProps>;
-    Textarea?: Partial<TextareaProps>;
+    Animated?: VariantType<AnimatedProps>;
+    Avatar?: VariantType<AvatarProps>;
+    AvatarGroup?: VariantType<AvatarGroupProps>;
+    Badge?: VariantType<BadgeProps>;
+    Button?: VariantType<ButtonProps>;
+    Carousel?: VariantType<CarouselProps>;
+    Checkbox?: VariantType<CheckboxProps>;
+    CheckboxGroup?: VariantType<CheckboxGroupProps>;
+    Collapse?: VariantType<CollapseProps>;
+    CollapseHeader?: VariantType<CollapseHeaderProps>;
+    CollapseBody?: VariantType<CollapseBodyProps>;
+    CollapseGroup?: VariantType<CollapseGroupProps>;
+    Div?: VariantType<DivProps>;
+    Drawer?: VariantType<DrawerProps>;
+    Dropdown?: VariantType<DropdownProps>;
+    DropdownOption?: VariantType<DropdownOptionProps>;
+    Fab?: VariantType<FabProps>;
+    Header?: VariantType<HeaderProps>;
+    Icon?: VariantType<IconProps>;
+    Image?: VariantType<ImageProps>;
+    Input?: VariantType<InputProps>;
+    Mention?: VariantType<MentionProps>;
+    Modal?: VariantType<ModalProps>;
+    Overlay?: VariantType<OverlayProps>;
+    Radio?: VariantType<RadioProps>;
+    RadioGroup?: VariantType<RadioGroupProps>;
+    ScrollDiv?: VariantType<ScrollDivProps>;
+    Select?: VariantType<SelectProps>;
+    SelectOption?: VariantType<SelectOptionProps>;
+    Skeleton?: VariantType<SkeletonProps>;
+    SkeletonCircle?: VariantType<SkeletonProps>;
+    Snackbar?: VariantType<SnackbarProps>;
+    Statusbar?: VariantType<StatusBarProps>;
+    Tag?: VariantType<TagProps>;
+    Text?: VariantType<TextProps>;
+    Toggle?: VariantType<ToggleProps>;
+    Tooltip?: VariantType<TooltipProps>;
+    Textarea?: VariantType<TextareaProps>;
   };
 
   fontFamily?: {
@@ -103,7 +100,7 @@ export interface ThemeType {
 
   colors?: ThemeProps<string>;
   fontSize?: ThemeProps<number>;
-  borderRadius?: { none: 0; circle: 1000000 } & ThemeProps<number>;
+  borderRadius?: { none: 0; circle: 99999 } & ThemeProps<number>;
   spacing?: { none: 0 } & ThemeProps<number>;
   shadowColor?: string;
   shadow?: ThemeProps<{

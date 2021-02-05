@@ -1,5 +1,5 @@
 import { ThemeType } from '../../theme';
-import { getThemeProperty } from '../../theme/theme.service';
+import { getThemeColor } from '../../theme/theme.service';
 
 /**
  * get icon name to be used based on checked state
@@ -30,10 +30,10 @@ export const getIconColor = (
 ) => {
   switch (true) {
     case disabled:
-      return getThemeProperty(theme.colors, inactiveColor);
+      return getThemeColor(theme.colors, inactiveColor);
     case checked:
-      return getThemeProperty(theme.colors, activeColor);
+      return getThemeColor(theme.colors, activeColor);
     default:
-      return getThemeProperty(theme.colors, inactiveColor);
+      return getThemeColor(theme.colors, inactiveColor);
   }
 };

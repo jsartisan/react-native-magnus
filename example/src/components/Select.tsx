@@ -42,7 +42,7 @@ const SelectComponent: React.FC = () => {
             flex={1}
             block
             borderWidth={1}
-            bg="white"
+            bg="card"
             color="gray900"
             borderColor="gray300"
             onPress={() => selectRef1.current?.open()}
@@ -71,7 +71,7 @@ const SelectComponent: React.FC = () => {
             flex={1}
             block
             borderWidth={1}
-            bg="white"
+            bg="card"
             color="gray900"
             borderColor="gray300"
             onPress={() => selectRef2.current?.open()}
@@ -103,7 +103,7 @@ const SelectComponent: React.FC = () => {
             flex={1}
             block
             borderWidth={1}
-            bg="white"
+            bg="card"
             color="gray900"
             borderColor="gray300"
             onPress={() => selectRef3.current?.open()}
@@ -154,7 +154,7 @@ const SelectComponent: React.FC = () => {
             flex={1}
             block
             borderWidth={1}
-            bg="white"
+            bg="card"
             color="gray900"
             borderColor="gray300"
             onPress={() => selectRef4.current?.open()}
@@ -196,7 +196,7 @@ const SelectComponent: React.FC = () => {
             flex={1}
             block
             borderWidth={1}
-            bg="white"
+            bg="card"
             color="gray900"
             borderColor="gray300"
             onPress={() => selectRef5.current?.open()}

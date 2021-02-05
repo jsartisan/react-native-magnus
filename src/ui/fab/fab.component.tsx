@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import color from 'color';
 
-import { getThemeProperty } from '../../theme/theme.service';
+import { getThemeColor } from '../../theme/theme.service';
 import { getStyle } from './fab.style';
 import { ThemeContext, ThemeType } from '../../theme';
 import { Button } from '../button/button.component';
@@ -301,7 +301,7 @@ class FabBase extends React.Component<
     const { overlayColor, overlayOpacity } = this.props;
 
     const calculatedOverlayColor = color(
-      getThemeProperty(theme.colors, overlayColor)
+      getThemeColor(theme.colors, overlayColor)
     )
       .alpha(overlayOpacity ?? 1)
       .rgb()

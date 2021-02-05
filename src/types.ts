@@ -1,5 +1,35 @@
 import { ImageSourcePropType as RNImageSourcePropType } from 'react-native';
 
+type Undefined<T> = { [P in keyof T]: P extends undefined ? T[P] : never };
+
+type FilterFlags<Base, Condition> = {
+  [Key in keyof Base]: Base[Key] extends Condition ? Key : never;
+};
+
+type AllowedNames<Base, Condition> = FilterFlags<Base, Condition>[keyof Base];
+
+type SubType<Base, Condition> = Pick<Base, AllowedNames<Base, Condition>>;
+
+export type OptionalKeys<T> = Exclude<
+  keyof T,
+  NonNullable<keyof SubType<Undefined<T>, never>>
+>;
+
+export type ThemeProps<T> = {
+  [name: string]: T;
+};
+
+type ComponentsProps<T> = Omit<
+  Pick<T, OptionalKeys<T>>,
+  'children' | 'variant'
+>;
+
+export type VariantType<T> = ComponentsProps<T> & {
+  variants?: {
+    [name: string]: ComponentsProps<T>;
+  };
+};
+
 export type DefaultProps<Props extends object> = {
   [K in keyof Props]?: Props[K];
 };
@@ -280,4 +310,9 @@ export const overlayProps = ['overlayColor', 'overlayOpacity'] as const;
 export interface OverlayPropsType {
   overlayColor?: string;
   overlayOpacity?: number;
+}
+
+export const variantProps = ['variant'] as const;
+export interface VariantPropsType {
+  variant?: string;
 }

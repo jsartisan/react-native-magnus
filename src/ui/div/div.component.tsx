@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { useContext } from 'react';
 import {
   View as RNView,
   ImageBackground as RNImageBackground,
@@ -7,7 +6,7 @@ import {
 
 import { DivProps } from './div.type';
 import { getStyle } from './div.style';
-import { ThemeContext } from '../../theme';
+import { useTheme } from '../../theme';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 
 const Div: React.FunctionComponent<DivProps> = (incomingProps) => {
@@ -17,7 +16,6 @@ const Div: React.FunctionComponent<DivProps> = (incomingProps) => {
     flexWrap: 'nowrap',
     rounded: 'none',
     shadow: 'none',
-    shadowColor: 'gray900',
     position: 'relative',
     bgMode: 'cover',
     pointerEvents: 'auto',
@@ -81,7 +79,7 @@ const Div: React.FunctionComponent<DivProps> = (incomingProps) => {
     zIndex,
     ...rest
   } = props;
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useTheme();
   const computedStyle = getStyle(theme, props);
 
   // if there is a bgImage prop, use ImageBackground

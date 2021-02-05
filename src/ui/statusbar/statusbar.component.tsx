@@ -1,11 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import {
   StatusBar as RNStatusBar,
   StatusBarProps as RNStatusBarProps,
 } from 'react-native';
-import { ThemeContext } from '../../theme';
+import { useTheme } from '../../theme';
 
-import { getThemeProperty } from '../../theme/theme.service';
+import { getThemeColor } from '../../theme/theme.service';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 
 interface StatusBarComponent<T> extends React.FC<T> {
@@ -18,15 +18,14 @@ const StatusBar: StatusBarComponent<RNStatusBarProps> = (incomingProps) => {
   });
 
   const { backgroundColor } = props;
-  const { theme } = useContext(ThemeContext);
-  const themedBackgroundColor = getThemeProperty(theme.colors, backgroundColor);
+  const { theme } = useTheme();
 
   return (
     <RNStatusBar
       {...props}
       backgroundColor={
         typeof backgroundColor === 'string'
-          ? themedBackgroundColor
+          ? getThemeColor(theme.colors, backgroundColor)
           : backgroundColor
       }
     />

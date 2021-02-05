@@ -36,67 +36,42 @@ const ButtonComponent: React.FC = () => {
             </Button>
           </Div>
         </ExampleSection>
+
         <ExampleSection name="background">
           <Div flexDir="row">
             <Button mr="sm">Default</Button>
-            <Button bg="green600" mr="sm" underlayColor="green700">
+            <Button mr="sm" variant="success">
               Success
             </Button>
-            <Button bg="yellow600" mr="sm" underlayColor="yellow700">
+            <Button mr="sm" variant="warning">
               Warning
             </Button>
-            <Button bg="red600" mr="sm" underlayColor="red700">
+            <Button mr="sm" variant="danger">
               Danger
             </Button>
-            <Button bg="teal600" mr="sm" underlayColor="teal700">
+            <Button mr="sm" variant="info">
               Info
             </Button>
           </Div>
         </ExampleSection>
+
         <ExampleSection name="border">
           <Div flexDir="row">
-            <Button
-              bg="white"
-              mr="sm"
-              color="blue500"
-              underlayColor="blue100"
-              borderColor="blue500"
-              borderWidth={1}
-            >
+            <Button variant="success-border" mr="sm">
               Success
             </Button>
-            <Button
-              bg="white"
-              mr="sm"
-              color="yellow600"
-              underlayColor="yellow100"
-              borderColor="yellow600"
-              borderWidth={1}
-            >
+            <Button variant="warning-border" mr="sm">
               Warning
             </Button>
-            <Button
-              bg="white"
-              mr="sm"
-              color="red500"
-              underlayColor="red100"
-              borderColor="red500"
-              borderWidth={1}
-            >
+            <Button variant="danger-border" mr="sm">
               Danger
             </Button>
-            <Button
-              bg="white"
-              mr="sm"
-              color="teal600"
-              underlayColor="teal100"
-              borderColor="teal600"
-              borderWidth={1}
-            >
+            <Button variant="info-border" mr="sm">
               Info
             </Button>
           </Div>
         </ExampleSection>
+
         <ExampleSection name="border radius">
           <Div flexDir="row" flexWrap="wrap">
             <Button rounded="sm" mr="sm">
@@ -120,6 +95,7 @@ const ButtonComponent: React.FC = () => {
             </Button>
           </Div>
         </ExampleSection>
+
         <ExampleSection name="icon buttons">
           <Div flexDir="row" flexWrap="wrap" mt="sm">
             <Button bg="white" rounded="circle" mr="sm" p="xl">

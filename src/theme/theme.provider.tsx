@@ -6,16 +6,26 @@ import { defaultTheme } from '../style';
 import deepmerge from 'deepmerge';
 
 export interface ThemeProviderProps {
-  theme?: Partial<ThemeType>;
+  theme?: ThemeType;
 }
 
 export const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = (
   props
 ) => {
   const { theme: themeProp = {}, children } = props;
-  const theme = deepmerge(defaultTheme, themeProp);
+
+  const [themeState, setThemeState] = React.useState(
+    deepmerge(defaultTheme, themeProp)
+  );
+
+  const setTheme = (newTheme: ThemeType) => {
+    const mergedTheme = deepmerge(defaultTheme, newTheme);
+    setThemeState(mergedTheme);
+  };
 
   return (
-    <ThemeContext.Provider value={{ theme }}>{children}</ThemeContext.Provider>
+    <ThemeContext.Provider value={{ theme: themeState, setTheme }}>
+      {children}
+    </ThemeContext.Provider>
   );
 };

@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { Animated, TouchableOpacity } from 'react-native';
-import { useEffect, useRef, useState, useContext } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { getStyle } from './toggle.style';
 import { ToggleProps } from './toggle.type';
-import { ThemeContext, getThemeProperty } from '../../theme';
+import { useTheme } from '../../theme';
+import { getThemeColor } from '../../theme/theme.service';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 
 const Toggle: React.FC<ToggleProps> = (incomingProps) => {
@@ -63,7 +64,7 @@ const Toggle: React.FC<ToggleProps> = (incomingProps) => {
     ...rest
   } = props;
   const [animXValue] = useState(new Animated.Value(on ? 1 : 0));
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useTheme();
   const computedStyle = getStyle(theme, props);
 
   const endPos = (w as number) - (h as number) + 3;
@@ -106,8 +107,8 @@ const Toggle: React.FC<ToggleProps> = (incomingProps) => {
             backgroundColor: animXValue.interpolate({
               inputRange: [0, 1],
               outputRange: [
-                getThemeProperty(theme.colors, bg),
-                getThemeProperty(theme.colors, activeBg),
+                getThemeColor(theme.colors, bg),
+                getThemeColor(theme.colors, activeBg),
               ],
             }),
           },
@@ -120,8 +121,8 @@ const Toggle: React.FC<ToggleProps> = (incomingProps) => {
               backgroundColor: animXValue.interpolate({
                 inputRange: [0, 1],
                 outputRange: [
-                  getThemeProperty(theme.colors, circleBg),
-                  getThemeProperty(theme.colors, activeCircleBg),
+                  getThemeColor(theme.colors, circleBg),
+                  getThemeColor(theme.colors, activeCircleBg),
                 ],
               }),
             },

@@ -2,10 +2,10 @@ import { StyleSheet, Dimensions } from 'react-native';
 import { ThemeType } from '../../theme';
 
 import {
-  getThemeProperty,
   createBorderColorStyles,
   createBorderWidthStyles,
   createBorderRadiusStyles,
+  getThemeColor,
 } from '../../theme/theme.service';
 import { DrawerProps } from './drawer.type';
 
@@ -32,7 +32,7 @@ export const getStyle = (theme: ThemeType, props: DrawerProps) => {
     width: SCREEN_WIDTH * (props.drawerPercentage / 100),
     zIndex: 0,
     margin: 0,
-    backgroundColor: getThemeProperty(theme.colors, props.bg),
+    backgroundColor: getThemeColor(theme.colors, props.bg),
     ...createBorderWidthStyles(props),
     ...createBorderColorStyles(props, theme.colors),
     ...createBorderRadiusStyles(props, theme.borderRadius),

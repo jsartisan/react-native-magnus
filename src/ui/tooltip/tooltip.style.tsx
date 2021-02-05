@@ -9,6 +9,7 @@ import {
   createBorderWidthStyles,
   createBorderColorStyles,
   createBorderRadiusStyles,
+  getThemeColor,
 } from '../../theme/theme.service';
 import { TooltipProps } from './tooltip.type';
 
@@ -37,7 +38,7 @@ export const getStyle = (theme: ThemeType, props: TooltipProps, state: any) => {
     ...createSpacingStyles(props, theme.spacing),
     ...createBorderColorStyles(props, theme.colors),
     ...createBorderRadiusStyles(props, theme.borderRadius),
-    backgroundColor: getThemeProperty(theme.colors, props.bg),
+    backgroundColor: getThemeColor(theme.colors, props.bg),
   };
 
   computedStyle.image = {
@@ -57,7 +58,7 @@ export const getStyle = (theme: ThemeType, props: TooltipProps, state: any) => {
     borderRightColor: 'transparent',
     opacity: props.opacity,
     zIndex: props.zIndex,
-    borderBottomColor: getThemeProperty(theme.colors, props.bg),
+    borderBottomColor: getThemeColor(theme.colors, props.bg),
   };
 
   computedStyle.text = {
@@ -71,7 +72,7 @@ export const getStyle = (theme: ThemeType, props: TooltipProps, state: any) => {
     textAlign: props.textAlign,
     textTransform: props.textTransform,
     fontSize: getThemeProperty(theme.fontSize, props.fontSize),
-    color: getThemeProperty(theme.colors, props.color),
+    color: getThemeColor(theme.colors, props.color),
   };
 
   // merging style props to computed style

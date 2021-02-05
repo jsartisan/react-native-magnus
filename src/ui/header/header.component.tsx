@@ -30,7 +30,7 @@ const Header: React.FunctionComponent<HeaderProps> = (incomingProps) => {
 
   const { children, prefix, suffix, ...rest } = props;
 
-  const theme = useTheme();
+  const { theme } = useTheme();
   const computedStyle = getStyle(theme, props);
 
   /**

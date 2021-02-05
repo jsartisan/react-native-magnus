@@ -1,12 +1,12 @@
 import * as React from 'react';
 import Modal from 'react-native-modal';
 import { SafeAreaView, View } from 'react-native';
-import { useContext, useState, useImperativeHandle, useEffect } from 'react';
+import { useState, useImperativeHandle, useEffect } from 'react';
 
 import { getStyle } from './drawer.style';
-import { ThemeContext } from '../../theme';
+import { useTheme } from '../../theme';
 import { DrawerProps, DrawerRef } from './drawer.type';
-import { getThemeProperty } from '../../theme/theme.service';
+import { getThemeColor } from '../../theme/theme.service';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 
 const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
@@ -37,7 +37,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
       children,
       ...rest
     } = props;
-    const { theme } = useContext(ThemeContext);
+    const { theme } = useTheme();
     const computedStyle = getStyle(theme, props as DrawerProps);
     const [visible, setVisible] = useState(isVisible);
 
@@ -64,7 +64,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
         isVisible={visible}
         onSwipeComplete={() => setVisible(false)}
         swipeDirection={direction === 'left' ? 'left' : 'right'}
-        backdropColor={getThemeProperty(theme.colors, backdropColor)}
+        backdropColor={getThemeColor(theme.colors, backdropColor)}
         animationInTiming={
           animationInTiming ? animationInTiming : animationTime
         }

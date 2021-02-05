@@ -2,13 +2,13 @@ import { StyleSheet } from 'react-native';
 import { ThemeType } from '../../theme';
 
 import {
-  getThemeProperty,
   createShadowStyles,
   createPositionStyle,
   createSpacingStyles,
   createBorderWidthStyles,
   createBorderColorStyles,
   createBorderRadiusStyles,
+  getThemeColor,
 } from '../../theme/theme.service';
 import { DivProps } from './div.type';
 
@@ -37,7 +37,7 @@ export const getStyle = (theme: ThemeType, props: DivProps) => {
     overflow: props.overflow,
     zIndex: props.zIndex,
     borderStyle: props.borderStyle,
-    backgroundColor: getThemeProperty(theme.colors, props.bg),
+    backgroundColor: getThemeColor(theme.colors, props.bg),
     flex: props.flex,
     ...createPositionStyle(props),
     ...createShadowStyles(props, theme),

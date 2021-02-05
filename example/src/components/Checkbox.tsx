@@ -1,10 +1,10 @@
-import React from "react";
-import { ScrollView } from "react-native";
-import { Checkbox, Div, Text } from "react-native-magnus";
+import React from 'react';
+import { ScrollView } from 'react-native';
+import { Checkbox, Div, Text } from 'react-native-magnus';
 
-import ExamplePage from "../utils/ExamplePage";
-import ExampleHeader from "../utils/ExampleHeader";
-import ExampleSection from "../utils/ExampleSection";
+import ExamplePage from '../utils/ExamplePage';
+import ExampleHeader from '../utils/ExampleHeader';
+import ExampleSection from '../utils/ExampleSection';
 
 const CheckboxComponent: React.FC = () => {
   const [checkboxGroupValue, setCheckboxGroupValue] = React.useState<any[]>();
@@ -49,24 +49,24 @@ const CheckboxComponent: React.FC = () => {
               row
               onChange={(value) => setCheckboxGroupValue(value)}
             >
-              {["Option 1", "Option 2", "Option 3"].map((item) => (
+              {['Option 1', 'Option 2', 'Option 3'].map((item) => (
                 <Checkbox value={item} key={item}>
                   {({ checked }) => (
                     <Div
-                      bg={checked ? "blue600" : "white"}
+                      bg={checked ? 'blue600' : 'card'}
                       px="xl"
                       py="md"
                       mr="md"
                       rounded="circle"
                     >
-                      <Text color={checked ? "white" : "gray800"}>{item}</Text>
+                      <Text color={checked ? 'white' : 'textDark'}>{item}</Text>
                     </Div>
                   )}
                 </Checkbox>
               ))}
             </Checkbox.Group>
 
-            <Text mt="xl">Checked: {checkboxGroupValue?.join(", ")}</Text>
+            <Text mt="xl">Checked: {checkboxGroupValue?.join(', ')}</Text>
           </Div>
         </ExampleSection>
       </ScrollView>
