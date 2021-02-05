@@ -14,6 +14,16 @@ a {
   @apply text-blue-600;
 }
 
+.button {
+  @apply bg-primary-500;
+  @apply text-white;
+  @apply block;
+  @apply py-3;
+  @apply min-w-200;
+  @apply text-center;
+  @apply rounded-lg;
+}
+
 blockquote {
   @apply bg-blue-100;
   @apply p-3;
@@ -103,16 +113,16 @@ img.mobile-2 {
   @apply my-3;
 }
 
-.docs .docs__content pre[class*="language-"],
-.blogs .blogs__content pre[class*="language-"] {
+.docs .docs__content pre[class*='language-'],
+.blogs .blogs__content pre[class*='language-'] {
   @apply rounded-md;
   @apply block;
   line-height: 1.8 !important;
   overflow-y: hidden;
 }
 
-.docs .docs__content :not(pre) > code[class*="language-"],
-.blogs .blogs__content :not(pre) > code[class*="language-"] {
+.docs .docs__content :not(pre) > code[class*='language-'],
+.blogs .blogs__content :not(pre) > code[class*='language-'] {
   padding: 0 12px !important;
   display: inline-block;
 }
@@ -188,7 +198,7 @@ img.mobile-2 {
   @apply text-blue-600;
 }
 
-.sidebar a[aria-current="page"] {
+.sidebar a[aria-current='page'] {
   @apply text-blue-600;
 }
 

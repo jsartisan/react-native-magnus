@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'gatsby';
 
 import Logo from '../common/Logo';
 import Search from '../common/Search';
+import LoginModal from '../common/LoginModal';
+import SubmitModal from '../common/SubmitModal';
+import UserDropdown from '../common/UserDropdown';
 import packageJSON from '../../../../package.json';
+import { isLoggedIn, getUser } from '../../utilities/auth';
 
 export default function Header({
   location,
@@ -11,6 +15,10 @@ export default function Header({
   setSidebarOpen,
   showSidebarMenu,
 }) {
+  const user = getUser();
+  const [loginModalVisible, setLoginModalVisible] = useState(false);
+  const [submitModalVisible, setSubmitModalVisible] = useState(false);
+
   return (
     <div
       className="px-5 flex fixed top-0 left-0 w-full border-b z-20 w-full"
@@ -31,6 +39,14 @@ export default function Header({
         <Search />
         <div className="">
           <ul className="flex items-center ml-3 d-none d-sm-none d-md-flex list-none">
+            <li className="ml-3 hidden md:block">
+              <Link
+                to="/snippets"
+                className="rounded block px-3 py-2 text-gray-900 hover:bg-gray-200"
+              >
+                Snippets
+              </Link>
+            </li>
             <li className="hidden md:block">
               <Link
                 to="/blog"
@@ -47,41 +63,43 @@ export default function Header({
                 Documentation
               </Link>
             </li>
-            <li className="ml-2 md:ml-3 block">
-              <a
-                href="https://discord.gg/SYnXGEy"
-                target="_blank"
-                className="p-2 rounded block hover:bg-gray-200 flex text-gray-500 hover:text-gray-600 "
-              >
-                <i className="icon-discord text-xl " />
-              </a>
-            </li>
-            <li className="ml-1  md:ml-3 block">
-              <a
-                href="https://github.com/jsartisan/react-native-magnus"
-                target="_blank"
-                className="p-2 rounded block hover:bg-gray-200 flex text-gray-500 hover:text-gray-600 "
-              >
-                <i className="icon-github text-xl " />
-              </a>
-            </li>
-            <li className="ml-1 md:ml-3 block">
-              <a
-                href="https://twitter.com/magnusui"
-                target="_blank"
-                className="p-2 rounded block hover:bg-gray-200 flex text-gray-500 hover:text-gray-600"
-              >
-                <i className="icon-twitter text-xl" />
-              </a>
-            </li>
-            {/* <li className="ml-3 hidden md:block">
-              <a
-                href="https://truesight.one"
-                className="bg-white border rounded block px-4 py-2 text-gray-900 hover:bg-gray-200"
-              >
-                Hire Us
-              </a>
-            </li> */}
+            {!isLoggedIn() && (
+              <li className="ml-3 hidden md:block">
+                <a
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setLoginModalVisible(true);
+                  }}
+                  className="rounded block px-3 py-2 text-gray-900 hover:bg-gray-200"
+                >
+                  Login
+                </a>
+                <LoginModal
+                  open={loginModalVisible}
+                  toggle={setLoginModalVisible}
+                />
+              </li>
+            )}
+            {isLoggedIn() && (
+              <>
+                <div className="mt-2 sm:mt-0 flex flex-col sm:flex-row items-center sm:border-l sm:border-gray-300">
+                  <button
+                    title="Submit component"
+                    className="sm:ml-4 py-2 px-5 md:px-6 rounded-lg bg-primary-500 text-white font-bold hidden md:block"
+                    onClick={() => setSubmitModalVisible(true)}
+                  >
+                    Submit your own
+                  </button>
+                </div>
+
+                <UserDropdown user={user} />
+                <SubmitModal
+                  open={submitModalVisible}
+                  toggle={setSubmitModalVisible}
+                />
+              </>
+            )}
             {showSidebarMenu && (
               <li>
                 <button
