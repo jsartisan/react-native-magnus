@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function HTML(props) {
   /**
@@ -172,7 +172,7 @@ export default function HTML(props) {
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
         {addDriftChat()}
         {addDriftHelperSnippet()}
-        {process.env.NODE_ENV === "production" && addInspectletSnippet()}
+        {process.env.NODE_ENV === 'production' && addInspectletSnippet()}
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}
@@ -180,7 +180,7 @@ export default function HTML(props) {
           This app works best with JavaScript enabled.
         </noscript>
         <div
-          key={`body`}
+          key={'body'}
           id="___gatsby"
           dangerouslySetInnerHTML={{ __html: props.body }}
         />

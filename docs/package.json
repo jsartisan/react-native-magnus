@@ -5,8 +5,12 @@
   "version": "0.1.0",
   "author": "Pawan Kumar <pawankumar2901@gmail.com>",
   "dependencies": {
+    "add": "^2.0.6",
     "algoliasearch": "^4.4.0",
+    "dangerously-set-html-content": "^1.0.8",
     "dotenv": "^8.1.0",
+    "firebase": "^8.2.5",
+    "formik": "^2.2.6",
     "gatsby": "^2.13.73",
     "gatsby-image": "^2.2.10",
     "gatsby-plugin-algolia": "^0.11.2",
@@ -28,6 +32,8 @@
     "gatsby-remark-responsive-iframe": "^2.2.10",
     "gatsby-remark-smartypants": "^2.1.5",
     "gatsby-source-filesystem": "^2.1.11",
+    "gatsby-source-firebase": "^1.0.0",
+    "gatsby-transformer-json": "^2.10.0",
     "gatsby-transformer-remark": "^2.6.19",
     "gatsby-transformer-sharp": "^2.2.7",
     "prism-react-renderer": "^1.0.2",
@@ -40,7 +46,9 @@
     "react-instantsearch-dom": "^6.7.0",
     "react-markdown": "^4.1.0",
     "react-syntax-highlighter": "^12.2.1",
-    "simplebar-react": "^1.2.0"
+    "simplebar-react": "^1.2.0",
+    "yarn": "^1.22.10",
+    "yup": "^0.32.8"
   },
   "devDependencies": {
     "prettier": "^1.18.2",
@@ -52,6 +60,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
+    "dev": "gatsby develop -p $PORT",
     "develop": "gatsby develop -H 0.0.0.0 -p 4000",
     "deploy": "gatsby clean && gatsby build && cd public && firebase deploy",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
