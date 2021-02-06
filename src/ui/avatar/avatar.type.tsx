@@ -15,6 +15,7 @@ import {
   PositionPropsType,
   TextPropsType,
   ZIndexPropsType,
+  VariantPropsType,
 } from '../../types';
 
 export type CompoundedAvatar<P> = React.FunctionComponent<P> & {
@@ -32,7 +33,8 @@ export interface AvatarProps
     OpacityPropsType,
     Pick<FlexPropsType, 'alignSelf'>,
     Pick<TextPropsType, 'color' | 'fontSize' | 'fontWeight' | 'fontFamily'>,
-    Pick<BackgroundPropsType, 'bg'> {
+    Pick<BackgroundPropsType, 'bg'>,
+    VariantPropsType {
   size?: number;
   source?: RNImageSourcePropType;
 }

@@ -15,6 +15,7 @@ import {
   SpacingPropsType,
   RoundedPropsType,
   ShadowPropsType,
+  VariantPropsType,
 } from '../../types';
 import { DivProps } from '../div/div.type';
 import { CheckboxGroup } from './group.component';
@@ -39,7 +40,8 @@ export interface CheckboxProps
     DisabledPropsType,
     Pick<TextPropsType, 'fontWeight' | 'color' | 'fontSize'>,
     Pick<BackgroundPropsType, 'bg'>,
-    ButtonPropsType {
+    ButtonPropsType,
+    VariantPropsType {
   highlightBg?: string;
   activeColor?: string;
   inactiveColor?: string;

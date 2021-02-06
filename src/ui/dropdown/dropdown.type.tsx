@@ -9,6 +9,7 @@ import {
   DimensionPropsType,
   FlexPropsType,
   OverflowPropsType,
+  VariantPropsType,
 } from '../../types';
 
 export interface CompoundedDropdown
@@ -34,7 +35,8 @@ export interface DropdownProps
     Pick<
       FlexPropsType,
       'justifyContent' | 'alignItems' | 'flexDir' | 'flexWrap'
-    > {
+    >,
+    VariantPropsType {
   title?: string | React.ReactNode;
   showSwipeIndicator?: boolean;
 }

@@ -13,6 +13,7 @@ import {
   SpacingPropsType,
   RoundedPropsType,
   ShadowPropsType,
+  VariantPropsType,
 } from '../../types';
 
 export interface FabProps
@@ -29,7 +30,8 @@ export interface FabProps
     OverlayPropsType,
     Pick<BackgroundPropsType, 'bg'>,
     Pick<ButtonPropsType, 'block' | 'borderless' | 'rippleColor' | 'ripple'>,
-    Pick<TextPropsType, 'color' | 'fontSize'> {
+    Pick<TextPropsType, 'color' | 'fontSize'>,
+    VariantPropsType {
   h?: number;
   center?: boolean;
   icon?: string | React.ReactNode;

@@ -8,6 +8,7 @@ import {
   RoundedPropsType,
   ShadowPropsType,
   OpacityPropsType,
+  VariantPropsType,
 } from '../../types';
 
 export interface TooltipRef {
@@ -24,7 +25,8 @@ export interface TooltipProps
     DimensionPropsType,
     OpacityPropsType,
     ZIndexPropsType,
-    Pick<BackgroundPropsType, 'bg'> {
+    Pick<BackgroundPropsType, 'bg'>,
+    VariantPropsType {
   animationDuration?: number;
   text: string | React.ReactNode;
   useNativeDriver?: boolean;

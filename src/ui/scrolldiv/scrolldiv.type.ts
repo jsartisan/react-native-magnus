@@ -8,6 +8,7 @@ import {
   SpacingPropsType,
   RoundedPropsType,
   ShadowPropsType,
+  VariantPropsType,
 } from '../../types';
 
 export interface ScrollDivProps
@@ -19,4 +20,5 @@ export interface ScrollDivProps
     FlexPropsType,
     PositionPropsType,
     DimensionPropsType,
-    BackgroundPropsType {}
+    BackgroundPropsType,
+    VariantPropsType {}

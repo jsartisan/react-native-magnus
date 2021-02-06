@@ -6,13 +6,16 @@ import {
 import { useTheme } from '../../theme';
 
 import { getThemeColor } from '../../theme/theme.service';
+import { VariantPropsType } from '../../types';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 
 interface StatusBarComponent<T> extends React.FC<T> {
   currentHeight?: number;
 }
 
-const StatusBar: StatusBarComponent<RNStatusBarProps> = (incomingProps) => {
+const StatusBar: StatusBarComponent<RNStatusBarProps & VariantPropsType> = (
+  incomingProps
+) => {
   const props = useDefaultProps('Statusbar', incomingProps, {
     animated: true,
   });

@@ -13,6 +13,7 @@ import {
   SpacingPropsType,
   RoundedPropsType,
   ShadowPropsType,
+  VariantPropsType,
 } from '../../types';
 
 export interface SelectOptionProps
@@ -29,7 +30,8 @@ export interface SelectOptionProps
     Pick<PrefixSuffixPropsType, 'prefix'>,
     Pick<BackgroundPropsType, 'bg'>,
     DimensionPropsType,
-    Pick<TextPropsType, 'color' | 'fontSize'> {
+    Pick<TextPropsType, 'color' | 'fontSize'>,
+    VariantPropsType {
   center?: boolean;
   value: any;
   onSelect?: (value: any) => void;

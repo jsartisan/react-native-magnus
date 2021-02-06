@@ -12,6 +12,7 @@ import {
   ZIndexPropsType,
   OverflowPropsType,
   OpacityPropsType,
+  VariantPropsType,
 } from '../../types';
 
 export interface DivProps
@@ -26,4 +27,5 @@ export interface DivProps
     PositionPropsType,
     ZIndexPropsType,
     OverflowPropsType,
-    OpacityPropsType {}
+    OpacityPropsType,
+    VariantPropsType {}

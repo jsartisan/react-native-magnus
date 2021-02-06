@@ -11,6 +11,7 @@ import {
   SpacingPropsType,
   RoundedPropsType,
   ShadowPropsType,
+  VariantPropsType,
 } from '../../types';
 
 export type iconFontFamilyType =
@@ -41,7 +42,8 @@ export interface IconProps
     OpacityPropsType,
     Pick<BackgroundPropsType, 'bg'>,
     Pick<TextPropsType, 'color' | 'fontSize'>,
-    Pick<FlexPropsType, 'alignSelf'> {
+    Pick<FlexPropsType, 'alignSelf'>,
+    VariantPropsType {
   name: string;
   fontFamily?: iconFontFamilyType;
 }
