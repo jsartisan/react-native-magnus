@@ -7,6 +7,7 @@ import {
   BorderPropsType,
   SpacingPropsType,
   RoundedPropsType,
+  VariantPropsType,
 } from '../../types';
 
 export interface ToggleProps
@@ -17,7 +18,8 @@ export interface ToggleProps
     Pick<DimensionPropsType, 'w' | 'h'>,
     Pick<BackgroundPropsType, 'bg'>,
     Pick<RNTouchableOpacityProps, 'style'>,
-    DisabledPropsType {
+    DisabledPropsType,
+    VariantPropsType {
   testID?: string;
   on?: boolean;
   onPress: () => void;

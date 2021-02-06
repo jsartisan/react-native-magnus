@@ -5,6 +5,7 @@ import {
   BorderPropsType,
   RoundedPropsType,
   BackgroundPropsType,
+  VariantPropsType,
 } from '../../types';
 
 export interface DrawerRef {
@@ -17,7 +18,8 @@ export interface DrawerProps
     RNViewProps,
     BorderPropsType,
     RoundedPropsType,
-    Pick<BackgroundPropsType, 'bg'> {
+    Pick<BackgroundPropsType, 'bg'>,
+    VariantPropsType {
   direction?: 'left' | 'right';
   drawerPercentage?: number;
   animationTime?: number;

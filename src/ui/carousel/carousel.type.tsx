@@ -4,6 +4,7 @@ import {
   RoundedPropsType,
   ShadowPropsType,
   SpacingPropsType,
+  VariantPropsType,
 } from '../../types';
 
 import CarouselItem from './item.carousel';
@@ -18,7 +19,8 @@ export interface CarouselProps
     RoundedPropsType,
     ShadowPropsType,
     SpacingPropsType,
-    Pick<FlexPropsType, 'flex'> {
+    Pick<FlexPropsType, 'flex'>,
+    VariantPropsType {
   showIndicators?: boolean;
   renderIndicators?: (props: CarouselIndicator) => JSX.Element;
 }

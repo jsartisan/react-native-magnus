@@ -10,6 +10,7 @@ import {
   BorderPropsType,
   SpacingPropsType,
   RoundedPropsType,
+  VariantPropsType,
 } from '../../types';
 
 export interface TextProps
@@ -23,4 +24,5 @@ export interface TextProps
     OpacityPropsType,
     ZIndexPropsType,
     Pick<BackgroundPropsType, 'bg'>,
-    Pick<FlexPropsType, 'flex'> {}
+    Pick<FlexPropsType, 'flex'>,
+    VariantPropsType {}

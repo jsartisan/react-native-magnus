@@ -13,6 +13,7 @@ import {
   SpacingPropsType,
   RoundedPropsType,
   ShadowPropsType,
+  VariantPropsType,
 } from '../../types';
 
 export interface InputProps
@@ -29,4 +30,5 @@ export interface InputProps
     Pick<FlexPropsType, 'flex'>,
     Pick<BackgroundPropsType, 'bg'>,
     Omit<TextPropsType, 'textAlign'>,
-    InputPropsType {}
+    InputPropsType,
+    VariantPropsType {}
