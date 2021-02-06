@@ -1,9 +1,3 @@
-# common
 node_modules/
-
-# docs
 docs/public
-
-# example
-
 lib/
