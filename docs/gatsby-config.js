@@ -2,8 +2,6 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
-const firebaseServiceAccount = require('./credentials.json');
-
 const ALGOLIA_QUERY = `{
   allMarkdownRemark(
     sort: { fields: [frontmatter___date], order: DESC }
