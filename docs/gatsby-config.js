@@ -205,7 +205,7 @@ module.exports = {
           type: 'service_account',
           project_id: 'magnus-ui-cbee6',
           private_key_id: 'f40d7f4e5f3cfa8220be20927c32607d615d55fc',
-          private_key: process.env.FIREBASE_PRIVATE_KEY,
+          private_key: process.env.GATSBY_FIREBASE_PRIVATE_KEY,
           client_email:
             'firebase-adminsdk-gvwh2@magnus-ui-cbee6.iam.gserviceaccount.com',
           client_id: '104921365325893891786',
