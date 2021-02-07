@@ -47,40 +47,48 @@ const LoginPage = (props) => {
                 className={`
                 px-4 py-2 rounded-full ${
                   pageContext.category === '//'
-                    ? ' text-white bg-gray-800 font-semibold hover:bg-gray-700'
+                    ? ' text-white bg-primary-500 font-semibold'
                     : ' text-gray-600 hover:text-gray-800'
                 }`}
               >
                 All
               </Link>
-              {categories.map((category) => (
-                <Link
-                  to={`/snippets/${category.value}`}
-                  className={`
+              {categories
+                .filter((category) => {
+                  return (
+                    data.allSnippet.edges.findIndex(
+                      (edge) => edge.node.category === category.value
+                    ) > -1
+                  );
+                })
+                .map((category) => (
+                  <Link
+                    to={`/snippets/${category.value}`}
+                    className={`
                 px-4 py-2 rounded-full ${
                   pageContext.category === `/${category.value}/`
-                    ? ' text-white bg-gray-800 font-semibold hover:bg-gray-700'
+                    ? ' text-white bg-primary-500 font-semibold'
                     : ' text-gray-600 hover:text-gray-800'
                 }`}
-                >
-                  {category.label}
-                </Link>
-              ))}
+                  >
+                    {category.label}
+                  </Link>
+                ))}
             </nav>
           </div>
 
           <div className="grid max-w-screen-xl  mx-auto gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {data.allSnippet.edges.map((edge) => (
+            {data.allSnippetByCategory.edges.map((edge) => (
               <Link
                 to={`/snippets/${edge.node.slug}`}
-                title="TailwindCSS div bot"
+                title={edge.node.title}
                 href="/component/div-bot"
                 className="flex flex-col rounded overflow-hidden"
               >
-                <div className="h-48 xl:h-64 bg-blue-100 overflow-hidden rounded-lg relative">
+                <div className="h-48 xl:h-64 bg-blue-100 overflow-hidden rounded-lg relative border border-gray-200">
                   <img
                     loading="lazy"
-                    alt="tailwind div bot"
+                    alt={edge.node.title}
                     src={edge.node.image}
                     className="w-full h-full object-cover"
                   />
@@ -90,10 +98,10 @@ const LoginPage = (props) => {
                     <div className="flex-1 leading-snug w-0">
                       <h4 className="whitespace-nowrap text-secondary font-bold truncate hover:text-primary">
                         {edge.node.title}
-                      </h4>{' '}
-                      {/* <p className="text-sm text-gray-600">
-                      {edge.node.category}
-                    </p> */}
+                      </h4>
+                      <p className="text-sm text-gray-600 mt-2 pr-5">
+                        {edge.node.description}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -165,7 +173,7 @@ export default LoginPage;
 
 export const pageQuery = graphql`
   query snippetsPageQuery($skip: Int!, $limit: Int!, $category: String!) {
-    allSnippet(
+    allSnippetByCategory: allSnippet(
       limit: $limit
       skip: $skip
       filter: { category: { regex: $category }, published: { eq: true } }
@@ -177,6 +185,20 @@ export const pageQuery = graphql`
           slug
           category
           image
+          description
+        }
+      }
+    }
+
+    allSnippet(limit: 1000, filter: { published: { eq: true } }) {
+      edges {
+        node {
+          title
+          id
+          slug
+          category
+          image
+          description
         }
       }
     }

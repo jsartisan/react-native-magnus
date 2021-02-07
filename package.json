@@ -22,7 +22,6 @@
     "pre-commit": "pretty-quick --staged && yarn typescript",
     "release": "release-it",
     "example": "yarn --cwd example",
-    "web": "yarn --cwd example-web",
     "docs": "yarn --cwd docs",
     "bootstrap": "yarn example && yarn docs && yarn"
   },

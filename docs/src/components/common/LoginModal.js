@@ -79,19 +79,23 @@ const LoginModal = (props) => {
           <div className="text-center flex justify-center pt-10 pb-5">
             <Logo />
           </div>
-          <div className="px-4 py-2 flex justify-center items-center relative">
+          <div className="px-4 py-1 flex justify-center items-center relative">
             <h3 className="font-semibold text-lg">Sign up on Magnus UI</h3>
           </div>
 
-          <div className="p-3 text-center px-10">
+          <div className="p-2 text-center px-10">
             Join our community of friendly folks discovering and sharing the
-            latest products in tech.
+            snippets around magnus components.
           </div>
           <div className="flex justify-end items-center w-100 w-7/12 mx-auto  p-3">
             <a
               href="#"
-              onClick={() => onClickSocial('google')}
-              className="mr-3 flex flex-1 items-center justify-center px-4 py-2 space-x-2 transition-colors duration-300 border border-gray-800 rounded-md group hover:bg-gray-800 focus:outline-none"
+              onClick={(e) => {
+                e.preventDefault();
+
+                onClickSocial('google');
+              }}
+              className="mr-3 flex flex-1 items-center justify-center px-4 py-2 space-x-2 transition-colors duration-300 border border-gray-400 rounded-md group hover:bg-gray-200 focus:outline-none"
             >
               <img src="/images/google-icon.png" className=" h-4 w-4" />
               <span className="text-sm font-medium text-gray-800 group-hover:text-white">
@@ -100,8 +104,12 @@ const LoginModal = (props) => {
             </a>
             <a
               href="#"
-              onClick={() => onClickSocial('github')}
-              className="ml-3 flex flex-1 items-center justify-center px-4 py-2 space-x-2 transition-colors duration-300 border border-gray-800 rounded-md group hover:bg-gray-800 focus:outline-none"
+              onClick={(e) => {
+                e.preventDefault();
+
+                onClickSocial('github');
+              }}
+              className="ml-3 flex flex-1 items-center justify-center px-4 py-2 space-x-2 transition-colors duration-300 border border-gray-400 rounded-md group hover:bg-gray-200 focus:outline-none"
             >
               <span>
                 <svg
@@ -121,6 +129,9 @@ const LoginModal = (props) => {
               </span>
             </a>
           </div>
+          <p className="text-center text-gray-600 text-xs pt-3 pb-5">
+            We'll never post to any of your accounts without your permission.
+          </p>
         </div>
       </div>
     </>

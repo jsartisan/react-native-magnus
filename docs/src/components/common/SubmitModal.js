@@ -61,12 +61,12 @@ const LoginModal = (props) => {
           </div>
           <div className="px-4 pt-2 flex justify-center items-center relative">
             <h3 className="font-semibold text-lg">
-              Submit snack/codesandbox embed
+              Submit magnus's snack/codesandbox embed
             </h3>
           </div>
 
           <div className="p-1 text-center text-gray-600 px-10 w-9/12 mx-auto">
-            Feel free to submit tutorials in any language.
+            Feel free to any kind of snippet made from magnus.
           </div>
           <Formik
             initialValues={{ embed: '', category: 'buttons' }}
@@ -152,7 +152,7 @@ const LoginModal = (props) => {
                         value={values.category}
                       >
                         {categories.map((category) => (
-                          <option value={category.value}>
+                          <option value={category.value} key={category.value}>
                             {category.label}
                           </option>
                         ))}

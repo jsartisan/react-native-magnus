@@ -18,10 +18,10 @@ import { useDefaultProps } from '../../utilities/useDefaultProps';
 const Input = React.forwardRef<RNTextInput, InputProps>(
   (incomingProps, ref) => {
     const props = useDefaultProps('Input', incomingProps, {
-      px: 'xl',
+      px: 'lg',
       py: 'lg',
-      fontSize: 'lg',
-      borderWidth: 0,
+      fontSize: 'md',
+      borderWidth: 1,
       bg: 'white',
       borderColor: 'gray400',
       rounded: 'md',
