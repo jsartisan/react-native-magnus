@@ -8,7 +8,7 @@ import SnippetService from '../../services/SnippetService';
 
 let formikProps;
 
-const LoginModal = (props) => {
+const SubmitModal = (props) => {
   const { open, toggle } = props;
   const [loading, setLoading] = useState(false);
 
@@ -197,4 +197,4 @@ const LoginModal = (props) => {
   );
 };
 
-export default LoginModal;
+export default SubmitModal;
