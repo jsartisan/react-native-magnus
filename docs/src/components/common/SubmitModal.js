@@ -131,7 +131,7 @@ const SubmitModal = (props) => {
                           onChange={handleChange}
                           onBlur={handleBlur}
                           className="w-full h-32 px-3 py-2 mt-2 mb-1 border-2 border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors"
-                          placeholder="John Smith"
+                          placeholder="snack embed..."
                           type="text"
                         />
                       </div>
