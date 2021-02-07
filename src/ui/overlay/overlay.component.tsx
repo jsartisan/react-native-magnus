@@ -2,7 +2,6 @@ import * as React from 'react';
 import {
   View as RNView,
   Modal as RNModal,
-  TouchableOpacity as RNTouchableOpacity,
   TouchableWithoutFeedback as RNTouchableWithoutFeedback,
 } from 'react-native';
 import { useState, useEffect, useImperativeHandle } from 'react';

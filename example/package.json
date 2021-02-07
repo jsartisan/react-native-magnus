@@ -20,6 +20,7 @@
     "@react-navigation/drawer": "^5.6.1",
     "@react-navigation/native": "^5.2.1",
     "@react-navigation/stack": "^5.2.16",
+    "deepmerge": "^4.2.2",
     "expo": "^39.0.0",
     "expo-app-loading": "^1.0.1",
     "expo-font": "~8.3.0",
@@ -36,7 +37,8 @@
     "react-native-safe-area-context": "3.1.4",
     "react-native-screens": "~2.10.1",
     "react-native-vector-icons": "^7.1.0",
-    "react-native-web": "~0.14.0"
+    "react-native-web": "~0.14.0",
+    "validate-color": "^2.1.1"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.3.0",
