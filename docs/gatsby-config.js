@@ -203,7 +203,21 @@ module.exports = {
       resolve: 'gatsby-source-firebase',
       options: {
         // point to the firebase private key downloaded
-        credential: require('./credentials.json'),
+        credential: {
+          type: 'service_account',
+          project_id: 'magnus-ui-cbee6',
+          private_key_id: 'f40d7f4e5f3cfa8220be20927c32607d615d55fc',
+          private_key: process.env.FIREBASE_PRIVATE_KEY,
+          client_email:
+            'firebase-adminsdk-gvwh2@magnus-ui-cbee6.iam.gserviceaccount.com',
+          client_id: '104921365325893891786',
+          auth_uri: 'https://accounts.google.com/o/oauth2/auth',
+          token_uri: 'https://oauth2.googleapis.com/token',
+          auth_provider_x509_cert_url:
+            'https://www.googleapis.com/oauth2/v1/certs',
+          client_x509_cert_url:
+            'https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-gvwh2%40magnus-ui-cbee6.iam.gserviceaccount.com',
+        },
         databaseURL: 'https://magnus-ui-cbee6-default-rtdb.firebaseio.com',
 
         // you can have multiple "types" that point to different paths
