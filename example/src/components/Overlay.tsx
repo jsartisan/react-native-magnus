@@ -28,7 +28,11 @@ const OverlayComponent: React.FC = () => {
             Show Overlay
           </Button>
 
-          <Overlay ref={overlayRef} p="xl">
+          <Overlay
+            ref={overlayRef}
+            p="xl"
+            onBackdropPress={() => overlayRef.current?.close()}
+          >
             <Div flexDir="row" justifyContent="center" alignItems="center">
               <ActivityIndicator size={30} color="red" />
               <Text fontSize="lg" ml="lg">

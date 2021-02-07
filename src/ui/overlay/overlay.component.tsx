@@ -1,5 +1,10 @@
 import * as React from 'react';
-import { View as RNView, Modal as RNModal } from 'react-native';
+import {
+  View as RNView,
+  Modal as RNModal,
+  TouchableOpacity as RNTouchableOpacity,
+  TouchableWithoutFeedback as RNTouchableWithoutFeedback,
+} from 'react-native';
 import { useState, useEffect, useImperativeHandle } from 'react';
 
 import { getStyle } from './overlay.style';
@@ -21,6 +26,7 @@ const Overlay = React.forwardRef<
     overlayColor: 'gray900',
     animationType: 'fade',
     transparent: true,
+    onBackdropPress: () => {},
   });
 
   const {
@@ -50,6 +56,7 @@ const Overlay = React.forwardRef<
     overlayColor,
     overlayOpacity,
     onRequestClose,
+    onBackdropPress,
     ...rest
   } = props;
   const { theme } = useTheme();
@@ -86,21 +93,15 @@ const Overlay = React.forwardRef<
       }
       {...rest}
     >
-      <RNView style={computedStyle.modal}>
-        <RNView style={computedStyle.container}>{children}</RNView>
-      </RNView>
+      <RNTouchableWithoutFeedback onPress={onBackdropPress}>
+        <RNView style={computedStyle.modal}>
+          <RNTouchableWithoutFeedback>
+            <RNView style={computedStyle.container}>{children}</RNView>
+          </RNTouchableWithoutFeedback>
+        </RNView>
+      </RNTouchableWithoutFeedback>
     </RNModal>
   );
 });
-
-// Overlay.defaultProps = {
-//   bg: 'white',
-//   w: '80%',
-//   p: 'lg',
-//   rounded: 'md',
-//   isVisible: false,
-//   overlayOpacity: 0.6,
-//   overlayColor: 'gray900',
-// };
 
 export { Overlay };

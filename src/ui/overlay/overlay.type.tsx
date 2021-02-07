@@ -25,4 +25,6 @@ export interface OverlayProps
       'flex' | 'justifyContent' | 'alignItems' | 'flexDir' | 'flexWrap'
     >,
     Pick<BackgroundPropsType, 'bg'>,
-    VariantPropsType {}
+    VariantPropsType {
+  onBackdropPress?: () => void;
+}
