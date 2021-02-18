@@ -45,6 +45,7 @@ export const borderProps = [
   'borderRightWidth',
   'borderLeftWidth',
   'borderBottomWidth',
+  'borderStartWidth',
   'borderEndWidth',
   'borderStyle',
 ] as const;
@@ -59,6 +60,7 @@ export interface BorderPropsType {
   borderRightWidth?: number;
   borderLeftWidth?: number;
   borderBottomWidth?: number;
+  borderStartWidth?: number;
   borderEndWidth?: number;
   borderStyle?: 'solid' | 'dotted' | 'dashed';
 }
@@ -79,6 +81,7 @@ export const spacingProps = [
   'pl',
   'px',
   'py',
+  'ps',
 ] as const;
 export interface SpacingPropsType {
   m?: string | number;
@@ -96,6 +99,7 @@ export interface SpacingPropsType {
   pl?: string | number;
   px?: string | number;
   py?: string | number;
+  ps?: string | number;
 }
 
 export const roundedProps = [

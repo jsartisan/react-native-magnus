@@ -24,6 +24,7 @@ export const createSpacingStyles = (
     pl: 'paddingLeft',
     px: 'paddingHorizontal',
     py: 'paddingVertical',
+    ps: 'paddingStart',
     m: 'margin',
     mt: 'marginTop',
     mr: 'marginRight',
@@ -221,8 +222,9 @@ export const createBorderWidthStyles = (props: any) => {
 
   propKeys = {
     borderWidth: 'borderWidth',
-    borderTopWidth: 'borderTopWidth',
+    borderStartWidth: 'borderStartWidth',
     borderEndWidth: 'borderEndWidth',
+    borderTopWidth: 'borderTopWidth',
     borderLeftWidth: 'borderLeftWidth',
     borderRightWidth: 'borderRightWidth',
     borderBottomWidth: 'borderBottomWidth',
