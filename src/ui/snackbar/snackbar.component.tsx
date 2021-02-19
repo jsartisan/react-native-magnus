@@ -22,11 +22,9 @@ const Snackbar = React.forwardRef<
     rounded: 'md',
     fontSize: 'md',
     duration: 4000,
-    onDismiss: () => {},
+    onClose: () => {},
     shadow: 2,
     shadowColor: 'gray500',
-    position: 'absolute',
-    bottom: 0,
     flexDir: 'row',
     justifyContent: 'center',
     alignItems: 'center',
@@ -52,7 +50,7 @@ const Snackbar = React.forwardRef<
     roundedBottom,
     roundedLeft,
     children,
-    onDismiss,
+    onClose,
     duration,
     suffix,
     prefix,
@@ -67,7 +65,6 @@ const Snackbar = React.forwardRef<
     borderBottomWidth,
     borderTopWidth,
     borderEndWidth,
-    position,
     flexDir,
     justifyContent,
     alignItems,
@@ -78,89 +75,35 @@ const Snackbar = React.forwardRef<
     useNativeDriver,
     ...rest
   } = props;
-  let hideTimeout: number = 0;
   const { theme } = useTheme();
   const computedStyle = getStyle(theme, props);
   const [opacity] = useState(new Animated.Value(0.0));
-  const [hidden, setHidden] = useState(true);
 
-  /**
-   * component lifecycle methods
-   */
   useEffect(() => {
-    return function cleanup() {
-      clearTimeout(hideTimeout);
-    };
-  }, [hideTimeout]);
-
-  /**
-   * hide the snackbar
-   */
-  const hide = () => {
-    if (hideTimeout) {
-      clearTimeout(hideTimeout);
-    }
-
-    Animated.timing(opacity, {
-      toValue: 0,
-      duration: 100,
-      useNativeDriver: useNativeDriver!,
-    }).start(({ finished }) => {
-      if (finished) {
-        setHidden(true);
-      }
-    });
-  };
-
-  /**
-   * show snackbar
-   */
-  const show = () => {
-    if (hideTimeout) {
-      clearTimeout(hideTimeout);
-    }
-
-    setHidden(false);
-
     Animated.timing(opacity, {
       toValue: 1,
-      duration: 200,
-      useNativeDriver: useNativeDriver!,
-    }).start(({ finished }) => {
-      if (finished) {
-        const isInfinity =
-          duration === Number.POSITIVE_INFINITY ||
-          duration === Number.NEGATIVE_INFINITY;
+      useNativeDriver: true,
+      duration: 250,
+    }).start();
 
-        if (finished && !isInfinity) {
-          hideTimeout = setTimeout(() => {
-            hide();
+    let closeTimeout: number = 0;
 
-            if (onDismiss) {
-              onDismiss();
-            }
-          }, duration);
-        }
-      }
-    });
-  };
+    console.log({ duration });
 
-  /**
-   * exposing functions to parent
-   */
-  useImperativeHandle(ref, () => ({
-    show() {
-      show();
-    },
-    hide() {
-      hide();
-    },
-  }));
+    if (duration !== 0 && typeof duration === 'number') {
+      closeTimeout = setTimeout(() => {
+        Animated.timing(opacity, {
+          toValue: 0,
+          useNativeDriver: true,
+          duration: 250,
+        }).start(() => onClose());
+      }, duration);
+    }
 
-  // if snackbakr is set to be hidden, just return null
-  if (hidden) {
-    return null;
-  }
+    return () => {
+      closeTimeout && clearTimeout(closeTimeout);
+    };
+  }, [duration, onClose, opacity]);
 
   /**
    * renders children based on type
@@ -187,12 +130,10 @@ const Snackbar = React.forwardRef<
           opacity,
           transform: [
             {
-              scale: !hidden
-                ? opacity.interpolate({
-                    inputRange: [0, 1],
-                    outputRange: [0.9, 1],
-                  })
-                : 1,
+              scale: opacity.interpolate({
+                inputRange: [0, 1],
+                outputRange: [0.9, 1],
+              }),
             },
           ],
         }}
@@ -207,25 +148,5 @@ const Snackbar = React.forwardRef<
     </SafeAreaView>
   );
 });
-
-// Snackbar.defaultProps = {
-//   bg: 'gray900',
-//   color: 'white',
-//   p: 'lg',
-//   m: 'md',
-//   rounded: 'md',
-//   fontSize: 'md',
-//   duration: 4000,
-//   onDismiss: () => {},
-//   shadow: 2,
-//   shadowColor: 'gray500',
-//   position: 'absolute',
-//   bottom: 0,
-//   flexDir: 'row',
-//   justifyContent: 'center',
-//   alignItems: 'center',
-//   alignSelf: 'center',
-//   useNativeDriver: false,
-// };
 
 export { Snackbar };

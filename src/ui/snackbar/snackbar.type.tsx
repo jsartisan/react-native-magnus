@@ -24,7 +24,6 @@ export interface SnackbarProps
     SpacingPropsType,
     ShadowPropsType,
     RoundedPropsType,
-    PositionPropsType,
     PrefixSuffixPropsType,
     DimensionPropsType,
     OpacityPropsType,
@@ -32,9 +31,18 @@ export interface SnackbarProps
     Pick<BackgroundPropsType, 'bg'>,
     Pick<TextPropsType, 'color' | 'fontSize' | 'fontWeight'>,
     VariantPropsType {
+  id?: string;
   duration?: number;
-  onDismiss?: () => void;
+  onClose?: () => void;
   style?: StyleProp<ViewStyle>;
 
   useNativeDriver?: boolean;
+}
+
+export interface SnackbarContainerProps extends SnackbarProps {
+  placement: 'top' | 'bottom';
+}
+
+export interface SnackbarContainerState {
+  snackbars: Array<SnackbarProps & { message: string | JSX.Element }>;
 }

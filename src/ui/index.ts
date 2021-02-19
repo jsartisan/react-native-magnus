@@ -44,8 +44,11 @@ export { Select } from './select/select.component';
 export { SelectRef, SelectProps } from './select/select.type';
 export { Skeleton } from './skeleton/skeleton.component';
 export { SkeletonProps } from './skeleton/skeleton.type';
-export { Snackbar } from './snackbar/snackbar.component';
-export { SnackbarRef, SnackbarProps } from './snackbar/snackbar.type';
+export { SnackbarContainer as Snackbar } from './snackbar/snackbar.container.component';
+export {
+  SnackbarRef,
+  SnackbarContainerProps as SnackbarProps,
+} from './snackbar/snackbar.type';
 export { StatusBar } from './statusbar/statusbar.component';
 export { Tag } from './tag/tag.component';
 export { TagProps } from './tag/tag.type';
