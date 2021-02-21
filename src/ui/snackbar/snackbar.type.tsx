@@ -4,7 +4,6 @@ import {
   DimensionPropsType,
   FlexPropsType,
   OpacityPropsType,
-  PositionPropsType,
   PrefixSuffixPropsType,
   TextPropsType,
   BorderPropsType,
@@ -15,8 +14,13 @@ import {
 } from '../../types';
 
 export interface SnackbarRef {
-  show: () => void;
-  hide: () => void;
+  show: (message: string | JSX.Element, config?: SnackbarProps) => void;
+  hide: (id: string) => void;
+  update: (
+    id: string,
+    message: string | JSX.Element,
+    config?: SnackbarProps
+  ) => void;
 }
 
 export interface SnackbarProps
@@ -24,7 +28,6 @@ export interface SnackbarProps
     SpacingPropsType,
     ShadowPropsType,
     RoundedPropsType,
-    PositionPropsType,
     PrefixSuffixPropsType,
     DimensionPropsType,
     OpacityPropsType,
@@ -32,9 +35,18 @@ export interface SnackbarProps
     Pick<BackgroundPropsType, 'bg'>,
     Pick<TextPropsType, 'color' | 'fontSize' | 'fontWeight'>,
     VariantPropsType {
+  id?: string;
   duration?: number;
-  onDismiss?: () => void;
+  onClose?: () => void;
   style?: StyleProp<ViewStyle>;
-
   useNativeDriver?: boolean;
+}
+
+export interface SnackbarContainerProps {
+  placement: 'top' | 'bottom';
+  offset?: number;
+}
+
+export interface SnackbarState {
+  toasts: Array<SnackbarProps & { message: string | JSX.Element }>;
 }

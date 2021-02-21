@@ -2,7 +2,7 @@
 title: Snackbar
 ---
 
-Custom component for showing snackbar at the bottom.
+Custom component for showing toasts messages at the bottom.
 
 <a href="https://snack.expo.io/@pawankumar2901/magnus---snackbar-example-1" target="_blank">See it on Snack</a>
 
@@ -27,33 +27,32 @@ const App = () => {
       <StatusBar barStyle="dark-content" />
       <SafeAreaView style={{ flex: 1 }}>
         <Button
-          block
           m="xl"
           onPress={() => {
             if (snackbarRef.current) {
-              snackbarRef.current.show();
+              snackbarRef.current.show({
+                 message: "Here is a light snack for you!",
+                {
+                  duration: 2000,
+                  suffix: <Icon
+                    name="checkcircle"
+                    color="white"
+                    fontSize="md"
+                    fontFamily="AntDesign"
+                  />
+                }
+              });
             }
           }}
         >
           Open Snackbar
         </Button>
         <Snackbar
-          suffix={
-            <Icon
-              name="checkcircle"
-              color="white"
-              fontSize="md"
-              fontFamily="AntDesign"
-            />
-          }
-          onDismiss={() => {}}
           ref={snackbarRef}
           bg="green700"
           color="white"
-          duration={2000}
         >
-          Here is a light snack for you!
-        </Snackbar>
+        </>
       </SafeAreaView>
     </ThemeProvider>
   );
@@ -65,28 +64,28 @@ export default App;
 ## Props
 
 | Property          | Description                                            | Type                   | Default   |
-| ----------------- | ------------------------------------------------------ | ---------------------- | --------- |
-| m                 | margin                                                 | `string | number`      | -         |
-| mt                | margin top                                             | `string | number`      | -         |
-| mr                | margin right                                           | `string | number`      | -         |
-| mb                | margin bottom                                          | `string | number`      | -         |
-| ml                | margin margin left                                     | `string | number`      | -         |
-| mx                | margin horizonal                                       | `string | number`      | -         |
-| my                | margin vertical                                        | `string | number`      | -         |
-| p                 | padding                                                | `string | number`      | -         |
-| pt                | padding top                                            | `string | number`      | -         |
-| pr                | padding right                                          | `string | number`      | -         |
-| pb                | padding bottom                                         | `string | number`      | -         |
-| pl                | padding margin left                                    | `string | number`      | -         |
-| px                | padding horizonal                                      | `string | number`      | -         |
-| py                | padding vertical                                       | `string | number`      | -         |
+| ----------------- | ------------------------------------------------------ | ---------------------- | --------- | ------ |
+| m                 | margin                                                 | `string                | number`   | -      |
+| mt                | margin top                                             | `string                | number`   | -      |
+| mr                | margin right                                           | `string                | number`   | -      |
+| mb                | margin bottom                                          | `string                | number`   | -      |
+| ml                | margin margin left                                     | `string                | number`   | -      |
+| mx                | margin horizonal                                       | `string                | number`   | -      |
+| my                | margin vertical                                        | `string                | number`   | -      |
+| p                 | padding                                                | `string                | number`   | -      |
+| pt                | padding top                                            | `string                | number`   | -      |
+| pr                | padding right                                          | `string                | number`   | -      |
+| pb                | padding bottom                                         | `string                | number`   | -      |
+| pl                | padding margin left                                    | `string                | number`   | -      |
+| px                | padding horizonal                                      | `string                | number`   | -      |
+| py                | padding vertical                                       | `string                | number`   | -      |
 | p                 | padding                                                | `any`                  | -         |
 | h                 | height                                                 | `number`               | -         |
-| rounded           | border radius                                          | `string | number`      | `none`    |
-| roundedTop        | border radius top                                      | `string | number`      | `none`    |
-| roundedBottom     | border radius bottom                                   | `string | number`      | `none`    |
-| roundedLeft       | border radius left                                     | `string | number`      | `none`    |
-| roundedRight      | border radius right                                    | `string | number`      | `none`    |
+| rounded           | border radius                                          | `string                | number`   | `none` |
+| roundedTop        | border radius top                                      | `string                | number`   | `none` |
+| roundedBottom     | border radius bottom                                   | `string                | number`   | `none` |
+| roundedLeft       | border radius left                                     | `string                | number`   | `none` |
+| roundedRight      | border radius right                                    | `string                | number`   | `none` |
 | borderColor       | color for border                                       | `string`               | -         |
 | borderTopColor    | color for border top                                   | `string`               | -         |
 | borderRightColor  | color for border right                                 | `string`               | -         |
@@ -100,7 +99,6 @@ export default App;
 | bg                | background color                                       | `string`               | `white`   |
 | color             | color for text                                         | `string`               | `gray900` |
 | duration          | duration for which the snackbar will be shown          | `number`               | `7000`    |
-| onDismiss         | custom function to be called when snackbar dismisses   | `() => void`           | -         |
 | suffix            | suffix component for snackbar. Can be a icon or button | `React.ReactNode`      | -         |
 | prefix            | prefix component for snackbar. Can be a icon or button | `React.ReactNode`      | -         |
 | style             | custom style object to be used                         | `StyleProp<ViewStyle>` | -         |
