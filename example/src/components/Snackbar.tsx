@@ -1,26 +1,32 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
-import { Button, Icon, Snackbar, SnackbarRef } from 'react-native-magnus';
+import { Button, Snackbar, SnackbarRef } from 'react-native-magnus';
 
 import ExamplePage from '../utils/ExamplePage';
 import ExampleHeader from '../utils/ExampleHeader';
 import ExampleSection from '../utils/ExampleSection';
 
 const SnackbarComponent: React.FC = () => {
-  const snackbarRef1 = React.useRef<SnackbarRef>(null);
-  const snackbarRef2 = React.useRef<SnackbarRef>(null);
+  const snackbarRef = React.useRef<SnackbarRef>(null);
 
   return (
     <ExamplePage>
       <ExampleHeader name="snackbar" />
 
       <ScrollView>
-        <ExampleSection name="dark">
+        <ExampleSection name="">
           <Button
             block
             p="lg"
             onPress={() => {
-              toast.show('Hi');
+              snackbarRef.current.show('Hello World', {
+                duration: 5000,
+                suffix: (
+                  <Button bg="green500" fontSize="sm" p="sm" px="md">
+                    Yay!
+                  </Button>
+                ),
+              });
             }}
           >
             Open Snackbar
@@ -29,19 +35,10 @@ const SnackbarComponent: React.FC = () => {
       </ScrollView>
 
       <Snackbar
-        suffix={
-          <Icon
-            name="checkcircle"
-            color="green800"
-            fontSize="lg"
-            fontFamily="AntDesign"
-          />
-        }
         px="xl"
         py="lg"
-        ref={(ref) => (global.toast = ref)}
-        bg="green200"
-        color="green800"
+        ref={snackbarRef}
+        color="white"
         fontSize="lg"
         duration={2000}
       />

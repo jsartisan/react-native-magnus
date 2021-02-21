@@ -1,152 +1,130 @@
-import * as React from 'react';
-import { useState, useEffect, useImperativeHandle } from 'react';
-import { Animated, SafeAreaView, View as RNView } from 'react-native';
+import React, { Component } from 'react';
+import {
+  StyleSheet,
+  KeyboardAvoidingView,
+  Platform,
+  ViewStyle,
+} from 'react-native';
 
-import { getStyle } from './snackbar.style';
-import { useTheme } from '../../theme';
-import { SnackbarRef, SnackbarProps } from './snackbar.type';
-import { Text } from '../text/text.component';
-import { getSpecificProps } from '../../utilities';
-import { textProps } from '../../types';
-import { useDefaultProps } from '../../utilities/useDefaultProps';
+import { Toast } from './toast.component';
+import {
+  SnackbarState,
+  SnackbarProps,
+  SnackbarContainerProps,
+} from './snackbar.type';
+class Snackbar extends Component<
+  SnackbarProps & SnackbarContainerProps,
+  SnackbarState
+> {
+  constructor(props: SnackbarProps & SnackbarContainerProps) {
+    super(props);
 
-const Snackbar = React.forwardRef<
-  SnackbarRef,
-  React.PropsWithChildren<SnackbarProps>
->((incomingProps, ref) => {
-  const props = useDefaultProps('Snackbar', incomingProps, {
-    bg: 'gray900',
-    color: 'white',
-    p: 'lg',
-    m: 'md',
-    rounded: 'md',
-    fontSize: 'md',
-    duration: 4000,
-    onClose: () => {},
-    shadow: 2,
-    shadowColor: 'gray500',
-    flexDir: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    alignSelf: 'center',
-    useNativeDriver: false,
-  });
-
-  const {
-    m,
-    mt,
-    mr,
-    mb,
-    ml,
-    ms,
-    p,
-    pr,
-    pt,
-    pb,
-    pl,
-    rounded,
-    roundedTop,
-    roundedRight,
-    roundedBottom,
-    roundedLeft,
-    children,
-    onClose,
-    duration,
-    suffix,
-    prefix,
-    borderColor,
-    borderBottomColor,
-    borderLeftColor,
-    borderTopColor,
-    borderRightColor,
-    borderWidth,
-    borderLeftWidth,
-    borderRightWidth,
-    borderBottomWidth,
-    borderTopWidth,
-    borderEndWidth,
-    flexDir,
-    justifyContent,
-    alignItems,
-    alignSelf,
-    shadow,
-    shadowColor,
-    opacity: opacityProp,
-    useNativeDriver,
-    ...rest
-  } = props;
-  const { theme } = useTheme();
-  const computedStyle = getStyle(theme, props);
-  const [opacity] = useState(new Animated.Value(0.0));
-
-  useEffect(() => {
-    Animated.timing(opacity, {
-      toValue: 1,
-      useNativeDriver: true,
-      duration: 250,
-    }).start();
-
-    let closeTimeout: number = 0;
-
-    console.log({ duration });
-
-    if (duration !== 0 && typeof duration === 'number') {
-      closeTimeout = setTimeout(() => {
-        Animated.timing(opacity, {
-          toValue: 0,
-          useNativeDriver: true,
-          duration: 250,
-        }).start(() => onClose());
-      }, duration);
-    }
-
-    return () => {
-      closeTimeout && clearTimeout(closeTimeout);
+    this.state = {
+      toasts: [],
     };
-  }, [duration, onClose, opacity]);
+  }
 
-  /**
-   * renders children based on type
-   */
-  const renderChildren = () => {
-    if (typeof children === 'string') {
-      return (
-        <Text
-          {...getSpecificProps(props, ...textProps)}
-          style={computedStyle.text}
-        >
-          {children}
-        </Text>
-      );
-    }
-
-    return children;
+  static defaultProps = {
+    placement: 'bottom',
+    offset: 0,
   };
 
-  return (
-    <SafeAreaView pointerEvents="box-none" style={computedStyle.wrapper}>
-      <Animated.View
-        style={{
-          opacity,
-          transform: [
-            {
-              scale: opacity.interpolate({
-                inputRange: [0, 1],
-                outputRange: [0.9, 1],
-              }),
-            },
-          ],
-        }}
-        {...rest}
+  /**
+   * adds new toast in the snackbar
+   *
+   * @param message
+   * @param config
+   */
+  show = (message: string | JSX.Element, config?: SnackbarProps) => {
+    let id = config?.id || Math.random().toString();
+    const onClose = () => this.hide(id);
+
+    requestAnimationFrame(() => {
+      this.setState({
+        toasts: this.state.toasts.filter((t) => t.id !== id),
+      });
+      this.setState({
+        toasts: [
+          {
+            id,
+            message,
+            onClose,
+            ...config,
+          },
+          ...this.state.toasts,
+        ],
+      });
+    });
+
+    return id;
+  };
+
+  /**
+   * updates a existing toast
+   *
+   * @param id
+   * @param message
+   * @param config
+   */
+  update = (
+    id: string,
+    message: string | JSX.Element,
+    config?: SnackbarProps
+  ) => {
+    this.setState({
+      toasts: this.state.toasts.map((toast) =>
+        toast.id === id ? { ...toast, message, ...config } : toast
+      ),
+    });
+  };
+
+  /**
+   * removes a toast from the snackbar
+   *
+   * @param id
+   */
+  hide = (id: string) => {
+    this.setState({
+      toasts: this.state.toasts.filter((t) => t.id !== id),
+    });
+  };
+
+  render() {
+    const { toasts } = this.state;
+    const { placement, offset } = this.props;
+
+    let style: ViewStyle = {
+      bottom: placement === 'bottom' ? offset : undefined,
+      top: placement === 'top' ? offset : undefined,
+      justifyContent: placement === 'bottom' ? 'flex-end' : 'flex-start',
+      flexDirection: placement === 'bottom' ? 'column' : 'column-reverse',
+    };
+
+    return (
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'position' : undefined}
+        style={[styles.container, style]}
+        pointerEvents="box-none"
       >
-        <RNView style={computedStyle.container}>
-          {prefix && <RNView style={computedStyle.prefix}>{prefix}</RNView>}
-          {renderChildren()}
-          {suffix && <RNView style={computedStyle.suffix}>{suffix}</RNView>}
-        </RNView>
-      </Animated.View>
-    </SafeAreaView>
-  );
+        {toasts.map((toast) => {
+          const { message, id, ...rest } = toast;
+
+          return (
+            <Toast key={id} {...this.props} {...rest}>
+              {message}
+            </Toast>
+          );
+        })}
+      </KeyboardAvoidingView>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    position: 'absolute',
+    width: '100%',
+  },
 });
 
 export { Snackbar };
