@@ -1,0 +1,58 @@
+{
+  "name": "react-native-magnus",
+  "private": false,
+  "version": "0.4.1",
+  "keywords": [
+    "react-native",
+    "ios",
+    "android",
+    "web"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jsartisan/react-native-magnus.git",
+    "directory": "packages/core"
+  },
+  "bugs": {
+    "url": "https://github.com/jsartisan/react-native-magnus/issues"
+  },
+  "homepage": "https://github.com/jsartisan/react-native-magnus.git#readme",
+  "main": "lib/commonjs/index.js",
+  "react-native": "src/index.tsx",
+  "source": "src/index.tsx",
+  "module": "lib/module/index.js",
+  "types": "lib/typescript/src/index.d.ts",
+  "files": [
+    "src",
+    "lib",
+    "!**/__tests__"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "prepare": "bob build",
+    "clean": "del lib"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^4.0.3"
+  },
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "commonjs",
+      "module",
+      [
+        "typescript",
+        {
+          "project": "tsconfig.build.json"
+        }
+      ]
+    ]
+  },
+  "gitHead": "8936bd594e8824b313cbca57c1bdefdcce3856c9"
+}

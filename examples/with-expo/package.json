@@ -9,7 +9,8 @@
     "android": "expo android",
     "ios": "expo ios",
     "web": "expo start:web",
-    "publish": "expo publish"
+    "publish": "expo publish",
+    "postinstall": "expo-yarn-workspaces postinstall"
   },
   "main": "node_modules/expo/AppEntry.js",
   "dependencies": {

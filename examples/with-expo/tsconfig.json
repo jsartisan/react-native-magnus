@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "react-native-magnus": ["../../packages/core/src"]
+    },
     "jsx": "react-native",
     "target": "esnext",
     "lib": ["esnext"],
