@@ -21,10 +21,6 @@ export const getStyle = (theme: ThemeType, props: SnackbarProps) => {
   const computedStyle: any = {};
 
   computedStyle.wrapper = {
-    position: props.position,
-    top: props.top,
-    right: props.right,
-    bottom: props.bottom,
     width: '100%',
   };
 
