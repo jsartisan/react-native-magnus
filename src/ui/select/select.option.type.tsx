@@ -28,6 +28,7 @@ export interface SelectOptionProps
     FlexPropsType,
     ButtonPropsType,
     Pick<PrefixSuffixPropsType, 'prefix'>,
+    Pick<PrefixSuffixPropsType, 'suffix'>,
     Pick<BackgroundPropsType, 'bg'>,
     DimensionPropsType,
     Pick<TextPropsType, 'color' | 'fontSize'>,
