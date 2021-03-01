@@ -17,7 +17,7 @@ const SnackbarComponent: React.FC = () => {
             block
             p="lg"
             onPress={() => {
-              (global as any).toast.show('Hello World', {
+              toast?.show('Hello World', {
                 duration: 5000,
                 suffix: (
                   <Button bg="green500" fontSize="sm" p="sm" px="md">
