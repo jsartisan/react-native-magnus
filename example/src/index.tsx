@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
-import { ThemeProvider } from 'react-native-magnus';
+import { Snackbar, SnackbarRef, ThemeProvider } from 'react-native-magnus';
 import AppLoading from 'expo-app-loading';
 import { useFonts } from 'expo-font';
 
@@ -57,6 +57,14 @@ const App = () => {
             })}
           </Stack.Navigator>
         </NavigationContainer>
+        <Snackbar
+          px="xl"
+          py="lg"
+          ref={(ref) => ((global as any).toast = ref)}
+          color="white"
+          fontSize="lg"
+          duration={2000}
+        />
       </ThemeProvider>
     );
   }
