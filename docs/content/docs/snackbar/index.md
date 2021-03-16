@@ -30,8 +30,8 @@ const App = () => {
           m="xl"
           onPress={() => {
             if (snackbarRef.current) {
-              snackbarRef.current.show({
-                 message: "Here is a light snack for you!",
+              snackbarRef.current.show(
+                "Here is a light snack for you!",
                 {
                   duration: 2000,
                   suffix: <Icon
@@ -41,7 +41,7 @@ const App = () => {
                     fontFamily="AntDesign"
                   />
                 }
-              });
+              );
             }
           }}
         >
