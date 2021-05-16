@@ -23,6 +23,8 @@ const Div: React.FunctionComponent<DivProps> = (incomingProps) => {
     borderStyle: 'solid',
   });
 
+  let { children } = props;
+
   const {
     bg,
     h,
@@ -51,7 +53,6 @@ const Div: React.FunctionComponent<DivProps> = (incomingProps) => {
     roundedRight,
     roundedBottom,
     roundedLeft,
-    children,
     bgImg,
     bgMode,
     alignItems,
@@ -77,10 +78,31 @@ const Div: React.FunctionComponent<DivProps> = (incomingProps) => {
     right,
     bottom,
     zIndex,
+    spacing,
     ...rest
   } = props;
   const { theme } = useTheme();
   const computedStyle = getStyle(theme, props);
+
+  if (spacing) {
+    const paddingProperty =
+      computedStyle.flexDirection === 'column'
+        ? 'paddingBottom'
+        : 'paddingRight';
+
+    const count = React.Children.count(children);
+
+    children = React.Children.map(children, (child, index) => {
+      const viewStyle = {
+        [paddingProperty]: index !== count - 1 ? spacing : 0,
+      };
+      return (
+        <RNView key={'child-' + index} style={viewStyle}>
+          {child}
+        </RNView>
+      );
+    }) as any;
+  }
 
   // if there is a bgImage prop, use ImageBackground
   // instead of regular View component

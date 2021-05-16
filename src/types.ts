@@ -148,6 +148,10 @@ export interface DimensionPropsType {
   w?: number | string;
 }
 
+export interface StackPropsType {
+  spacing?: number | string;
+}
+
 export const flexProps = [
   'row',
   'flex',
