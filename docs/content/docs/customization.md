@@ -23,6 +23,14 @@ const theme = {
   spacing: {
     xs: 2,
     '5xl': 64
+  },
+  // components defaults can also be customized
+  {
+    components: {
+      Text: {
+        color: 'gray100'
+      }
+    }
   }
 };
 
