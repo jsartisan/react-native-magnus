@@ -22,3 +22,18 @@ Every site have distinct sets of icons that they use throughout to maintain cons
 - [`Octicons`](http://octicons.github.com) by Github, Inc. (v8.4.1, **184** icons)
 - [`Zocial`](http://zocial.smcllns.com/) by Sam Collins (v1.0, **100** icons)
 - [`SimpleLineIcons`](https://simplelineicons.github.io/) by Sabbir & Contributors (v2.4.1, **189** icons)
+
+### Changing Icon types
+you can easily change the Icon family by using the `fontFamily` prop. For example
+
+![Screenshot_20210602-215728~2](https://user-images.githubusercontent.com/57273445/120553581-90923380-c3f0-11eb-85ff-202a5d10771a.png)
+
+```jsx
+import { Icon, Div } from "react-native-magnus";
+<Div row my={32} flex={1} alignItems='center' justifyContent='space-around'>
+ <Icon name='map-pin' fontFamily='Feather' fontSize={32} color='white' bg='blue500' h={60} w={60} rounded='md' />
+ <Icon name='location-pin' fontFamily='MaterialIcons' fontSize={32} color='black' bg='yellow500' h={60} w={60} rounded='md' />
+ <Icon name='location-outline' fontFamily='Ionicons' fontSize={32} color='white' bg='blue500' h={60} w={60} rounded='md' />
+ <Icon name='location' fontFamily='Octicons' fontSize={32} color='black' bg='red500' h={60} w={60} rounded='md' />
+</Div>
+```
