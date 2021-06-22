@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import { Link } from "gatsby";
-import { menu } from "../../constants/sidebar";
-import Logo from "../common/Logo";
-import SidebarFilter from "../common/SidebarFilter";
+import { Link } from 'gatsby';
+import { menu } from '../../constants/sidebar';
+import Logo from '../common/Logo';
+import SidebarFilter from '../common/SidebarFilter';
 
 export default function Sidebar({ active, close }) {
   const [filteredMenu, setFilteredMenu] = useState(menu);
@@ -34,11 +34,11 @@ export default function Sidebar({ active, close }) {
   return (
     <div
       className={`bg-white sidebar px-5 pl-0 fixed z-10 overflow-y-scroll pb-20 ${
-        active ? "block " : "hidden md:block"
+        active ? 'block ' : 'hidden md:block'
       }`}
       style={{
-        height: `calc(100vh - 70px)`,
-        top: "70px",
+        height: 'calc(100vh - 70px)',
+        top: '70px',
       }}
     >
       <SidebarFilter onChange={filterMenu} />

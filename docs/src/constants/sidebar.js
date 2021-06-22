@@ -2,184 +2,184 @@ export const menu = [
   {
     links: [
       {
-        text: "Introduction",
-        url: "/docs/",
+        text: 'Introduction',
+        url: '/docs/',
       },
       {
-        text: "Getting started",
-        url: "/docs/getting-started/",
+        text: 'Getting started',
+        url: '/docs/getting-started/',
       },
       {
-        text: "Customization",
-        url: "/docs/customization/",
+        text: 'Customization',
+        url: '/docs/customization/',
       },
       {
-        text: "Examples",
-        url: "/docs/examples/",
+        text: 'Examples',
+        url: '/docs/examples/',
       },
     ],
   },
   {
-    text: "Utilities",
+    text: 'Utilities',
     links: [
       {
-        text: "Typography",
-        url: "/docs/typography/",
+        text: 'Typography',
+        url: '/docs/typography/',
       },
       {
-        text: "Colors System",
-        url: "/docs/colors-system/",
+        text: 'Colors System',
+        url: '/docs/colors-system/',
       },
       {
-        text: "Icons",
-        url: "/docs/icons/",
+        text: 'Icons',
+        url: '/docs/icons/',
       },
       {
-        text: "Spacing",
-        url: "/docs/spacing/",
+        text: 'Spacing',
+        url: '/docs/spacing/',
       },
       {
-        text: "Shadows",
-        url: "/docs/shadows/",
+        text: 'Shadows',
+        url: '/docs/shadows/',
       },
       {
-        text: "Border Radius",
-        url: "/docs/border-radius/",
+        text: 'Border Radius',
+        url: '/docs/border-radius/',
       },
     ],
   },
   {
-    text: "components",
+    text: 'components',
     links: [],
   },
   {
-    text: "General",
+    text: 'General',
     links: [
       {
-        text: "Text",
-        url: "/docs/text/",
+        text: 'Text',
+        url: '/docs/text/',
       },
       {
-        text: "Button",
-        url: "/docs/button/",
+        text: 'Button',
+        url: '/docs/button/',
       },
       {
-        text: "Icon",
-        url: "/docs/icon/",
+        text: 'Icon',
+        url: '/docs/icon/',
       },
       {
-        text: "Image",
-        url: "/docs/image/",
+        text: 'Image',
+        url: '/docs/image/',
       },
     ],
   },
   {
-    text: "Layout",
+    text: 'Layout',
     links: [
       {
-        text: "Div",
-        url: "/docs/div/",
+        text: 'Div',
+        url: '/docs/div/',
       },
     ],
   },
   {
-    text: "Navigation",
+    text: 'Navigation',
     links: [
       {
-        text: "Dropdown",
-        url: "/docs/dropdown/",
+        text: 'Dropdown',
+        url: '/docs/dropdown/',
       },
       {
-        text: "Drawer",
-        url: "/docs/drawer/",
+        text: 'Drawer',
+        url: '/docs/drawer/',
       },
       {
-        text: "Fab",
-        url: "/docs/fab/",
+        text: 'Fab',
+        url: '/docs/fab/',
       },
       {
-        text: "Header",
-        url: "/docs/header/",
+        text: 'Header',
+        url: '/docs/header/',
       },
     ],
   },
   {
-    text: "Data Entry",
+    text: 'Data Entry',
     links: [
       {
-        text: "Checkbox",
-        url: "/docs/checkbox/",
+        text: 'Checkbox',
+        url: '/docs/checkbox/',
       },
       {
-        text: "Input",
-        url: "/docs/input/",
+        text: 'Input',
+        url: '/docs/input/',
       },
       {
-        text: "Radio",
-        url: "/docs/radio/",
+        text: 'Radio',
+        url: '/docs/radio/',
       },
       {
-        text: "Toggle",
-        url: "/docs/toggle/",
+        text: 'Toggle',
+        url: '/docs/toggle/',
       },
       {
-        text: "Select",
-        url: "/docs/select/",
+        text: 'Select',
+        url: '/docs/select/',
       },
     ],
   },
   {
-    text: "Data Display",
+    text: 'Data Display',
     links: [
       {
-        text: "Avatar",
-        url: "/docs/avatar/",
+        text: 'Avatar',
+        url: '/docs/avatar/',
       },
       {
-        text: "Badge",
-        url: "/docs/badge/",
+        text: 'Badge',
+        url: '/docs/badge/',
       },
       {
-        text: "Tag",
-        url: "/docs/tag/",
+        text: 'Tag',
+        url: '/docs/tag/',
       },
       {
-        text: "Collapse",
-        url: "/docs/collapse/",
+        text: 'Collapse',
+        url: '/docs/collapse/',
       },
     ],
   },
   {
-    text: "Feedback",
+    text: 'Feedback',
     links: [
       {
-        text: "Modal",
-        url: "/docs/modal/",
+        text: 'Modal',
+        url: '/docs/modal/',
       },
       {
-        text: "Overlay",
-        url: "/docs/overlay/",
+        text: 'Overlay',
+        url: '/docs/overlay/',
       },
       {
-        text: "Tooltip",
-        url: "/docs/tooltip/",
+        text: 'Tooltip',
+        url: '/docs/tooltip/',
       },
       {
-        text: "Skeleton",
-        url: "/docs/skeleton/",
+        text: 'Skeleton',
+        url: '/docs/skeleton/',
       },
       {
-        text: "Snackbar",
-        url: "/docs/snackbar/",
+        text: 'Snackbar',
+        url: '/docs/snackbar/',
       },
     ],
   },
   {
-    text: "Misc",
+    text: 'Misc',
     links: [
       {
-        text: "Portal",
-        url: "/docs/portal/",
+        text: 'Portal',
+        url: '/docs/portal/',
       },
     ],
   },

@@ -2,8 +2,8 @@ type Toast = React.RefObject<
   import('react-native-magnus').SnackbarRef
 >['current'];
 
-declare global {
-  const toast: Toast;
+interface Global {
+  toast: Toast;
 }
 
-declare var toast: Toast;
+declare var global: Global;

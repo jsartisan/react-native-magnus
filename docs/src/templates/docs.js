@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { graphql } from "gatsby";
+import React, { useState } from 'react';
+import { graphql } from 'gatsby';
 
-import Sidebar from "../components/layout/Sidebar";
-import Layout from "../components/layout/Layout";
-import Header from "../components/layout/Header";
-import Seo from "../components/common/Seo";
+import Sidebar from '../components/layout/Sidebar';
+import Layout from '../components/layout/Layout';
+import Header from '../components/layout/Header';
+import Seo from '../components/common/Seo';
 
 const DocsTemplate = (props) => {
   const { data } = props;
@@ -19,7 +19,7 @@ const DocsTemplate = (props) => {
   const seo = {
     title: post.frontmatter.title,
     description:
-      "Magnus is the ultimate UI framework that helps you in building consistent user interfaces effortlessly in react native.",
+      'Magnus is the ultimate UI framework that helps you in building consistent user interfaces effortlessly in react native.',
     url: `https://magnus-ui.com${post.fields.slug}`,
   };
 
@@ -50,15 +50,15 @@ const DocsTemplate = (props) => {
               <div
                 className="table-of-contents  min-w-200 fixed mt-5 hidden md:block"
                 style={{
-                  height: `calc(100vh - 70px)`,
-                  top: "70px",
+                  height: 'calc(100vh - 70px)',
+                  top: '70px',
                 }}
               >
                 <div className="mt-3 mb-5">
                   <a
                     target="_blank"
                     href={`https://github.com/jsartisan/react-native-magnus/blob/master/docs/content${post.fileAbsolutePath
-                      .split("/content")
+                      .split('/content')
                       .pop()}`}
                     className="text-gray-700 text-sm flex justify-end items-center"
                   >

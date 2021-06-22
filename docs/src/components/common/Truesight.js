@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-const Logo = ({ fill = "#FEA30B", size }) => {
+const Logo = ({ fill = '#FEA30B', size }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

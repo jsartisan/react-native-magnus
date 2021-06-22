@@ -283,7 +283,9 @@ class FabBase extends React.Component<
             mb: child.props.mb ? child.props.mb : 'lg',
             onPress: (e: GestureResponderEvent) => {
               // if fab is not active, don't allow pressing buttons
-              if (!active) return;
+              if (!active) {
+                return;
+              }
 
               if (child.props.onPress) {
                 child.props.onPress(e);

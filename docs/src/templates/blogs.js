@@ -1,40 +1,40 @@
-import React from "react";
-import { graphql } from "gatsby";
+import React from 'react';
+import { graphql } from 'gatsby';
 
-import Layout from "../components/layout/Layout";
-import Header from "../components/layout/Header";
-import Breadcrumbs from "../components/common/Breadcrumbs";
-import Seo from "../components/common/Seo";
+import Layout from '../components/layout/Layout';
+import Header from '../components/layout/Header';
+import Breadcrumbs from '../components/common/Breadcrumbs';
+import Seo from '../components/common/Seo';
 
 const generateJsonLD = ({ markdownRemark }) => {
   const post = markdownRemark;
 
   const json = {
-    "@context": "http://schema.org",
-    "@type": "BreadcrumbList",
+    '@context': 'http://schema.org',
+    '@type': 'BreadcrumbList',
     itemListElement: [
       {
-        "@type": "ListItem",
+        '@type': 'ListItem',
         position: 1,
         item: {
-          "@id": "https://magnus-ui.com",
-          name: "Home",
+          '@id': 'https://magnus-ui.com',
+          name: 'Home',
         },
       },
       {
-        "@type": "ListItem",
+        '@type': 'ListItem',
         position: 2,
         item: {
-          "@id": "https://magnus-ui.com/blogs",
-          name: "Blogs",
+          '@id': 'https://magnus-ui.com/blogs',
+          name: 'Blogs',
         },
       },
       {
-        "@type": "ListItem",
+        '@type': 'ListItem',
         position: 3,
         item: {
-          "@id": `https://magnus-ui.com${post.fields.slug}`,
-          name: "Blogs",
+          '@id': `https://magnus-ui.com${post.fields.slug}`,
+          name: 'Blogs',
         },
       },
     ],
@@ -52,7 +52,7 @@ const BlogTemplate = (props) => {
   const seo = {
     title: post.frontmatter.title,
     description:
-      "Magnus is the ultimate UI framework that helps you in building consistent user interfaces effortlessly in react native.",
+      'Magnus is the ultimate UI framework that helps you in building consistent user interfaces effortlessly in react native.',
     image: post.frontmatter.featuredImg,
     url: `https://magnus-ui.com${post.fields.slug}`,
   };
@@ -73,8 +73,8 @@ const BlogTemplate = (props) => {
             <Breadcrumbs
               breadcrumbs={[
                 {
-                  text: "Blog",
-                  link: "/blogs",
+                  text: 'Blog',
+                  link: '/blogs',
                 },
                 {
                   text: post.frontmatter.title,
@@ -84,15 +84,15 @@ const BlogTemplate = (props) => {
             <div
               className="rounded-md"
               style={{
-                position: "relative",
-                overflow: "hidden",
+                position: 'relative',
+                overflow: 'hidden',
                 zIndex: 1,
               }}
             >
               <div
                 style={{
-                  width: "100%",
-                  paddingBottom: "15.25%",
+                  width: '100%',
+                  paddingBottom: '15.25%',
                 }}
               >
                 <img
@@ -100,15 +100,15 @@ const BlogTemplate = (props) => {
                   title
                   src={post.frontmatter.featuredImg}
                   style={{
-                    position: "absolute",
-                    top: "0px",
-                    left: "0px",
-                    transition: "opacity 0.5s ease 0.25s",
+                    position: 'absolute',
+                    top: '0px',
+                    left: '0px',
+                    transition: 'opacity 0.5s ease 0.25s',
                     opacity: 1,
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    objectPosition: "center center",
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    objectPosition: 'center center',
                   }}
                 />
               </div>

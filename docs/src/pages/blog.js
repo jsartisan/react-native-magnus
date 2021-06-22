@@ -1,21 +1,21 @@
-import React from "react";
-import { graphql } from "gatsby";
-import { Helmet } from "react-helmet";
+import React from 'react';
+import { graphql } from 'gatsby';
+import { Helmet } from 'react-helmet';
 
-import Layout from "../components/layout/Layout";
-import Header from "../components/layout/Header";
-import Seo from "../components/common/Seo";
-import BlogPostList from "../components/blogs/BlogPostList";
+import Layout from '../components/layout/Layout';
+import Header from '../components/layout/Header';
+import Seo from '../components/common/Seo';
+import BlogPostList from '../components/blogs/BlogPostList';
 
 const BlogPage = ({ data }) => {
   const blogs = data.allMarkdownRemark;
 
   const seo = {
-    title: "Blog",
+    title: 'Blog',
     description:
-      "Magnus is the ultimate UI framework that helps you in building consistent user interfaces effortlessly in react native.",
-    image: "https://magnus-ui.com/images/hero.png",
-    url: `https://magnus-ui.com/blog`,
+      'Magnus is the ultimate UI framework that helps you in building consistent user interfaces effortlessly in react native.',
+    image: 'https://magnus-ui.com/images/hero.png',
+    url: 'https://magnus-ui.com/blog',
   };
 
   return (

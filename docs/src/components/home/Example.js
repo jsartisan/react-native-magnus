@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export default function Example() {
   return (
@@ -39,7 +39,7 @@ export default function Example() {
           <img
             src="/images/carbon.png"
             className="w-100 hidden md:block rounded-2xl p-2"
-            style={{ backgroundColor: "#161819" }}
+            style={{ backgroundColor: '#161819' }}
           />
           <img
             src="/images/dribbble-login.png"
@@ -47,7 +47,7 @@ export default function Example() {
           />
         </div>
         <div
-          style={{ position: "absolute", top: "10%", right: -0 }}
+          style={{ position: 'absolute', top: '10%', right: -0 }}
           className="hidden md:block"
         >
           <img
