@@ -268,9 +268,8 @@ const Select = React.forwardRef<SelectRef, SelectProps>(
       );
     };
 
-    const renderNoResultsFound = () => {
+    const renderNoResultsFound = () =>
       renderNoResultsView && renderNoResultsView(searchTerm);
-    };
 
     return (
       <RNModal
