@@ -1,5 +1,5 @@
-import algoliasearch from "algoliasearch/lite";
-import React, { useEffect, useState } from "react";
+import algoliasearch from 'algoliasearch/lite';
+import React, { useEffect, useState } from 'react';
 import {
   InstantSearch,
   Hits,
@@ -7,24 +7,26 @@ import {
   Highlight,
   Configure,
   connectStateResults,
-} from "react-instantsearch-dom";
-import PropTypes from "prop-types";
+} from 'react-instantsearch-dom';
+import PropTypes from 'prop-types';
 
-import SearchResults from "./SearchResults";
+import SearchResults from './SearchResults';
 
 const searchClient = algoliasearch(
-  "1Q4SUO0GGL",
-  "d80227190cab4817278183df2ddc51e9"
+  '1Q4SUO0GGL',
+  'd80227190cab4817278183df2ddc51e9'
 );
 
 const Results = connectStateResults(
   ({ searchState, searchResults, children }) => {
-    if (!searchState?.query?.length) return false;
+    if (!searchState?.query?.length) {
+      return false;
+    }
 
     return (
       <div
         className="search-results w-full absolute top-0 mt-12 mx-5 border border-gray-300 overflow-y-scroll bg-white"
-        style={{ height: "30rem" }}
+        style={{ height: '30rem' }}
       >
         {searchResults && searchResults.nbHits !== 0 ? (
           children
@@ -45,9 +47,9 @@ const Search = () => {
   };
 
   useEffect(() => {
-    const searchBox = document.querySelector(".search-box");
+    const searchBox = document.querySelector('.search-box');
 
-    window.addEventListener("click", emptySearchBox);
+    window.addEventListener('click', emptySearchBox);
   }, []);
 
   return (

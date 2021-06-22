@@ -1,19 +1,19 @@
-import React, { useEffect } from "react";
-import { Link } from "gatsby";
+import React, { useEffect } from 'react';
+import { Link } from 'gatsby';
 
-import CircleOut from "./CircleOut";
+import CircleOut from './CircleOut';
 
 export default function Preview() {
   return (
     <div
       className="py-10 mx-5 md:mx-auto md:py-20 mb-10 px-8 md:px-16 mt-16 max-w-screen-xl md:w-full bg-white rounded-2xl"
-      style={{ boxShadow: "0px 1px 2px rgba(0, 0, 0, 0.1)" }}
+      style={{ boxShadow: '0px 1px 2px rgba(0, 0, 0, 0.1)' }}
     >
       <div className="max-w-screen-xl mx-auto">
         <div className="flex md:flex-row flex-col flex-col-reverse">
           <div className="md:w-6/12">
             <h3 className="font-bold text-4xl md:text-5xl text-gray-900 leading-tight">
-              Start{" "}
+              Start{' '}
               <span className="inline-block mr-2 font-bold relative">
                 saving time
                 <CircleOut />
@@ -32,7 +32,7 @@ export default function Preview() {
               className="w-full md:w-px bg-primary-500 text-white block py-3
               min-w-200 text-center rounded-lg mt-10"
             >
-              {" "}
+              {' '}
               Check out examples
             </Link>
           </div>
@@ -41,11 +41,11 @@ export default function Preview() {
             <div
               className="bg-center bg-cover relative"
               style={{
-                backgroundImage: `url(/images/ellipse.png)`,
-                paddingBottom: "100%",
+                backgroundImage: 'url(/images/ellipse.png)',
+                paddingBottom: '100%',
               }}
             >
-              <div className="absolute" style={{ top: "15%" }}>
+              <div className="absolute" style={{ top: '15%' }}>
                 <img src="/images/preview.png" className="w-full md:w-120" />
               </div>
             </div>

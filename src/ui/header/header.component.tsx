@@ -52,7 +52,9 @@ const Header: React.FunctionComponent<HeaderProps> = (incomingProps) => {
   };
 
   const getPrefix = () => {
-    if (props.alignment === 'center') return prefix;
+    if (props.alignment === 'center') {
+      return prefix;
+    }
     return prefix ?? <Div px="sm" />;
   };
 

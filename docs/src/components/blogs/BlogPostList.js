@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "gatsby";
+import React from 'react';
+import { Link } from 'gatsby';
 
 const BlogPostList = (props) => {
   const { blogs } = props;
@@ -19,16 +19,16 @@ const BlogPostList = (props) => {
                     <div
                       className="rounded-md"
                       style={{
-                        position: "relative",
-                        overflow: "hidden",
+                        position: 'relative',
+                        overflow: 'hidden',
                         zIndex: 1,
                       }}
                     >
                       <div
                         style={{
-                          width: "100%",
-                          paddingBottom: "56.25%",
-                          backgroundColor: "#e1e1e1",
+                          width: '100%',
+                          paddingBottom: '56.25%',
+                          backgroundColor: '#e1e1e1',
                         }}
                       >
                         <img
@@ -36,15 +36,15 @@ const BlogPostList = (props) => {
                           title
                           src={post.node.frontmatter.featuredImg}
                           style={{
-                            position: "absolute",
-                            top: "0px",
-                            left: "0px",
-                            transition: "opacity 0.5s ease 0.25s",
+                            position: 'absolute',
+                            top: '0px',
+                            left: '0px',
+                            transition: 'opacity 0.5s ease 0.25s',
                             opacity: 1,
-                            width: "100%",
-                            height: "100%",
-                            objectFit: "cover",
-                            objectPosition: "center center",
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'cover',
+                            objectPosition: 'center center',
                           }}
                         />
                       </div>

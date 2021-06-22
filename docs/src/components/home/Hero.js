@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "gatsby";
+import React from 'react';
+import { Link } from 'gatsby';
 
 export default function Hero() {
   return (
@@ -47,7 +47,7 @@ export default function Hero() {
               </div>
             </a>
             <h1 className="pt-5 text-3xl md:text-4xl font-bold font-nunito">
-              A{" "}
+              A{' '}
               <span className="relative">
                 Utility-First
                 <div
@@ -60,7 +60,7 @@ export default function Hero() {
                     style={{ height: 10 }}
                   />
                 </div>
-              </span>{" "}
+              </span>{' '}
               React Native UI Framework
             </h1>
             <p className="mt-5 text-gray-600 font-nunito">
@@ -79,8 +79,8 @@ export default function Hero() {
                 target="_blank"
                 className="bg-white rounded-lg hover:bg-gray-100 flex items-center justify-center text-center mx-0 md:mx-3 block py-2 mt-3 md:mt-0 min-w-200"
                 style={{
-                  color: "black",
-                  border: "1px solid #e1e1e1",
+                  color: 'black',
+                  border: '1px solid #e1e1e1',
                 }}
               >
                 <i className="icon-github text-xl text-gray-600" />

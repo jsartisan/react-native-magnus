@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Link } from "gatsby";
+import React, { Component } from 'react';
+import { Link } from 'gatsby';
 
 export default class Breadcrumbs extends Component {
   static defaultProps = {

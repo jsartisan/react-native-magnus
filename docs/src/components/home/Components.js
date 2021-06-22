@@ -1,11 +1,11 @@
-import React from "react";
-import { Link } from "gatsby";
+import React from 'react';
+import { Link } from 'gatsby';
 
 export default function Features() {
   return (
     <div
       className="py-10 pt-16 px-5"
-      style={{ background: "#fafafa", borderTop: "1px solid #efefef" }}
+      style={{ background: '#fafafa', borderTop: '1px solid #efefef' }}
     >
       <div className="max-w-screen-xl mx-auto">
         <div className="flex flex-grow w-100 pr-4">

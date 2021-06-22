@@ -1,10 +1,10 @@
-import React from "react";
-import { ScrollView } from "react-native";
-import { Button, Div, Icon, Modal, Text } from "react-native-magnus";
+import React from 'react';
+import { ScrollView } from 'react-native';
+import { Button, Div, Icon, Modal, Text } from 'react-native-magnus';
 
-import ExamplePage from "../utils/ExamplePage";
-import ExampleHeader from "../utils/ExampleHeader";
-import ExampleSection from "../utils/ExampleSection";
+import ExamplePage from '../utils/ExamplePage';
+import ExampleHeader from '../utils/ExampleHeader';
+import ExampleSection from '../utils/ExampleSection';
 
 const ModalComponent: React.FC = () => {
   const [modalVisible1, setModalVisible1] = React.useState(false);
