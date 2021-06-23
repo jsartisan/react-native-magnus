@@ -47,8 +47,6 @@ const Search = () => {
   };
 
   useEffect(() => {
-    const searchBox = document.querySelector('.search-box');
-
     window.addEventListener('click', emptySearchBox);
   }, []);
 

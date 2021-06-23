@@ -1,12 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-const Logo = ({
-  hasText = false,
-  hasImage = true,
-  center = false,
-  centerMobile = false,
-}) => (
+const Logo = ({ hasText = false, hasImage = true }) => (
   <h1 className="c-logo">
     <Link to="/" className="flex items-center">
       {hasImage && <img style={{ height: 25 }} src="/images/logo.svg" />}
