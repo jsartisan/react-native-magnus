@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import Animatable from 'react-native-animatable';
+import * as Animatable from 'react-native-animatable';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 
 import { Div } from '../div/div.component';

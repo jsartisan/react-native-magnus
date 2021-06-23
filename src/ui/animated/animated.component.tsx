@@ -3,7 +3,7 @@ import {
   ImageBackground as RNImageBackground,
   View as RNView,
 } from 'react-native';
-import Animatable from 'react-native-animatable';
+import * as Animatable from 'react-native-animatable';
 
 import { AnimatedProps } from './animated.type';
 import { useTheme } from '../../theme';

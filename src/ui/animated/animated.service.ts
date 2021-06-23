@@ -1,4 +1,4 @@
-import Animatable from 'react-native-animatable';
+import * as Animatable from 'react-native-animatable';
 
 export const registerAnimations = () => {
   Animatable.initializeRegistryWithDefinitions({
