@@ -9,6 +9,7 @@ import { NativeScrollEvent, NativeSyntheticEvent } from 'react-native';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 import { Div } from '../div/div.component';
 import { ScrollDiv } from '../scrolldiv/scrolldiv.component';
+import { mutableStyles } from './carousel.style';
 
 import { CarouselProps, CompoundedCarousel } from './carousel.type';
 import CarouselItem from './item.carousel';
@@ -99,10 +100,7 @@ const Carousel: CompoundedCarousel<CarouselProps> = (incomingProps) => {
       <ScrollDiv
         {...props}
         horizontal={true}
-        contentContainerStyle={{
-          width: `${100 * totalPages}%`,
-          flex: 1,
-        }}
+        contentContainerStyle={mutableStyles.container(totalPages)}
         showsHorizontalScrollIndicator={false}
         onContentSizeChange={(w, _h) => init(w)}
         onScroll={(data) => {

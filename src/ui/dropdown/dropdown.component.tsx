@@ -11,7 +11,7 @@ import Modal from 'react-native-modal';
 import { SafeAreaView, Platform, View } from 'react-native';
 
 import { Div } from '../div/div.component';
-import { getStyle } from './dropdown.style';
+import { getStyle, styles } from './dropdown.style';
 import { Text } from '../text/text.component';
 import { DropdownOption } from './dropdown.option.component';
 import { useTheme } from '../../theme';
@@ -145,10 +145,7 @@ const Dropdown = forwardRef<DropdownRef, DropdownProps>(
         onBackdropPress={
           'onBackdropPress' in props ? onBackdropPress : () => setVisible(false)
         }
-        style={{
-          margin: 0,
-          justifyContent: Platform.OS === 'web' ? 'center' : 'flex-end',
-        }}
+        style={styles.container}
         swipeDirection="down"
         {...rest}
       >
@@ -175,16 +172,5 @@ const Dropdown = forwardRef<DropdownRef, DropdownProps>(
 ) as CompoundedDropdown;
 
 Dropdown.Option = DropdownOption;
-
-// Dropdown.defaultProps = {
-//   bg: 'white',
-//   rounded: 'none',
-//   showSwipeIndicator: Platform.OS === 'web' ? false : true,
-//   backdropColor: 'gray900',
-//   backdropOpacity: 0.5,
-//   flexWrap: 'nowrap',
-//   backdropTransitionOutTiming: 0,
-//   overflow: 'hidden',
-// };
 
 export { Dropdown };

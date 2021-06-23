@@ -5,6 +5,7 @@ import { ThemeType } from '../..//theme';
 import { Icon } from '../icon/icon.component';
 import { CheckboxProps } from './checkbox.type';
 import { getThemeProperty, getThemeColor } from '../../theme/theme.service';
+import { styles } from './checkbox.style';
 
 /**
  * get icon name based on state
@@ -79,7 +80,7 @@ export const getIcon = (
       <ActivityIndicator
         size={getThemeProperty(theme.fontSize, fontSize)}
         color={getThemeColor(theme.colors, loaderColor)}
-        style={{ zIndex: 2, position: 'relative' }}
+        style={styles.icon}
       />
     );
   }
@@ -90,7 +91,7 @@ export const getIcon = (
         <Icon
           name={activeIcon}
           color={iconColor}
-          style={{ zIndex: 2, position: 'relative' }}
+          style={styles.icon}
           fontFamily="AntDesign"
           fontSize={fontSize}
         />
@@ -106,7 +107,7 @@ export const getIcon = (
         <Icon
           name={inactiveIcon}
           color={iconColor}
-          style={{ zIndex: 2, position: 'relative' }}
+          style={styles.icon}
           fontFamily="AntDesign"
           fontSize={fontSize}
         />
@@ -122,7 +123,7 @@ export const getIcon = (
     <Icon
       name={iconName}
       color={iconColor}
-      style={{ zIndex: 2, position: 'relative' }}
+      style={styles.icon}
       fontFamily="MaterialIcons"
       fontSize={fontSize}
     />

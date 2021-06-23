@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { View as RNView } from 'react-native';
 
 import { BadgeProps } from './badge.type';
-import { getStyle } from './badge.style';
+import { getStyle, styles } from './badge.style';
 import { useTheme } from '../../theme';
 import { Text } from '../text/text.component';
 import { getSpecificProps } from '../../utilities';
@@ -76,7 +76,7 @@ export const Badge: FC<BadgeProps> = (incomingProps) => {
 
   return (
     <RNView style={computedStyle.container}>
-      <RNView style={{ alignSelf: 'flex-start' }}>
+      <RNView style={styles.container}>
         {typeof children !== 'string' && children}
 
         <RNView style={computedStyle.div} {...rest}>

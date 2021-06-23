@@ -2,6 +2,7 @@ import React, { FC, useEffect, useRef, useState } from 'react';
 import { Animated, Easing, LayoutChangeEvent } from 'react-native';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 import { Div } from '../div/div.component';
+import { mutableStyles } from './collapse.body.style';
 
 import { CollapseBodyProps } from './collapse.type';
 
@@ -58,7 +59,7 @@ export const CollapseBody: FC<CollapseBodyProps> = (incomingProps) => {
   };
 
   return (
-    <Animated.View style={{ height: bodyHeight, overflow: 'hidden' }}>
+    <Animated.View style={mutableStyles.container(bodyHeight)}>
       <Div {...props} onLayout={onLayout}>
         {children}
       </Div>

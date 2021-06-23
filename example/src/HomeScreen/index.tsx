@@ -14,8 +14,9 @@ import {
 } from 'react-native-magnus';
 
 import { useNavigation } from '@react-navigation/native';
-import { components, pages } from './items';
-import { darkTheme, lightTheme, saveThemeName } from './themes';
+import { components, pages } from '../items';
+import { darkTheme, lightTheme, saveThemeName } from '../themes';
+import { styles } from './styles';
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -23,9 +24,8 @@ const HomeScreen = () => {
 
   return (
     <>
-      <SafeAreaView style={{ flex: 0, backgroundColor: 'white' }} />
       <StatusBar />
-      <SafeAreaView style={{ flex: 1 }}>
+      <SafeAreaView style={styles.container}>
         <Div flex={1} bg="screenBg">
           {/* header */}
           <Header

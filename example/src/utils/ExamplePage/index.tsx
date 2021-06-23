@@ -1,13 +1,13 @@
 import React, { FC } from 'react';
 import { SafeAreaView } from 'react-native';
 import { StatusBar, Div } from 'react-native-magnus';
+import { styles } from '../../../../src/ui/badge/badge.style';
 
 const ExamplePage: FC = ({ children }) => {
   return (
     <>
       <StatusBar />
-      <SafeAreaView style={{ flex: 0, backgroundColor: 'white' }} />
-      <SafeAreaView style={{ flex: 1 }}>
+      <SafeAreaView style={styles.container}>
         <Div bg="screenBg" flex={1}>
           {children}
         </Div>

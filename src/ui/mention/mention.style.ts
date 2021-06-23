@@ -64,3 +64,9 @@ export const getStyle = (theme: ThemeType, props: MentionProps) => {
 
   return StyleSheet.create(computedStyle);
 };
+
+export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});

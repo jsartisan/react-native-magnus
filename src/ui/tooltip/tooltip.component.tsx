@@ -112,15 +112,15 @@ export const Tooltip = forwardRef<TooltipRef, PropsWithChildren<TooltipProps>>(
     const show = () => {
       if (container.current) {
         container.current.measureInWindow(
-          (left: any, top: any, buttonWidth: any, buttonHeight: any) => {
+          (x: any, y: any, width: any, height: any) => {
             setState(
               {
                 ...state,
-                buttonHeight,
-                buttonWidth,
-                left,
+                buttonHeight: height,
+                buttonWidth: width,
+                left: x,
                 visible: STATES.SHOWN,
-                top,
+                top: y,
               },
               () => {
                 Animated.parallel([

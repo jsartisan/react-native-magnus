@@ -2,6 +2,7 @@ import React, { ReactNode, createContext, useRef, useEffect } from 'react';
 import { View, ViewStyle } from 'react-native';
 
 import { useKey } from './hooks/useKey';
+import { styles } from './host.style';
 import { Manager, IManagerHandles } from './manager.component';
 
 interface IHostProps {
@@ -46,23 +47,23 @@ export const Host = ({ children, style }: IHostProps): JSX.Element => {
     }
   }, []);
 
-  const mount = (children: ReactNode): string => {
+  const mount = (mountChildren: ReactNode): string => {
     const key = generateKey();
 
     if (managerRef.current) {
-      managerRef.current.mount(key, children);
+      managerRef.current.mount(key, mountChildren);
     } else {
-      queue.push({ type: 'mount', key, children });
+      queue.push({ type: 'mount', key, children: mountChildren });
     }
 
     return key;
   };
 
-  const update = (key: string, children: ReactNode): void => {
+  const update = (key: string, updateChildren: ReactNode): void => {
     if (managerRef.current) {
-      managerRef.current.update(key, children);
+      managerRef.current.update(key, updateChildren);
     } else {
-      const op = { type: 'mount' as 'mount', key, children };
+      const op = { type: 'mount' as 'mount', key, children: updateChildren };
       const index = queue.findIndex(
         (o) => o.type === 'mount' || (o.type === 'update' && o.key === key)
       );
@@ -87,7 +88,7 @@ export const Host = ({ children, style }: IHostProps): JSX.Element => {
   return (
     <Context.Provider value={{ mount, update, unmount }}>
       <View
-        style={[{ flex: 1 }, style]}
+        style={[styles.container, style]}
         collapsable={false}
         pointerEvents="box-none"
       >

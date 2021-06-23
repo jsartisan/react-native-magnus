@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 import { ThemeType } from '../../theme';
 
 import {
@@ -59,3 +59,10 @@ export const getStyle = (theme: ThemeType, props: DropdownProps) => {
 
   return StyleSheet.create(computedStyle);
 };
+
+export const styles = StyleSheet.create({
+  container: {
+    margin: 0,
+    justifyContent: Platform.OS === 'web' ? 'center' : 'flex-end',
+  },
+});

@@ -69,11 +69,11 @@ export const Icon: FC<IconProps> = (incomingProps) => {
   const { theme } = useTheme();
   const computedStyle = getStyle(theme, props);
 
-  const Icon = getIconSet(fontFamily);
+  const IconSet = getIconSet(fontFamily);
 
   return (
     <RNView style={computedStyle.container} {...rest}>
-      <Icon
+      <IconSet
         color={getThemeColor(theme.colors, color)}
         size={getThemeProperty(theme.fontSize, fontSize)}
         name={name}
