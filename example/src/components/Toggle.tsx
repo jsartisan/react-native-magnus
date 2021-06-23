@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC, useState } from 'react';
 import { ScrollView } from 'react-native';
 import { Toggle } from 'react-native-magnus';
 
@@ -6,8 +6,8 @@ import ExamplePage from '../utils/ExamplePage';
 import ExampleHeader from '../utils/ExampleHeader';
 import ExampleSection from '../utils/ExampleSection';
 
-const ToggleComponent: React.FC = () => {
-  const [on, toggle] = React.useState(false);
+const ToggleComponent: FC = () => {
+  const [on, toggle] = useState(false);
 
   return (
     <ExamplePage>

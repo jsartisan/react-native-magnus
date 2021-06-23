@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC, useRef } from 'react';
 import { ScrollView } from 'react-native';
 import {
   Button,
@@ -13,9 +13,9 @@ import ExamplePage from '../utils/ExamplePage';
 import ExampleHeader from '../utils/ExampleHeader';
 import ExampleSection from '../utils/ExampleSection';
 
-const TooltipComponent: React.FC = () => {
-  const tooltipRef1 = React.useRef<TooltipRef>(null);
-  const tooltipRef2 = React.useRef<TooltipRef>(null);
+const TooltipComponent: FC = () => {
+  const tooltipRef1 = useRef<TooltipRef>(null);
+  const tooltipRef2 = useRef<TooltipRef>(null);
 
   return (
     <ExamplePage>

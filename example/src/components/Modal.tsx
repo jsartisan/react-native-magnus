@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC, useState } from 'react';
 import { ScrollView } from 'react-native';
 import { Button, Div, Icon, Modal, Text } from 'react-native-magnus';
 
@@ -6,10 +6,10 @@ import ExamplePage from '../utils/ExamplePage';
 import ExampleHeader from '../utils/ExampleHeader';
 import ExampleSection from '../utils/ExampleSection';
 
-const ModalComponent: React.FC = () => {
-  const [modalVisible1, setModalVisible1] = React.useState(false);
-  const [modalVisible2, setModalVisible2] = React.useState(false);
-  const [modalVisible3, setModalVisible3] = React.useState(false);
+const ModalComponent: FC = () => {
+  const [modalVisible1, setModalVisible1] = useState(false);
+  const [modalVisible2, setModalVisible2] = useState(false);
+  const [modalVisible3, setModalVisible3] = useState(false);
 
   return (
     <ExamplePage>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC, useRef } from 'react';
 import { ScrollView } from 'react-native';
 import {
   Button,
@@ -13,9 +13,9 @@ import ExamplePage from '../utils/ExamplePage';
 import ExampleHeader from '../utils/ExampleHeader';
 import ExampleSection from '../utils/ExampleSection';
 
-const DropdownComponent: React.FC = () => {
-  const dropdownRef1 = React.useRef<DropdownRef>(null);
-  const dropdownRef2 = React.useRef<DropdownRef>(null);
+const DropdownComponent: FC = () => {
+  const dropdownRef1 = useRef<DropdownRef>(null);
+  const dropdownRef2 = useRef<DropdownRef>(null);
 
   return (
     <ExamplePage>

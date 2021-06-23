@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { FlatList } from 'react-native';
 import {
@@ -49,7 +49,7 @@ const friends = [
   },
 ];
 
-const HomeExample1: React.FC = () => {
+const HomeExample1: FC = () => {
   const navigation = useNavigation();
 
   return (

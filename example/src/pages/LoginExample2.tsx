@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { StatusBar } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Button, Div, Image, Input, Text, Icon } from 'react-native-magnus';
@@ -8,7 +8,7 @@ import ExamplePage from '../utils/ExamplePage';
 const LOGO_URL =
   'https://freepngimg.com/thumb/logo/69823-instagram-icons-symbol-youtube-computer-logo-thumb.png';
 
-const LoginExample2: React.FC = () => {
+const LoginExample2: FC = () => {
   const navigation = useNavigation();
 
   return (

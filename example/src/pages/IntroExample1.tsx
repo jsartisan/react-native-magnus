@@ -1,9 +1,9 @@
+import React, { FC } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import React from 'react';
 import { Button, Carousel, Div, Icon, StatusBar } from 'react-native-magnus';
 import ExamplePage from '../utils/ExamplePage';
 
-const IntroExample1: React.FC = () => {
+const IntroExample1: FC = () => {
   const navigation = useNavigation();
 
   return (

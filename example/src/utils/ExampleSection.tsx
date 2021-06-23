@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Div, Text } from 'react-native-magnus';
 
-const ExampleSection: React.FC<{
+const ExampleSection: FC<{
   name: string;
   withoutSpacingOnContent?: boolean;
 }> = ({ name, withoutSpacingOnContent, children }) => {

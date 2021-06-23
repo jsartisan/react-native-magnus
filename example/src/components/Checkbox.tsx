@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC, useState } from 'react';
 import { ScrollView } from 'react-native';
 import { Checkbox, Div, Text } from 'react-native-magnus';
 
@@ -6,9 +6,9 @@ import ExamplePage from '../utils/ExamplePage';
 import ExampleHeader from '../utils/ExampleHeader';
 import ExampleSection from '../utils/ExampleSection';
 
-const CheckboxComponent: React.FC = () => {
-  const [checkboxGroupValue, setCheckboxGroupValue] = React.useState<any[]>();
-  const [checkboxValue, setCheckboxValue] = React.useState<boolean>();
+const CheckboxComponent: FC = () => {
+  const [checkboxGroupValue, setCheckboxGroupValue] = useState<any[]>();
+  const [checkboxValue, setCheckboxValue] = useState<boolean>();
 
   const handleChecked = (value: boolean) => setCheckboxValue(value);
 
