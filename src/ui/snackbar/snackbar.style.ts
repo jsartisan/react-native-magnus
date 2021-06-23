@@ -58,3 +58,10 @@ export const getStyle = (theme: ThemeType, props: SnackbarProps) => {
 
   return StyleSheet.create(computedStyle);
 };
+
+export const styles = StyleSheet.create({
+  container: {
+    position: 'absolute',
+    width: '100%',
+  },
+});

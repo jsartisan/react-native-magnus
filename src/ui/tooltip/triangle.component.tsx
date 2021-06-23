@@ -1,9 +1,9 @@
-import * as React from 'react';
+import React, { FC } from 'react';
 import { View as RNView, StyleSheet } from 'react-native';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 import { TriangleProps } from './tooltip.type';
 
-const Triangle: React.FunctionComponent<TriangleProps> = (incomingProps) => {
+export const Triangle: FC<TriangleProps> = (incomingProps) => {
   const props = useDefaultProps(null, incomingProps, {
     invert: true,
   });
@@ -22,5 +22,3 @@ const Triangle: React.FunctionComponent<TriangleProps> = (incomingProps) => {
 
   return <RNView style={computedStyle} />;
 };
-
-export { Triangle };

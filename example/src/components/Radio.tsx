@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC, useState } from 'react';
 import { ScrollView } from 'react-native';
 import { Div, Radio, Text } from 'react-native-magnus';
 
@@ -6,9 +6,9 @@ import ExamplePage from '../utils/ExamplePage';
 import ExampleHeader from '../utils/ExampleHeader';
 import ExampleSection from '../utils/ExampleSection';
 
-const RadioComponent: React.FC = () => {
-  const [radioValue1, setRadioValue1] = React.useState();
-  const [radioValue2, setRadioValue2] = React.useState();
+const RadioComponent: FC = () => {
+  const [radioValue1, setRadioValue1] = useState();
+  const [radioValue2, setRadioValue2] = useState();
 
   return (
     <ExamplePage>

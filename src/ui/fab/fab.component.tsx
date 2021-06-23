@@ -1,4 +1,10 @@
-import * as React from 'react';
+import React, {
+  Children,
+  cloneElement,
+  Component,
+  isValidElement,
+  ReactElement,
+} from 'react';
 import {
   Animated,
   TouchableOpacity,
@@ -20,10 +26,7 @@ interface FabState {
   active: boolean;
 }
 
-class FabBase extends React.Component<
-  FabProps & DefaultProps<FabProps>,
-  FabState
-> {
+class FabBase extends Component<FabProps & DefaultProps<FabProps>, FabState> {
   animation: any;
   fadeAnimation: any;
   visibleAnimation: any;
@@ -65,7 +68,7 @@ class FabBase extends React.Component<
         return <Icon name={icon} fontSize={fontSize} color={colorProp} />;
       }
 
-      if (React.isValidElement(icon)) {
+      if (isValidElement(icon)) {
         return icon;
       }
     } else {
@@ -73,7 +76,7 @@ class FabBase extends React.Component<
         return <Icon name={activeIcon} fontSize={fontSize} color={colorProp} />;
       }
 
-      if (React.isValidElement(activeIcon)) {
+      if (isValidElement(activeIcon)) {
         return activeIcon;
       }
     }
@@ -278,8 +281,8 @@ class FabBase extends React.Component<
     ];
     return (
       <Animated.View style={actionsStyles} pointerEvents="box-none">
-        {React.Children.map(children, (child: React.ReactElement) => {
-          return React.cloneElement(child, {
+        {Children.map(children, (child: ReactElement) => {
+          return cloneElement(child, {
             mb: child.props.mb ? child.props.mb : 'lg',
             onPress: (e: GestureResponderEvent) => {
               // if fab is not active, don't allow pressing buttons

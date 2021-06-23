@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View as RNView,
   ActivityIndicator,
@@ -7,7 +6,7 @@ import {
   Pressable as RNButton,
 } from 'react-native';
 
-import { getStyle } from './radio.style';
+import { getStyle, styles } from './radio.style';
 import { useTheme } from '../../theme';
 import { Icon } from '../icon/icon.component';
 import { getThemeProperty, getThemeColor } from '../../theme/theme.service';
@@ -175,7 +174,7 @@ const Radio: CompoundedRadio<RadioProps> = (incomingProps) => {
         <ActivityIndicator
           size={getThemeProperty(theme.fontSize, fontSize)}
           color={getThemeColor(theme.colors, loaderColor)}
-          style={{ zIndex: 2, position: 'relative' }}
+          style={styles.activeIndicator}
         />
       );
     }
@@ -268,32 +267,6 @@ const Radio: CompoundedRadio<RadioProps> = (incomingProps) => {
     </RNButton>
   );
 };
-
-// Radio.defaultProps = {
-//   defaultChecked: false,
-//   activeColor: 'blue600',
-//   inactiveColor: 'gray500',
-//   highlightBg: 'gray300',
-//   bg: 'transparent',
-//   p: 'none',
-//   color: 'white',
-//   rounded: 'circle',
-//   loading: false,
-//   disabled: false,
-//   loaderSize: '2xl',
-//   loaderColor: 'blue600',
-//   block: false,
-//   position: 'relative',
-//   shadowColor: 'gray800',
-//   shadow: 0,
-//   fontSize: '5xl',
-//   borderless: true,
-//   alignItems: 'center',
-//   justifyContent: 'center',
-//   alignSelf: 'flex-start',
-//   onPress: () => {},
-//   flexDir: 'row',
-// };
 
 // passing RadioGroup as part of Radio
 Radio.Group = RadioGroup;

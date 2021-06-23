@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { useState, useEffect } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import { Animated, SafeAreaView, View as RNView } from 'react-native';
 
 import { getStyle } from './snackbar.style';
@@ -10,7 +9,7 @@ import { getSpecificProps } from '../../utilities';
 import { textProps } from '../../types';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 
-const Toast: React.FunctionComponent<SnackbarProps> = (incomingProps) => {
+export const Toast: FC<SnackbarProps> = (incomingProps) => {
   const props = useDefaultProps('Snackbar', incomingProps, {
     bg: 'gray900',
     color: 'white',
@@ -147,5 +146,3 @@ const Toast: React.FunctionComponent<SnackbarProps> = (incomingProps) => {
     </SafeAreaView>
   );
 };
-
-export { Toast };

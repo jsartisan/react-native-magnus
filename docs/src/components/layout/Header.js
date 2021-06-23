@@ -10,7 +10,6 @@ import packageJSON from '../../../../package.json';
 import { isLoggedIn, getUser } from '../../utilities/auth';
 
 export default function Header({
-  location,
   sidebarOpen,
   setSidebarOpen,
   showSidebarMenu,

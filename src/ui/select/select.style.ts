@@ -56,3 +56,10 @@ export const getStyle = (theme: ThemeType, props: SelectProps) => {
   }
   return StyleSheet.create(computedStyle);
 };
+
+export const styles = StyleSheet.create({
+  container: {
+    margin: 0,
+    justifyContent: 'flex-end',
+  },
+});

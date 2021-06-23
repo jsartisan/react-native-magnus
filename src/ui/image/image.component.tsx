@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { FC } from 'react';
 import { Image as RNImage } from 'react-native';
 
 import { getStyle } from './image.style';
@@ -6,7 +6,7 @@ import { ImageProps } from './image.type';
 import { useTheme } from '../../theme';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 
-const Image: React.FunctionComponent<ImageProps> = (incomingProps) => {
+export const Image: FC<ImageProps> = (incomingProps) => {
   const props = useDefaultProps('Image', incomingProps, {});
 
   const {
@@ -67,7 +67,3 @@ const Image: React.FunctionComponent<ImageProps> = (incomingProps) => {
     </RNImage>
   );
 };
-
-// Image.defaultProps = {};
-
-export { Image };

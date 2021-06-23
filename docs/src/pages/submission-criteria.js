@@ -1,13 +1,10 @@
 import React from 'react';
-import { graphql } from 'gatsby';
-import { Helmet } from 'react-helmet';
 
 import Layout from '../components/layout/Layout';
 import Header from '../components/layout/Header';
 import Seo from '../components/common/Seo';
-import BlogPostList from '../components/blogs/BlogPostList';
 
-const SubmissionCriteria = ({ data }) => {
+const SubmissionCriteria = () => {
   const seo = {
     title: 'Blog',
     description:

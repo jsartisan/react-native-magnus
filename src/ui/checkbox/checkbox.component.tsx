@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View as RNView,
   Pressable as RNButton,
@@ -194,32 +193,6 @@ const Checkbox: CompundedCheckbox<CheckboxProps> = (incomingProps) => {
     </RNButton>
   );
 };
-
-// Checkbox.defaultProps = {
-//   defaultChecked: false,
-//   activeColor: 'blue600',
-//   inactiveColor: 'gray500',
-//   highlightBg: 'gray300',
-//   bg: 'transparent',
-//   p: 'none',
-//   color: 'white',
-//   rounded: 'md',
-//   loading: false,
-//   disabled: false,
-//   loaderSize: '2xl',
-//   loaderColor: 'blue600',
-//   block: false,
-//   position: 'relative',
-//   shadowColor: 'gray800',
-//   shadow: 0,
-//   fontSize: '5xl',
-//   borderless: true,
-//   alignItems: 'center',
-//   justifyContent: 'center',
-//   alignSelf: 'flex-start',
-//   onPress: () => {},
-//   flexDir: 'row',
-// };
 
 Checkbox.Group = CheckboxGroup;
 

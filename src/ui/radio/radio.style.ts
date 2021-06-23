@@ -125,3 +125,10 @@ export const getStyle = (
 
   return StyleSheet.create(computedStyle);
 };
+
+export const styles = StyleSheet.create({
+  activeIndicator: {
+    zIndex: 2,
+    position: 'relative',
+  },
+});

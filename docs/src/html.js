@@ -23,6 +23,7 @@ export default function HTML(props) {
   /**
    * hot jar tracking tool
    */
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const addHotJarSnippet = () => {
     return (
       <script

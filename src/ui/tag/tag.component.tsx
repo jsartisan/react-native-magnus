@@ -1,10 +1,10 @@
-import * as React from 'react';
+import React, { FC } from 'react';
 
 import { TagProps } from './tag.type';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 import { Button } from '../button/button.component';
 
-const Tag: React.FunctionComponent<TagProps> = (incomingProps) => {
+export const Tag: FC<TagProps> = (incomingProps) => {
   const props = useDefaultProps('Tag', incomingProps, {
     px: 'lg',
     py: 'sm',
@@ -16,12 +16,10 @@ const Tag: React.FunctionComponent<TagProps> = (incomingProps) => {
     rounded: 'md',
     borderWidth: 0,
     borderColor: 'transparent',
-    onPress: () => {},
+    onPress: (): null => null,
   });
 
   const { underlayColor, ...rest } = props;
 
   return <Button {...rest} underlayColor={underlayColor ?? props.bg} />;
 };
-
-export { Tag };

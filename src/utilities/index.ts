@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, Children, SyntheticEvent } from 'react';
 import { Dimensions } from 'react-native';
 import {
   validateHTMLColorRgb,
@@ -39,14 +38,14 @@ export const isNaN = (obj: any): boolean => obj !== obj;
 
 // Does a React component have exactly 0 children?
 export const isEmptyChildren = (children: any): boolean =>
-  React.Children.count(children) === 0;
+  Children.count(children) === 0;
 
 // is the given object/value a promise?
 export const isPromise = (value: any): value is PromiseLike<any> =>
   isObject(value) && isFunction(value.then);
 
 // is the given object/value a type of synthetic event?
-export const isInputEvent = (value: any): value is React.SyntheticEvent<any> =>
+export const isInputEvent = (value: any): value is SyntheticEvent<any> =>
   value && isObject(value) && isObject(value.target);
 
 /**
@@ -58,9 +57,9 @@ export const useStateCallback = (initialState: any) => {
   const [state, setState] = useState(initialState);
   const cbRef = useRef(null); // mutable ref to store current callback
 
-  const setStateCallback = (state: any, cb: any) => {
+  const setStateCallback = (callbackState: any, cb: any) => {
     cbRef.current = cb; // store passed callback to ref
-    setState(state);
+    setState(callbackState);
   };
 
   useEffect(() => {

@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'gatsby';
-import { navigate } from 'gatsby';
+import React, { useState } from 'react';
 import { firebase } from '@firebase/app';
 
 import Logo from '../common/Logo';
 import firebaseConfig from '../../constants/firebase';
-import { setUser, isLoggedIn } from '../../utilities/auth';
+import { setUser } from '../../utilities/auth';
 
 const LoginModal = (props) => {
   const { open, toggle } = props;
-  const [loading, setLoading] = useState(false);
+  const [, setLoading] = useState(false);
 
   const hideModal = () => {
     toggle(false);
@@ -66,7 +64,7 @@ const LoginModal = (props) => {
         className={`text-black fixed top-0  mt-5  mr-5 right-0 p-3 rounded-full h-10 flex justify-center items-center w-10 z-10 bg-white bg-opacity-75 ${
           open ? '' : 'hidden'
         }`}
-        onClick={() => toggle(false)}
+        onClick={hideModal}
       >
         <i className={`${'icon-close'} text-sm`} />
       </button>

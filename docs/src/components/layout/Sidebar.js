@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 
 import { Link } from 'gatsby';
 import { menu } from '../../constants/sidebar';
-import Logo from '../common/Logo';
 import SidebarFilter from '../common/SidebarFilter';
 
-export default function Sidebar({ active, close }) {
+export default function Sidebar({ active }) {
   const [filteredMenu, setFilteredMenu] = useState(menu);
 
   /**
@@ -13,7 +12,6 @@ export default function Sidebar({ active, close }) {
    */
   const filterMenu = (e) => {
     const value = e.target.value;
-    const filteredMenu = [];
 
     menu.forEach((menuitem) => {
       const filterdLinks = menuitem.links.filter((link) => {

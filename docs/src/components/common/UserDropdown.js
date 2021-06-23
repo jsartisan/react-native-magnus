@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'gatsby';
 
 import { logout } from '../../utilities/auth';
 

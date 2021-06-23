@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { render } from 'react-native-testing-library';
 
 import { ThemeProvider } from '../../theme';
@@ -7,7 +7,7 @@ import { DivProps } from './div.type';
 import { Text } from '../text/text.component';
 
 describe('Div component', () => {
-  const TestDiv: React.FC<DivProps> = (props) => (
+  const TestDiv: FC<DivProps> = (props) => (
     <ThemeProvider>
       <Div {...props} />
     </ThemeProvider>

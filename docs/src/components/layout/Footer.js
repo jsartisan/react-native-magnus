@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'gatsby';
 
 import Logo from '../common/Logo';
-import Truesight from '../common/Truesight';
 
 export default function Footer() {
   return (

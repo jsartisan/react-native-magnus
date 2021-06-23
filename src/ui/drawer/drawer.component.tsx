@@ -1,7 +1,11 @@
-import * as React from 'react';
+import React, {
+  forwardRef,
+  useState,
+  useImperativeHandle,
+  useEffect,
+} from 'react';
 import Modal from 'react-native-modal';
 import { SafeAreaView, View } from 'react-native';
-import { useState, useImperativeHandle, useEffect } from 'react';
 
 import { getStyle } from './drawer.style';
 import { useTheme } from '../../theme';
@@ -9,7 +13,7 @@ import { DrawerProps, DrawerRef } from './drawer.type';
 import { getThemeColor } from '../../theme/theme.service';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 
-const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
+export const Drawer = forwardRef<DrawerRef, DrawerProps>(
   (incomingProps, ref) => {
     const props = useDefaultProps('Drawer', incomingProps, {
       drawerPercentage: 70,
@@ -86,15 +90,3 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
     );
   }
 );
-
-// Drawer.defaultProps = {
-//   drawerPercentage: 70,
-//   animationTime: 300,
-//   bg: 'white',
-//   backdropColor: 'black',
-//   direction: 'left',
-//   rounded: 'none',
-//   backdropTransitionOutTiming: 0,
-// };
-
-export { Drawer };

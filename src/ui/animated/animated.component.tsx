@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { FC } from 'react';
 import {
   ImageBackground as RNImageBackground,
   View as RNView,
@@ -13,7 +13,7 @@ import { useDefaultProps } from '../../utilities/useDefaultProps';
 
 registerAnimations();
 
-const Animated: React.FunctionComponent<AnimatedProps> = (incomingProps) => {
+export const Animated: FC<AnimatedProps> = (incomingProps) => {
   const props = useDefaultProps('Animated', incomingProps, {
     bg: 'transparent',
     flexWrap: 'nowrap',
@@ -112,18 +112,3 @@ const Animated: React.FunctionComponent<AnimatedProps> = (incomingProps) => {
     </Animatable.View>
   );
 };
-
-// Animated.defaultProps = {
-//   bg: 'transparent',
-//   flexWrap: 'nowrap',
-//   rounded: 'none',
-//   shadow: 'none',
-//   shadowColor: 'gray900',
-//   position: 'relative',
-//   bgMode: 'cover',
-//   animation: 'fromTop',
-//   duration: 150,
-//   delay: 0,
-// };
-
-export { Animated };

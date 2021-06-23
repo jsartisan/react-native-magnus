@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC, useRef, useState } from 'react';
 import { ScrollView } from 'react-native';
 import {
   Button,
@@ -14,23 +14,21 @@ import ExampleSection from '../utils/ExampleSection';
 
 import { countryCodes, CountryCodeType } from '../utils/countryCodes';
 
-const SelectComponent: React.FC = () => {
-  const [selectValue1, setSelectedValue1] = React.useState<string | null>(null);
-  const selectRef1 = React.useRef<SelectRef>(null);
+const SelectComponent: FC = () => {
+  const [selectValue1, setSelectedValue1] = useState<string | null>(null);
+  const selectRef1 = useRef<SelectRef>(null);
 
-  const [selectValue2, setSelectedValue2] = React.useState<any[]>([]);
-  const selectRef2 = React.useRef<SelectRef>(null);
+  const [selectValue2, setSelectedValue2] = useState<any[]>([]);
+  const selectRef2 = useRef<SelectRef>(null);
 
-  const [selectValue3, setSelectedValue3] = React.useState<string | null>(null);
-  const selectRef3 = React.useRef<SelectRef>(null);
+  const [selectValue3, setSelectedValue3] = useState<string | null>(null);
+  const selectRef3 = useRef<SelectRef>(null);
 
-  const [selectValue4, setSelectedValue4] = React.useState<CountryCodeType>();
-  const selectRef4 = React.useRef<SelectRef>(null);
+  const [selectValue4, setSelectedValue4] = useState<CountryCodeType>();
+  const selectRef4 = useRef<SelectRef>(null);
 
-  const [selectValue5, setSelectedValue5] = React.useState<CountryCodeType[]>(
-    []
-  );
-  const selectRef5 = React.useRef<SelectRef>(null);
+  const [selectValue5, setSelectedValue5] = useState<CountryCodeType[]>([]);
+  const selectRef5 = useRef<SelectRef>(null);
 
   return (
     <ExamplePage>

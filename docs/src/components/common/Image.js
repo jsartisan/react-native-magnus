@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Image({ src, footer = null }) {
+export default function Image({ src }) {
   return (
     <img
       className="text-center d-block mt-2"

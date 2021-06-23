@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { Snackbar, ThemeProvider } from 'react-native-magnus';
@@ -11,9 +11,9 @@ import { darkTheme, getThemeName, lightTheme } from './themes';
 
 const Stack = createStackNavigator();
 const App = () => {
-  const [themeName, setThemeName] = React.useState('light');
+  const [themeName, setThemeName] = useState('light');
 
-  React.useEffect(() => {
+  useEffect(() => {
     async function getTheme() {
       getThemeName()
         .then((theme) => setThemeName(theme))

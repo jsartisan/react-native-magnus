@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { useEffect, useState } from 'react';
+import React, { Children, cloneElement, useEffect, useState } from 'react';
 import { isFunction } from '../../utilities';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 
@@ -46,7 +45,7 @@ const Collapse: CompoundedCollapse<CollapseProps> = (incomingProps) => {
     }
   };
 
-  React.Children.forEach(children, (child) => {
+  Children.forEach(children, (child) => {
     // @ts-ignore
     if (child.type === CollapseHeader) {
       header = child;
@@ -62,7 +61,7 @@ const Collapse: CompoundedCollapse<CollapseProps> = (incomingProps) => {
     );
   }
 
-  header = React.cloneElement(header, {
+  header = cloneElement(header, {
     active: isActive,
 
     onPress: () => {
@@ -73,27 +72,10 @@ const Collapse: CompoundedCollapse<CollapseProps> = (incomingProps) => {
   return (
     <Div {...rest}>
       {header}
-      {!!body && React.cloneElement(body, { expanded: !isActive })}
+      {!!body && cloneElement(body, { expanded: !isActive })}
     </Div>
   );
 };
-
-// Collapse.defaultProps = {
-//   bg: 'white',
-//   flexDir: 'column',
-//   flexWrap: 'nowrap',
-//   rounded: 'md',
-//   overflow: 'hidden',
-//   shadow: 'none',
-//   mt: 'md',
-//   shadowColor: 'gray900',
-//   position: 'relative',
-//   bgMode: 'cover',
-//   pointerEvents: 'auto',
-//   row: false,
-//   borderStyle: 'solid',
-//   defaultActive: false,
-// };
 
 Collapse.Body = CollapseBody;
 Collapse.Header = CollapseHeader;

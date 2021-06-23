@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC, useRef, useState } from 'react';
 import { ScrollView } from 'react-native';
 import {
   Div,
@@ -28,12 +28,12 @@ const countryCodes: CountryCodeType[] = [
   { country: { name: 'Portugal' }, code: 351 },
 ];
 
-const InputComponent: React.FC = () => {
-  const selectCountryCodeRef = React.useRef<SelectRef>(null);
+const InputComponent: FC = () => {
+  const selectCountryCodeRef = useRef<SelectRef>(null);
   const [
     selectedCountryCode,
     setSelectedCountryCode,
-  ] = React.useState<CountryCodeType>();
+  ] = useState<CountryCodeType>();
   const onSelectCountryCodeOption = (value: CountryCodeType) =>
     setSelectedCountryCode(value);
 

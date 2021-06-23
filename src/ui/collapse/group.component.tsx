@@ -1,13 +1,10 @@
-import * as React from 'react';
-import { useState } from 'react';
+import React, { Children, cloneElement, FC, useState } from 'react';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 
 import { Div } from '../div/div.component';
 import { CollapseGroupProps } from './collapse.type';
 
-const CollapseGroup: React.FunctionComponent<CollapseGroupProps> = (
-  incomingProps
-) => {
+export const CollapseGroup: FC<CollapseGroupProps> = (incomingProps) => {
   const props = useDefaultProps('CollapseGroup', incomingProps, {});
 
   const [activeId, setActiveId] = useState(props.defaultActive ?? null);
@@ -31,8 +28,8 @@ const CollapseGroup: React.FunctionComponent<CollapseGroupProps> = (
    * clones the children and add checked, onChange prop
    */
   const renderChildren = () => {
-    return React.Children.map(children, (child: React.ReactElement) => {
-      return React.cloneElement(child, {
+    return Children.map(children, (child: React.ReactElement) => {
+      return cloneElement(child, {
         onChange,
         active: activeId === child.props.id,
       });
@@ -41,5 +38,3 @@ const CollapseGroup: React.FunctionComponent<CollapseGroupProps> = (
 
   return <Div {...rest}>{renderChildren()}</Div>;
 };
-
-export { CollapseGroup };

@@ -1,14 +1,10 @@
 import '@firebase/auth';
-import React, { useState } from 'react';
+import React from 'react';
 import { graphql, Link } from 'gatsby';
-import { navigate } from 'gatsby';
-import { firebase } from '@firebase/app';
 
 import Seo from '../components/common/Seo';
 import Layout from '../components/layout/Layout';
 import Header from '../components/layout/Header';
-import firebaseConfig from '../constants/firebase';
-import { setUser, isLoggedIn } from '../utilities/auth';
 import { categories } from '../constants/categories';
 
 const seo = {

@@ -1,10 +1,6 @@
-import React, { useState } from 'react';
-import { Link } from 'gatsby';
+import React from 'react';
 
-import Logo from '../common/Logo';
 import Footer from './Footer';
-import Header from './Header';
-import Sidebar from './Sidebar';
 
 const Layout = ({ children, type }) => {
   return (

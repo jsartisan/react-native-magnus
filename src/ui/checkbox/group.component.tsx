@@ -1,13 +1,10 @@
-import * as React from 'react';
-import { useState } from 'react';
+import React, { FC, useState, Children, cloneElement } from 'react';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 
 import { Div } from '../div/div.component';
 import { CheckboxGroupProps } from './checkbox.type';
 
-const CheckboxGroup: React.FunctionComponent<CheckboxGroupProps> = (
-  incomingProps
-) => {
+export const CheckboxGroup: FC<CheckboxGroupProps> = (incomingProps) => {
   const props = useDefaultProps('CheckboxGroup', incomingProps, {});
 
   const [value, setValue] = useState(props.value ?? props.defaultValue ?? []);
@@ -47,8 +44,8 @@ const CheckboxGroup: React.FunctionComponent<CheckboxGroupProps> = (
    * clones the children and add checked, onChange prop
    */
   const renderChildren = () => {
-    return React.Children.map(children, (child: React.ReactElement) => {
-      return React.cloneElement(child, {
+    return Children.map(children, (child: React.ReactElement) => {
+      return cloneElement(child, {
         onChange,
         checked: value.indexOf(child.props.value) > -1,
       });
@@ -57,5 +54,3 @@ const CheckboxGroup: React.FunctionComponent<CheckboxGroupProps> = (
 
   return <Div {...rest}>{renderChildren()}</Div>;
 };
-
-export { CheckboxGroup };

@@ -1,4 +1,4 @@
-import React from 'react';
+import { useMemo } from 'react';
 import { ThemeType, useTheme } from '../theme';
 import { DefaultProps, VariantPropsType } from '../types';
 
@@ -9,7 +9,7 @@ export const useDefaultProps = <Props extends object>(
 ) => {
   const { theme } = useTheme();
 
-  const finalProps = React.useMemo(() => {
+  const finalProps = useMemo(() => {
     if (!componentName) {
       return {
         ...defaultProps,

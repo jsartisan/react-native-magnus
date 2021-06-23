@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { Div, Text, Button, Icon, Image, StatusBar } from 'react-native-magnus';
 import ExamplePage from '../utils/ExamplePage';
@@ -8,7 +8,7 @@ const logoUrl =
 const coverArtUrl =
   'https://snack-code-uploads.s3-us-west-1.amazonaws.com/~asset/48291e77266322ccd84e4838c8fc72ad';
 
-const LoginExample1: React.FC = () => {
+const LoginExample1: FC = () => {
   const navigation = useNavigation();
 
   return (

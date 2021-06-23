@@ -1,32 +1,33 @@
-import * as React from 'react';
+import React, { ReactNode, createContext, useRef, useEffect } from 'react';
 import { View, ViewStyle } from 'react-native';
 
 import { useKey } from './hooks/useKey';
+import { styles } from './host.style';
 import { Manager, IManagerHandles } from './manager.component';
 
 interface IHostProps {
-  children: React.ReactNode;
+  children: ReactNode;
   style?: ViewStyle;
 }
 
 export interface IProvider {
-  mount(children: React.ReactNode): string;
-  update(key?: string, children?: React.ReactNode): void;
+  mount(children: ReactNode): string;
+  update(key?: string, children?: ReactNode): void;
   unmount(key?: string): void;
 }
 
-export const Context = React.createContext<IProvider | null>(null);
+export const Context = createContext<IProvider | null>(null);
 
 export const Host = ({ children, style }: IHostProps): JSX.Element => {
-  const managerRef = React.useRef<IManagerHandles>(null);
+  const managerRef = useRef<IManagerHandles>(null);
   const queue: {
     type: 'mount' | 'update' | 'unmount';
     key: string;
-    children?: React.ReactNode;
+    children?: ReactNode;
   }[] = [];
   const { generateKey, removeKey } = useKey();
 
-  React.useEffect(() => {
+  useEffect(() => {
     while (queue.length && managerRef.current) {
       const action = queue.pop();
 
@@ -46,23 +47,23 @@ export const Host = ({ children, style }: IHostProps): JSX.Element => {
     }
   }, []);
 
-  const mount = (children: React.ReactNode): string => {
+  const mount = (mountChildren: ReactNode): string => {
     const key = generateKey();
 
     if (managerRef.current) {
-      managerRef.current.mount(key, children);
+      managerRef.current.mount(key, mountChildren);
     } else {
-      queue.push({ type: 'mount', key, children });
+      queue.push({ type: 'mount', key, children: mountChildren });
     }
 
     return key;
   };
 
-  const update = (key: string, children: React.ReactNode): void => {
+  const update = (key: string, updateChildren: ReactNode): void => {
     if (managerRef.current) {
-      managerRef.current.update(key, children);
+      managerRef.current.update(key, updateChildren);
     } else {
-      const op = { type: 'mount' as 'mount', key, children };
+      const op = { type: 'mount' as 'mount', key, children: updateChildren };
       const index = queue.findIndex(
         (o) => o.type === 'mount' || (o.type === 'update' && o.key === key)
       );
@@ -87,7 +88,7 @@ export const Host = ({ children, style }: IHostProps): JSX.Element => {
   return (
     <Context.Provider value={{ mount, update, unmount }}>
       <View
-        style={[{ flex: 1 }, style]}
+        style={[styles.container, style]}
         collapsable={false}
         pointerEvents="box-none"
       >

@@ -1,13 +1,11 @@
 {
-  "extends": [
-    "@react-native-community"
-  ],
+  "extends": ["@react-native-community"],
   "rules": {
     "@typescript-eslint/no-unused-vars": [
       "warn",
-      {"argsIgnorePattern": "^_"},
+      { "ignoreRestSiblings": true, "argsIgnorePattern": "^_" }
     ],
     "no-unused-vars": "off",
-    "react-hooks/exhaustive-deps": "off",
+    "react-hooks/exhaustive-deps": "off"
   }
 }

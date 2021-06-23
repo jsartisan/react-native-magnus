@@ -1,5 +1,5 @@
+import React, { FC } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import React from 'react';
 import {
   Button,
   Div,
@@ -11,7 +11,7 @@ import {
 } from 'react-native-magnus';
 import { lightTheme, darkTheme, saveThemeName } from '../themes';
 
-const ExampleHeader: React.FC<{ name: string }> = ({ name }) => {
+const ExampleHeader: FC<{ name: string }> = ({ name }) => {
   const navigation = useNavigation();
   const { theme, setTheme } = useTheme();
 

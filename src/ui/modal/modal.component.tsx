@@ -1,7 +1,11 @@
-import * as React from 'react';
+import React, {
+  useState,
+  useEffect,
+  useImperativeHandle,
+  forwardRef,
+} from 'react';
 import RNModal from 'react-native-modal';
 import { SafeAreaView } from 'react-native';
-import { useState, useEffect, useImperativeHandle } from 'react';
 
 import { getStyle } from './modal.style';
 import { useTheme } from '../../theme';
@@ -9,7 +13,7 @@ import { Div } from '../div/div.component';
 import { ModalProps, ModalRef } from './modal.type';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 
-const Modal = React.forwardRef<ModalRef, ModalProps>((incomingProps, ref) => {
+export const Modal = forwardRef<ModalRef, ModalProps>((incomingProps, ref) => {
   const props = useDefaultProps('Modal', incomingProps, {
     bg: 'white',
     h: '100%',
@@ -82,12 +86,3 @@ const Modal = React.forwardRef<ModalRef, ModalProps>((incomingProps, ref) => {
     </RNModal>
   );
 });
-
-// Modal.defaultProps = {
-//   bg: 'white',
-//   h: '100%',
-//   isVisible: false,
-//   justifyContent: 'flex-end',
-// };
-
-export { Modal };

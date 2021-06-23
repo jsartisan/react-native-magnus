@@ -65,3 +65,9 @@ export const getStyle = (
 
   return StyleSheet.create(computedStyle);
 };
+
+export const styles = StyleSheet.create({
+  container: {
+    alignSelf: 'flex-start',
+  },
+});

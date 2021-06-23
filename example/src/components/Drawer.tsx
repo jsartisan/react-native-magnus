@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { FC, useRef } from 'react';
 import { Button, Drawer, Text, DrawerRef } from 'react-native-magnus';
 
 import ExamplePage from '../utils/ExamplePage';
 import ExampleHeader from '../utils/ExampleHeader';
 import ExampleSection from '../utils/ExampleSection';
 
-const DrawerComponent: React.FC = () => {
-  const drawerRef = React.useRef<DrawerRef>(null);
+const DrawerComponent: FC = () => {
+  const drawerRef = useRef<DrawerRef>(null);
 
   return (
     <ExamplePage>

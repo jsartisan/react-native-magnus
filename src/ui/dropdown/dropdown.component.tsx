@@ -1,10 +1,17 @@
-import * as React from 'react';
+import React, {
+  forwardRef,
+  useState,
+  useImperativeHandle,
+  useEffect,
+  Children,
+  ReactElement,
+  cloneElement,
+} from 'react';
 import Modal from 'react-native-modal';
 import { SafeAreaView, Platform, View } from 'react-native';
-import { useState, useImperativeHandle, useEffect } from 'react';
 
 import { Div } from '../div/div.component';
-import { getStyle } from './dropdown.style';
+import { getStyle, styles } from './dropdown.style';
 import { Text } from '../text/text.component';
 import { DropdownOption } from './dropdown.option.component';
 import { useTheme } from '../../theme';
@@ -16,7 +23,7 @@ import {
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 import { getThemeColor } from '../../theme/theme.service';
 
-const Dropdown = React.forwardRef<DropdownRef, DropdownProps>(
+const Dropdown = forwardRef<DropdownRef, DropdownProps>(
   (incomingProps, ref) => {
     const props = useDefaultProps('Dropdown', incomingProps, {
       bg: 'white',
@@ -138,10 +145,7 @@ const Dropdown = React.forwardRef<DropdownRef, DropdownProps>(
         onBackdropPress={
           'onBackdropPress' in props ? onBackdropPress : () => setVisible(false)
         }
-        style={{
-          margin: 0,
-          justifyContent: Platform.OS === 'web' ? 'center' : 'flex-end',
-        }}
+        style={styles.container}
         swipeDirection="down"
         {...rest}
       >
@@ -151,8 +155,8 @@ const Dropdown = React.forwardRef<DropdownRef, DropdownProps>(
             <View style={computedStyle.container}>
               {renderTitle()}
               <View style={computedStyle.options}>
-                {React.Children.map(children, (child: React.ReactElement) => {
-                  return React.cloneElement(child, {
+                {Children.map(children, (child: ReactElement) => {
+                  return cloneElement(child, {
                     onSelect: () => {
                       setVisible(false);
                     },
@@ -168,16 +172,5 @@ const Dropdown = React.forwardRef<DropdownRef, DropdownProps>(
 ) as CompoundedDropdown;
 
 Dropdown.Option = DropdownOption;
-
-// Dropdown.defaultProps = {
-//   bg: 'white',
-//   rounded: 'none',
-//   showSwipeIndicator: Platform.OS === 'web' ? false : true,
-//   backdropColor: 'gray900',
-//   backdropOpacity: 0.5,
-//   flexWrap: 'nowrap',
-//   backdropTransitionOutTiming: 0,
-//   overflow: 'hidden',
-// };
 
 export { Dropdown };

@@ -1,5 +1,5 @@
 import { Formik } from 'formik';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { submitSnippetValidator } from '../../validators/snippetValidators';
 
 import Logo from '../common/Logo';
@@ -10,7 +10,6 @@ let formikProps;
 
 const SubmitModal = (props) => {
   const { open, toggle } = props;
-  const [loading, setLoading] = useState(false);
 
   /**
    * on click google btn
@@ -73,7 +72,7 @@ const SubmitModal = (props) => {
             onSubmit={onSubmit}
             validationSchema={submitSnippetValidator}
           >
-            {(props) => {
+            {(componentProps) => {
               const {
                 values,
                 status,
@@ -83,9 +82,9 @@ const SubmitModal = (props) => {
                 handleChange,
                 handleBlur,
                 handleSubmit,
-              } = props;
+              } = componentProps;
 
-              formikProps = props;
+              formikProps = componentProps;
 
               return (
                 <form

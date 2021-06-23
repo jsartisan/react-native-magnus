@@ -1,5 +1,5 @@
 const path = require('path');
-const _ = require('lodash');
+const { get } = require('lodash');
 const { createFilePath } = require('gatsby-source-filesystem');
 
 const categories = [
@@ -108,8 +108,10 @@ exports.createPages = async ({ graphql, actions }) => {
       (edge) => edge.node.category === category.value
     );
 
-    const numPages = Math.ceil(filteredSnippetEdges.length / snippetsPerPage);
-    Array.from({ length: numPages }).forEach((_, i) => {
+    const numberPages = Math.ceil(
+      filteredSnippetEdges.length / snippetsPerPage
+    );
+    Array.from({ length: numberPages }).forEach((_, i) => {
       createPage({
         path:
           i === 0
@@ -119,7 +121,7 @@ exports.createPages = async ({ graphql, actions }) => {
         context: {
           limit: snippetsPerPage,
           skip: i * snippetsPerPage,
-          numPages,
+          numberPages,
           currentPage: i + 1,
           category: `/${category.value}/`,
         },
@@ -151,18 +153,18 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
   if (node.internal.type === 'MarkdownRemark') {
     const value = createFilePath({ node, getNode });
-    const parent = getNode(_.get(node, 'parent'));
+    const parent = getNode(get(node, 'parent'));
 
     createNodeField({
       name: 'slug',
       node,
-      value: `/${_.get(parent, 'sourceInstanceName')}${value}`,
+      value: `/${get(parent, 'sourceInstanceName')}${value}`,
     });
 
     createNodeField({
       name: 'type',
       node,
-      value: _.get(parent, 'sourceInstanceName'),
+      value: get(parent, 'sourceInstanceName'),
     });
   }
 };

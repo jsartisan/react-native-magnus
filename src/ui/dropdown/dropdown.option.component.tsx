@@ -1,13 +1,11 @@
-import * as React from 'react';
+import React, { FC } from 'react';
 import { GestureResponderEvent as RNGestureResponderEvent } from 'react-native';
 
 import { DropdownOptionProps } from './dropdown.option.type';
 import { Button } from '../button/button.component';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 
-const DropdownOption: React.FunctionComponent<DropdownOptionProps> = (
-  incomingProps
-) => {
+export const DropdownOption: FC<DropdownOptionProps> = (incomingProps) => {
   const props = useDefaultProps('DropdownOption', incomingProps, {
     onSelect: () => {},
     rounded: 0,
@@ -43,15 +41,3 @@ const DropdownOption: React.FunctionComponent<DropdownOptionProps> = (
     </Button>
   );
 };
-
-// DropdownOption.defaultProps = {
-//   onSelect: () => {},
-//   rounded: 0,
-//   bg: 'white',
-//   p: 0,
-//   color: 'black',
-//   alignItems: 'flex-start',
-//   justifyContent: 'flex-start',
-// };
-
-export { DropdownOption };

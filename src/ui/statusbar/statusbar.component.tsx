@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import {
   StatusBar as RNStatusBar,
   StatusBarProps as RNStatusBarProps,
@@ -9,7 +9,7 @@ import { getThemeColor } from '../../theme/theme.service';
 import { VariantPropsType } from '../../types';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 
-interface StatusBarComponent<T> extends React.FC<T> {
+interface StatusBarComponent<T> extends FC<T> {
   currentHeight?: number;
 }
 
@@ -36,9 +36,5 @@ const StatusBar: StatusBarComponent<RNStatusBarProps & VariantPropsType> = (
 };
 
 StatusBar.currentHeight = RNStatusBar.currentHeight;
-
-// StatusBar.defaultProps = {
-//   animated: true,
-// };
 
 export { StatusBar };
