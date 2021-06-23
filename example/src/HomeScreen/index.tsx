@@ -24,6 +24,7 @@ const HomeScreen = () => {
 
   return (
     <>
+      <SafeAreaView style={styles.safeArea} />
       <StatusBar />
       <SafeAreaView style={styles.container}>
         <Div flex={1} bg="screenBg">
