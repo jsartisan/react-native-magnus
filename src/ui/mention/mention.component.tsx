@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React, { cloneElement, Component } from 'react';
 import { View, FlatList, ActivityIndicator } from 'react-native';
 
 import { MentionProps } from './mention.type';
@@ -8,9 +7,7 @@ import { ThemeContext } from '../../theme';
 import { withDefaultProps } from '../../utilities/withDefaultProps';
 import { DefaultProps } from '../../types';
 
-class MentionBase extends React.Component<
-  MentionProps & DefaultProps<MentionProps>
-> {
+class MentionBase extends Component<MentionProps & DefaultProps<MentionProps>> {
   previousChar = ' ';
 
   isTrackingStarted = false;
@@ -157,7 +154,7 @@ class MentionBase extends React.Component<
               </>
 
               <View>
-                {React.cloneElement(children, {
+                {cloneElement(children, {
                   onChangeText: this.onChangeText,
                 })}
               </View>

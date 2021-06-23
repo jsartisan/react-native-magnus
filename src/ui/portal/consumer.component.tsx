@@ -1,14 +1,14 @@
-import * as React from 'react';
+import { useRef, ReactNode, useEffect } from 'react';
 
 import { IProvider } from './host.component';
 
 interface IConsumerProps {
-  children: React.ReactNode;
+  children: ReactNode;
   manager: IProvider | null;
 }
 
 export const Consumer = ({ children, manager }: IConsumerProps): null => {
-  const key = React.useRef<string | undefined>(undefined);
+  const key = useRef<string | undefined>(undefined);
 
   const checkManager = (): void => {
     if (!manager) {
@@ -21,12 +21,12 @@ export const Consumer = ({ children, manager }: IConsumerProps): null => {
     key.current = manager?.mount(children);
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     checkManager();
     manager?.update(key.current, children);
   }, [children, manager]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     handleInit();
 
     return (): void => {

@@ -1,4 +1,10 @@
-import React from 'react';
+import React, {
+  useState,
+  useMemo,
+  ReactElement,
+  Children,
+  isValidElement,
+} from 'react';
 import { NativeScrollEvent, NativeSyntheticEvent } from 'react-native';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 import { Div } from '../div/div.component';
@@ -13,14 +19,14 @@ const Carousel: CompoundedCarousel<CarouselProps> = (incomingProps) => {
   });
 
   const { children, renderIndicators, showIndicators } = props;
-  const [selectedPage, setSelectedPage] = React.useState(1);
-  const [totalPages, setTotalPages] = React.useState(1);
-  const [totalContentWidth, setTotalContentWidth] = React.useState(0);
+  const [selectedPage, setSelectedPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [totalContentWidth, setTotalContentWidth] = useState(0);
 
-  const items: JSX.Element[] = React.useMemo(() => {
+  const items: ReactElement[] = useMemo(() => {
     return (
-      React.Children.map(children, (child) => {
-        if (!React.isValidElement(child)) {
+      Children.map(children, (child) => {
+        if (!isValidElement(child)) {
           return;
         }
 

@@ -1,6 +1,5 @@
-import * as React from 'react';
+import React, { forwardRef, useState } from 'react';
 import color from 'color';
-import { useState } from 'react';
 import {
   View as RNView,
   NativeSyntheticEvent,
@@ -15,7 +14,7 @@ import { useTheme } from '../../theme';
 import { getThemeProperty, getThemeColor } from '../../theme/theme.service';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 
-const Input = React.forwardRef<RNTextInput, InputProps>(
+export const Input = forwardRef<RNTextInput, InputProps>(
   (incomingProps, ref) => {
     const props = useDefaultProps('Input', incomingProps, {
       px: 'lg',
@@ -156,21 +155,3 @@ const Input = React.forwardRef<RNTextInput, InputProps>(
     );
   }
 );
-
-// Input.defaultProps = {
-//   px: 'xl',
-//   py: 'lg',
-//   fontSize: 'lg',
-//   borderWidth: 0,
-//   bg: 'white',
-//   borderColor: 'gray400',
-//   rounded: 'md',
-//   loading: false,
-//   color: 'gray800',
-//   shadow: 0,
-//   shadowColor: 'gray500',
-//   loaderSize: '3xl',
-//   loaderColor: 'blue700',
-// };
-
-export { Input };

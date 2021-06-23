@@ -1,5 +1,5 @@
-import * as React from 'react';
-import * as Animatable from 'react-native-animatable';
+import React, { FC } from 'react';
+import Animatable from 'react-native-animatable';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 
 import { Div } from '../div/div.component';
@@ -42,9 +42,7 @@ const Skeleton: CompundedSkeleton<SkeletonProps> = (incomingProps) => {
   );
 };
 
-export const Circle: React.FunctionComponent<SkeletonProps> = (
-  incomingProps
-) => {
+export const Circle: FC<SkeletonProps> = (incomingProps) => {
   const props = useDefaultProps('SkeletonCircle', incomingProps, {
     bg: 'gray400',
     h: 15,

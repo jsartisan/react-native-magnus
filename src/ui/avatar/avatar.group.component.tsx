@@ -1,13 +1,11 @@
-import * as React from 'react';
+import React, { FC, Children, cloneElement, ReactElement } from 'react';
 
 import { Div } from '../div/div.component';
 import { AvatarGroupProps } from './avatar.group.type';
 import { getThemeProperty, useTheme } from '../../theme';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 
-const AvatarGroup: React.FunctionComponent<AvatarGroupProps> = (
-  incomingProps
-) => {
+export const AvatarGroup: FC<AvatarGroupProps> = (incomingProps) => {
   const props = useDefaultProps('AvatarGroup', incomingProps, {
     row: true,
     ml: 'none',
@@ -21,19 +19,11 @@ const AvatarGroup: React.FunctionComponent<AvatarGroupProps> = (
 
   return (
     <Div {...rest} ml={calculatedOffset + calculatedMarginLeft}>
-      {React.Children.map(children, (child: React.ReactElement) => {
-        return React.cloneElement(child, {
+      {Children.map(children, (child: ReactElement) => {
+        return cloneElement(child, {
           ml: -1 * calculatedOffset,
         });
       })}
     </Div>
   );
 };
-
-// AvatarGroup.defaultProps = {
-//   row: true,
-//   ml: 'none',
-//   offset: 'lg',
-// };
-
-export { AvatarGroup };

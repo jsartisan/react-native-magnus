@@ -1,25 +1,30 @@
-import * as React from 'react';
+import React, {
+  forwardRef,
+  useImperativeHandle,
+  useState,
+  ReactNode,
+} from 'react';
 import { View, StyleSheet } from 'react-native';
 
 export interface IManagerHandles {
-  mount(key: string, children: React.ReactNode): void;
-  update(key?: string, children?: React.ReactNode): void;
+  mount(key: string, children: ReactNode): void;
+  update(key?: string, children?: ReactNode): void;
   unmount(key?: string): void;
 }
 
-export const Manager = React.forwardRef((_, ref): any => {
-  const [portals, setPortals] = React.useState<
-    { key: string; children: React.ReactNode }[]
+export const Manager = forwardRef((_, ref): any => {
+  const [portals, setPortals] = useState<
+    { key: string; children: ReactNode }[]
   >([]);
 
-  React.useImperativeHandle(
+  useImperativeHandle(
     ref,
     (): IManagerHandles => ({
-      mount(key: string, children: React.ReactNode): void {
+      mount(key: string, children: ReactNode): void {
         setPortals((prev) => [...prev, { key, children }]);
       },
 
-      update(key: string, children: React.ReactNode): void {
+      update(key: string, children: ReactNode): void {
         setPortals((prev) =>
           prev.map((item) => {
             if (item.key === key) {

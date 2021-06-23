@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { FC } from 'react';
 import { Text } from '../text/text.component';
 import { getStyle } from './header.style';
 import { useTheme } from '../../theme';
@@ -8,7 +8,7 @@ import { textProps } from '../../types';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 import { Div } from '../div/div.component';
 
-const Header: React.FunctionComponent<HeaderProps> = (incomingProps) => {
+export const Header: FC<HeaderProps> = (incomingProps) => {
   const props = useDefaultProps('Header', incomingProps, {
     minH: 70,
     p: 'lg',
@@ -66,5 +66,3 @@ const Header: React.FunctionComponent<HeaderProps> = (incomingProps) => {
     </Div>
   );
 };
-
-export { Header };

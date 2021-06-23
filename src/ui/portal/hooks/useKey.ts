@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useRef } from 'react';
 
 interface IUseKey {
   generateKey(): string;
@@ -16,7 +16,7 @@ const keyGenerator = (): string => {
 
 // Custom hook that checks for uniqueness and retries if clashes
 export const useKey = (): IUseKey => {
-  const usedKeys = React.useRef<Array<string>>([]);
+  const usedKeys = useRef<Array<string>>([]);
 
   const generateKey = (): string => {
     let foundUniqueKey = false;

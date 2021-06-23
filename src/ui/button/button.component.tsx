@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { FC } from 'react';
 import {
   View as RNView,
   Animated as RNAnimated,
@@ -18,7 +18,7 @@ import { getSpecificProps } from '../../utilities';
 
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 
-const Button: React.FunctionComponent<ButtonProps> = (incomingProps) => {
+export const Button: FC<ButtonProps> = (incomingProps) => {
   const props = useDefaultProps('Button', incomingProps, {
     bg: 'blue600',
     p: 'lg',
@@ -157,29 +157,3 @@ const Button: React.FunctionComponent<ButtonProps> = (incomingProps) => {
     </RNButton>
   );
 };
-
-// Button.defaultProps = {
-//   bg: 'blue600',
-//   p: 'lg',
-//   color: 'white',
-//   rounded: 'sm',
-//   loading: false,
-//   disabled: false,
-//   loaderSize: '2xl',
-//   loaderColor: 'white',
-//   block: false,
-//   position: 'relative',
-//   shadowColor: 'gray800',
-//   shadow: 0,
-//   fontSize: 'lg',
-//   rippleColor: 'white',
-//   ripple: true,
-//   borderless: false,
-//   alignItems: 'center',
-//   justifyContent: 'center',
-//   alignSelf: 'flex-start',
-//   onPress: () => {},
-//   flexDir: 'row',
-// };
-
-export { Button };

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { FC } from 'react';
 import {
   View as RNView,
   ImageBackground as RNImageBackground,
@@ -9,7 +9,7 @@ import { getStyle } from './div.style';
 import { useTheme } from '../../theme';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 
-const Div: React.FunctionComponent<DivProps> = (incomingProps) => {
+export const Div: FC<DivProps> = (incomingProps) => {
   const props = useDefaultProps('Div', incomingProps, {
     bg: 'transparent',
     flexDir: 'column',
@@ -104,19 +104,3 @@ const Div: React.FunctionComponent<DivProps> = (incomingProps) => {
     </RNView>
   );
 };
-
-// Div.defaultProps = {
-//   bg: 'transparent',
-//   flexDir: 'column',
-//   flexWrap: 'nowrap',
-//   rounded: 'none',
-//   shadow: 'none',
-//   shadowColor: 'gray900',
-//   position: 'relative',
-//   bgMode: 'cover',
-//   pointerEvents: 'auto',
-//   row: false,
-//   borderStyle: 'solid',
-// };
-
-export { Div };

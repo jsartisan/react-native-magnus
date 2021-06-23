@@ -1,7 +1,14 @@
-import * as React from 'react';
+import React, {
+  forwardRef,
+  useState,
+  useImperativeHandle,
+  useEffect,
+  Children,
+  ReactElement,
+  cloneElement,
+} from 'react';
 import Modal from 'react-native-modal';
 import { SafeAreaView, Platform, View } from 'react-native';
-import { useState, useImperativeHandle, useEffect } from 'react';
 
 import { Div } from '../div/div.component';
 import { getStyle } from './dropdown.style';
@@ -16,7 +23,7 @@ import {
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 import { getThemeColor } from '../../theme/theme.service';
 
-const Dropdown = React.forwardRef<DropdownRef, DropdownProps>(
+const Dropdown = forwardRef<DropdownRef, DropdownProps>(
   (incomingProps, ref) => {
     const props = useDefaultProps('Dropdown', incomingProps, {
       bg: 'white',
@@ -151,8 +158,8 @@ const Dropdown = React.forwardRef<DropdownRef, DropdownProps>(
             <View style={computedStyle.container}>
               {renderTitle()}
               <View style={computedStyle.options}>
-                {React.Children.map(children, (child: React.ReactElement) => {
-                  return React.cloneElement(child, {
+                {Children.map(children, (child: ReactElement) => {
+                  return cloneElement(child, {
                     onSelect: () => {
                       setVisible(false);
                     },

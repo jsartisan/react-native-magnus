@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { FC } from 'react';
 import { View as RNView } from 'react-native';
 
 import { getStyle } from './icon.style';
@@ -8,7 +8,7 @@ import { IconProps } from './icon.type';
 import { getThemeProperty, getThemeColor } from '../../theme/theme.service';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 
-const Icon: React.FunctionComponent<IconProps> = (incomingProps) => {
+export const Icon: FC<IconProps> = (incomingProps) => {
   const props = useDefaultProps('Icon', incomingProps, {
     color: 'gray500',
     fontSize: 'md',
@@ -82,11 +82,3 @@ const Icon: React.FunctionComponent<IconProps> = (incomingProps) => {
     </RNView>
   );
 };
-
-// Icon.defaultProps = {
-//   color: 'gray500',
-//   fontSize: 'md',
-//   fontFamily: 'AntDesign',
-// };
-
-export { Icon };

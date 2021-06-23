@@ -1,6 +1,5 @@
-import * as React from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 import { Animated, TouchableOpacity } from 'react-native';
-import { useEffect, useRef, useState } from 'react';
 
 import { getStyle } from './toggle.style';
 import { ToggleProps } from './toggle.type';
@@ -8,11 +7,11 @@ import { useTheme } from '../../theme';
 import { getThemeColor } from '../../theme/theme.service';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 
-const Toggle: React.FC<ToggleProps> = (incomingProps) => {
+export const Toggle: FC<ToggleProps> = (incomingProps) => {
   const props = useDefaultProps('Toggle', incomingProps, {
     w: 55,
     h: 30,
-    onPress: (): void => {},
+    onPress: (): null => null,
     activeBg: 'green600',
     bg: 'gray400',
     on: false,
@@ -67,16 +66,13 @@ const Toggle: React.FC<ToggleProps> = (incomingProps) => {
   const { theme } = useTheme();
   const computedStyle = getStyle(theme, props);
 
-  const endPos = (w as number) - (h as number) + 3;
+  const endPos = Number(w) - Number(h) + 3;
   const circlePosXEnd = endPos;
   const [circlePosXStart] = useState(3);
 
   const prevSwitchOnRef = useRef<boolean>();
   const prevSwitchOn = !!prevSwitchOnRef.current;
 
-  /**
-   *
-   */
   useEffect(() => {
     const runAnimation = (): void => {
       const animValue = {
@@ -96,7 +92,7 @@ const Toggle: React.FC<ToggleProps> = (incomingProps) => {
 
   return (
     <TouchableOpacity
-      onPress={!disabled ? onPress : () => {}}
+      onPress={!disabled ? onPress : (): null => null}
       activeOpacity={0.5}
       {...rest}
     >
@@ -131,10 +127,7 @@ const Toggle: React.FC<ToggleProps> = (incomingProps) => {
                 {
                   translateX: animXValue.interpolate({
                     inputRange: [0, 1],
-                    outputRange: [
-                      circlePosXStart as string | number,
-                      circlePosXEnd as string | number,
-                    ] as string[] | number[],
+                    outputRange: [circlePosXStart, circlePosXEnd],
                   }),
                 },
               ],
@@ -145,19 +138,3 @@ const Toggle: React.FC<ToggleProps> = (incomingProps) => {
     </TouchableOpacity>
   );
 };
-
-// Toggle.defaultProps = {
-//   w: 55,
-//   h: 30,
-//   onPress: (): void => {},
-//   activeBg: 'green600',
-//   bg: 'gray400',
-//   on: false,
-//   circleBg: 'white',
-//   activeCircleBg: 'white',
-//   duration: 300,
-//   rounded: 'circle',
-//   disabled: false,
-// };
-
-export { Toggle };

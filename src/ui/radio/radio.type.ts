@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { FC, ReactNode, ReactElement } from 'react';
 import { PressableProps as RNButtonProps } from 'react-native';
 import {
   BackgroundPropsType,
@@ -21,7 +21,7 @@ import {
 import { DivProps } from '../div/div.type';
 import { RadioGroup } from './group.component';
 
-export type CompoundedRadio<P> = React.FunctionComponent<P> & {
+export type CompoundedRadio<P> = FC<P> & {
   Group: typeof RadioGroup;
 };
 
@@ -47,12 +47,12 @@ export interface RadioProps
   activeColor?: string;
   inactiveColor?: string;
   defaultChecked?: boolean;
-  activeIcon?: string | React.ReactNode;
-  inactiveIcon?: string | React.ReactNode;
+  activeIcon?: string | ReactNode;
+  inactiveIcon?: string | ReactNode;
   checked?: boolean;
   onChange?: (value: any) => void;
   value?: any;
-  children: ((states: RadioStates) => React.ReactNode) | React.ReactNode;
+  children: ((states: RadioStates) => ReactNode) | ReactNode;
 }
 
 export interface RadioStates {
@@ -66,7 +66,7 @@ export interface RadioGroupProps extends DivProps {
   onChange?: (value: any) => void;
   value?: any;
   defaultValue?: any;
-  children: React.ReactElement[] | React.ReactElement;
+  children: ReactElement[] | ReactElement;
 }
 
 // Backwards compatibility

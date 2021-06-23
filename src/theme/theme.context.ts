@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { Context, createContext } from 'react';
 import { defaultTheme } from '../style';
 
 import { ThemeType } from './type';
@@ -8,9 +8,7 @@ export interface ThemeContextType {
   setTheme: (theme: ThemeType) => void;
 }
 
-export const ThemeContext: React.Context<ThemeContextType> = React.createContext(
-  {
-    theme: defaultTheme,
-    setTheme: (_theme: ThemeType) => {},
-  }
-);
+export const ThemeContext: Context<ThemeContextType> = createContext({
+  theme: defaultTheme,
+  setTheme: (_theme: ThemeType) => {},
+});

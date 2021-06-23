@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-const CarouselItem: React.FC = ({ children }) => {
+const CarouselItem: FC = ({ children }) => {
   return <>{children}</>;
 };
 

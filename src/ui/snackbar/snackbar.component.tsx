@@ -1,10 +1,5 @@
 import React, { Component } from 'react';
-import {
-  StyleSheet,
-  KeyboardAvoidingView,
-  Platform,
-  ViewStyle,
-} from 'react-native';
+import { KeyboardAvoidingView, Platform, ViewStyle } from 'react-native';
 
 import { Toast } from './toast.component';
 import {
@@ -12,7 +7,9 @@ import {
   SnackbarProps,
   SnackbarContainerProps,
 } from './snackbar.type';
-class Snackbar extends Component<
+import { styles } from './snackbar.style';
+
+export class Snackbar extends Component<
   SnackbarProps & SnackbarContainerProps,
   SnackbarState
 > {
@@ -119,12 +116,3 @@ class Snackbar extends Component<
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    position: 'absolute',
-    width: '100%',
-  },
-});
-
-export { Snackbar };

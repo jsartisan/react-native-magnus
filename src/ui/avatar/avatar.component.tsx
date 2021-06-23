@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { View as RNView, Image as RNImage } from 'react-native';
 
 import { getStyle } from './avatar.style';
@@ -95,18 +95,6 @@ const Avatar: CompoundedAvatar<AvatarProps> = (incomingProps) => {
     </RNView>
   );
 };
-
-// Avatar.defaultProps = {
-//   bg: 'transparent',
-//   size: 48,
-//   color: 'gray500',
-//   rounded: 'circle',
-//   fontSize: 'md',
-//   shadow: 'none',
-//   shadowColor: 'gray500',
-//   position: 'relative',
-//   zIndex: 1,
-// };
 
 Avatar.Group = AvatarGroup;
 

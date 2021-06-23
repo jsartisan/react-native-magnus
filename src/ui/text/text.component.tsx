@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { FC } from 'react';
 import { Text as RNText } from 'react-native';
 
 import { TextProps } from './text.type';
@@ -6,7 +6,7 @@ import { getStyle } from './text.style';
 import { useTheme } from '../../theme';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 
-const Text: React.FunctionComponent<TextProps> = (incomingProps) => {
+export const Text: FC<TextProps> = (incomingProps) => {
   const props = useDefaultProps('Text', incomingProps, {
     color: 'gray900',
     textAlign: 'auto',
@@ -62,13 +62,3 @@ const Text: React.FunctionComponent<TextProps> = (incomingProps) => {
     </RNText>
   );
 };
-
-// Text.defaultProps = {
-//   color: 'gray900',
-//   textAlign: 'auto',
-//   textTransform: 'none',
-//   fontSize: 'md',
-//   overflow: 'hidden',
-// };
-
-export { Text };

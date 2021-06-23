@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { useState } from 'react';
+import React, { FunctionComponent, useState } from 'react';
 import {
   View as RNView,
   NativeSyntheticEvent,
@@ -12,7 +11,7 @@ import { TextareaProps } from './textarea.type';
 import { useTheme } from '../../theme';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 
-const Textarea: React.FunctionComponent<TextareaProps> = (incomingProps) => {
+export const Textarea: FunctionComponent<TextareaProps> = (incomingProps) => {
   const props = useDefaultProps('Textarea', incomingProps, {
     minH: 100,
     p: 'lg',
@@ -75,12 +74,3 @@ const Textarea: React.FunctionComponent<TextareaProps> = (incomingProps) => {
     </RNView>
   );
 };
-
-// Textarea.defaultProps = {
-//   minH: 100,
-//   p: 'lg',
-//   borderColor: 'gray500',
-//   borderWidth: 1,
-// };
-
-export { Textarea };

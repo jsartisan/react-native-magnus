@@ -1,14 +1,11 @@
-import * as React from 'react';
-import { useRef, useState } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 import { Animated, Easing, LayoutChangeEvent } from 'react-native';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 import { Div } from '../div/div.component';
 
 import { CollapseBodyProps } from './collapse.type';
 
-const CollapseBody: React.FunctionComponent<CollapseBodyProps> = (
-  incomingProps
-) => {
+export const CollapseBody: FC<CollapseBodyProps> = (incomingProps) => {
   const props = useDefaultProps('CollapseBody', incomingProps, {
     bg: 'transparent',
     p: 'xl',
@@ -37,7 +34,7 @@ const CollapseBody: React.FunctionComponent<CollapseBodyProps> = (
     outputRange: [0, bodySectionHeight],
   });
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (expanded) {
       Animated.timing(animatedController, {
         useNativeDriver: false,
@@ -68,20 +65,3 @@ const CollapseBody: React.FunctionComponent<CollapseBodyProps> = (
     </Animated.View>
   );
 };
-
-// CollapseBody.defaultProps = {
-//   bg: 'transparent',
-//   p: 'xl',
-//   flexDir: 'column',
-//   flexWrap: 'nowrap',
-//   rounded: 'none',
-//   shadow: 'none',
-//   shadowColor: 'gray900',
-//   position: 'relative',
-//   bgMode: 'cover',
-//   pointerEvents: 'auto',
-//   row: false,
-//   borderStyle: 'solid',
-// };
-
-export { CollapseBody };

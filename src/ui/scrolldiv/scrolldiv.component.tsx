@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { FC } from 'react';
 import {
   ScrollView as RNScrollView,
   ImageBackground as RNImageBackground,
@@ -9,7 +9,7 @@ import { getStyle } from './scrolldiv.style';
 import { useTheme } from '../../theme';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 
-const ScrollDiv: React.FunctionComponent<ScrollDivProps> = (incomingProps) => {
+export const ScrollDiv: FC<ScrollDivProps> = (incomingProps) => {
   const props = useDefaultProps('ScrollDiv', incomingProps, {
     bg: 'transparent',
     flexDir: 'column',
@@ -67,36 +67,19 @@ const ScrollDiv: React.FunctionComponent<ScrollDivProps> = (incomingProps) => {
   const { theme } = useTheme();
   const computedStyle = getStyle(theme, props);
 
-  if (bgImg) {
-    return (
-      <RNImageBackground
-        source={bgImg}
-        style={computedStyle.div}
-        resizeMode={props.bgMode}
-        imageStyle={computedStyle.image}
-        {...rest}
-      >
-        {children}
-      </RNImageBackground>
-    );
-  }
-
-  return (
+  return bgImg ? (
+    <RNImageBackground
+      source={bgImg}
+      style={computedStyle.div}
+      resizeMode={props.bgMode}
+      imageStyle={computedStyle.image}
+      {...rest}
+    >
+      {children}
+    </RNImageBackground>
+  ) : (
     <RNScrollView style={computedStyle.div} {...rest}>
       {children}
     </RNScrollView>
   );
 };
-
-// ScrollDiv.defaultProps = {
-//   bg: 'transparent',
-//   flexDir: 'column',
-//   flexWrap: 'nowrap',
-//   rounded: 'none',
-//   shadow: 0,
-//   shadowColor: 'gray900',
-//   position: 'relative',
-//   bgMode: 'cover',
-// };
-
-export { ScrollDiv };
