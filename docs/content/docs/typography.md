@@ -28,7 +28,7 @@ The default theme of magnus consists of following font sizes:
 ```jsx
 import { Text } from "react-native-magnus";
 
-<Text fontSize="6xl">Text 6xl</Text>;
+<Text fontSize="6xl">Text 6xl</Text>
 ```
 
 <br>
