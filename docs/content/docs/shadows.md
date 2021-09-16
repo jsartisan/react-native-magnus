@@ -32,7 +32,7 @@ import { ThemeProvider, Text } from "react-native-magnus";
 import App from "./src/App";
 
 const theme = {
-  shadows: {
+  shadow: {
     "3xl": {
       shadowOffset: {
         width: 0,
