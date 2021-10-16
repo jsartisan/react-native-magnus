@@ -1,10 +1,19 @@
 import * as React from 'react';
 import { useRef, useState } from 'react';
-import { Animated, Easing, LayoutChangeEvent } from 'react-native';
+import { Animated, Easing, LayoutChangeEvent, StyleSheet } from 'react-native';
 import { useDefaultProps } from '../../utilities/useDefaultProps';
 import { Div } from '../div/div.component';
 
 import { CollapseBodyProps } from './collapse.type';
+
+const { styleCollapseAnimated } = StyleSheet.create({
+  styleCollapseAnimated: {
+    position: 'absolute',
+    zIndex: -1,
+    bottom: 0,
+    width: '100%',
+  },
+});
 
 const CollapseBody: React.FunctionComponent<CollapseBodyProps> = (
   incomingProps
@@ -37,6 +46,11 @@ const CollapseBody: React.FunctionComponent<CollapseBodyProps> = (
     outputRange: [0, bodySectionHeight],
   });
 
+  const bodyOpacity = animatedController.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0, 1],
+  });
+
   React.useEffect(() => {
     if (expanded) {
       Animated.timing(animatedController, {
@@ -61,11 +75,21 @@ const CollapseBody: React.FunctionComponent<CollapseBodyProps> = (
   };
 
   return (
-    <Animated.View style={{ height: bodyHeight, overflow: 'hidden' }}>
-      <Div {...props} onLayout={onLayout}>
-        {children}
-      </Div>
-    </Animated.View>
+    <>
+      <Animated.View style={{ height: bodyHeight }} />
+      <Animated.View
+        style={[
+          {
+            opacity: bodyOpacity,
+          },
+          styleCollapseAnimated,
+        ]}
+      >
+        <Div {...props} onLayout={onLayout}>
+          {children}
+        </Div>
+      </Animated.View>
+    </>
   );
 };
 
