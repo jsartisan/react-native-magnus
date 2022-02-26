@@ -37,7 +37,7 @@
     "gatsby-transformer-remark": "^2.6.19",
     "gatsby-transformer-sharp": "^2.2.7",
     "prism-react-renderer": "^1.0.2",
-    "prismjs": "^1.17.1",
+    "prismjs": "^1.27.0",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-custom-scrollbars": "^4.2.1",
