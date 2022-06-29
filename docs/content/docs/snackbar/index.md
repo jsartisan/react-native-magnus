@@ -19,7 +19,7 @@ import {
   SnackbarRef,
 } from "react-native-magnus";
 
-const snackbarRef = React.createRef();
+const snackbarRef = React.createRef<SnackbarRef>();
 
 const App = () => {
   return (
