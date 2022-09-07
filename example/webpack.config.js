@@ -19,6 +19,9 @@ module.exports = async function (env, argv) {
   Object.assign(config.resolve.alias, {
     ...resolver.extraNodeModules,
     'react-native-web': path.join(node_modules, 'react-native-web'),
+    '@expo/vector-icons/MaterialCommunityIcons': require.resolve(
+      '@expo/vector-icons/MaterialCommunityIcons'
+    ),
   });
 
   return config;
