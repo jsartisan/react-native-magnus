@@ -22,18 +22,6 @@ const ALGOLIA_QUERY = `{
     }
   }
 
-  allSnippet(filter: { published: { eq: true } }) {
-    edges {
-      node {
-        id
-        title
-        slug
-        category
-        published
-      }
-    }
-  }
-
 }`;
 
 const queries = [
