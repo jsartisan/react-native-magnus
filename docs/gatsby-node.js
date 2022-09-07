@@ -2,14 +2,6 @@ const path = require('path');
 const _ = require('lodash');
 const { createFilePath } = require('gatsby-source-filesystem');
 
-const categories = [
-  { label: 'Buttons', value: 'buttons' },
-  { label: 'Forms', value: 'forms' },
-  { label: 'Navigations', value: 'navigations' },
-  { label: 'Pages', value: 'pages' },
-  { label: 'Misc', value: 'misc' },
-];
-
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
@@ -29,18 +21,6 @@ exports.createPages = async ({ graphql, actions }) => {
               frontmatter {
                 title
               }
-            }
-          }
-        }
-
-        allSnippet(filter: { published: { eq: true } }) {
-          edges {
-            node {
-              id
-              title
-              slug
-              category
-              published
             }
           }
         }
@@ -82,67 +62,6 @@ exports.createPages = async ({ graphql, actions }) => {
         },
       });
     }
-  });
-
-  // constructing paginated pages for snippets
-  const snippetEdges = result.data.allSnippet.edges;
-  const snippetsPerPage = 9;
-  const numPages = Math.ceil(snippetEdges.length / snippetsPerPage);
-  Array.from({ length: numPages }).forEach((_, i) => {
-    createPage({
-      path: i === 0 ? '/snippets' : `/snippets/${i + 1}`,
-      component: path.resolve('./src/templates/snippets-list.js'),
-      context: {
-        limit: snippetsPerPage,
-        skip: i * snippetsPerPage,
-        numPages,
-        category: '//',
-        currentPage: i + 1,
-      },
-    });
-  });
-
-  // constructing pages by category
-  categories.map((category) => {
-    const filteredSnippetEdges = result.data.allSnippet.edges.filter(
-      (edge) => edge.node.category === category.value
-    );
-
-    const numPages = Math.ceil(filteredSnippetEdges.length / snippetsPerPage);
-    Array.from({ length: numPages }).forEach((_, i) => {
-      createPage({
-        path:
-          i === 0
-            ? `/snippets/${category.value}`
-            : `/snippets/${category.value}/${i + 1}`,
-        component: path.resolve('./src/templates/snippets-list.js'),
-        context: {
-          limit: snippetsPerPage,
-          skip: i * snippetsPerPage,
-          numPages,
-          currentPage: i + 1,
-          category: `/${category.value}/`,
-        },
-      });
-    });
-  });
-
-  // constructing single pages for snippets
-  snippetEdges.forEach((edge, index) => {
-    const previous =
-      index === snippetEdges.length - 1 ? null : snippetEdges[index + 1].node;
-    const next = index === 0 ? null : snippetEdges[index - 1].node;
-
-    createPage({
-      path: `/snippets/${edge.node.slug}`,
-      component: path.resolve('./src/templates/snippets.js'),
-      context: {
-        slug: edge.node.slug,
-        category: `/${edge.node.category}/`,
-        previous,
-        next,
-      },
-    });
   });
 };
 

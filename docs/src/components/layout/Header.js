@@ -11,7 +11,6 @@ export default function Header({
   setSidebarOpen,
   showSidebarMenu,
 }) {
-  const user = getUser();
   return (
     <div
       className="fixed top-0 left-0 z-20 flex w-full px-5 border-b"
