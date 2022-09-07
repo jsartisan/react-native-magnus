@@ -54,18 +54,6 @@ const queries = [
         })
       );
 
-      items = items.concat(
-        data.allSnippet.edges.map(({ node }) => {
-          return {
-            objectID: node.slug,
-            title: node.title,
-            slug: `/snippets/${node.slug}`,
-            type: 'snippets',
-            description: node.description,
-          };
-        })
-      );
-
       return items;
     },
     settings: {},

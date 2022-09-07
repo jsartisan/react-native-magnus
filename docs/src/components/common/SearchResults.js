@@ -6,19 +6,13 @@ const SearchResults = ({ hit }) => {
     switch (type) {
       case 'docs':
         return (
-          <span className="rounded-md text-sm bg-purple-700 text-white px-2">
+          <span className="px-2 text-sm text-white bg-purple-700 rounded-md">
             docs
-          </span>
-        );
-      case 'snippets':
-        return (
-          <span className="rounded-md text-sm bg-green-300 text-green-800 px-2">
-            snippets
           </span>
         );
       default:
         return (
-          <span className="rounded-md text-sm bg-yellow-500 text-yellow-800 px-2">
+          <span className="px-2 text-sm text-yellow-800 bg-yellow-500 rounded-md">
             blog
           </span>
         );
@@ -27,16 +21,16 @@ const SearchResults = ({ hit }) => {
   return (
     <Link
       to={hit.slug}
-      className="px-5 py-3 border-b border-gray-200 block text-gray-700 hover:bg-gray-200"
+      className="block px-5 py-3 text-gray-700 border-b border-gray-200 hover:bg-gray-200"
     >
       <h3>{hit.title}</h3>
       <div>
         {renderType(hit.type)}
-        <span className="inline-block ml-3 text-gray-600 text-sm">
+        <span className="inline-block ml-3 text-sm text-gray-600">
           {hit.slug}
         </span>
       </div>
-      <p className="text-sm mt-3">{hit.description}</p>
+      <p className="mt-3 text-sm">{hit.description}</p>
     </Link>
   );
 };
