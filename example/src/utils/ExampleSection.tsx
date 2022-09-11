@@ -3,6 +3,7 @@ import { Div, Text } from 'react-native-magnus';
 
 const ExampleSection: React.FC<{
   name: string;
+  children?: React.ReactNode;
   withoutSpacingOnContent?: boolean;
 }> = ({ name, withoutSpacingOnContent, children }) => {
   return (

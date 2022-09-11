@@ -138,12 +138,12 @@ const Dropdown = React.forwardRef<DropdownRef, DropdownProps>(
         onBackdropPress={
           'onBackdropPress' in props ? onBackdropPress : () => setVisible(false)
         }
+        swipeDirection="down"
+        {...rest}
         style={{
           margin: 0,
           justifyContent: Platform.OS === 'web' ? 'center' : 'flex-end',
         }}
-        swipeDirection="down"
-        {...rest}
       >
         <View style={computedStyle.wrapper}>
           {renderIndicator()}

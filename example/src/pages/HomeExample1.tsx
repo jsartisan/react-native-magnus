@@ -5,13 +5,11 @@ import {
   Badge,
   Button,
   Div,
-  Fab,
   Header,
   Host,
   Icon,
   Image,
   Input,
-  Portal,
   Text,
 } from 'react-native-magnus';
 import ExamplePage from '../utils/ExamplePage';
@@ -85,8 +83,7 @@ const HomeExample1: React.FC = () => {
                         h={40}
                         w={40}
                         source={{
-                          uri:
-                            'https://images.unsplash.com/photo-1561037404-61cd46aa615b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&q=80',
+                          uri: 'https://images.unsplash.com/photo-1561037404-61cd46aa615b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&q=80',
                         }}
                       />
                     </Button>
@@ -145,44 +142,6 @@ const HomeExample1: React.FC = () => {
             />
           </Div>
         </Div>
-
-        <Portal>
-          <Fab>
-            <Button p="none" bg="transparent" justifyContent="flex-end">
-              <Div rounded="sm" bg="card" p="sm">
-                <Text fontSize="md">Cheer</Text>
-              </Div>
-              <Icon
-                name="user"
-                color="blue600"
-                h={50}
-                w={50}
-                rounded="circle"
-                ml="md"
-                bg="card"
-              />
-            </Button>
-            <Button
-              p="none"
-              bg="transparent"
-              justifyContent="flex-end"
-              disabled
-            >
-              <Div rounded="sm" bg="card" p="sm">
-                <Text fontSize="md">Boost</Text>
-              </Div>
-              <Icon
-                name="user"
-                color="blue600"
-                h={50}
-                w={50}
-                rounded="circle"
-                ml="md"
-                bg="card"
-              />
-            </Button>
-          </Fab>
-        </Portal>
       </Host>
     </ExamplePage>
   );

@@ -22,6 +22,7 @@ export interface CarouselProps
     Pick<FlexPropsType, 'flex'>,
     VariantPropsType {
   showIndicators?: boolean;
+  children?: React.ReactNode;
   renderIndicators?: (props: CarouselIndicator) => JSX.Element;
 }
 

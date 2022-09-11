@@ -125,6 +125,7 @@ const Toast: React.FunctionComponent<SnackbarProps> = (incomingProps) => {
   return (
     <SafeAreaView pointerEvents="box-none" style={computedStyle.wrapper}>
       <Animated.View
+        {...rest}
         style={{
           opacity,
           transform: [
@@ -136,7 +137,6 @@ const Toast: React.FunctionComponent<SnackbarProps> = (incomingProps) => {
             },
           ],
         }}
-        {...rest}
       >
         <RNView style={computedStyle.container}>
           {prefix && <RNView style={computedStyle.prefix}>{prefix}</RNView>}

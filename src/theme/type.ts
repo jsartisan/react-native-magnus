@@ -8,12 +8,10 @@ import {
   DivProps,
   DrawerProps,
   DropdownProps,
-  FabProps,
   HeaderProps,
   IconProps,
   ImageProps,
   InputProps,
-  MentionProps,
   ModalProps,
   OverlayProps,
   RadioProps,
@@ -60,12 +58,10 @@ export interface ThemeType {
     Drawer?: VariantType<DrawerProps>;
     Dropdown?: VariantType<DropdownProps>;
     DropdownOption?: VariantType<DropdownOptionProps>;
-    Fab?: VariantType<FabProps>;
     Header?: VariantType<HeaderProps>;
     Icon?: VariantType<IconProps>;
     Image?: VariantType<ImageProps>;
     Input?: VariantType<InputProps>;
-    Mention?: VariantType<MentionProps>;
     Modal?: VariantType<ModalProps>;
     Overlay?: VariantType<OverlayProps>;
     Radio?: VariantType<RadioProps>;

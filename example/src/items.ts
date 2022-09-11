@@ -8,7 +8,6 @@ import CollapseComponent from './components/Collapse';
 import DivComponent from './components/Div';
 import DrawerComponent from './components/Drawer';
 import DropdownComponent from './components/Dropdown';
-import FabComponent from './components/Fab';
 import HeaderComponent from './components/Header';
 import IconComponent from './components/Icon';
 import InputComponent from './components/Input';
@@ -118,11 +117,6 @@ export const components: ExampleComponentType[] = [
     navigationPath: 'Header',
     onScreenName: 'Header',
     component: HeaderComponent,
-  },
-  {
-    navigationPath: 'FAB',
-    onScreenName: 'FAB',
-    component: FabComponent,
   },
   {
     navigationPath: 'Drawer',

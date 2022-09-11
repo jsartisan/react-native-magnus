@@ -25,4 +25,6 @@ export interface ImageProps
     ZIndexPropsType,
     Pick<BackgroundPropsType, 'bg'>,
     Pick<FlexPropsType, 'flex' | 'alignSelf'>,
-    VariantPropsType {}
+    VariantPropsType {
+  children?: React.ReactNode;
+}

@@ -1,4 +1,3 @@
-import { ViewProps as RNViewProps } from 'react-native';
 import { ModalProps as RNModalProps } from '../modal/modal.type';
 
 import {
@@ -15,7 +14,6 @@ export interface DrawerRef {
 
 export interface DrawerProps
   extends RNModalProps,
-    RNViewProps,
     BorderPropsType,
     RoundedPropsType,
     Pick<BackgroundPropsType, 'bg'>,

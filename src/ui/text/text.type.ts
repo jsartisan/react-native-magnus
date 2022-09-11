@@ -1,3 +1,4 @@
+import React from 'react';
 import { TextProps as RNTextProps } from 'react-native';
 import {
   BackgroundPropsType,
@@ -25,4 +26,6 @@ export interface TextProps
     ZIndexPropsType,
     Pick<BackgroundPropsType, 'bg'>,
     Pick<FlexPropsType, 'flex'>,
-    VariantPropsType {}
+    VariantPropsType {
+  children?: React.ReactNode;
+}

@@ -149,9 +149,11 @@ const Button: React.FunctionComponent<ButtonProps> = (incomingProps) => {
         </RNView>
       ) : (
         <RNAnimated.View style={computedStyle.container}>
-          {prefix}
-          {renderChildren()}
-          {suffix}
+          <>
+            {prefix}
+            {renderChildren()}
+            {suffix}
+          </>
         </RNAnimated.View>
       )}
     </RNButton>

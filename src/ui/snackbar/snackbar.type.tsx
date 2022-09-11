@@ -40,6 +40,7 @@ export interface SnackbarProps
   onClose?: () => void;
   style?: StyleProp<ViewStyle>;
   useNativeDriver?: boolean;
+  children?: React.ReactNode;
 }
 
 export interface SnackbarContainerProps {

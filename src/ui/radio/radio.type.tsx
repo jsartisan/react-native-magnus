@@ -60,6 +60,7 @@ export interface RadioStates {
   checked?: boolean;
   disabled?: boolean;
   loading?: boolean;
+  pressed?: boolean;
 }
 
 export interface RadioGroupProps extends DivProps {

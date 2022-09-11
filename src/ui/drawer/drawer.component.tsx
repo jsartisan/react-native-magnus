@@ -76,8 +76,8 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
         onBackdropPress={
           'onBackdropPress' in props ? onBackdropPress : () => setVisible(false)
         }
-        style={computedStyle.drawer}
         {...rest}
+        style={computedStyle.drawer}
       >
         <View style={computedStyle.container}>
           <SafeAreaView style={computedStyle.safeView}>{children}</SafeAreaView>

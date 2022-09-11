@@ -1,6 +1,8 @@
 import React from 'react';
 
-const CarouselItem: React.FC = ({ children }) => {
+const CarouselItem: React.FunctionComponent<{ children?: React.ReactNode }> = ({
+  children,
+}) => {
   return <>{children}</>;
 };
 

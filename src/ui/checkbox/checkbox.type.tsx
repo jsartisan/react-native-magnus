@@ -67,4 +67,5 @@ export interface CheckboxStates {
   checked?: boolean;
   disabled?: boolean;
   loading?: boolean;
+  pressed?: boolean;
 }

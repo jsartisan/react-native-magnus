@@ -50,9 +50,10 @@ const Select = React.forwardRef<SelectRef, SelectProps>(
     const [visible, setVisible] = useState(props.isVisible || false);
     const [selectedValue, setSelectedValue] = useState(value);
     const [searchTerm, setSearchTerm] = useState<string>('');
-    const isSearchable = useMemo(() => !!searchableProps?.length, [
-      searchableProps,
-    ]);
+    const isSearchable = useMemo(
+      () => !!searchableProps?.length,
+      [searchableProps]
+    );
 
     const computedStyle = getStyle(theme, props);
 
@@ -202,7 +203,7 @@ const Select = React.forwardRef<SelectRef, SelectProps>(
       const mandatoryProps: Partial<InputProps> = {
         value: searchTerm,
         onChangeText: (text: string) => setSearchTerm(text),
-        autoCompleteType: 'off',
+        autoComplete: 'off',
       };
 
       if (searchInputElement) {
@@ -288,32 +289,34 @@ const Select = React.forwardRef<SelectRef, SelectProps>(
       >
         <Div style={computedStyle.wrapper}>
           <SafeAreaView style={computedStyle.container}>
-            <Div>
-              <Div py="xl">
-                {renderTitle()}
-                {renderMessage()}
+            <>
+              <Div>
+                <Div py="xl">
+                  {renderTitle()}
+                  {renderMessage()}
+                </Div>
+                <Div>{renderSearchbar()}</Div>
               </Div>
-              <Div>{renderSearchbar()}</Div>
-            </Div>
 
-            {filteredData.length > 0 ? (
-              <Div flex={1}>
-                <FlatList
-                  data={filteredData}
-                  keyExtractor={keyExtractor}
-                  renderItem={({ item, index }) =>
-                    React.cloneElement(renderItem(item, index), {
-                      onSelect,
-                      selectedValue,
-                    })
-                  }
-                />
-              </Div>
-            ) : (
-              renderNoResultsFound()
-            )}
+              {filteredData.length > 0 ? (
+                <Div flex={1}>
+                  <FlatList
+                    data={filteredData}
+                    keyExtractor={keyExtractor}
+                    renderItem={({ item, index }) =>
+                      React.cloneElement(renderItem(item, index), {
+                        onSelect,
+                        selectedValue,
+                      })
+                    }
+                  />
+                </Div>
+              ) : (
+                renderNoResultsFound()
+              )}
 
-            {renderFooter()}
+              {renderFooter()}
+            </>
           </SafeAreaView>
         </Div>
       </RNModal>

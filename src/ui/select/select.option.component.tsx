@@ -71,19 +71,19 @@ const SelectOption: React.FunctionComponent<SelectOptionProps> = (
     return null;
   };
 
-  const renderChildren = () => {
+  const renderChildren = React.useMemo(() => {
     if (typeof children === 'string') {
       return <Text>{children}</Text>;
     }
 
-    return children;
-  };
+    return children ?? null;
+  }, [children]);
 
   return (
     <Button {...rest} onPress={onPress} block alignItems="center">
       {prefix && <Div minW="8%">{renderPrefix()}</Div>}
       <Div flex={1} bg="transparent">
-        {renderChildren()}
+        <>{renderChildren}</>
       </Div>
     </Button>
   );
