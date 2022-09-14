@@ -6,7 +6,7 @@ import ExamplePage from '../utils/ExamplePage';
 import ExampleHeader from '../utils/ExampleHeader';
 import ExampleSection from '../utils/ExampleSection';
 
-const TextComponent: React.FC = () => {
+const TextComponent = () => {
   return (
     <ExamplePage>
       <ExampleHeader name="text" />

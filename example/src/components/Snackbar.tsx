@@ -6,7 +6,7 @@ import ExamplePage from '../utils/ExamplePage';
 import ExampleHeader from '../utils/ExampleHeader';
 import ExampleSection from '../utils/ExampleSection';
 
-const SnackbarComponent: React.FC = () => {
+const SnackbarComponent = () => {
   return (
     <ExamplePage>
       <ExampleHeader name="snackbar" />

@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { SafeAreaView } from 'react-native';
 import { StatusBar, Div } from 'react-native-magnus';
 
-const ExamplePage: React.FC = ({ children }) => {
+interface ExamplePageProps {
+  children: ReactNode;
+}
+
+const ExamplePage = ({ children }: ExamplePageProps) => {
   return (
     <>
       <StatusBar />

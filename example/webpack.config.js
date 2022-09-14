@@ -19,7 +19,6 @@ module.exports = async function (env, argv) {
   Object.assign(config.resolve.alias, {
     ...resolver.extraNodeModules,
     'react-native-web': path.resolve(node_modules, 'react-native-web'),
-    '@expo/vector-icons': path.resolve(node_modules, '@expo/vector-icons'),
   });
 
   return config;

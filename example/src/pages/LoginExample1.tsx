@@ -8,7 +8,7 @@ const logoUrl =
 const coverArtUrl =
   'https://snack-code-uploads.s3-us-west-1.amazonaws.com/~asset/48291e77266322ccd84e4838c8fc72ad';
 
-const LoginExample1: React.FC = () => {
+const LoginExample1 = () => {
   const navigation = useNavigation();
 
   return (

@@ -13,7 +13,7 @@ import ExamplePage from '../utils/ExamplePage';
 import ExampleHeader from '../utils/ExampleHeader';
 import ExampleSection from '../utils/ExampleSection';
 
-const TooltipComponent: React.FC = () => {
+const TooltipComponent = () => {
   const tooltipRef1 = React.useRef<TooltipRef>(null);
   const tooltipRef2 = React.useRef<TooltipRef>(null);
 

@@ -6,7 +6,7 @@ import ExamplePage from '../utils/ExamplePage';
 import ExampleHeader from '../utils/ExampleHeader';
 import ExampleSection from '../utils/ExampleSection';
 
-const BadgeComponent: React.FC = () => {
+const BadgeComponent = () => {
   return (
     <ExamplePage>
       <ExampleHeader name="badge" />

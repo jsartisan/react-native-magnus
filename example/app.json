@@ -12,10 +12,6 @@
       "icon": "https://s3.amazonaws.com/exp-us-standard/placeholder-push-icon-blue-circle.png",
       "color": "#000000"
     },
-    "packagerOpts": {
-      "config": "./metro.config.js",
-      "projectRoots": ""
-    },
     "platforms": ["android", "ios", "web"]
   }
 }

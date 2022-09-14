@@ -4,7 +4,7 @@ import { Button, Div, Fab, Icon, Text } from 'react-native-magnus';
 import ExamplePage from '../utils/ExamplePage';
 import ExampleHeader from '../utils/ExampleHeader';
 
-const FabComponent: React.FC = () => {
+const FabComponent = () => {
   return (
     <ExamplePage>
       <ExampleHeader name="fab (floating action button)" />

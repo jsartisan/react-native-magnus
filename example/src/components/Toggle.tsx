@@ -6,7 +6,7 @@ import ExamplePage from '../utils/ExamplePage';
 import ExampleHeader from '../utils/ExampleHeader';
 import ExampleSection from '../utils/ExampleSection';
 
-const ToggleComponent: React.FC = () => {
+const ToggleComponent = () => {
   const [on, toggle] = React.useState(false);
 
   return (

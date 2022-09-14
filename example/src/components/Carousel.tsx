@@ -6,7 +6,7 @@ import ExampleHeader from '../utils/ExampleHeader';
 import ExamplePage from '../utils/ExamplePage';
 import ExampleSection from '../utils/ExampleSection';
 
-const CarouselComponent: React.FC = () => {
+const CarouselComponent = () => {
   return (
     <ExamplePage>
       <ExampleHeader name="carousel" />
@@ -149,7 +149,7 @@ const CarouselComponent: React.FC = () => {
   );
 };
 
-const Card: React.FC<DivProps> = (props) => {
+const Card = (props: DivProps) => {
   return <Div bg="card" shadow="sm" {...props} />;
 };
 

@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { Div, Text } from 'react-native-magnus';
 
-const ExampleSection: React.FC<{
+interface ExampleSectionProps {
   name: string;
   withoutSpacingOnContent?: boolean;
-}> = ({ name, withoutSpacingOnContent, children }) => {
+  children: ReactNode;
+}
+
+const ExampleSection = ({
+  name,
+  withoutSpacingOnContent,
+  children,
+}: ExampleSectionProps) => {
   return (
     <Div my="md">
       <Text

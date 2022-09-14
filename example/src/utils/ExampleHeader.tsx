@@ -11,7 +11,11 @@ import {
 } from 'react-native-magnus';
 import { lightTheme, darkTheme, saveThemeName } from '../themes';
 
-const ExampleHeader: React.FC<{ name: string }> = ({ name }) => {
+interface ExampleHeaderProps {
+  name: string;
+}
+
+const ExampleHeader = ({ name }: ExampleHeaderProps) => {
   const navigation = useNavigation();
   const { theme, setTheme } = useTheme();
 

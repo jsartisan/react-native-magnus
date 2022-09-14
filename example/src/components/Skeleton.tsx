@@ -6,7 +6,7 @@ import ExamplePage from '../utils/ExamplePage';
 import ExampleHeader from '../utils/ExampleHeader';
 import ExampleSection from '../utils/ExampleSection';
 
-const SkeletonComponent: React.FC = () => {
+const SkeletonComponent = () => {
   return (
     <ExamplePage>
       <ExampleHeader name="skeleton" />

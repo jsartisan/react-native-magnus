@@ -8,7 +8,7 @@ import ExamplePage from '../utils/ExamplePage';
 const LOGO_URL =
   'https://freepngimg.com/thumb/logo/69823-instagram-icons-symbol-youtube-computer-logo-thumb.png';
 
-const LoginExample2: React.FC = () => {
+const LoginExample2 = () => {
   const navigation = useNavigation();
 
   return (

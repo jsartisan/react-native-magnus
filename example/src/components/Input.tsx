@@ -28,12 +28,10 @@ const countryCodes: CountryCodeType[] = [
   { country: { name: 'Portugal' }, code: 351 },
 ];
 
-const InputComponent: React.FC = () => {
+const InputComponent = () => {
   const selectCountryCodeRef = React.useRef<SelectRef>(null);
-  const [
-    selectedCountryCode,
-    setSelectedCountryCode,
-  ] = React.useState<CountryCodeType>();
+  const [selectedCountryCode, setSelectedCountryCode] =
+    React.useState<CountryCodeType>();
   const onSelectCountryCodeOption = (value: CountryCodeType) =>
     setSelectedCountryCode(value);
 
