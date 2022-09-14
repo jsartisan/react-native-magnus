@@ -16,6 +16,6 @@
       "config": "./metro.config.js",
       "projectRoots": ""
     },
-    "platforms": ["android", "ios"]
+    "platforms": ["android", "ios", "web"]
   }
 }

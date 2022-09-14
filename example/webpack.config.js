@@ -18,10 +18,8 @@ module.exports = async function (env, argv) {
   // So we alias them to the versions in example's node_modules
   Object.assign(config.resolve.alias, {
     ...resolver.extraNodeModules,
-    'react-native-web': path.join(node_modules, 'react-native-web'),
-    '@expo/vector-icons/MaterialCommunityIcons': require.resolve(
-      '@expo/vector-icons/MaterialCommunityIcons'
-    ),
+    'react-native-web': path.resolve(node_modules, 'react-native-web'),
+    '@expo/vector-icons': path.resolve(node_modules, '@expo/vector-icons'),
   });
 
   return config;
