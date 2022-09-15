@@ -13,16 +13,16 @@ export function withDefaultProps<
   type Variant = Props & VariantPropsType;
   return class extends React.PureComponent<Variant> {
     static contextType = ThemeContext;
+    // using `declare` requires babel plugin which doesn't seem to work
+    // class related components & HOC's should be refactored anyway
+    // @ts-ignore
     context!: React.ContextType<typeof ThemeContext>;
 
     render() {
       const theme = this.context.theme;
 
       if (!componentName) {
-        return {
-          ...defaultProps,
-          ...this.props,
-        };
+        return <WrappedComponent {...this.props} {...defaultProps} />;
       }
 
       let propsFromTheme = {

@@ -7,9 +7,7 @@ interface IUseKey {
 
 // Generates a random key
 const keyGenerator = (): string => {
-  return `portalize_${Math.random()
-    .toString(36)
-    .substr(2, 16)}-${Math.random()
+  return `portalize_${Math.random().toString(36).substr(2, 16)}-${Math.random()
     .toString(36)
     .substr(2, 16)}-${Math.random().toString(36).substr(2, 16)}`;
 };

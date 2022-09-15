@@ -169,7 +169,7 @@ class MentionBase extends React.Component<
   }
 }
 
-const Mention = withDefaultProps(MentionBase, 'Mention', {
+const Mention = withDefaultProps<MentionProps>(MentionBase, 'Mention', {
   bg: 'white',
   rounded: 'md',
   borderColor: 'gray200',

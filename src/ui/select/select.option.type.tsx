@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import { PressableProps as RNButtonProps } from 'react-native';
 import {
   BackgroundPropsType,
@@ -37,4 +38,5 @@ export interface SelectOptionProps
   value: any;
   onSelect?: (value: any) => void;
   selectedValue?: any;
+  children: ReactNode;
 }

@@ -29,6 +29,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
       animationInTiming,
       animationIn,
       animationOut,
+      style,
       onBackdropPress,
       isVisible,
       animationOutTiming,

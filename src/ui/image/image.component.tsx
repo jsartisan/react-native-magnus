@@ -33,7 +33,6 @@ const Image: React.FunctionComponent<ImageProps> = (incomingProps) => {
     roundedRight,
     roundedBottom,
     roundedLeft,
-    children,
     borderColor,
     borderBottomColor,
     borderLeftColor,
@@ -61,11 +60,7 @@ const Image: React.FunctionComponent<ImageProps> = (incomingProps) => {
   const { theme } = useTheme();
   const computedStyle = getStyle(theme, props);
 
-  return (
-    <RNImage style={computedStyle.image} {...rest}>
-      {children}
-    </RNImage>
-  );
+  return <RNImage style={computedStyle.image} {...rest} />;
 };
 
 // Image.defaultProps = {};

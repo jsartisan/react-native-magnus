@@ -7,6 +7,7 @@ import deepmerge from 'deepmerge';
 
 export interface ThemeProviderProps {
   theme?: ThemeType;
+  children: React.ReactNode;
 }
 
 export const ThemeProvider: React.FunctionComponent<ThemeProviderProps> = (

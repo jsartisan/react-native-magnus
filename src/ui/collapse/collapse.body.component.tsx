@@ -28,9 +28,8 @@ const CollapseBody: React.FunctionComponent<CollapseBodyProps> = (
   const startingHeight = 0;
 
   const animatedController = useRef(new Animated.Value(0)).current;
-  const [bodySectionHeight, setBodySectionHeight] = useState<number>(
-    startingHeight
-  );
+  const [bodySectionHeight, setBodySectionHeight] =
+    useState<number>(startingHeight);
 
   const bodyHeight = animatedController.interpolate({
     inputRange: [0, 1],

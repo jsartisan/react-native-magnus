@@ -63,6 +63,7 @@ const Toast: React.FunctionComponent<SnackbarProps> = (incomingProps) => {
     borderTopWidth,
     borderEndWidth,
     flexDir,
+    style,
     justifyContent,
     alignItems,
     alignSelf,

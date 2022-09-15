@@ -6,10 +6,11 @@ import { ThemeContext } from './theme.context';
  *
  * @param Component
  */
-export const withTheme = (Component: React.ComponentType) => (props: any) => (
-  <ThemeContext.Consumer>
-    {(contexts) => {
-      return <Component {...props} theme={{ ...contexts }} />;
-    }}
-  </ThemeContext.Consumer>
-);
+export const withTheme = (Component: React.ComponentType) => (props: any) =>
+  (
+    <ThemeContext.Consumer>
+      {(contexts) => {
+        return <Component {...props} theme={{ ...contexts }} />;
+      }}
+    </ThemeContext.Consumer>
+  );

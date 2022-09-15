@@ -14,7 +14,7 @@
   "main": "node_modules/expo/AppEntry.js",
   "dependencies": {
     "@expo/webpack-config": "^0.17.0",
-    "@react-native-async-storage/async-storage": "1.17.3",
+    "@react-native-async-storage/async-storage": "1.17.10",
     "@react-navigation/drawer": "^6.4.4",
     "@react-navigation/native": "^6.0.12",
     "@react-navigation/stack": "^6.2.3",
@@ -32,8 +32,7 @@
     "react-native-safe-area-context": "4.3.1",
     "react-native-screens": "~3.15.0",
     "react-native-vector-icons": "^9.2.0",
-    "react-native-web": "~0.18.7",
-    "validate-color": "^2.2.1"
+    "react-native-web": "~0.18.7"
   },
   "devDependencies": {
     "@babel/core": "^7.19.0",
