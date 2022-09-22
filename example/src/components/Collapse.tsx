@@ -5,7 +5,7 @@ import ExamplePage from '../utils/ExamplePage';
 import ExampleHeader from '../utils/ExampleHeader';
 import ExampleSection from '../utils/ExampleSection';
 
-const CollapseComponent: React.FC = () => {
+const CollapseComponent = () => {
   return (
     <ExamplePage>
       <ExampleHeader name="collapse" />

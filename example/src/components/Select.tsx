@@ -14,7 +14,7 @@ import ExampleSection from '../utils/ExampleSection';
 
 import { countryCodes, CountryCodeType } from '../utils/countryCodes';
 
-const SelectComponent: React.FC = () => {
+const SelectComponent = () => {
   const [selectValue1, setSelectedValue1] = React.useState<string | null>(null);
   const selectRef1 = React.useRef<SelectRef>(null);
 

@@ -6,16 +6,13 @@
     "privacy": "public",
     "version": "1.0.0",
     "orientation": "default",
+    "icon": "./assets/images/favicon.png",
     "primaryColor": "#cccccc",
     "userInterfaceStyle": "automatic",
     "notification": {
       "icon": "https://s3.amazonaws.com/exp-us-standard/placeholder-push-icon-blue-circle.png",
       "color": "#000000"
     },
-    "packagerOpts": {
-      "config": "./metro.config.js",
-      "projectRoots": ""
-    },
-    "platforms": ["android", "ios"]
+    "platforms": ["android", "ios", "web"]
   }
 }

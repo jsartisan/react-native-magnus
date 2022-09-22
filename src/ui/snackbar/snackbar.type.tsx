@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import { StyleProp, ViewStyle } from 'react-native';
 import {
   BackgroundPropsType,
@@ -40,6 +41,7 @@ export interface SnackbarProps
   onClose?: () => void;
   style?: StyleProp<ViewStyle>;
   useNativeDriver?: boolean;
+  children?: ReactNode;
 }
 
 export interface SnackbarContainerProps {

@@ -26,7 +26,7 @@ export type CompoundedRadio<P> = React.FunctionComponent<P> & {
 };
 
 export interface RadioProps
-  extends RNButtonProps,
+  extends Omit<RNButtonProps, 'children'>,
     BorderPropsType,
     SpacingPropsType,
     ShadowPropsType,

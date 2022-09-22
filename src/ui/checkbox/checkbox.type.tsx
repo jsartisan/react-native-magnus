@@ -25,7 +25,7 @@ export type CompundedCheckbox<P> = React.FunctionComponent<P> & {
 };
 
 export interface CheckboxProps
-  extends RNButtonProps,
+  extends Omit<RNButtonProps, 'children'>,
     BorderPropsType,
     SpacingPropsType,
     ShadowPropsType,

@@ -5,7 +5,7 @@ import ExampleHeader from '../utils/ExampleHeader';
 import ExamplePage from '../utils/ExamplePage';
 import ExampleSection from '../utils/ExampleSection';
 
-const TagComponent: React.FC = () => {
+const TagComponent = () => {
   return (
     <ExamplePage>
       <ExampleHeader name="tag" />

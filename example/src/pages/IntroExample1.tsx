@@ -3,7 +3,7 @@ import React from 'react';
 import { Button, Carousel, Div, Icon, StatusBar } from 'react-native-magnus';
 import ExamplePage from '../utils/ExamplePage';
 
-const IntroExample1: React.FC = () => {
+const IntroExample1 = () => {
   const navigation = useNavigation();
 
   return (

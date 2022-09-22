@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import {
   FlexPropsType,
   BorderPropsType,
@@ -23,6 +24,7 @@ export interface CarouselProps
     VariantPropsType {
   showIndicators?: boolean;
   renderIndicators?: (props: CarouselIndicator) => JSX.Element;
+  children: ReactNode;
 }
 
 export interface CompoundedCarousel<T> extends React.FC<T> {

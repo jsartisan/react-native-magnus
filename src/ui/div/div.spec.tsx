@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from 'react-native-testing-library';
+import { render, screen } from '@testing-library/react-native';
 
 import { ThemeProvider } from '../../theme';
 import { Div } from './div.component';
@@ -14,12 +14,12 @@ describe('Div component', () => {
   );
 
   it('should render component passed to children', () => {
-    const component = render(
+    render(
       <TestDiv>
         <Text>I love magnus ui</Text>
       </TestDiv>
     );
 
-    expect(component.queryByText('I love magnus ui')).toBeTruthy();
+    expect(screen.getByText('I love magnus ui')).toBeTruthy();
   });
 });

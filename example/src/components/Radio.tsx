@@ -6,7 +6,7 @@ import ExamplePage from '../utils/ExamplePage';
 import ExampleHeader from '../utils/ExampleHeader';
 import ExampleSection from '../utils/ExampleSection';
 
-const RadioComponent: React.FC = () => {
+const RadioComponent = () => {
   const [radioValue1, setRadioValue1] = React.useState();
   const [radioValue2, setRadioValue2] = React.useState();
 

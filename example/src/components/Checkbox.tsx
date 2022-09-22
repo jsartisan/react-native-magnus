@@ -6,7 +6,7 @@ import ExamplePage from '../utils/ExamplePage';
 import ExampleHeader from '../utils/ExampleHeader';
 import ExampleSection from '../utils/ExampleSection';
 
-const CheckboxComponent: React.FC = () => {
+const CheckboxComponent = () => {
   const [checkboxGroupValue, setCheckboxGroupValue] = React.useState<any[]>();
   const [checkboxValue, setCheckboxValue] = React.useState<boolean>();
 

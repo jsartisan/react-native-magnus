@@ -6,7 +6,7 @@ import ExamplePage from '../utils/ExamplePage';
 import ExampleHeader from '../utils/ExampleHeader';
 import ExampleSection from '../utils/ExampleSection';
 
-const DivComponent: React.FC = () => {
+const DivComponent = () => {
   return (
     <ExamplePage>
       <ExampleHeader name="div" />
@@ -155,8 +155,7 @@ const DivComponent: React.FC = () => {
             rounded="md"
             h={150}
             bgImg={{
-              uri:
-                'https://venngage-wordpress.s3.amazonaws.com/uploads/2018/09/Monochrome-Type-Simple-Background-Image.jpg',
+              uri: 'https://venngage-wordpress.s3.amazonaws.com/uploads/2018/09/Monochrome-Type-Simple-Background-Image.jpg',
             }}
           />
         </ExampleSection>

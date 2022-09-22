@@ -6,7 +6,7 @@ import ExamplePage from '../utils/ExamplePage';
 import ExampleHeader from '../utils/ExampleHeader';
 import ExampleSection from '../utils/ExampleSection';
 
-const ModalComponent: React.FC = () => {
+const ModalComponent = () => {
   const [modalVisible1, setModalVisible1] = React.useState(false);
   const [modalVisible2, setModalVisible2] = React.useState(false);
   const [modalVisible3, setModalVisible3] = React.useState(false);

@@ -14,7 +14,7 @@ export interface DrawerRef {
 }
 
 export interface DrawerProps
-  extends RNModalProps,
+  extends Omit<RNModalProps, 'children'>,
     RNViewProps,
     BorderPropsType,
     RoundedPropsType,

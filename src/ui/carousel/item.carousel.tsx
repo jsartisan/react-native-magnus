@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
-const CarouselItem: React.FC = ({ children }) => {
+interface CarouselItemProps {
+  children: ReactNode;
+}
+
+const CarouselItem = ({ children }: CarouselItemProps) => {
   return <>{children}</>;
 };
 

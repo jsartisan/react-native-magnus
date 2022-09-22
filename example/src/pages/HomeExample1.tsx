@@ -49,7 +49,7 @@ const friends = [
   },
 ];
 
-const HomeExample1: React.FC = () => {
+const HomeExample1 = () => {
   const navigation = useNavigation();
 
   return (
@@ -85,8 +85,7 @@ const HomeExample1: React.FC = () => {
                         h={40}
                         w={40}
                         source={{
-                          uri:
-                            'https://images.unsplash.com/photo-1561037404-61cd46aa615b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&q=80',
+                          uri: 'https://images.unsplash.com/photo-1561037404-61cd46aa615b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=100&q=80',
                         }}
                       />
                     </Button>

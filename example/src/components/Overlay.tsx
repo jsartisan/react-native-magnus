@@ -6,7 +6,7 @@ import ExamplePage from '../utils/ExamplePage';
 import ExampleHeader from '../utils/ExampleHeader';
 import ExampleSection from '../utils/ExampleSection';
 
-const OverlayComponent: React.FC = () => {
+const OverlayComponent = () => {
   const overlayRef = useRef<OverlayRef>(null);
 
   return (

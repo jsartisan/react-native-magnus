@@ -5,7 +5,7 @@ import ExamplePage from '../utils/ExamplePage';
 import ExampleHeader from '../utils/ExampleHeader';
 import ExampleSection from '../utils/ExampleSection';
 
-const DrawerComponent: React.FC = () => {
+const DrawerComponent = () => {
   const drawerRef = React.useRef<DrawerRef>(null);
 
   return (
