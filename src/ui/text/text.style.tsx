@@ -46,10 +46,7 @@ export const getStyle = (theme: ThemeType, props: TextProps) => {
     textTransform: props.textTransform,
     textDecorationColor: getThemeColor(theme.colors, props.textDecorColor),
     textShadowColor: getThemeColor(theme.colors, props.textShadowColor),
-    textShadowOffset: {
-      width: getThemeProperty(theme.shadow, props.textShadowOffset),
-      height: getThemeProperty(theme.shadow, props.textShadowOffset),
-    },
+    textShadowOffset: getThemeProperty(theme.shadow, props.textShadowOffset),
     textShadowRadius: getThemeProperty(
       theme.borderRadius,
       props.textShadowRadius
