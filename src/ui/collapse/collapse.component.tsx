@@ -11,7 +11,6 @@ import { CollapseGroup } from './group.component';
 
 const Collapse: CompoundedCollapse<CollapseProps> = (incomingProps) => {
   const props = useDefaultProps('Collapse', incomingProps, {
-    bg: 'white',
     flexDir: 'column',
     flexWrap: 'nowrap',
     rounded: 'md',
@@ -79,7 +78,6 @@ const Collapse: CompoundedCollapse<CollapseProps> = (incomingProps) => {
 };
 
 // Collapse.defaultProps = {
-//   bg: 'white',
 //   flexDir: 'column',
 //   flexWrap: 'nowrap',
 //   rounded: 'md',
