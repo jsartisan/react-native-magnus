@@ -57,7 +57,7 @@ yarn add react-native-magnus
 ```jsx
 import { Button } from 'react-native-magnus';
 
-<Button />;
+<Button />
 ```
 
 ## 📦 Components
