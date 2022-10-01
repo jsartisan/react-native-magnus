@@ -188,10 +188,10 @@ export const positionProps = [
 ] as const;
 export interface PositionPropsType {
   position?: 'absolute' | 'relative';
-  top?: number;
-  right?: number;
-  bottom?: number;
-  left?: number;
+  top?: number | string;
+  right?: number | string;
+  bottom?: number | string;
+  left?: number | string;
 }
 
 export const backgroundProps = ['bg', 'bgImg', 'bgMode'] as const;
