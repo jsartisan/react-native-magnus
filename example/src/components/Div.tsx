@@ -13,13 +13,13 @@ const DivComponent = () => {
 
       <ScrollView>
         <ExampleSection name="background color">
-          <Div flexDir="row">
-            <Div h={40} w={40} mr="sm" bg="green500" />
-            <Div h={40} w={40} mr="sm" bg="teal500" />
-            <Div h={40} w={40} mr="sm" bg="yellow500" />
-            <Div h={40} w={40} mr="sm" bg="red500" />
-            <Div h={40} w={40} mr="sm" bg="blue500" />
-            <Div h={40} w={40} mr="sm" bg="gray500" />
+          <Div flexDir="row" spacing={10}>
+            <Div h={40} w={40} bg="green500" />
+            <Div h={40} w={40} bg="teal500" />
+            <Div h={40} w={40} bg="yellow500" />
+            <Div h={40} w={40} bg="red500" />
+            <Div h={40} w={40} bg="blue500" />
+            <Div h={40} w={40} bg="gray500" />
           </Div>
         </ExampleSection>
 
