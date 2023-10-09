@@ -279,7 +279,7 @@ export interface LoadingPropsType {
   loaderColor?: string;
 }
 
-export const preffixSuffixProps = ['preffix', 'suffix'] as const;
+export const prefixSuffixProps = ['prefix', 'suffix'] as const;
 export interface PrefixSuffixPropsType {
   suffix?: React.ReactNode;
   prefix?: React.ReactNode;
