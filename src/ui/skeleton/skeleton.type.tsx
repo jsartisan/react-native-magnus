@@ -8,4 +8,7 @@ export type CompundedSkeleton<P> = React.FunctionComponent<P> & {
 
 export interface SkeletonProps extends DivProps {
   duration?: number;
+  width?: number | string;
+  height?: number | string;
+  radius?: number | string;
 }
