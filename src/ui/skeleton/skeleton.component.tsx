@@ -55,7 +55,7 @@ export const Circle: React.FunctionComponent<SkeletonProps> = (
   return <Skeleton {...props} />;
 };
 
-Skeleton.defaultProps = {
+/* Skeleton.defaultProps = {
   bg: 'gray400',
   h: 15,
   w: '100%',
@@ -68,7 +68,7 @@ Circle.defaultProps = {
   h: 15,
   w: 15,
   rounded: 'circle',
-};
+}; */
 
 Skeleton.Box = Skeleton;
 Skeleton.Circle = Circle;
