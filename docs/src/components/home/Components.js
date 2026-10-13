@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'gatsby';
+
+import Link from 'next/link';
 
 export default function Features() {
   return (
@@ -25,7 +25,7 @@ export default function Features() {
                 that just works out of the box.
               </p>
               <Link
-                to="/docs/text"
+                href="/docs/text"
                 className="block py-3 text-primary font-bold text-sm text-blue-600 hover:text-blue-700"
               >
                 Check out full list of components →

@@ -1,15 +1,9 @@
-import React from 'react';
-import { Link } from 'gatsby';
+import Link from 'next/link';
 
-const Logo = ({
-  hasText = false,
-  hasImage = true,
-  center = false,
-  centerMobile = false,
-}) => (
+const Logo = ({ hasText = false, hasImage = true }) => (
   <h1 className="c-logo">
-    <Link to="/" className="flex items-center">
-      {hasImage && <img style={{ height: 25 }} src="/images/logo.svg" />}
+    <Link href="/" className="flex items-center">
+      {hasImage && <img style={{ height: 25 }} src="/images/logo.svg" alt="Magnus" />}
       {hasText && (
         <div className=" font-nunito text-2xl font-semibold ml-3 hidden md:block">
           magnus

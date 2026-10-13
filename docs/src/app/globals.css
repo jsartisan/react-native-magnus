@@ -48,12 +48,6 @@ img.mobile-2 {
   padding-left: 1rem;
 }
 
-.gatsby-highlight-code-line {
-  display: block;
-  background: #d3fcc5;
-  border-radius: 6px;
-}
-
 .token.operator {
   background: transparent;
 }
@@ -269,41 +263,81 @@ img.mobile-2 {
   @apply hidden;
 }
 
-/* copy snippet */
-.copy-snippet-svg {
-  display: none;
+/* code blocks: copy button + line numbers + heading anchors */
+.code-block {
+  position: relative;
 }
 
-.gatsby-code-button {
+.code-copy-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 1;
+  font-size: 13px;
   @apply p-1;
   @apply px-2;
   @apply rounded-md;
 }
 
-.gatsby-code-button:hover {
+.code-copy-button:hover {
   background: #d6d6d6;
 }
 
-.gatsby-code-button-container {
-  top: 40px;
-  right: 4px;
-  z-index: 1 !important;
-  font-size: 13px;
-  margin-top: -25px;
+.code-line.line-number::before {
+  content: attr(line);
+  display: inline-block;
+  width: 1.5rem;
+  margin-right: 1rem;
+  text-align: right;
+  color: #999;
+  user-select: none;
 }
 
-.gatsby-code-button::after {
-  display: none !important;
+.c-docs h1,
+.c-docs h2,
+.c-docs h3,
+.c-docs h4,
+.c-docs h5,
+.c-docs h6 {
+  position: relative;
 }
 
-.gatsby-code-button-toaster {
+.c-docs a.anchor.before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(-100%);
+  padding-right: 4px;
+}
+
+.c-docs a.anchor svg {
+  visibility: hidden;
+}
+
+.c-docs :is(h1, h2, h3, h4, h5, h6):hover a.anchor svg,
+.c-docs a.anchor:focus svg {
+  visibility: visible;
+}
+
+.table-of-contents ul ul {
+  padding-left: 0.75rem;
+}
+
+.copy-toaster {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
   align-items: flex-end;
+  justify-content: center;
+  pointer-events: none;
 }
 
-.gatsby-code-button-toaster-text {
+.copy-toaster-text {
   max-width: 500px;
   padding: 12px;
   font-size: 18px;
+  color: #fff;
   background-color: #000;
   margin-bottom: 20px;
   border-radius: 17px;

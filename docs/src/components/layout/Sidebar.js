@@ -1,34 +1,33 @@
-import React, { useState } from 'react';
+'use client';
 
-import { Link } from 'gatsby';
-import { menu } from '../../constants/sidebar';
-import Logo from '../common/Logo';
+import { useState } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+
+import { menu } from '@/constants/sidebar';
 import SidebarFilter from '../common/SidebarFilter';
 
-export default function Sidebar({ active, close }) {
+const normalize = (p) => (p || '').replace(/\/?$/, '/');
+
+export default function Sidebar({ active }) {
   const [filteredMenu, setFilteredMenu] = useState(menu);
+  const pathname = normalize(usePathname());
 
   /**
    * filter menu by text
    */
   const filterMenu = (e) => {
-    const value = e.target.value;
-    const filteredMenu = [];
+    const value = e.target.value.toLowerCase();
+    const next = [];
 
     menu.forEach((menuitem) => {
-      const filterdLinks = menuitem.links.filter((link) => {
-        return link.text.toLowerCase().indexOf(value.toLowerCase()) > -1;
-      });
-
-      if (filterdLinks.length > 0) {
-        filteredMenu.push({
-          ...menuitem,
-          links: filterdLinks,
-        });
-      }
+      const links = menuitem.links.filter(
+        (link) => link.text.toLowerCase().indexOf(value) > -1
+      );
+      if (links.length > 0) next.push({ ...menuitem, links });
     });
 
-    setFilteredMenu(filteredMenu);
+    setFilteredMenu(next);
   };
 
   return (
@@ -42,8 +41,9 @@ export default function Sidebar({ active, close }) {
       }}
     >
       <SidebarFilter onChange={filterMenu} />
-      {filteredMenu.map((menuitem) => (
-        <section>
+
+      {filteredMenu.map((menuitem, i) => (
+        <section key={`${menuitem.text || 'root'}-${i}`}>
           {menuitem.text && (
             <p
               className="mt-8 text-gray-500 uppercase"
@@ -55,10 +55,11 @@ export default function Sidebar({ active, close }) {
           <div className="mt-2">
             {menuitem.links.map((link) => (
               <Link
+                key={link.url}
                 className="mt-2 block"
-                activeClassName="text-primary"
+                aria-current={pathname === normalize(link.url) ? 'page' : undefined}
                 style={{ fontWeight: 600, fontSize: 14 }}
-                to={link.url}
+                href={link.url}
               >
                 {link.text}
               </Link>

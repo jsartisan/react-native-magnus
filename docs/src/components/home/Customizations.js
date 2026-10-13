@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'gatsby';
+
+import Link from 'next/link';
 
 export default function Features() {
   return (
@@ -26,7 +26,7 @@ export default function Features() {
               You can easily add or customize the theme for your entire app.
             </p>
             <Link
-              to="/docs/customization"
+              href="/docs/customization"
               className="block py-3 text-primary font-bold text-sm text-blue-600 hover:text-blue-700"
             >
               Check out about theme customizations →

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'gatsby';
+
+import Link from 'next/link';
 
 export default function Hero() {
   return (
@@ -51,7 +51,7 @@ export default function Hero() {
               <span className="relative">
                 Utility-First
                 <div
-                  class="inline-block absolute left-0 w-full"
+                  className="inline-block absolute left-0 w-full"
                   style={{ bottom: -5 }}
                 >
                   <img
@@ -69,7 +69,7 @@ export default function Hero() {
             </p>
             <div className="block md:flex mt-10">
               <Link
-                to="/docs/getting-started/"
+                href="/docs/getting-started/"
                 className="bg-primary-500 text-white block py-3 min-w-200 text-center rounded-lg"
               >
                 Get started
@@ -87,14 +87,14 @@ export default function Hero() {
                 <span className="ml-3">Github</span>
               </a>
             </div>
-            <div class=" mt-12 border-l border-l-gray-100 pl-5">
-              <div class="text-md italic">
+            <div className=" mt-12 border-l pl-5">
+              <div className="text-md italic">
                 Started to check out @magnusui . Looks promising! I really like
                 the utility first approach they are taking, reminds me of
                 tailwindcss in that regard. And they just solved my dark mode
                 problem out of the box!
               </div>
-              <footer class="blockquote-footer mt-2">
+              <footer className="blockquote-footer mt-2">
                 <a
                   href="https://twitter.com/SlutskyTom/status/1256526192011808768"
                   target="_blank"

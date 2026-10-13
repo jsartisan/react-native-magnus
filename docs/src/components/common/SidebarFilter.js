@@ -1,8 +1,8 @@
-import React from 'react';
+'use client';
 
 export default function SidebarFilter({ onChange }) {
   return (
-    <form action="" className="mt-4 py-3">
+    <form action="" className="mt-4 py-3" onSubmit={(e) => e.preventDefault()}>
       <div className="form-group">
         <input
           onChange={onChange}

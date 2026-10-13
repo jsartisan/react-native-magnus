@@ -1,4 +1,3 @@
-import React from 'react';
 
 const features2 = [
   {
@@ -38,7 +37,7 @@ export default function Features() {
     <>
       <div className="max-w-screen-xl w-full mx-auto px-5 mt-20 flex flex-grow w-100 pr-4 items-center border-t border-b border-b-gray-300 pt-16 pb-12">
         <div className="flex-grow md:w-7/12">
-          <div className>
+          <div>
             <h4 className="font-bold text-3xl md:text-4xl font-nunito md:w-1/2 text-center md:text-left">
               Beautiful & consistant UI powered with{' '}
               <span className="text-social-react">React</span>.
