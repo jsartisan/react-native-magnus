@@ -71,3 +71,6 @@ yarn-error.log
 .yarn-integrity
 
 .now
+# The repository root ignores `lib/` and `jsconfig.json`; docs/ needs both.
+!src/lib/
+!jsconfig.json

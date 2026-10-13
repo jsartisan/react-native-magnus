@@ -345,3 +345,14 @@ img.mobile-2 {
 
 @tailwind components;
 @tailwind utilities;
+
+/* highlighted lines in code blocks (// highlight-start ... // highlight-end) */
+.code-line.highlight-line {
+  display: block;
+  margin-left: -1em;
+  margin-right: -1em;
+  padding-left: 0.75em;
+  padding-right: 1em;
+  background-color: #feb;
+  border-left: 0.25em solid #ff9632;
+}

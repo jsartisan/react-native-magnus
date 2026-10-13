@@ -1,25 +1,14 @@
-# Gatsby → Next.js migration of the Magnus docs (work in progress)
+# Gatsby → Next.js migration of the Magnus docs
 
-**Status: incomplete until `docs/package.json` and the lockfile are updated by a person.**
-`docs/package.json` and `docs/yarn.lock` were not writable in the tool that prepared
-this branch, so no `next build` has been run against this code. See "Finish the
-migration" below.
+The docs app in this folder is a Next.js 16 (App Router) site managed with pnpm.
+`pnpm install && pnpm build` completes and produces 38 static pages
+(`/`, `/blog/`, `/docs/` + 33 doc pages, 2 blog posts) plus the sitemap, web
+manifest and 404 page.
 
-## Finish the migration (one manual action)
-
-From the repository root, on this branch:
-
-```sh
-cd docs
-cp package.proposed.json package.json     # full replacement for the Gatsby manifest
-rm yarn.lock                              # Gatsby-era lockfile; regenerate below
-yarn install                              # (or npm install) writes the new lockfile
-yarn build                                # next build; runs scripts/algolia-index.mjs after
-rm package.proposed.json                  # no longer needed
-git add package.json yarn.lock && git commit -m "Docs: switch dependencies to Next.js"
-```
-
-Then run `yarn dev`, open http://localhost:4000 and walk through the checklist below.
+Code that was missing from the first migration PR and is added now: `src/lib/`
+(content loader, Markdown pipeline, metadata, site constants) and `jsconfig.json`
+(the `@/` import alias). The repository root `.gitignore` ignores `lib/` and
+`jsconfig.json`, so `docs/.gitignore` un-ignores them for this folder.
 
 ## What changed (all inside `docs/`)
 
@@ -57,15 +46,18 @@ See `.env.example`. Nothing secret is committed.
 > key in plain text. It is still in this repository's git history. Rotate it in the
 > Algolia dashboard and use the new key only through `ALGOLIA_ADMIN_API_KEY`.
 
-## Review checklist (not yet run by the author)
+## Review checklist
 
-- [ ] `yarn build` succeeds; 36 content pages + `/`, `/blog/`, `/sitemap.xml`, `/manifest.webmanifest`
-- [ ] Compare a few `/docs/…/` pages with https://magnus-ui.com (code blocks, tables, images, TOC, "Edit on Github")
-- [ ] Copy button copies code and shows the toast; line numbers show on the 3 `numberLines` blocks
-- [ ] Sidebar filter, active link highlight, mobile menu toggle
-- [ ] Search returns results once the search key is set
-- [ ] `<link rel="canonical">`, og/twitter tags, blog JSON-LD in page source
-- [ ] Header shows the library version (needs `../package.json` present at build time)
+Checked against a production build (`pnpm build && pnpm start`) in headless Chromium:
+
+- [x] `pnpm build` succeeds; 36 content pages + `/`, `/blog/`, `/sitemap.xml`, `/manifest.webmanifest` (all 38 sitemap URLs return 200; `/blogs` redirects to `/blog/`; unknown paths return 404)
+- [x] Code blocks, tables, images, TOC and "Edit on Github" render on `/docs/button/`
+- [x] Copy button copies the code and shows the toast; line numbers show on the 3 `numberLines` blocks; `// highlight-start` / `// highlight-end` lines are highlighted (and removed from the code)
+- [x] Sidebar filter, active link highlight, mobile menu toggle (closes after navigating)
+- [x] `<link rel="canonical">`, og/twitter tags, blog JSON-LD in page source
+- [x] Header shows the library version (read from `../package.json` at build time)
+- [ ] Side-by-side comparison of every page with https://magnus-ui.com (only spot-checked)
+- [ ] Search returns results (needs `NEXT_PUBLIC_ALGOLIA_SEARCH_API_KEY`)
 
 ## Open questions
 
