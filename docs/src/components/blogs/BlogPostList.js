@@ -1,16 +1,15 @@
-import React from 'react';
-import { Link } from 'gatsby';
+import Link from 'next/link';
 
 const BlogPostList = (props) => {
   const { blogs } = props;
 
   return (
     <div className="flex flex-wrap max-w-screen-lg mx-auto">
-      {blogs.edges.map((post) => (
-        <div className="flex mb-12 md:w-1/2 px-6 w-full">
+      {blogs.map((post) => (
+        <div key={post.slug} className="flex mb-12 md:w-1/2 px-6 w-full">
           <div className="flex flex-1">
             <Link
-              to={post.node.fields.slug}
+              href={post.slug}
               className="flex flex-1 flex-col group text-gray-900"
             >
               <div className="mb-2">
@@ -33,8 +32,7 @@ const BlogPostList = (props) => {
                       >
                         <img
                           alt=""
-                          title
-                          src={post.node.frontmatter.featuredImg}
+                          src={post.featuredImg}
                           style={{
                             position: 'absolute',
                             top: '0px',
@@ -50,12 +48,12 @@ const BlogPostList = (props) => {
                       </div>
                     </div>
                     <h4 className="font-black text-lg md:text-xl lg:text-2xl leading-snug mt-5">
-                      {post.node.frontmatter.title}
+                      {post.title}
                     </h4>
                   </div>
                 </div>
                 <p className="leading-loose flex-grow mt-5 text-gray-700">
-                  {post.node.frontmatter.description}
+                  {post.description}
                 </p>
                 <div className="flex items-center justify-between mt-5">
                   <span className="font-bold text-rose group-hover:text-cornflower text-sm py-2 px-4 border border-rose group-hover:border-cornflower rounded">

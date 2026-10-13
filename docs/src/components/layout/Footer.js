@@ -1,8 +1,6 @@
-import React from 'react';
-import { Link } from 'gatsby';
+import Link from 'next/link';
 
 import Logo from '../common/Logo';
-import Truesight from '../common/Truesight';
 
 export default function Footer() {
   return (
@@ -39,7 +37,7 @@ export default function Footer() {
             <div className="flex-grow mt-5 md:mt-0">
               <h3 className="font-bold pb-3 text-md  mt-0">Extras</h3>
               <Link
-                to="/blog"
+                href="/blog"
                 className="block text-gray-500 hover:text-gray-700"
               >
                 Blog

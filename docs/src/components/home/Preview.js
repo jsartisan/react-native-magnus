@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Link } from 'gatsby';
+
+import Link from 'next/link';
 
 import CircleOut from './CircleOut';
 
@@ -28,7 +28,7 @@ export default function Preview() {
             </p>
 
             <Link
-              to="/docs/examples"
+              href="/docs/examples"
               className="w-full md:w-px bg-primary-500 text-white block py-3
               min-w-200 text-center rounded-lg mt-10"
             >

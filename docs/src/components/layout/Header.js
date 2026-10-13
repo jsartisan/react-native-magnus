@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
-import { Link } from 'gatsby';
+'use client';
+
+import Link from 'next/link';
 
 import Logo from '../common/Logo';
 import Search from '../common/Search';
-import packageJSON from '../../../../package.json';
 
 export default function Header({
-  location,
   sidebarOpen,
   setSidebarOpen,
   showSidebarMenu,
@@ -24,16 +23,18 @@ export default function Header({
       <div className="flex items-center w-full max-w-screen-xl mx-auto">
         <div className="relative flex items-center">
           <Logo hasText />
-          <div className="px-1 ml-3 text-xs text-gray-700 bg-gray-200 rounded-sm md:ml-3">
-            v{packageJSON.version}
-          </div>
+          {process.env.NEXT_PUBLIC_MAGNUS_VERSION && (
+            <div className="px-1 ml-3 text-xs text-gray-700 bg-gray-200 rounded-sm md:ml-3">
+              v{process.env.NEXT_PUBLIC_MAGNUS_VERSION}
+            </div>
+          )}
         </div>
         <Search />
         <div className="">
           <ul className="flex items-center ml-3 list-none d-none d-sm-none d-md-flex">
             <li className="hidden md:block">
               <Link
-                to="/blog"
+                href="/blog"
                 className="block px-3 py-2 text-gray-900 rounded btn-light hover:bg-gray-200"
               >
                 Blog
@@ -41,7 +42,7 @@ export default function Header({
             </li>
             <li className="hidden ml-3 md:block">
               <Link
-                to="/docs"
+                href="/docs"
                 className="block px-3 py-2 text-gray-900 rounded hover:bg-gray-200"
               >
                 Documentation
@@ -51,6 +52,7 @@ export default function Header({
               <a
                 href="https://discord.gg/SYnXGEy"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="flex block p-2 text-gray-500 rounded hover:bg-gray-200 hover:text-gray-600 "
               >
                 <i className="text-xl icon-discord " />
