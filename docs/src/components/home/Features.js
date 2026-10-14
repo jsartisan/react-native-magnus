@@ -48,7 +48,7 @@ export default function Features() {
             </p>
             <div className="mt-12 md:w-10/12 md:flex flex-wrap">
               {features2.map((feature) => (
-                <div className="md:w-1/3 md:pr-10 pb-6 md:pb-12">
+                <div key={feature.title} className="md:w-1/3 md:pr-10 pb-6 md:pb-12">
                   <div className="flex flex-col items-center md:block text-center md:text-left ">
                     <img src={feature.icon} className="h-12" />
                     <h3 className="font-semibold">{feature.title}</h3>

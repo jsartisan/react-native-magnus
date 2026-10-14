@@ -137,6 +137,20 @@ function remarkCodeMeta() {
   };
 }
 
+/**
+ * rehype-prism-plus emits nodes whose `position` has no `offset`. hast-util-raw
+ * (rehype-raw) asserts on that through `devlop`, which is active in `next dev`
+ * (and any `development` export condition) but a no-op in production builds.
+ * Positions are only used for source maps, so drop them before rehype-raw.
+ */
+function rehypeStripPositions() {
+  return (tree) => {
+    visit(tree, (node) => {
+      if (node.position) delete node.position;
+    });
+  };
+}
+
 const COPY_BUTTON = {
   type: 'element',
   tagName: 'button',
@@ -239,6 +253,7 @@ export async function renderMarkdown(markdown) {
     // Highlight before rehype-raw: it re-parses the tree and drops the fence
     // meta (`showLineNumbers`) that rehype-prism-plus reads.
     .use(rehypePrism, { ignoreMissing: true })
+    .use(rehypeStripPositions)
     .use(rehypeRaw)
     .use(rehypeSlug)
     .use(rehypeCollectToc(headings))
