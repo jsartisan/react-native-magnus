@@ -17,6 +17,7 @@ function readLibraryVersion() {
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  allowedDevOrigins: ['*.sandbox.kite.ai'],
   // Gatsby emitted every page with a trailing slash (/docs/button/). Keep that.
   trailingSlash: true,
   reactStrictMode: true,
